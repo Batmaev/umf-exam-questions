@@ -1,4 +1,4 @@
-\section{Билет 1. Приведение к каноническому виду в точке дифференциальных уравнений в частных производных (ДУЧП) 2 порядка в $\R^n$ с линейной старшей частью. Классификация уравнений. Приведение уравнений 2 порядка к каноническому виду на плоскости}
+\section{Билет 1. Приведение к каноническому виду в точке дифференциальных уравнений в частных производных (ДУЧП) 2 порядка в \texorpdfstring{$\R^n$}{R\textasciicircum n} с линейной старшей частью. Классификация уравнений. Приведение уравнений 2 порядка к каноническому виду на плоскости}
 % Затехал: К.А.А., 372
 Пусть $\Omega \subset \R^{n}.$ 
 ДУЧП 2 порядка с линейной старшей частью:
@@ -24,15 +24,29 @@ $J(x^0) = \norm{\pd{y_i}{x_j}(x^0)}_{i,j=1}^n$ - в малой $U(x^0)$ зада
 В равенстве $\hat{A}(y^0) = J(x^0)A(x^0)J^T(x^0)$ нужно взять $J(x^0) = S^T\\$
 Такие преобразования существуют, их много. Например, $y = y^0 +S^T(x^0)(x-x^0)\\$
 В этих переменных уравнение принимает вид:
-$$\pdd{\hat{u}}{y_1} + \dots + \pdd{\hat{u}}{y_p} - \pdd{\hat{u}}{y_{p+1}} - \dots - \pdd{\hat{u}}{y_{p+q}} + \hat{F}(y, \hat{u}, \nabla_y\hat{u}) = 0.\\$$
-\textbf{Классификация уравнений:}\\
-1. \textit{Эллиптический тип}: $p = n$ или $q = n\\$
-2. \textit{Ультрагиперболический тип}: $p+q = n\\$
-3. \textit{Гиперболический тип}: $p = 1, q = n-1\\$
-4. \textit{Ультрапараболический тип}: $p + q < n\\$
-5. \textit{Параболический тип}: $q = 0, p = n-1\\$
-\begin{remark} $\hat{A}(y^0) = J(x^0)A(x^0)J^T(x^0) \Rightarrow \sign\abs{\hat{A}(y^0)} = \sign\abs{A(x^0)}\\\\$ \end{remark}
-В случае $n = 2$ тип уравнения в точке определяется по знаку определителя:\\
+
+$$\pdd{\hat{u}}{y_1} + \dots + \pdd{\hat{u}}{y_p} - \pdd{\hat{u}}{y_{p+1}} - \dots - \pdd{\hat{u}}{y_{p+q}} + \hat{F}(y, \hat{u}, \nabla_y\hat{u}) = 0.$$
+
+\textbf{Классификация уравнений:}
+
+1. \textit{Эллиптический тип}: $p = n$ или $q = n$
+
+2. \textit{Ультрагиперболический тип}: $p+q = n$
+
+3. \textit{Гиперболический тип}: $p = 1, q = n-1$
+
+4. \textit{Ультрапараболический тип}: $p + q < n$
+
+5. \textit{Параболический тип}: $q = 0, p = n-1$
+
+\hfill
+
+\begin{remark} $\hat{A}(y^0) = J(x^0)A(x^0)J^T(x^0) \Rightarrow \sign\abs{\hat{A}(y^0)} = \sign\abs{A(x^0)}$ \end{remark}
+
+\hfill
+
+В случае $n = 2$ тип уравнения в точке определяется по знаку определителя:
+
 \textit{1. Эллиптический вид: } $\hat{A}(y^0) = \begin{pmatrix}
 \pm1 & 0 \\ 0 & \pm1
 \end{pmatrix} \rightarrow \abs{\hat{A}(y^0)} = 1$\\
@@ -40,8 +54,11 @@ $$\pdd{\hat{u}}{y_1} + \dots + \pdd{\hat{u}}{y_p} - \pdd{\hat{u}}{y_{p+1}} - \do
 1 & 0 \\ 0 & -1
 \end{pmatrix} \rightarrow \abs{\hat{A}(y^0)} = -1\\$
 \textit{3. Параболический вид}: $\abs{\hat{A}(y^0)} = 0$.
-\\
-\textbf{Приведение уравнения 2 порядка к каноническому виду на плоскости:\\}
+
+\hfill
+
+\textbf{Приведение уравнения 2 порядка к каноническому виду на плоскости:}
+
 Рассмотрим в $\R^2$ уравнение $a(x, y)u_{xx}+2b(x,y)u_{xy}+c(x,y)u_{yy} + F(x, y, u, \nabla u) = 0\\$
 Для определения в точке используем $d =  \left| \begin{array}{cc}
 a & b \\
@@ -68,7 +85,8 @@ b & c
 %==========================================================
 
 
-Во всех точках этой окрестности тип-гиперболический. \\
+Во всех точках этой окрестности тип-гиперболический.
+
 \begin{definition}
 \textit{Второй канонический тип:} $\hat{u}_{\xi\eta} + \hat{F}(\xi, \eta, \hat{u}, \nabla \hat{u}) = 0$, то есть $\hat{a} \equiv \hat{c} \equiv 0\; \forall \xi, \eta \in V(\xi^{\circ}, \eta^{\circ})$.
 \end{definition}
@@ -77,10 +95,13 @@ b & c
 \begin{equation*}
 	a(x, y) w^{2}_x + 2b(x, y)w_x w_y + c(x, y)w_y^2  = 0, 
 \end{equation*}
-От решений хотим $\text{grad}\;w \neq 0$, так как если $\nabla \eta = 0$ или $\nabla \xi = 0$, то $J = 0$. \\
+
+От решений хотим $\text{grad}\;w \neq 0$, так как если $\nabla \eta = 0$ или $\nabla \xi = 0$, то $J = 0$.
+
 \begin{remark}
-	$w(x) = 0$ - характеристическая $\Rightarrow \tilde{w}(x) =  w(x) - c = 0$ - также характеристическая: $\tilde{c} \in C^2,\; \nabla \tilde{w} \neq 0$, $\tilde{w}$ - удовлетворяет характеристическому уравнению.  \\
+	$w(x) = 0$ - характеристическая $\Rightarrow \tilde{w}(x) =  w(x) - c = 0$ - также характеристическая: $\tilde{c} \in C^2,\; \nabla \tilde{w} \neq 0$, $\tilde{w}$ - удовлетворяет характеристическому уравнению.
 \end{remark}
+
 \begin{definition}
 Переменные $\xi, \eta$ - \textit{характеристические}; поверхности $\xi = C_1,\; \eta = C_2$ - \textit{характеристические}.
 \end{definition} 
@@ -105,7 +126,7 @@ b & c
 		\eta_x + \lambda_{-} \eta_y = 0.
 	\end{cases}
 \end{equation*}
-\begin{equation*}
+\begin{multline*}
 	\bigr|J(x^{\circ}, y^{\circ}) \bigr| = \det
 	\begin{pmatrix}
 		\xi_x & \xi_y \\
@@ -114,10 +135,9 @@ b & c
 	\begin{pmatrix}
 		-\lambda_{+} \xi_y & \xi_y \\
 		-\lambda_{-}\eta_y & \eta_y
-	\end{pmatrix} = \underbrace{(\lambda_{-} - \lambda_{+})}_{\neq 0\;\text{\tiny в силу гиперболичности}}\cdot \xi_y \eta_y\; \biggr| \text{если}\; \xi_{y} = 0 \Rightarrow \xi_x = 0 
-%
-	\Rightarrow \nabla \xi = 0
-\end{equation*}
+	\end{pmatrix} = \underbrace{(\lambda_{-} - \lambda_{+})}_{\substack{\neq 0\;\text{\tiny в силу} \\ \text{\tiny гиперболичности}}}\cdot \; \xi_y \eta_y \neq 0 \\[10pt] (\text{если}\; \xi_{y} = 0, \text{ то } \xi_x = 0 
+	\Rightarrow \nabla \xi = 0)
+\end{multline*}
 
 Итак, $\brbr{\xi(x, y), \eta(x, y)}$ - диффеорморфизм класса $C^2$. Оно зануляет $\hat{a}$ и $\hat{c}$. Получается уравнение второй канонической форме.
 \begin{remark} 
