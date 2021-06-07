@@ -9,14 +9,14 @@ jobs:
       - name: Delete old pdf & set Timezone
         run: |
           rm *.pdf
-          TZ=Russia/Moscow date
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
       - name: Push PDF
         run: |
-          mv main.pdf "m $(date '+%H-%M %d.%m.%Y').pdf"
+          TZ=Russia/Moscow date
+          mv main.pdf "Урматы Билеты для потока Зубова $(date '+%H-%M %d.%m.%Y').pdf"
 
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
