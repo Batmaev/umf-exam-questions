@@ -1,0 +1,84 @@
+\section{Билет 32. Сведение с помощью потенциалов внутренней задачи Дирихле и внешней задачи Неймана для уравнения Лапласа к интегральным уравнениям на границе. Существование и единственность решения этих задач}
+
+\subsection{Внешняя задача Неймана для уравнения Лапласа}
+
+Найти функцию $u(x) \in C^2(\bR^3 \ \Omega) \cap C(\bR^3 \ \Omega)$ имеющую ПНП по направлению внешней нормали, и такую, что 
+
+\begin{equation}
+ \begin{cases}
+ \Delta u(x) = 0, x \in R^3 \ \Omega
+  \\
+   (\frac{\partial u}{\partial \vec{n}})_{-}|_r = u_1(x), x \in G; u_1(x) \in C(G)
+   \\
+   u(x) \to 0, x \to \infty
+ \end{cases}
+\end{equation}
+Решение этой задачи ищем в виде потенциала простого слоя: 
+
+$u(x) = \int_G \frac{\mu(x)}{|x - y|} dS_y$. Свойства $\Delta u(x) = 0$ и $\lim_{x \to \infty} u(x) \to 0$ выполнены.
+
+Кроме того, $u(x) \in C^2(\bR^3 | \Omega) \cap C(R^3 | \Omega)$ и имеет ПНП. Нужно проверить $(\frac{\partial u}{\partial \vec{n}})_-|_r = u_1(x), x \in G$. 
+
+$\bullet$ Пусть $$x^o \in G \Rightarrow (\frac{\partial u}{\partial \vec{n}})_{-}(x^o) = -2\pi \mu(x^o) + \int_x \frac{(y - x, \vec{n}(x^o))}{|x^o - y|^3}\mu(y)dS_y = u_1(x^o)$$
+
+$\mu(x^o) = \frac{1}{2\pi}\int_x \frac{(y - x, \vec{n}(x^o))}{|x^o - y|^2}\mu(y)dS_y - \frac{1}{2\pi}u_1(x^o), x^o \in G $ - Интегральное уравнение Фредгольма 2-го рода с интегральным оператором и полярным ядром.
+
+Уравнение однозначно разрешимо $\Leftrightarrow$ уравнение $\mu_*(x^o) = \frac{1}{2\pi}\int_x \frac{(y - x, \vec{n}(x^o))}{|x^o - y|^3}\mu(y)dS_y \equiv 0 $ имеет только тривиальное решение. 
+
+Для этого покажем, что $V_*(x) = \int_G \frac{\mu(x)}{|x - y|}dS_y \equiv 0$
+
+Ясно, что уравнение на $\mu_*$ получается таким же образом как и уравнение на $\mu$, но из задачи Неймана 
+\begin{equation}
+ \begin{cases}
+ \Delta v(x) = 0, x \in R^3 | \Omega
+  \\
+   (\frac{\partial u}{\partial \vec{n}})|_r = 0, x \in G; u_1(x) \in C(G)
+   \\
+   u(x) \to 0
+ \end{cases}
+\end{equation}
+В силу единственности решение этой задачи $V_* = 0 (x \in \bR^3 | \Omega)$ . Но $V_* \in C(\bR^3) \Rightarrow X_* \equiv 0$ на $X \in \bR^3 | \Omega$ Функция $V_*$ удовлетворяет внутренней задаче Дирихле
+
+\begin{equation}
+ \begin{cases}
+ \Delta V_* = 0 \forall x \in \Omega
+  \\
+  V_*(x) = 0 \forall x \in G
+ \end{cases}
+\end{equation}
+
+$\Rightarrow V_* \equiv 0 \forall x \in \Omega$
+
+Итак, $V_*(x) \equiv 0 \forall \in R^3$. 
+
+Но $(\frac{\partial u}{\partial \vec{n}})|_+(x^o) - (\frac{\partial u}{\partial \vec{n}})|_-(x^o) = 4\pi \mu_*(x^o), x^o \in G \Rightarrow \mu_*(x^o) \equiv 0 \forall x^o \in G$
+
+Итак, по теореме Фредгольма об альтернативе уравнение 
+
+(*) $\mu(x^o) = \frac{1}{2\pi}\int_x \frac{(y - x, \vec{n}(x^o))}{|x^o - y|^3}\mu(y)dS_y - \frac{1}{2\pi}u_1(x^o), x \in G$ однозначно разрешимо
+
+\subsection{Внутренняя задача Дирихле для уравнения Лапласа}
+
+Найти функцию $u(x) \in C^2(\Omega) \cap C(\bar{\Omega})$ такую, что:
+
+1)$\Delta u(x) = 0, x \in \Omega$
+
+2)$u|_r = u_0(x), x \in G (u_o(x) \in C(G))$ 
+
+Решение этой задачи ищем в виде потенциала двойного слоя 
+
+$u(x) = \frac{1}{2\pi}\int_x \frac{(y - x, \vec{n}(x^o))}{|x^o - y|^3}\nu(y)dS_y, \nu(x) \in C(G)$
+
+Условия $\Delta u = 0 \in \Omega$ и $u(x) \in C^2(G) \cap C(\bar{\Omega})$ уже выполнены. Осталось проверить $u|_r = u_0(x), x \in G$
+
+$\bullet$ Для потенциала двойного слоя справедлива формула скачка: $u_+(x^o) = u(x^o) - 2\pi\nu(x^o) \Rightarrow u_0(x^o) = \int_x \frac{(y - x, \vec{n}(x^o))}{|x^o - y|^3}\nu(y)dS_y - 2\pi\nu(x^o)$
+
+$\Rightarrow \nu(x^o) = \int_x \frac{(y - x, \vec{n}(x^o))}{|x^o - y|^3}\nu(y)dS_y - \frac{u_0(x^o)}{2\pi}, x^o \in G$ Ядро, транспонированное к тому, что стоит в (*) 
+
+Т.к. (*) однозначно разрешмимо, это уравнение тоже имеет единственное решение
+
+\begin{theorem} Пусть $\Omega$ - ограниченная область в $\bR^3$ с границей $G \in C^2$. Тогда у внутренней задачи Дирихле $\forall u_1 \in C(G)$, а также у внешней задачи Неймана $\forall u_0 \in C(G)$ существует единственное классическое решение
+\end{theorem} 
+
+
+

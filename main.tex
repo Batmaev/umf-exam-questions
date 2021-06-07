@@ -1,0 +1,283 @@
+% Шаблон Юрия Максимова
+% Лекции Зубова, конспект лекций и билеты Павла Останина
+
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+%\pagestyle{empty}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+%\usepackage{cmap}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{wrapfig}
+\usepackage{datetime}
+\usepackage{cancel}
+\usepackage{mathtools}
+\usepackage{units}
+\usepackage{fancyhdr}
+\usepackage{forloop}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{comment}
+\usepackage[colorlinks = true, urlcolor = blue]{hyperref}
+\usepackage{xcolor}
+\usepackage[inline]{enumitem}
+\usepackage{wrapfig}
+\usepackage{cmll}
+\usepackage{varwidth}
+%s\pagenumbering{arabic}
+% Pogodin theorem definitions
+% \
+
+% \newtheorem*{theorem}{Теорема}
+% \newtheorem*{lemma}{Лемма}
+% \newtheorem*{remark}{Замечание}
+% %\newtheorem*{proof}{Доказательство} %уже есть
+% \newtheorem*{statement}{Утверждение}
+% \newtheorem*{definition}{Определение}
+% \newtheorem*{example}{Пример}
+
+% Ivanychev theorem definitions
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{statement}[theorem]{Утверждение}
+\newtheorem*{conseq}{Следствие}
+\newtheorem{offtop}{Offtop}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[section]
+\newtheorem{example}{Пример}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Замечание}
+
+\renewcommand{\thesection}{\arabic{section}}
+%\renewcommand{\headrulewidth}{0.4pt}
+%\renewcommand{\footrulewidth}{0.4pt}
+
+%\pagestyle{empty}
+%
+
+\renewcommand{\baselinestretch}{1.0}
+\renewcommand\normalsize{\sloppypar}
+
+\setlength{\topmargin}{-0.5in}
+\setlength{\textheight}{9.1in}
+\setlength{\oddsidemargin}{-0.3in}
+\setlength{\evensidemargin}{-0.3in}
+\setlength{\textwidth}{7in}
+\setlength{\parindent}{0ex}
+\setlength{\parskip}{1ex}
+
+\newcounter{problemset}
+% \newcounter{example}
+%\newcounter{totalpages}
+%Here you should set the total number of pages
+%\setcounter{totalpages}{1}
+
+% Defines
+\def \bR {\mathbb{R}} % Красивое R для действ. чисел
+\def \subd {\partial }
+\def \vec {\boldsymbol}
+
+\newcommand{\while}[2]{\left. #1\right|_{#2}}
+\newcommand{\brs}[1]{\left(#1\right)}
+\newcommand{\sbrs}[1]{\left[#1\right]}
+\newcommand{\fbrs}[1]{\left\{#1\right\}}
+\newcommand{\rbrs}[1]{\left\langle #1 \right\rangle}
+
+\newcommand{\brbr}[1]{\bigl(#1\bigr)}
+\newcommand{\erbr}[1]{\biggl(#1\biggr)}
+\newcommand{\bfbr}[1]{\bigl[#1\bigr]}
+\newcommand{\efbr}[1]{\biggl[#1\biggr]}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\sign}{\mathrm{sign}\;}
+
+\newcommand{\Equiv}{\Leftrightarrow}
+\newcommand{\To}{\Rightarrow}
+
+\newcommand{\eps}{\varepsilon}
+\let \oldcmdforall \forall
+\renewcommand{\forall}{\;\oldcmdforall\:}
+\let \oldcmdexists \exists
+\renewcommand{\exists}{\;\oldcmdexists\:}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+% \abs and \norm
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+% derivatives
+\renewcommand{\d}[2]{\frac{d #1}{d #2}}
+\newcommand{\nd}[3]{\frac{d^{#3} #1}{d #2^{#3}}}
+\newcommand{\dd}[2]{\nd{#1}{#2}{2}}
+
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\spd}[3]{\frac{\subd^2 #1}{\subd #2\subd #3}}
+\newcommand{\npd}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\pdd}[2]{\npd{#1}{#2}{2}}
+
+% Позволяет писать \item'ы в строчку
+% Пример:
+% \begin{itemize}
+% 	\item bla \inlineitem bla \inlineitem bla
+%		== здесь перешли на новую строку ==
+%	\item bla \inlineitem bla \inlineitem bla
+% \end{itemize}
+\makeatletter
+\newcommand{\inlineitem}[1][]{%
+\ifnum\enit@type=\tw@
+    {\descriptionlabel{#1}}
+  \hspace{\labelsep}%
+\else
+  \ifnum\enit@type=\z@
+       \refstepcounter{\@listctr}\fi
+    \quad\@itemlabel\hspace{\labelsep}%
+\fi}
+
+\makeatletter
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
+\makeatother
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\title{Уравнения математической физики}
+\date{\today \currenttime}
+\author{Программа билетов к экзамену. Поток В.И. Зубова}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+
+\maketitle
+
+\emph{Конспект подготовлен на основе лекций В.И. Зубова и подготовленных билетов Павла Останина и Михаила Христиченко. Делали:} \\
+\ \\
+\ \\
+\ \\
+\ \\
+\begin{minipage}{0.1\textwidth}
+\end{minipage}
+\begin{minipage}{1\textwidth}
+\centering
+    \begin{varwidth}{\textwidth}
+      \begin{itemize}
+          \item Иванычев Сергей, 376 группа
+          \item Погодин Роман, 374 группа
+          \item Нагайко Иван, 372 группа
+          \item Рязанов Андрей, 374 группа
+          \item Федоряка Дмитрий, 374 группа
+          \item Багно Богдан, 376 группа
+          \item Изутин Никита, 378 группа
+          \item Ермолова Марина, 373 группа
+          \item Хасянов Расул, 371 группа
+          \item Михальченко Егор, 371 группа
+          \item Шлёнский Владислав, 374 группа
+          \item Цветкова Ольга, 374 группа
+          \item Молибог Игорь, 374 группа
+          \item Чигринский Виктор, 374 группа
+          \item Леонтьев Семён, 377 группа
+          \item Кильянов Александр, 372 группа \item Тернов Лёха, 228 группа
+    \end{itemize}
+  \end{varwidth}
+\end{minipage}
+\begin{minipage}{0.1\textwidth}
+\end{minipage}
+\newpage
+\tableofcontents
+
+
+%\input{biblio.tex}
+
+\newpage
+\input{1.tex}
+\input{1_4.tex}
+\newpage
+\input{2.tex}
+\newpage
+\input{3.tex}
+\newpage
+% Сергей Иванычев 
+\input{4.tex}
+\newpage
+\input{5.tex}
+\newpage
+% Сергей Иванычев 
+\input{6.tex}
+\newpage
+\input{7.tex}
+\newpage
+\input{8.tex}
+\newpage
+\input{9.tex}
+\newpage
+\input{10.tex}
+\newpage
+\input{11.tex}
+\newpage
+\input{12.tex}
+\newpage
+\input{13.tex}
+\newpage
+\input{14.tex}
+\newpage
+\input{15.tex}
+\newpage
+\input{16.tex}
+\newpage
+\input{17.tex}
+\newpage
+\input{18.tex}
+\newpage
+\input{19.tex}
+\newpage
+\input{20.tex}
+\newpage
+\input{21.tex}
+\newpage
+\input{22.tex}
+\newpage
+\input{23_1.tex}
+\input{23_2.tex}
+\input{23_3.tex}
+\newpage
+\input{24.tex}
+\newpage
+\input{25.tex}
+\newpage
+\input{26.tex}
+\newpage
+\input{27.tex}
+\newpage
+\input{28.tex}
+\newpage
+\input{29.tex}
+\newpage
+\input{30cut.tex}
+\newpage
+\input{31.tex}
+\newpage
+\input{32.tex}
+\end{document}

@@ -1,0 +1,77 @@
+\subsection{Параболический случай}
+Пусть в точке и некоторой ее окрестности тип параболический, то есть $d = ac - b^2 = 0$, причем $\forall (x, y) \in U(x^0, y^0), a^2 + c^2 \ne 0$. Уравнение характеристик:
+$$
+a\omega_x^2 + 2b\omega_x\omega_y+c\omega_y^2 = 0 \Rightarrow (\omega_x + \lambda\omega_y)^2 = 0
+\Rightarrow \lambda = \lambda_+ + \lambda_-=\frac{b}{a}
+$$
+Находим решение $\omega =  \eta(x, y) \in C^2(U(x^0, y^0)), \nabla \omega(x, y) \ne 0$.
+$$
+\begin{cases}
+    \xi = \xi(x, y) & \text{эту берем произвольно, чтобы был диффеоморфизм} \\
+    \eta = \eta(x, y) & \text{эту построили. Доказательство того, что всегда можно выбрать опущено}
+\end{cases}
+$$
+Мы взяли $\xi$, что $\hat c \equiv 0$. Покажем, что и $\hat b \equiv 0$:
+$$
+\hat A = JAJ^\intercal \Rightarrow \abs{\hat A} = \abs{J}^2\cdot\abs{A} = \abs{J}^2(ac - b^2) = 0 = \underbrace{\hat a \hat c}_{=0} - \hat b^2 \Rightarrow \hat b = 0
+$$
+Пришли к 
+$$
+\hat a(\xi, \eta)\hat u_{\xi\xi} + \hat F(\xi, \eta, \hat u, \nabla_{\xi, \eta}\hat u) = 0
+$$
+$\hat a \not \equiv 0$, иначе 1 порядок, а обратная замена дает второй порядок
+
+\subsection{Эллиптический случай}
+$$
+d(x, y) = ac - b^2 > 0 \forall (x, y) \in U(x^0, y^0)
+$$
+Во всех точках окрестности $a\ne 0$ и $c\ne 0$, иначе было бы $d = -b^2 \leq 0$. Характеристическое уравнение:
+$$
+\sbrs{\omega_x + \lambda_+\omega_y}\sbrs{\omega_x + \lambda_-\omega_y} = 0
+$$
+где $\lambda_\pm = \frac{b^2\pm\sqrt{b^2 - ac}}{a} = \mu \pm i\nu, \mu, \nu \in C^2$. При этом для функций $\lambda_+, \lambda_-$ известно $\lambda_+ = \overline{\lambda_-}$. Два линейных ДУЧП первого порядка:
+$$
+\omega_x \pm \lambda_\pm\omega_y = 0
+$$
+Представим $\omega = \xi \pm i\eta \Rightarrow
+(\xi \pm i\eta)_x + (\mu + i\nu)(\xi \pm i\eta)_y = 0$
+$$
+\begin{cases}
+    \mathrm{Re:} & \xi_x + \mu\xi_y - \nu\eta_y = 0\\
+    \mathrm{Im:} & \eta_x + \nu\xi_y + \mu\eta_y = 0
+\end{cases}\;\;\text{замена }
+\begin{cases}
+    \xi = \xi(x, y) \\
+    \eta = \eta(x, y)
+\end{cases} \in C^2, \nabla \ne 0
+$$
+Невырожденность:
+$$ J = 
+\begin{vmatrix}
+    \xi_x & \xi_y \\
+    \eta_x & \eta_y
+\end{vmatrix} =
+\begin{vmatrix}
+    (-\mu\xi_y + \nu\eta_y) & \xi_y \\
+    (-\nu\xi_y - \mu\eta_y) & \eta_y
+\end{vmatrix} =
+\nu\underbrace{(\xi_y^2 + \eta_y^2)}_{\ne 0 \text{ т.к. }\nabla > 0} \ne 0 \text{ где }\nu \ne 0
+$$
+$$
+a\omega_x^2 + 2b\omega_x\omega_y + c\omega_y^2 \Rightarrow 
+\underbrace{(a\xi^2_x + 2b\xi_x\xi_y + c\xi_y^2)}_{\hat a} -
+\underbrace{(a\eta_x^2 + 2b\eta_x\eta_y + c\eta_y^2)}_{\hat c}+ 
+\underbrace{2i(a\xi_x\xi_y + b(\xi_x\eta_y + \xi_y\eta_x) + c\xi_y\eta_y)}_{2\hat b} = 0
+$$
+Откуда $\hat a = \hat c, \hat b = 0$, то есть получаем уравнение
+$$
+\hat u_{\xi\xi} + \hat u_{\eta\eta} + \hat F(\xi, \eta, \hat u, \nabla_{\xi\eta}\hat u) = 0
+$$
+\subsection{Формальный вид уравнения характеристик}
+$$
+a\;dy\;dy - 2b\;dy\;dx + c\;dx\;dx =0
+$$
+Оно так выглядит из $(dy - \lambda_+dx)(dy - \lambda_-dx)=0$, то есть 
+$$
+(dy)^2 - \underbrace{(\lambda_+ + \lambda_-)}_{2b/a}\;dx\;dy + \underbrace{\lambda_+\lambda_-}_{c/a}(dx)^2 = 0
+$$

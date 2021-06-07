@@ -1,0 +1,61 @@
+\section{Билет 28. Объемный ньютонов потенциал и его свойства. Убывание на бесконечности. Результат
+действия оператора Лапласа на объемный потенциал.}
+
+\begin{itemize}
+	\item Функция $E(x) = \frac{-1}{4\pi|x|}$ является решением в обобщенных функциях уравнения $\triangle E(x) = \delta (x)$. Эту запись нужно понимать следующим образом:
+    $$
+    \int\limits_{\mathbb{R}^3}\brs{\frac{-1}{4\pi|y|}}\Delta_y \varphi (y) \mathrm{d}y = \varphi(0),\; \varphi \in D(\mathbb{R}^n)
+    $$
+\end{itemize}
+
+\begin{definition}
+	Функция $\vartheta (x)$ вида $\vartheta (x) = \int\limits_{\mathbb{R}^3}\frac{\rho (y)}{|x-y|}\mathrm{d}y$ называется \underline{\it \text{объемным ньютоновым потенциалом}}.
+\end{definition}
+
+\begin{remark} 
+Это свёртка фундаментального решения с функцией $-4\pi\rho (x)$
+\end{remark}
+
+\begin{theorem}
+
+	\begin{enumerate}
+		\item Пусть $\rho (x)$ \text{---} кусочно-непрерывная, ограниченная, финитная. Тогда $\vartheta (x) \in C^1(\R^3)$ и $\qquad \qquad \vartheta (x) = O\brs{\frac{1}{|x|}}$ при $x\rightarrow \infty $.
+        \item Если $\exists$ область $\Omega \subset \R^3: \;\rho (x) \in C^1(\Omega)$, то $\vartheta (x) \in C^2 (\Omega)$ и $\triangle \vartheta (x) = -4\pi \rho (x), \;x \in \Omega$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+
+Доказательство проведем в менее общей постановке: считаем $\rho \in C^\infty$ и $supp \;\rho$ компактом.
+
+	\begin{itemize}
+		\item $\exists C: |\rho (x)|\leq C \forall  x \in \R^3$. Считаем, что $supp \;\rho  \subset B_A(0)$. Берем $x: |x| > 2A$. Тогда если $|y| \leq A$, то $|y| < \frac{|x|}{2}$.
+        \item Оценка:
+        	\begin{multline*}
+				\ |\vartheta (x)| = \Bigl | \int\limits_{\R^3} \frac{\rho (y)}{|x-y|}\mathrm{d}y \Bigr | = {}\\
+                {} = \Bigl | \int\limits_{|y|<A} \frac{\rho (y)}{|x-y|}\mathrm{d}y \Bigr | \;\leq\; \int\limits_{|y|<A} \frac{|\rho (y)|}{|x-y|}\mathrm{d}y \;\leq\; \frac{c}{\frac{|x|}{2}}\int\limits_{|y|<A}\frac{\mathrm{d}y}{1} = \frac{8}{3}\frac{\pi c A^3}{|x|} \;\Rightarrow {}\\
+                {} \Rightarrow \vartheta (x) = O \brs{\frac{1}{|x|}}.
+			\end{multline*}
+        \item Пользуемся утверждением из анализа: {\it Пусть $F(x,y)$ и $\frac{\partial F}{\partial x_j}(x,y), \; j= \overline{1,n}$ непрерывны на $\Omega \times G$, где $\Omega \subset  \R^n, G \subset \R^m$. Пусть $g(x)$ абсолютно интегрируема: $\int\limits_G |g(x)| \mathrm{d}x < \infty|$. Тогда $\int\limits_G F(x,y)g(y) \mathrm{d}y \in C^1(\overline{\Omega})$ и
+        $$
+        \frac{\partial}{\partial x_j}\int\limits_G F(x,y)g(y)\mathrm{d}y = \int\limits_G \frac{\partial F}{\partial x_j}(x,y)g(y)\mathrm{d}y 
+        $$.}
+        \item Пусть $\rho (x) \in C^\infty (\R^3)$ и $\exists A: \rho (x) \equiv 0 \; \forall x: |x| > A$. Пусть 
+        $$\Omega = \fbrs{x: |x| < R};\quad F(x,y) = \rho (x+y)$$
+        $$G = \fbrs{y: |y| < R+A};\quad g(y) = \frac{1}{|y|}.$$
+        При $|x| < R,\; |y| > A+R \; \hookrightarrow |x+y| \;\geq\; |y| - |x| \;\geq\; A+R -R = A \;\Rightarrow \; \rho (x+y) \equiv 0. $
+        \item 
+        $$
+        \vartheta (x) = \int\limits_{\R^3}\frac{\rho (x+y)}{|y|}\mathrm{d} y = \int\limits_{|y| < R+A}\frac{\rho (x+y)}{|y|}\mathrm{d} y \quad \Rightarrow\quad \frac{\partial \vartheta}{\partial x_j} = \int\limits_{|y| < R+A}\frac{\partial \rho (x+y)}{\partial x_j}\frac{1}{|y|}\mathrm{d} y
+        ;$$ Также для остальных производных.
+        \item 
+        $$
+        \begin{CD}
+          \Delta \vartheta (x) = \int\limits_{\R^3}\frac{\Delta_x \rho (x+y)}{|y|}\mathrm{d}y = -4\pi \int\limits_{\R^3}\brs{\frac{-1}{4\pi |y|}} @. \underbrace{\Delta_y \rho (x+y)} @.\mathrm{d}y = -4\pi \rbrs{\delta(y),\; \rho (x+y)} = -4\pi \rho (x) \\
+          @.   @|   @.\\
+          @.   {\Delta_x \rho (x+y)}   @.
+        \end{CD}
+        .$$
+	\end{itemize}
+
+\end{proof}

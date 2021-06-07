@@ -1,0 +1,93 @@
+\section{Билет 26. Интегральное уравнение Фредгольма второго рода с вырожденными ядрами. Сведение к системе линейных алгебраических уравнений. Теоремы Фредгольма в этом случае.}
+% Затехал: Багно Богдан
+Рассмотрим уравнение
+$$u(x) = \lambda \int_{G}K(x,y)u(y)dy + f(x), \; x \in \overline{G} \eqno(1)$$
+\begin{definition}
+Интегральное уравнение вида
+$$v(x) = \lambda \int_{G}K'(x,y)v(y)dy + g(x), \; x \in \overline{G}, K'(x,y) = K(y,x) $$
+называется союзным уравнению (1).
+\end{definition}
+\begin{definition}
+Ядро $K(x,y) \in \left(C(\overline{G})\times C(\overline{G})\right)$ называется вырожденным, если оно представимо в виде
+$$K(x,y) = \sum_{i = i}^{N}a_{i}(x)b_{i}(y), \; a_{i},b_{i} \in C(\overline{G})$$
+\end{definition}
+
+Будем считать что $\fbrs{a_{1}...a_{n}}$ и $\fbrs{b_{1}...b_{n}}$ -- линейно независимые наборы (если это не так, то уменьшим $N$). Будем теперь рассматривать уравнение
+$$u(x) = \lambda \int_{G}\sbrs{\sum_{i = 1}^{N}a_{i}(x)b_{i}(y)}u(y)dy + f(x), \; x \in \overline{G} \eqno(2)$$
+\begin{itemize}
+  \item Введем в $C(\overline{G})$ билинейную форму $\rbrs{u;v} = \int_{G}u(x)v(x)dx \; \forall u.v \in C(\overline{G})$
+  \item Введем также следующие обозначения:
+  \begin{itemize}
+    \item $\mu_{ij} = \rbrs{b_{i}; a_{j}}; \; A = \norm{\mu_{ij}}_{i,j}^{N}$
+    \item $\varphi_{i} = \rbrs{b_{i}; f}; \; \vec{\varphi} = \norm{\varphi_{1}...\varphi_{N}}^{T}$
+    \item $c_{i} = \rbrs{b_{i}; u}; \; \vec{c} = \norm{c_{1}...c_{N}}^{T} \; (3)$
+  \end{itemize}
+  \item
+    \begin{lemma}[об эквивалентности]
+      Пусть $u(x) \in C(\overline{G})$ -- решение уравнения (2). Тогда $u(x) = \lambda \sum_{i=1}^{N}c_{i}a_{i}(x) + f(x), \; x \in \overline{G}$, где $\vec(c)$ определяется (3) и удовлетворяет системе $(E - \lambda A)\vec{c} = \vec{\varphi}$. Обратно, если $\vec(c)$ -- некоторое решение системы $(E - \lambda A)\vec{c} = \vec{\varphi}$ то $u(x) = \lambda \sum_{i=1}^{N}c_{i}a_{i}(x) + f(x), \; x \in \overline{G}$ является решением интегрального уравнения.
+    \end{lemma}
+    \begin{proof}
+      \begin{enumerate}
+        \item Пусть $u(x)$ решение интегрального уравнения. Тогда
+      $$u(x) = \lambda \int_{G}\sbrs{\sum_{i = i}^{N}a_{i}(x)b_{i}(y)}u(y)dy + f(x) = \lambda \sum_{i = 1}^{N}a_{i}(x)c_{i} + f(x)$$
+      Домножим на $b_{i}$ и проинтегрируем по $G$:
+      $$c_{i} = \lambda \sum_{j = 1}^{N} \mu_{ij}c_{j} + \varphi_{i} \Longleftrightarrow \vec{c} = \lambda A \vec{c} + \vec{\varphi}$$
+      \item Обратно, если $c_{i} = \lambda \sum_{j = 1}^{N} \mu_{ij}c_{j} + \varphi_{i}, \; i = \overline{1,N}$ то рассмотрим $u_{*}(x) = \lambda \sum_{i = 1}^{N}a_{i}(x)c_{i} + f(x)$. Подставим в уравнение:
+      $$u_{*} - \lambda \int_{G}K(x,y)u_{*}(y)dy - f(x) =$$
+      $$= u_{*} - \lambda \int_{G}\sbrs{\sum_{i = 1}^{N}a_{i}(x)b_{i}(y)}u_{*}(y)dy - f(x) =$$
+      $$ = \lambda \sum_{j = 1}^{N}a_{j}(x)\sbrs{c_{j} - \int_{G}b_{j}(y)u_{*}(y)dy} =$$
+      $$= \lambda \sum_{j = 1}^{N}a_{j}(x)\sbrs{c_{j} - \lambda\sum_{i = 1}^{N}c_{i} \underbrace{\int_{G}b_{j}(y)a_{i}(y)dy}_{\mu_{ji}} - \underbrace{\int_{G}b_{j}(y)f(y)dy}_{\varphi_{i}}} =$$
+      $$ = \lambda \sum_{j = 1}^{N}a_{j}(x)\underbrace{\sbrs{c_{j} - \lambda\sum_{i=1}^{N}\mu_{ji}c_{i} - \varphi_{j}}}_{0}$$
+      \end{enumerate}
+    \end{proof}
+\end{itemize}
+
+Таким образом, исследование интегральных уравнений с вырожденным ядром эквивалентно иссследованию системы $(E -\lambda A)\vec{c} = \vec{\varphi}$.
+
+\begin{offtop}
+Отметим что для союзного уравнения $v(x) = \lambda \sum_{j = 1}^{N}b_{j}(x)\underbrace{\int_{G}a_{j}(y)v(y)dy}_{d_{j}} + g(y)$ соответствующей системой является $(E - \lambda A^{T})\vec{d}=\vec{\phi}$, где $\vec{\phi}=\int_{G}\vec{a}(y)g(y)dy$.
+\end{offtop}
+
+\subsection{Разрешимость интегрального уравнения с вырожденным ядром}
+Пусть $D(\lambda) = det(E - \lambda A) = det(E - \lambda A^{T})$. Ясно что $D(\lambda) \not\equiv 0$ т.к. $D(0) = 1$. $D(\lambda)$ есть многочлен $P(\lambda), \; degP \leq N \longrightarrow$ он имеет $p$ действительных корней $\lambda_{1}..\lambda_{p},\; 0 \leq p \leq N$.
+\begin{itemize}
+  \item Если $D(\lambda) \neq 0$ то $\forall k: \lambda_{k} \neq \lambda \longrightarrow$ у уравнения $(E - \lambda A)-\vec{c} = \vec{\varphi}$ решение существует и оно единственно. Аналогичное утверждение верно и для союзного уравнения.
+  \item Если $\exists k: \lambda_{k} = \lambda \rightarrow Rg(E - \lambda A) = Rg(E - \lambda A^{T}) = r < N$
+\end{itemize}
+
+Пусть $m = N - r > 0$. Тогда базис в пространстве решений $(E - \lambda A)\vec{c}$ обозначим как $\vec{c}_{1}..\vec{c}_{n}$ а базис в пространстве решений $(E - \lambda A^{t})\vec{d}=0$ обозначим как $\vec{d}_{1}..\vec{d}_{n}$. Соответствующие им решения обозначим $u_{1}..u_{m}$ и $v_{1}..v_{m}$ соответственно $(u_{k}(x) = \lambda \sum_{j = 1}^{N}a_{j}(x)c_{j,k}, \; v_{k}(x) = \lambda \sum_{j = 1}^{N}b_{j}(x)d_{j,k})$.
+
+Покажем что $u_{1}..u_{n}$ базис решения однородного уравнения. Пусть
+$$\sum_{i=1}^{m}\alpha_{i}u_{i} = 0 \Longleftrightarrow \sum_{i=1}^{m}\alpha_{i}\sbrs{\lambda\sum_{j=1}^{n}a_{j}(x)c_{j,i}} = 0 \Longleftrightarrow \sum_{i=0}^{m}\alpha_{i}c_{i,j} = 0 \Longleftrightarrow \sum_{i=0}^{m}\alpha_{i}\vec{c}_{i} = 0$$
+Значит система $u_{1}..u_{m}$ -- линейно независима.
+
+\begin{definition}[Собственные функции и собственные числа оператора $K$]
+Функция $u(x) \in C(\overline{G}), \; u \not\equiv 0$ удовлетворяющая уравнению
+$$u(x) = \lambda \int_{G}K(x,y)u(y)dy, \; x \in C(\overline{G})$$
+называется собственной функцией ядра $K$ или собственной функцией оператора $K$. Соответствующие собственным функциям $\lambda$ называются характеристическими числами ядра/оператора $K$.
+\end{definition}
+
+Свойства характеристических чисел:
+\begin{itemize}
+  \item $\lambda \neq 0$ (иначе $u \equiv 0$).
+  \item $\lambda$ -- не собственное значение оператора: $u = \lambda K u \Leftrightarrow Ku = \frac{1}{\lambda}u => \Rightarrow \mu = \frac{1}{\lambda}$ -- собственное значение.
+  \item Собственные значения $K$ и $K'$ совпадают.
+\end{itemize}
+
+Рассмотрим систему $(E - \lambda A)\vec{c} = \vec{\varphi}$.
+По теореме Фредгольма эта система совместна тогда и только тогда, когда каждое решение сопряженной однородной системы $(E - \lambda A^{T})\vec{d} = \vec{0}$ ортогонально $\vec{\varphi}$:
+$$\rbrs{\vec{\varphi}; \vec{d}} = 0 \Longleftrightarrow \sum_{j=1}^{N}\varphi_{j}d_{j} = 0 \Longleftrightarrow \int_{G}f(y)\sbrs{\sum_{j = 1}^{N}b_{j}(y)d_{j}}dy = 0 \Longleftrightarrow \int_{G}f(y)v(y)dy = 0$$
+
+Получили что интегральное уравнение с вырожденным ядром совместно тогда и только тогда, когда $f$ ортогонально каждому решению однородного союзного уравнения.
+
+Сформулируем все полученные и доказанные выше результаты в виде теорем Фредгольма:
+
+\begin{theorem}[Первая теорема Фредгольма]
+  Если $D(\lambda) \neq 0$, то интегральное уравнение с вырожденным ядром и союзное к нему однозначно разрешимы при любых правых частях из $C(\overline{G})$.
+\end{theorem}
+\begin{theorem}[Вторая теорема Фредгольма]
+   Если $D(\lambda) = 0$, то интегральное уравнение с вырожденным ядром и союзное к нему имеют одинаковое число линейно независимых решений $m = N - Rg(E - \lambda A)$
+\end{theorem}
+\begin{theorem}[Третья теорема Фредгольма]
+  Если $D(\lambda) = 0$, то для разрешения интегрального уравнения с вырожденным ядром необходимо и достаточно, чтобы свободный член $f(x) \in C(\overline{G})$ был ортогонален всем решениям союзного уравнения.
+\end{theorem}

@@ -1,0 +1,147 @@
+\section{Билет 10. Формула Пуассона решения задачи Коши для однородного и неоднородного уравнений теплопроводности в $\R^n$. Метод Дюамеля. Существование классического решения.}
+% Техал Витяй
+Задача:
+\begin{equation} \label{10_1}
+\begin{cases}
+	u_t(t,x) - a^2\Delta_xu(t,x) = 0, \quad & t > 0, x \in \R^n, \\
+    \while{u}{t=0} = u_0(x) = \varphi_1(x_1) \ldots \varphi_n(x_n), \quad & \varphi_k(x_k) \in C(\R^1), \quad \abs{\varphi(x_k)} \leqslant M, \quad k = \overline{1,n};
+\end{cases}
+\end{equation}
+Напишем серию задач Коши:
+\def \uk {\stackrel{\text{\tiny{k}}}{u}}
+\def \uj {\stackrel{\text{\tiny{j}}}{u}}
+\begin{equation}
+\begin{cases}
+	\uk_t(t,x) - a^2\uk_{x_kx_k}(t,x) = 0, \\
+    \while{\uk}{t=0} = \varphi_k(x_k);
+\end{cases}
+\end{equation}
+Решение каждой даётся формулой Пуассона:
+\begin{equation}
+	\uk(t,x_k) = \dfrac{1}{\sqrt{4\pi a^2t}} \int\limits_{-\infty}^{+\infty} e^{-\frac{(x_k - y_k)^2}{4a^2t}}\varphi_k(y_k)dy_k
+\end{equation}
+Покажем, что решение всей задачи:
+\begin{equation*}
+	u = \prod_{k=1}^n \uk(t,x_k)
+\end{equation*}
+\begin{enumerate}
+	\item Очевидно, $u(t,x) \in C(t \geqslant 0, x \in \R^n) \cap C^\infty(t > 0, x \in \R^n)$;
+    \item $u(0,x) = \displaystyle\prod_{k=1}^n \varphi_k(x_k)$;
+    \item $u_t(t,x) = \dfrac{\partial}{\partial t} \sbrs{\displaystyle\prod_{k=1}^n \uk(t,x_k)} = \displaystyle\sum_{j=1}^n \sbrs{\uj_t(t,x_j) \displaystyle\underset{k \not= j}{\prod_{k=1}^n} \uk(t,x_k)} = \displaystyle\sum_{j=1}^n \sbrs{a^2 \uj_{x_jx_j} \displaystyle\underset{k \not= j}{\prod_{k=1}^n} \uk(t,x_k)} = \\ = a^2 \displaystyle\sum_{j=1}^n \dfrac{\partial^2}{\partial x_j^2} \displaystyle\prod_{k=1}^n \uk(t,x_k) = a^2 \displaystyle \sum_{j=1}^n \dfrac{\partial^2}{\partial x_j^2} u(t,x) = a^2 \Delta_x u(t,x)$.
+\end{enumerate}
+Итак, в случае разделения переменных имеем:
+\begin{equation}
+u(t,x) = \brs{\dfrac{1}{\sqrt{4\pi a^2t}}}^n \int\limits_\R\ldots\int\limits_\R e^{-\frac{\sum_{j=1}^n (x_j - y_j)^2}{4a^2t}} \prod_{k=1}^n \varphi_k(y_k) dy_1\ldots dy_n = \boxed{\brs{\dfrac{1}{\sqrt{4\pi a^2 t}}}^n \int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2t}} u_0(y)dy}
+\end{equation}
+Полученная формула называется {\bf формулой Пуассона в $\R^n$}.
+\begin{theorem}
+	Пусть $u_0 \in C(\R^n), \abs{u_0} \leqslant M \forall x \in \R^n$. Тогда 
+    \begin{equation*}
+    	u(t,x) = \brs{\dfrac{1}{\sqrt{4\pi a^2 t}}}^n \int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2t}} u_0(y)dy \text{ ---}
+    \end{equation*}
+    классическое решение задачи Коши \ref{10_1}, лежащее в классе $C^\infty(t>0, x \in \R^n) \cap C(t \geqslant 0, x \in \R^n)$. Кроме того,~$\abs{u(t,x)} \leqslant M \forall t > 0, x \in \R^n$.
+\end{theorem}
+\begin{proof}
+	Сохраняется из предыдущего билета с заменой $(x-y)^2 \to \abs{x-y}^2$.
+\end{proof}
+\bigskip
+%\newpage
+Зная решение однородного уравнения, можно найти решение и для неоднородного:
+\begin{equation}
+	\begin{cases}
+    	u_t - a^2\Delta_xu = f(t,x), \quad t > 0, x \in \R^n, \\
+        \while{u}{t=0} = 0;
+    \end{cases}
+\end{equation}
+Используем метод Дюамеля. Предположения относительно $f$:
+\begin{enumerate}
+	\item $D_x^\alpha f(t,x) \in C(t \geqslant 0, x \in \R^n) \forall \alpha: \abs{\alpha} \leqslant 2$;
+    \item $\abs{f(t,x)} \leqslant M_0 \forall t \geqslant 0, x \in \R^n$;
+    \item $\abs{D_x^\alpha f(t,x)} \leqslant M_2 \forall t \geqslant 0, x \in \R^n$.
+\end{enumerate}
+Сводим задачу к семейству однопараметрических задач:
+\begin{equation}
+	\begin{cases}
+    	v_t(t,x,\tau) - a^2\Delta_xv(t,x,\tau) = 0, \quad & t > \tau, x \in \R^n, \\
+        \while{v}{t = \tau} = f(\tau, x), \quad & x \in \R^n;
+    \end{cases}
+\end{equation}
+Решение даётся формулой Пуассона в $\R^n$:
+\begin{equation*}
+	v(t,x,\tau) = \brs{\dfrac{1}{\sqrt{4\pi a^2 (t - \tau)}}}^n \int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2(t-\tau)}} f(\tau, y) dy
+\end{equation*}
+$v(t,x,\tau)$ непрерывно продолжима до $t \geqslant \tau$, ограничена: $\abs{v(t,x,\tau)} \leqslant M_0$.
+
+Покажем, что $u(t,x) = \displaystyle\int\limits_0^t v(t,x,\tau)d\tau$~--- решение задачи.
+
+Исследуем вспомогательную функцию:
+\begin{equation*}
+	w(\tilde{t}, x, \tau) = \brs{\dfrac{1}{\sqrt{4\pi a^2\tilde{t}}}}^n \int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2\tilde{t}}} f(\tau,y) dy, \quad \tilde{t} > 0, \tau \geqslant 0, x, y \in \R^n
+\end{equation*}
+Введём $\eta = \dfrac{y-x}{2a\sqrt{\tilde{t}}} \Rightarrow y = x + 2a\sqrt{\tilde{t}} \eta \Rightarrow dy = dy_1\ldots dy_n = \brs{2a\sqrt{\tilde{t}}}^n d\eta_1\ldots d\eta_n = \brs{2a\sqrt{\tilde{t}}}^n d\eta$.
+
+Тогда $w(\tilde{t}, x, \tau) = \dfrac{1}{\pi^{n/2}} \displaystyle\int\limits_{\R^n} e^{-\eta^2} f\brs{\tau, x+2a\sqrt{\tilde{t}}\eta}d\eta, \quad \tilde{t} > 0$
+
+$f\brs{\tau, x+2a\sqrt{\tilde{t}}\eta} \in C(\tau \geqslant 0, \tilde{t} \geqslant 0, x \in \R^n, \eta \in \R^n)$
+
+$\abs{f\brs{\tau, x+2a\sqrt{\tilde{t}}\eta}e^{-\eta^2}} \leqslant M_0 e^{-\eta^2}$ и $\displaystyle\int\limits_{\R^n} e^{-\eta^2}d\eta <+\infty \Rightarrow w(\tilde{t}, x, \tau)$ сходится равномерно.
+
+Итак, $w \in C(\tilde{t} \geqslant 0, \tau \geqslant 0, x \in \R^n)$.
+
+\begin{statement}
+	$w$ можно дифференцировать и вносить производную под интеграл.
+\end{statement}
+
+\begin{proof}
+	$w_{x_i}(\tilde{t}, x, \tau) \sim \dfrac{1}{\pi^{n/2}} \displaystyle\int\limits_{\R^n} e^{-\eta^2} f_{x_i}\brs{\tau, x+2a\sqrt{\tilde{t}}\eta}d\eta, \quad \tilde{t} > 0$
+
+	$f_{x_i}\brs{\tau, x+2a\sqrt{\tilde{t}}\eta} \in C(\tau \geqslant 0, \tilde{t} \geqslant 0, x \in \R^n, \eta \in \R^n)$
+
+	$\abs{f_{x_i}\brs{\tau, x+2a\sqrt{\tilde{t}}\eta}e^{-\eta^2}} \leqslant M_2 e^{-\eta^2} \Rightarrow w_{x_i}(\tilde{t}, x, \tau)$ сходится равномерно.
+
+	Поэтому, вместо '$\sim$' можно поставить '$=$':
+
+	$w_{x_i}(\tilde{t}, x, \tau) = \dfrac{1}{\pi^{n/2}} \displaystyle\int\limits_{\R^n} e^{-\eta^2} f_{x_i}\brs{\tau, x+2a\sqrt{\tilde{t}}\eta}d\eta, \quad \tilde{t} > 0$
+
+	Аналогично и для вторых производных по $x$:
+
+	$w_{x_ix_j}(\tilde{t}, x, \tau) = \dfrac{1}{\pi^{n/2}} \displaystyle\int\limits_{\R^n} e^{-\eta^2} f_{x_ix_j}\brs{\tau, x+2a\sqrt{\tilde{t}}\eta} d\eta, \quad \tilde{t} > 0$
+\end{proof}
+	
+	Теперь производная по времени: в силу того, что уравнение
+\begin{equation*}
+	\begin{cases}
+		w_{\tilde{t}} - a^2 \Delta_x w = 0, \\
+		\while{w}{\tilde{t} = 0} = f(\tau, x);
+	\end{cases}
+\end{equation*}
+
+	выполняется везде, включая границу, получаем, что $w_{\tilde{t}} \in C(\tilde{t} \geqslant 0, \tau \geqslant 0, x \in \R^n)$
+
+	Мы исследовали $w$, а цель~--- $v$. Связь этих функций: $v(t,x,\tau) = w(t-\tau,x,\tau)$. При условиях $\tau \geqslant 0, t \geqslant \tau, x \in \R^n$ имеем непрерывность следующих функций: $v, v_t, v_{x_i}, v_{x_ix_j}$. Тогда для функции $u(t,x) = \displaystyle\int\limits_0^t v(t,x,\tau)d\tau$ получаем непрерывность $u, u_t, u_{x_i}, u_{x_ix_j} \Rightarrow$ решение будет классическим.
+
+	Осталось проверить уравнение: $u_t = v(t,x,t) + \displaystyle\int\limits_0^t v_t(t,x,\tau)d\tau = f(t,x) + \displaystyle\int\limits_0^t a^2 \Delta_x v d\tau = f(t,x) + a^2 \Delta_x u$
+
+	\begin{definition}
+		Пусть $Q$~--- область в $\R^{n+1}_{t,x_1,\ldots,x_n}$, а $\hat{Q} = Q \cup \{\text{некоторое подмножество $\partial Q$}\}$. Обозначим $C^{p,q}_{t,x}(\hat{Q})$ множество функций $u(t,x)$ таких, что $u, D_x^\alpha u, D_t^\beta u \in C(Q), \alpha\text{~--- мультииндекс, }\abs{\alpha} \leqslant q, \beta \in \N \cup \{0\}, \beta \leqslant p$, и все эти функции допускают непрерывное продолжение на $\hat{Q}$.
+	\end{definition}
+
+	\begin{theorem}
+		Пусть в задаче Коши
+			\begin{equation*}
+				\begin{cases}
+					u_t - a^2 \Delta_x u = f(t,x), \quad & t > 0, x \in \R^n \\
+					\while{u}{t=0} = u_0(x), \quad & x \in \R^n;
+				\end{cases}
+			\end{equation*}
+		\begin{itemize}
+			\item[а)] $u_0 \in C(\R^n), \abs{u_0(x)} \leqslant M_0 \forall x \in \R^n$
+			\item[б)] $f(t,x) \in C^{1,2}_{t,x}(t \geqslant 0, x \in \R^n)$ 
+            \item[в)] $\abs{f(t,x)}\leq M_1,\ \abs{f_{x_i}(t,x)}\leq M_2,\ \abs{f_{x_ix_j}(t,x)}\leq M_2\ \forall t\geq 0, x\in\bR^n$ 
+		\end{itemize}
+		Тогда функция $$u(t,x) = \brs{\dfrac{1}{\sqrt{4\pi a^2t}}}^n \displaystyle\int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2t}} u_0(y)dy + \displaystyle\int\limits_0^t \sbrs{\brs{\dfrac{1}{\sqrt{4\pi a^2(t-\tau)}}}^n \displaystyle\int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2(t-\tau)}} f(\tau,y) dy} d\tau$$
+		является классическим решением задачи Коши, лежит в классе $C(t \geqslant 0, x \in \R^n) \cap C^{1,2}_{t,x}(t > 0, x \in \R^n)$. Кроме того, справедлива оценка $\abs{u(t,x)} \leqslant M_0 + tM_1$
+	\end{theorem}
+	\begin{proof}
+		Последний факт: $\abs{u} \leqslant M_0 + \displaystyle\int\limits_0^t \abs{v_t} d\tau \leqslant M_0 + M_1t$
+	\end{proof}

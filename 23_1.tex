@@ -1,0 +1,49 @@
+\section{Билет 23. Преобразование Кельвина и его свойства. Регулярность поведения гармонических функций на бесконечности. Единственность решения внешних задач Неймана и Дирихле для уравнения Лапласа (случай $\R^3$).}
+% Затехал: Ермолова Марина, Иваныч
+Пусть $x$ лежит в окрестности $\infty$, т.е. $|x|>R>0$, а $y$ лежит в окрестность нуля. Считаем $y \neq 0.$ Тогда между этими окрестностями есть биекция - инверсия:
+$x^*=x \frac{R^2}{|x|^2},x=x^* \frac{R^2}{|x^*|^2}; |x||x^*|=R^2 $
+\begin{lemma}
+Если функция $u(x)$ гармоническая в окрестности $\infty: \ |x|>R$ в $\R^n$, то функция $u^*(y)= \big(\frac{R}{|y|}\big)^{n-2}\cdot u(\frac{R^2}{|y|^2} y\big)$ будет гармонической в проколотой окрестности нуля. Если $u^*(y)$ гармоническая в проколотой окрестности нуля, то $u(x)= \big(\frac{R}{|x|}\big)^{n-2}\cdot u^*(\frac{R^2}{|x|^2} x\big)$-гармоническая в окрестности $\infty$.
+\end{lemma}
+\begin{definition}
+Преобразование $u(x) \longmapsto u^*(y)$ и $u^*(y) \longmapsto u(x)$ называется \textbf{преобразованием} Кельвина.
+\end{definition}
+\begin{proof}
+Пусть $x \in U_\varepsilon(\infty), y \in U_\delta(0), |x|=\rho, |y|=r, x=y \frac{R^2}{|y|^2}.$\\
+Перейдем в сферическую систему. Лемму докажем в одну сторону.\\
+$x=(x_1,x_2,x_3)\\
+y=(y_1, y_2, y_3).$
+\[
+\begin{cases}
+x_1 = \rho \sin \theta \cos \varphi\\
+x_2 = \rho \sin \theta \sin \varphi\\
+x_3 = \rho \cos \theta
+\end{cases}, 
+\begin{cases}
+y_1 = r \sin \theta \cos \varphi\\
+y_2 = r \sin \theta \sin \varphi\\
+y_3 = r \cos \theta
+\end{cases}
+\]
+
+
+Тогда $\hat u^*(r, \theta, \phi) = \frac{R}{r}\hat u(\frac{R^2}{r}, \theta, \phi)$:
+$$
+\widehat{\Delta_y u^*}(r, \theta, \phi) = \sbrs{\frac{1}{r}\pdd{}{r}(r\hat u^*(r, \theta, \phi)) + \frac{1}{r}\underbrace{\Delta'_{\theta, \phi}}_{\substack{\text{оп-р Лапласа}\\\text{-Бельтрани}}}\hat u^*(r, \theta, \phi)} = \frac{R}{r} \pdd{}{r}\sbrs{\hat u(\underbrace{\frac{R^2}{r}}_{\rho}, \theta, \phi)} + \frac{R}{r^3}\Delta'_{\theta, \phi} \hat u(\underbrace{\frac{R^2}{r}}_{\rho}, \theta, \phi)
+$$
+
+Вспомогательная выкладка:
+
+\begin{align*}
+    & \pd{}{r} \hat u(\rho, \theta, \phi) = \pd{\hat u}{\rho}\pd{\rho}{r} = -\frac{\rho^2}{R^2}\pd{}{\rho} \hat u(\rho, \theta, \phi) \\
+    & \pd{}{r} \hat u(\rho, \theta, \phi) = \pd{}{r} \sbrs{-\frac{\rho^2}{R^2}\pd{}{\rho}\hat u(\rho, \theta, \phi)} =
+    \frac{\rho^2}{R^4} \pd{}{\rho}\sbrs{\rho^2 \pd{}{\rho}\hat u(\rho, \theta, \phi)}
+\end{align*}
+
+С учетом выкладки имеем:
+$$
+\widehat{\Delta_y u^*}(r, \theta, \phi) = \frac{\rho^3}{R^5}\pd{}{\rho} \sbrs{\rho^2 \pd{}{\rho}\hat u(\rho, \theta, \phi)} +
+\frac{\rho^3}{R^5}\Delta'_{\theta, \phi}\hat u(\rho, \theta, \phi)=\frac{\rho^5}{R^5} \Delta_x \hat u(\rho, \theta, \phi) = 0
+$$
+
+\end{proof}
