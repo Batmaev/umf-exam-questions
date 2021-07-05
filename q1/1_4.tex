@@ -1,3 +1,6 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
 \subsection{Параболический случай}
 Пусть в точке и некоторой ее окрестности тип параболический, то есть $d = ac - b^2 = 0$, причем $\forall (x, y) \in U(x^0, y^0), a^2 + c^2 \ne 0$. Уравнение характеристик:
 $$
@@ -57,12 +60,12 @@ $$ J =
 \end{vmatrix} =
 \nu\underbrace{(\xi_y^2 + \eta_y^2)}_{\ne 0 \text{ т.к. }\nabla > 0} \ne 0 \text{ где }\nu \ne 0
 $$
-$$
-a\omega_x^2 + 2b\omega_x\omega_y + c\omega_y^2 \Rightarrow 
+\begin{multline*}
+a\omega_x^2 + 2b\omega_x\omega_y + c\omega_y^2 = 0 \Rightarrow \\
 \underbrace{(a\xi^2_x + 2b\xi_x\xi_y + c\xi_y^2)}_{\hat a} -
 \underbrace{(a\eta_x^2 + 2b\eta_x\eta_y + c\eta_y^2)}_{\hat c}+ 
 \underbrace{2i(a\xi_x\xi_y + b(\xi_x\eta_y + \xi_y\eta_x) + c\xi_y\eta_y)}_{2\hat b} = 0
-$$
+\end{multline*}
 Откуда $\hat a = \hat c, \hat b = 0$, то есть получаем уравнение
 $$
 \hat u_{\xi\xi} + \hat u_{\eta\eta} + \hat F(\xi, \eta, \hat u, \nabla_{\xi\eta}\hat u) = 0
@@ -75,3 +78,4 @@ $$
 $$
 (dy)^2 - \underbrace{(\lambda_+ + \lambda_-)}_{2b/a}\;dx\;dy + \underbrace{\lambda_+\lambda_-}_{c/a}(dx)^2 = 0
 $$
+\end{document}
