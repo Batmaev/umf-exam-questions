@@ -10,65 +10,83 @@
 $$\sum_{i,j=1}^n a_{ij}(x)\frac{\partial^2 u}{\partial x_i\partial x_j} + F(x, u, \nabla u) = 0; \qquad u(x)\in C^2(\Omega);\quad a_{ij} (x) \in C(\Omega)$$
 Считаем $a_{ij}(x) = a_{ji}(x)$, что не сужает класса, т.к. $u_{{x_i}{x_j}} = u_{{x_j}{x_i}}$.
 Хотим сделать замену так, чтобы все смешанные частные производные обратились в 0. В точке это сделать можно.
-Возьмём преобразование \[y = y(x) = \begin{cases} y_1 = y_1(x_1,\dots, x_n) \\ \dots \\ y_{n} = y_{n}(x_1,\dots,x_n)\end{cases} \in C^2(U(x^0)),\quad y^0 = y(x^0);\quad U(x^0) \rightarrow V(y^0)\] (диффеоморфизм класса $C^2$ окр. $U(x^0)$ на $V(y^0)$)\\
-Будем предполагать $\exists$ обратного: $x = x(y)$
-Наша функция: $u = u(x_1 \dots x_n)$. Введём $\hat{u}(y) \overbrace{=}^{def} u[x(y)] \in C^2(V(y^0))$
-Производные: $$\pd{u}{x_i} = \sum_{k=1}^n\pd{\hat{u}}{y_k}\pd{y_k}{x_i}; \qquad \frac{\partial^2 u}{\partial x_i\partial x_j} = \sum_{k,l=1}^n\frac{\partial^2 \hat{u}}{\partial y_k\partial y_l}\pd{y_k}{x_i}\pd{y_l}{x_j} + \sum_{k=1}^n\pd{\hat{u}}{y_k} \frac{\partial^2 y_k}{\partial x_i\partial x_j}$$
+
+Возьмём преобразование \[y = y(x) = \begin{cases} y_1 = y_1(x_1,\dots, x_n) \\ \dots \\ y_{n} = y_{n}(x_1,\dots,x_n)\end{cases} \in C^2(U(x^0)),\quad y^0 = y(x^0);\quad U(x^0) \rightarrow V(y^0)\] (диффеоморфизм класса $C^2$ окрестности $U(x^0)$ на $V(y^0)$)
+
+Будем предполагать $\exists$ обратного: $x = x(y)$.
+% У диффеоморфизма вроде обратное преобразование $exists$ по определению...
+Наша функция: $u = u(x_1 \dots x_n)$. 
+
+Введём $\hat{u}(y) \coloneqq u[x(y)] \in C^2(V(y^0))$.
+Производные: $$\pd{u}{x_i} = \sum_{k=1}^n\pd{\hat{u}}{y_k}\pd{y_k}{x_i}; \qquad \frac{\partial^2 u}{\partial x_i\partial x_j} = \sum_{k,l=1}^n\frac{\partial^2 \hat{u}}{\partial y_k\partial y_l}\pd{y_k}{x_i}\pd{y_l}{x_j} + \underbrace{\sum_{k=1}^n\pd{\hat{u}}{y_k} \frac{\partial^2 y_k}{\partial x_i\partial x_j}}_{\substack{\text{уйдёт в }\hat{F}(y, \hat{u}, \nabla_y\hat{u})}}$$
 Подставляем: $$\sum_{i,j=1}^na_{ij}(x(y))\sum_{k,l=1}^n \frac{\partial^2 \hat{u}}{\partial y_k\partial y_l}\pd{y_k}{x_i}\pd{y_l}{x_j} + \hat{F}(y, \hat{u}, \nabla_y\hat{u}) = 0$$
 $$\sum_{k,l=1}^n\left[\sum_{i,j=1}^na_{ij}(x(y))\pd{y_k}{x_i}\pd{y_l}{x_j}\right] \frac{\partial^2 \hat{u}}{\partial y_k\partial y_l} + \hat{F}(y, \hat{u}, \nabla_y\hat{u}) = 0,$$
-$$\sum_{i,j=1}^na_{ij}(x(y))\pd{y_k}{x_i}\pd{y_l}{x_j} = \hat{a}_{kl}(y)$$
-Введём матрицы: $A(x^0) = \norm{a_{ij}(x^0)}_{i,j=1}^n; \qquad \hat{A}(y^0) = \norm{\hat{a}_{ij}(y^0)}_{i,j=1}^n.\\$
-$J(x^0) = \norm{\pd{y_i}{x_j}(x^0)}_{i,j=1}^n$ - в малой $U(x^0)$ задаёт преобразование $\hat{A}(y^0) = J(x^0)A(x^0)J^T(x^0)\\$ $A = A^T \Rightarrow \hat{A}^T = \hat{A}$. Вопрос в выборе $J$, так что $\hat{A}$ диагональна.$\\$
-Пусть в $\R^n$ заданы элемент h и квадратичная форма $\Phi(h).\\$
+$$\hat{a}_{kl}(y) \coloneqq \sum_{i,j=1}^na_{ij}(x(y))\pd{y_k}{x_i}\pd{y_l}{x_j}$$
+
+Введём матрицы: $A(x^0) = \norm{a_{ij}(x^0)}_{i,j=1}^n; \qquad \hat{A}(y^0) = \norm{\hat{a}_{ij}(y^0)}_{i,j=1}^n.$
+
+$J(x^0) = \norm{\pd{y_i}{x_j}(x^0)}_{i,j=1}^n$ -- в малой $U(x^0)$ задаёт преобразование $\hat{A}(y^0) = J(x^0)A(x^0)J^T(x^0)$ 
+
+$A = A^T \Rightarrow \hat{A}^T = \hat{A}$. Вопрос в выборе $J$ такого, что $\hat{A}$ диагональна.
+
+Пусть в $\R^n$ заданы элемент h и квадратичная форма $\Phi(h).$
+
 Введём 2 базиса: $\begin{array}{c} \left(e_1 \dots e_n\right) \\ \left(e'_1 \dots e'_n\right) \end{array}$ В них $h \sim \begin{array}{c} \xi = (\xi_1 \dots \xi_n)^T \\ \eta = (\eta_1 \dots \eta_n)^T \end{array}; \quad \Phi \sim \begin{array}{c} \norm{c_{ij}} \\ \norm{\hat{c}_{ij}}
 \end{array}; \quad \Phi(h) = \begin{array}{c}
 \xi^T c \xi \\ \eta^T \hat{c} \eta
-\end{array}\\$
+\end{array}$
+
 Пусть $\xi = S\eta$. Тогда $\Phi(h) = \eta^TS^TCS\eta = \eta^T\hat{C}\eta \rightarrow \hat{c} = S^TCS.$
-Существует такой базис, что $\hat{C} = diag(\underbrace{+1, +1 \dots +1}_{p\text{ штук}}, \underbrace{-1, -1 \dots -1}_{q\text{ штук}}, 0, 0 \dots 0)\\ \Phi(h) = \eta^2_1 + \dots + \eta^2_p - \eta^2_{p+1} - \dots - \eta^2_{p+q}\\$
-В равенстве $\hat{A}(y^0) = J(x^0)A(x^0)J^T(x^0)$ нужно взять $J(x^0) = S^T\\$
-Такие преобразования существуют, их много. Например, $y = y^0 +S^T(x^0)(x-x^0)\\$
+
+Существует такой базис, что
+
+$\hat{C} = diag(\underbrace{+1, +1 \dots +1}_{p\text{ штук}}, \underbrace{-1, -1 \dots -1}_{q\text{ штук}}, 0, 0 \dots 0)$
+
+$\Phi(h) = \eta^2_1 + \dots + \eta^2_p - \eta^2_{p+1} - \dots - \eta^2_{p+q}$
+
+В равенстве $\hat{A}(y^0) = J(x^0)A(x^0)J^T(x^0)$ нужно взять $J(x^0) = S^T$
+
+Такие преобразования существуют, их много. Например, $y = y^0 + J(x^0)(x-x^0)$
+
 В этих переменных уравнение принимает вид:
 
 $$\pdd{\hat{u}}{y_1} + \dots + \pdd{\hat{u}}{y_p} - \pdd{\hat{u}}{y_{p+1}} - \dots - \pdd{\hat{u}}{y_{p+q}} + \hat{F}(y, \hat{u}, \nabla_y\hat{u}) = 0.$$
 
 \textbf{Классификация уравнений:}
-
-1. \textit{Эллиптический тип}: $p = n$ или $q = n$
-
-2. \textit{Ультрагиперболический тип}: $p+q = n$
-
-3. \textit{Гиперболический тип}: $p = 1, q = n-1$
-
-4. \textit{Ультрапараболический тип}: $p + q < n$
-
-5. \textit{Параболический тип}: $q = 0, p = n-1$
-
-\hfill
+\begin{enumerate}
+	\item \textit{Эллиптический тип}: $p = n$ или $q = n$
+	\item \textit{Ультрагиперболический тип}: $p+q = n$
+	\item \textit{Гиперболический тип}: $p = 1, q = n-1$
+	\item \textit{Ультрапараболический тип}: $p + q < n$
+	\item \textit{Параболический тип}: $q = 0, p = n-1$
+\end{enumerate}
 
 \begin{remark} $\hat{A}(y^0) = J(x^0)A(x^0)J^T(x^0) \Rightarrow \sign\abs{\hat{A}(y^0)} = \sign\abs{A(x^0)}$ \end{remark}
 
-\hfill
-
 В случае $n = 2$ тип уравнения в точке определяется по знаку определителя:
+\begin{enumerate}
+	\item \textit{Эллиптический: } $\hat{A}(y^0) = \begin{pmatrix}
+		\pm1 & 0 \\ 0 & \pm1
+		\end{pmatrix} \rightarrow \abs{\hat{A}(y^0)} = 1$
 
-\textit{1. Эллиптический вид: } $\hat{A}(y^0) = \begin{pmatrix}
-\pm1 & 0 \\ 0 & \pm1
-\end{pmatrix} \rightarrow \abs{\hat{A}(y^0)} = 1$\\
-\textit{2. Гиперболический вид}: $\hat{A}(y^0) = \begin{pmatrix}
-1 & 0 \\ 0 & -1
-\end{pmatrix} \rightarrow \abs{\hat{A}(y^0)} = -1\\$
-\textit{3. Параболический вид}: $\abs{\hat{A}(y^0)} = 0$.
+	\item \textit{Гиперболический:} $\hat{A}(y^0) = \begin{pmatrix}
+		1 & 0 \\ 0 & -1
+		\end{pmatrix} \rightarrow \abs{\hat{A}(y^0)} = -1$
 
-\hfill
+	\item \textit{Параболический:}\; $\abs{\hat{A}(y^0)} = 0$.
+	
+\end{enumerate}
 
 \textbf{Приведение уравнения 2 порядка к каноническому виду на плоскости:}
 
-Рассмотрим в $\R^2$ уравнение $a(x, y)u_{xx}+2b(x,y)u_{xy}+c(x,y)u_{yy} + F(x, y, u, \nabla u) = 0\\$
+Рассмотрим в $\R^2$ уравнение $a(x, y)u_{xx}+2b(x,y)u_{xy}+c(x,y)u_{yy} + F(x, y, u, \nabla u) = 0$
+
 Для определения в точке используем $d =  \left| \begin{array}{cc}
 a & b \\
-b & c  \end{array} \right|\\$
-Введём преобразование $y = y(x) = \begin{cases} \xi = \xi(x, y) \\ \eta = \eta(x, y)\end{cases}$ --- диффеоморфизм класса $C^2$.\\
+b & c  \end{array} \right|$
+
+Введём преобразование $y = y(x) = \begin{cases} \xi = \xi(x, y) \\ \eta = \eta(x, y)\end{cases}$ --- диффеоморфизм класса $C^2$.
+
 В новых координатах $\hat{a}\left(\xi, \eta\right)\hat{u}_{\xi\xi} + 2\hat{b}\left(\xi, \eta\right)\hat{u}_{\xi\eta} + \hat{c}\left(\xi, \eta\right)\hat{u}_{\eta\eta} + \hat{F}\left(\xi,\eta,\hat{u},\nabla_{\xi\eta}\hat{u}\right) = 0$
 $$\hat{A}\left(\xi,\eta\right) = \left( \begin{array}{cc}
 \hat{a} & \hat{b} \\
@@ -85,45 +103,47 @@ b & c
 
 Выбираем $(x_0, y_0) \in \Omega$, пусть $d(x_0, y_0) = ac - b^2 < 0$. В силу непрерывности есть $U_\epsilon(x_0, y_0)$, где $d < 0$.
 
-%==========================================================
-%================ Третья страница =========================
-%==========================================================
-
-
-Во всех точках этой окрестности тип-гиперболический.
+Во всех точках этой окрестности тип -- гиперболический.
 
 \begin{definition}
 \textit{Второй канонический тип:} $\hat{u}_{\xi\eta} + \hat{F}(\xi, \eta, \hat{u}, \nabla \hat{u}) = 0$, то есть $\hat{a} \equiv \hat{c} \equiv 0\; \forall \xi, \eta \in V(\xi^{\circ}, \eta^{\circ})$.
 \end{definition}
-Введём переменную $w$, которая обозначает либо $\xi$, либо $\eta$.\\
+Введём переменную $w$, которая обозначает либо $\xi$, либо $\eta$.
+
 Запишем \textit{характеристическое уравнение:}
 \begin{equation*}
 	a(x, y) w^{2}_x + 2b(x, y)w_x w_y + c(x, y)w_y^2  = 0, 
 \end{equation*}
+(При $w = \xi$ это выражение равно $\hat a_{11}$, а при $w = \eta$ оно равно $\hat a_{22}$)
 
 От решений хотим $\text{grad}\;w \neq 0$, так как если $\nabla \eta = 0$ или $\nabla \xi = 0$, то $J = 0$.
 
 \begin{remark}
-	$w(x) = 0$ - характеристическая $\Rightarrow \tilde{w}(x) =  w(x) - c = 0$ - также характеристическая: $\tilde{c} \in C^2,\; \nabla \tilde{w} \neq 0$, $\tilde{w}$ - удовлетворяет характеристическому уравнению.
+	$w(x) = 0$ -- характеристическая $\Rightarrow \tilde{w}(x) =  w(x) - c = 0$ -- также характеристическая: $\tilde{c} \in C^2,\; \nabla \tilde{w} \neq 0$, $\tilde{w}$ -- удовлетворяет характеристическому уравнению.
 \end{remark}
 
 \begin{definition}
 Переменные $\xi, \eta$ - \textit{характеристические}; поверхности $\xi = C_1,\; \eta = C_2$ - \textit{характеристические}.
 \end{definition} 
 \begin{enumerate}[label=\asbuk*),ref=\asbuk*]
-\item Пусть $a(x^{\circ}, y^{\circ}) \neq 0$, для $c(x^{\circ}, y^{\circ}) \neq 0$ рассуждения такие же. \\
+\item Пусть $a(x^{\circ}, y^{\circ}) \neq 0$, для $c(x^{\circ}, y^{\circ}) \neq 0$ рассуждения такие же.
+
 В окрестности, где $a(x, y) \neq 0\; \brbr{u_{\eps}(x^{\circ}, y^{\circ})}$, делим:
 \begin{equation*}
 	w_x^2 + \dfrac{2b}{a}w_x w_y + \dfrac{c}{a}w_y^2 = \erbr{w_x + \dfrac{b}{a}w_y}^2 - \dfrac{b^2 - ac}{a}w_y = \bfbr{w_x + \lambda_{+}(x, y)w_y} \cdot \bfbr{w_x + \lambda_{-}w_y} = 0,
 \end{equation*}
-где введены обозначения $\lambda_{\pm} = \frac{1}{a}(b \pm \sqrt{b^2 - ac})$, верно, что $\lambda_{-}  \neq \lambda_{+}\; \forall (x, y) \in U_{\eps}(x^{\circ}, y^{\circ})$, так как $d = ac - b^2 < 0$. \\
-Рассмотрим ЛДУЧП 1-го порядка $w_x + \lambda(x, y)w_y = 0$. \\
+где введены обозначения $\lambda_{\pm} = \frac{1}{a}(b \pm \sqrt{b^2 - ac})$; верно, что $\lambda_{-}  \neq \lambda_{+}\; \forall (x, y) \in U_{\eps}(x^{\circ}, y^{\circ})$, так как $d = ac - b^2 < 0$.
+
+Рассмотрим ЛДУЧП 1-го порядка $w_x + \lambda(x, y)w_y = 0$.
+
 Из теории: у однородного ДУЧП $a_1(x, y)w_x + a_2(x, y)w_y = 0$ при условии $a_1^2 + a_2^2 > 0$ решение есть: 
 \begin{equation*}
 	\exists w(x, y) \in C^2(\Omega),\; \nabla w \neq 0\; \text{и}\; \dfrac{dx}{a_1} = \dfrac{dy}{a_2} -\; \text{первый интеграл}
 \end{equation*}
-В нашем случае $\frac{dx}{1} = \frac{dy}{\lambda} \Leftrightarrow dy - \lambda dx = 0$ - ПИ этого уравнения даёт решение исходного ДУЧП. \\
-Значит, в обеих скобках есть по решению, причём $\nabla w \neq 0$. \\
+В нашем случае $\frac{dx}{1} = \frac{dy}{\lambda} \Leftrightarrow dy - \lambda dx = 0$ --- ПИ этого уравнения даёт решение исходного ДУЧП.
+
+Значит, в обеих скобках есть по решению, причём $\nabla w \neq 0$.
+
 Покажем невырожденность:
 \begin{equation*}
 	\begin{cases}
@@ -144,7 +164,7 @@ b & c
 	\Rightarrow \nabla \xi = 0)
 \end{multline*}
 
-Итак, $\brbr{\xi(x, y), \eta(x, y)}$ - диффеорморфизм класса $C^2$. Оно зануляет $\hat{a}$ и $\hat{c}$. Получается уравнение второй канонической форме.
+Итак, $\brbr{\xi(x, y), \eta(x, y)}$ - диффеорморфизм класса $C^2$. Он зануляет $\hat{a}$ и $\hat{c}$. Получается уравнение во второй канонической форме.
 \begin{remark} 
 От II канонической форме к I:
 \begin{equation*}
@@ -159,11 +179,12 @@ b & c
 	\tilde{u}_{\alpha \alpha} - \tilde{u}_{\beta \beta} + \tilde{F}(\alpha, \beta, \tilde{u}, \nabla_{\alpha \beta}\tilde{u}) = 0 -\; \text{I каноническая форма}
 \end{equation*}
 \end{remark}
-\item Если $a(x, y) \equiv c(x, y) \equiv 0\; \forall (x, y) \in U(x^{\circ}, y^{\circ})$, то $b \neq 0$, иначе уравнение в нуле функции в - не второго порядка.\\
-Уравнение имеет II каноническую форму, преобразование в I - выше. 
+\item Если $a(x, y) \equiv c(x, y) \equiv 0\; \forall (x, y) \in U(x^{\circ}, y^{\circ})$, то $b \neq 0$, иначе уравнение в нуле функции $b$ -- не второго порядка.
+
+То есть уравнение уже имеет II каноническую форму, преобразование в I -- выше. 
 \item Если $a(x^0, y^0) = c(x^0, y^0) = 0$, но в любой окрестности $W(x^0, y^0)$ есть точки, где
 $$
 \abs{a(x^*, y^*)} + \abs{c(x^*, y^*)} > 0,
-$$ то заменим $\xi = x + y, \eta = x - y$, и получим случай а.
+$$ то заменим $\xi = x + y,\ \eta = x - y$ и получим случай а.
 \end{enumerate}
 \end{document}
