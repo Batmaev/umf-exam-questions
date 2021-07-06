@@ -155,14 +155,15 @@ $B_j$ -- конечное семейство линейных дифференц
 \end{center}
 
 \begin{definition}
-Пусть:
-\begin{enumerate}[noitemsep]
-\item $\exists$ ЛНП $F(\Omega)$ и $U(\Omega)$ функций на $\Omega$ (ЛНП -- линейные нормированные пространства) 
-\item $\exists$ ЛНП $G_1(\Gamma),\dots G_m(\Gamma)$ функций на $\Gamma$
-\end{enumerate}
-такие, что $\forall f(\vec{x}) \in F(\Omega) \text{ и } \forall g_j(\vec{x}) \in G_j(\Gamma),\ j=\overline{1,m}\ \exists!$ решение $u(\vec{x}) \in U(\Omega)$ краевой задачи \eqref{eq::2::diff}, причём для решения справедлива оценка: \framebox{$\norm{u}_{U(\Omega)} \le C\norm{f}_{F(\Omega)} + \sum\limits_{j=1}^{m}c_j\norm{g_j}_{G_j(\Gamma)}.$} 
+Пусть $F(\Omega)$ и $U(\Omega)$ -- линейные нормированные пространства функций (ЛНП) на $\Omega$, \; $G_1(\Gamma),\dots G_m(\Gamma)$ -- ЛНП на $\Gamma$.
 
-Тогда {\bf задача корректна по отношению к выбранному набору пространств.}
+Тогда если $\forall f(\vec{x}) \in F(\Omega),\; \forall g_j(\vec{x}) \in G_j(\Gamma)$ решение краевой задачи \eqref{eq::2::diff} существует, единственно в $U(\Omega)$ и для него справедлива оценка
+\begin{equation}
+    \norm{u}_{U(\Omega)} \leq C\norm{f}_{F(\Omega)} + \sum\limits_{j=1}^{m}c_j\norm{g_j}_{G_j(\Gamma)}
+\label{eq::2::neq}
+\tag{**}
+\end{equation}
+то {\bf задача корректна по отношению к выбранному набору пространств.}
 \end{definition}
 
 \begin{example}[Адамара]
@@ -179,6 +180,6 @@ u_y|_{y=0} = u_1(x) \equiv 0
 
 Но $u_n(0, y^*) = e^{-\sqrt{n}}\ch{ny^*} > \frac1{2}e^{-\sqrt{n}}e^{ny^*} \rightarrow \infty$
 
-Неравенство, выделенное в определении рамкой, не выполнено.
+Неравенство \eqref{eq::2::neq} не выполнено.
 \end{example}
 \end{document}
