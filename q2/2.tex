@@ -6,7 +6,7 @@
 В области $\Omega \subset \R^n$ задано уравнение:
 \begin{equation}
 \label{eq::2::init}
-\sum\limits_{i,j=1}^{n} a_{ij}(x)\frac{\subd^2u}{\subd x_i\subd x_j} + F(x, u, \nabla u) = 0
+\sum\limits_{i,j=1}^{n} a_{ij}(x)\frac{\partial^2u}{\partial x_i\partial x_j} + F(x, u, \nabla u) = 0
 \end{equation}
 и поверхность $S:\ \omega(x) = \omega(x_1, \dots, x_n) = 0,\ \omega \in C^2(\Omega)$ и $\mathrm{grad}(\omega) \not= 0$ на $\Omega$ (нет особых точек).\\
 На поверхности задано гладкое некасательное поле $\vec{\nu} = (\nu_1(x), \dots, \nu_n(x)),\ \; \langle \vec{\nu}, \vec{n} \rangle \not= 0$.
@@ -14,9 +14,9 @@
 В $U(x^0)\subset\Omega,\ x^0 \in S$, найти то решение уравнения \eqref{eq::2::init}, которое удовлетворяет двум условиям:
 \begin{enumerate}
 \item $u(x)|_{S\cap U(x^0)}=u_0(x)$
-\item $\left.\dfrac{\subd u}{\subd \vec{\nu}}\right|_{S\cap U(x^0)} = u_1(x)$ -- выводящая производная
+\item $\left.\dfrac{\partial u}{\partial \vec{\nu}}\right|_{S\cap U(x^0)} = u_1(x)$ -- выводящая производная
 
-Здесь введена производная по направлению: $\dfrac{\subd u}{\subd \vec{\nu}} = \brs{\vec{\nu}, \nabla u} = \displaystyle\sum\limits_{k=1}^{n} \nu_k(x)\dfrac{\subd u}{\subd x_k}(x) $
+Здесь введена производная по направлению: $\dfrac{\partial u}{\partial \vec{\nu}} = \brs{\vec{\nu}, \nabla u} = \displaystyle\sum\limits_{k=1}^{n} \nu_k(x)\dfrac{\partial u}{\partial x_k}(x) $
 \end{enumerate}
 \end{definition}
 Может не быть непрерывной зависимости от начальных данных.\\
@@ -25,20 +25,20 @@
 
 Далее определим характеристическую поверхность.\\
 Пусть $S$ -- гиперплоскость $x_n = 0$. Нормаль $\vec{n} = (0,0,\dots,0, 1)^T,\\
-u(x_1, \dots, x_{n-1}, 0) = u_0(x_1, \dots, x_{n-1}),\quad \dfrac{\subd u}{\subd\vec{n}} = \dfrac{\subd u}{\subd x_n} = u_1(x_1, \dots, x_{n-1}) $
+u(x_1, \dots, x_{n-1}, 0) = u_0(x_1, \dots, x_{n-1}),\quad \dfrac{\partial u}{\partial\vec{n}} = \dfrac{\partial u}{\partial x_n} = u_1(x_1, \dots, x_{n-1}) $
 
 Мы знаем значения функции на гиперплоскости.\\
 Знаем градиент:
 \begin{equation*}
 \left\{\begin{aligned}
-\frac{\subd u}{\subd x_1}(x_1, \dots, x_{n-1}, 0) &= \frac{\subd u_0}{\subd x_1}(x_1, \dots, x_{n-1})\\ 
+\frac{\partial u}{\partial x_1}(x_1, \dots, x_{n-1}, 0) &= \frac{\partial u_0}{\partial x_1}(x_1, \dots, x_{n-1})\\ 
 &\vdots \\
-\frac{\subd u}{\subd x_{n-1}}(x_1, \dots, x_{n-1}, 0) &= \frac{\subd u_0}{\subd x_{n-1}}(x_1, \dots, x_{n-1})
+\frac{\partial u}{\partial x_{n-1}}(x_1, \dots, x_{n-1}, 0) &= \frac{\partial u_0}{\partial x_{n-1}}(x_1, \dots, x_{n-1})
 \end{aligned} \right\}
-+\left\{\frac{\subd u}{\subd x_n}(x_1,\dots,x_{n-1},0)\right\} = u_1
++\left\{\frac{\partial u}{\partial x_n}(x_1,\dots,x_{n-1},0)\right\} = u_1
 \end{equation*}
-Мы знаем и вторые производные: берём указанные сверху производные и дифференцируем вдоль поверхности, получим \[\frac{\subd^2u}{\subd x_i\subd x_j}(x_1,\dots,x_{n-1}, 0) = \frac{\subd^2u_0}{\subd x_i\subd x_j},\ 1\le i,j \le n-1 \]
-\[\frac{\subd^2u}{\subd x_n\subd x_i}(x_1,\dots,x_{n-1}, 0) = \frac{\subd u_1}{\subd x_i}(x_1,\dots,x_{n-1}),\ 1\le i\le n-1\]
+Мы знаем и вторые производные: берём указанные сверху производные и дифференцируем вдоль поверхности, получим \[\frac{\partial^2u}{\partial x_i\partial x_j}(x_1,\dots,x_{n-1}, 0) = \frac{\partial^2u_0}{\partial x_i\partial x_j},\ 1\le i,j \le n-1 \]
+\[\frac{\partial^2u}{\partial x_n\partial x_i}(x_1,\dots,x_{n-1}, 0) = \frac{\partial u_1}{\partial x_i}(x_1,\dots,x_{n-1}),\ 1\le i\le n-1\]
 
 Не нашли только $\displaystyle\spd{u}{x_n}{x_n}$. До этого мы вообще еще не использовали уравнение:
 
@@ -121,7 +121,7 @@ $\Delta u(x) = f(x)\ \text{(ур-е Пуассона)},\ x\in\R^n;$
 Функция $u(\vec{x}) = u(x_1,\dots,x_n)$ называется {\bf вещественно-аналитической} в $\vec{x}_0$, если в некоторой $U_{\varepsilon}(\vec{x}_0)$ она представима в виде $u(\vec{x}) = \displaystyle\sum\limits_{|\alpha|>0}u_{\alpha}(\vec{x}-\vec{x}_0)^{\alpha},$ где $\alpha$ -- мультииндекс, $u_{\alpha} \in \R, \qquad (\vec{x}-\vec{x}_0)^{\alpha} = (x_1-x_1^0)^{\alpha_1}\cdot\dots\cdot(x-x_n^0)^{\alpha_n}$
 
 \begin{theorem}[Ковалевской]
-Пусть в уравнении $\displaystyle\sum\limits_{i,j=1}^{n} a_{ij}(\vec{x})\frac{\subd^2u}{\subd x_i\subd x_j} + F(\vec{x}, u, \nabla u) = 0$:
+Пусть в уравнении $\displaystyle\sum\limits_{i,j=1}^{n} a_{ij}(\vec{x})\frac{\partial^2u}{\partial x_i\partial x_j} + F(\vec{x}, u, \nabla u) = 0$:
 \begin{itemize}[noitemsep]
 \item все $a_{ij}(\vec{x})$ вещественно-аналитические в $\vec{x}_0$ 
 \item $F(\vec{x}, u, \nabla u)$ --вещественное-аналитическая в $(\vec{x}_0, u_0(\vec{x}_0), \nabla u(\vec{x}_0))$ соответственно 

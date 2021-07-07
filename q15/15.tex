@@ -17,14 +17,14 @@
 $$
 \int\limits_{\Omega} \overline{u} \Delta u dx = - \lambda \int\limits_{\Omega} u \overline{u} dx$$
 $$
-\int\limits_{\Omega} \overline{u} \Delta u dx = \cancelto{0}{\oint\limits_{\subd \Omega} \frac{\partial u}{\partial \vec{n}} \overline{u} dS }- \int\limits_{\Omega} (\nabla u, \nabla \overline{u}) dx$$
+\int\limits_{\Omega} \overline{u} \Delta u dx = \cancelto{0}{\oint\limits_{\partial \Omega} \frac{\partial u}{\partial \vec{n}} \overline{u} dS }- \int\limits_{\Omega} (\nabla u, \nabla \overline{u}) dx$$
 $\Rightarrow \lambda = \dfrac{\int\limits_{\Omega}|\nabla u|^2 dx}{\int\limits_{\Omega}|u|^2 dx}$ - соотношение Рэлея.\\
 $\Rightarrow \lambda \in \mathbb{R}, \lambda >0 $ (строго больше, т.к. $\nabla u = 0 \Rightarrow u =0$). В задаче Неймана $\lambda = 0$ возможно.\\
 \begin{statement} Оператор $-\Delta$ с граничными условиями Дирихле является симметричным относительно скалярного произведения в $\mathbb{L}_2(\Omega): (u,v) = \int\limits_{\Omega} u(x) \overline{v}(x)dx $ 
 \end{statement}
 \begin{proof}
-Пусть $u(x), v(x)$ лежат в области  определения нашего оператора $$D_0(-\Delta) = \{u(x): u(x) \in C^1(\overline{\Omega}) \cap C^2(\Omega); \ \Delta u(x) \in C(\overline{\Omega}), \ u|_{\subd \Omega} = 0 \}.$$
-Симметричность оператора означает, что $$(-\Delta u,v)=(u, -\Delta v) \ \forall u,v \in D_0(-\Delta).$$ Проверим это: $$ (-\Delta u,v) - (u, -\Delta v) = \int\limits_{\Omega} (u \Delta v- v \Delta u)dx \stackrel{\text{ 2 формула Грина}}{=} \oint \limits_{\subd \Omega} ( \frac{\partial v}{\partial \vec{n}}u - \frac{\partial u}{\partial \vec{n}}v) dS =0.$$
+Пусть $u(x), v(x)$ лежат в области  определения нашего оператора $$D_0(-\Delta) = \{u(x): u(x) \in C^1(\overline{\Omega}) \cap C^2(\Omega); \ \Delta u(x) \in C(\overline{\Omega}), \ u|_{\partial \Omega} = 0 \}.$$
+Симметричность оператора означает, что $$(-\Delta u,v)=(u, -\Delta v) \ \forall u,v \in D_0(-\Delta).$$ Проверим это: $$ (-\Delta u,v) - (u, -\Delta v) = \int\limits_{\Omega} (u \Delta v- v \Delta u)dx \stackrel{\text{ 2 формула Грина}}{=} \oint \limits_{\partial \Omega} ( \frac{\partial v}{\partial \vec{n}}u - \frac{\partial u}{\partial \vec{n}}v) dS =0.$$
 \end{proof}
 \begin{statement} Собственные функции рассматриваемого оператора $u_k(x)$ и $u_m(x)$, соответствующие различным собственным значениям $\lambda_k$ и $\lambda_m$, ортогональны относительно скалярного произведения в $\mathbb{L}_2(\Omega)$.
 \end{statement}
