@@ -2,7 +2,7 @@
 
 \subsection{Внешняя задача Неймана для уравнения Лапласа}
 
-Найти функцию $u(x) \in C^2(\bR^3 \ \Omega) \cap C(\bR^3 \ \Omega)$ имеющую ПНП по направлению внешней нормали, и такую, что 
+Найти функцию $u(x) \in C^2(\R^3 \ \Omega) \cap C(\R^3 \ \Omega)$ имеющую ПНП по направлению внешней нормали, и такую, что 
 
 \begin{equation}
  \begin{cases}
@@ -17,7 +17,7 @@
 
 $u(x) = \int_G \frac{\mu(x)}{|x - y|} dS_y$. Свойства $\Delta u(x) = 0$ и $\lim_{x \to \infty} u(x) \to 0$ выполнены.
 
-Кроме того, $u(x) \in C^2(\bR^3 | \Omega) \cap C(R^3 | \Omega)$ и имеет ПНП. Нужно проверить $(\frac{\partial u}{\partial \vec{n}})_-|_r = u_1(x), x \in G$. 
+Кроме того, $u(x) \in C^2(\R^3 | \Omega) \cap C(R^3 | \Omega)$ и имеет ПНП. Нужно проверить $(\frac{\partial u}{\partial \vec{n}})_-|_r = u_1(x), x \in G$. 
 
 $\bullet$ Пусть $$x^o \in G \Rightarrow (\frac{\partial u}{\partial \vec{n}})_{-}(x^o) = -2\pi \mu(x^o) + \int_x \frac{(y - x, \vec{n}(x^o))}{|x^o - y|^3}\mu(y)dS_y = u_1(x^o)$$
 
@@ -37,7 +37,7 @@ $\mu(x^o) = \frac{1}{2\pi}\int_x \frac{(y - x, \vec{n}(x^o))}{|x^o - y|^2}\mu(y)
    u(x) \to 0
  \end{cases}
 \end{equation}
-В силу единственности решение этой задачи $V_* = 0 (x \in \bR^3 | \Omega)$ . Но $V_* \in C(\bR^3) \Rightarrow X_* \equiv 0$ на $X \in \bR^3 | \Omega$ Функция $V_*$ удовлетворяет внутренней задаче Дирихле
+В силу единственности решение этой задачи $V_* = 0 (x \in \R^3 | \Omega)$ . Но $V_* \in C(\R^3) \Rightarrow X_* \equiv 0$ на $X \in \R^3 | \Omega$ Функция $V_*$ удовлетворяет внутренней задаче Дирихле
 
 \begin{equation}
  \begin{cases}
@@ -77,7 +77,7 @@ $\Rightarrow \nu(x^o) = \int_x \frac{(y - x, \vec{n}(x^o))}{|x^o - y|^3}\nu(y)dS
 
 Т.к. (*) однозначно разрешмимо, это уравнение тоже имеет единственное решение
 
-\begin{theorem} Пусть $\Omega$ - ограниченная область в $\bR^3$ с границей $G \in C^2$. Тогда у внутренней задачи Дирихле $\forall u_1 \in C(G)$, а также у внешней задачи Неймана $\forall u_0 \in C(G)$ существует единственное классическое решение
+\begin{theorem} Пусть $\Omega$ - ограниченная область в $\R^3$ с границей $G \in C^2$. Тогда у внутренней задачи Дирихле $\forall u_1 \in C(G)$, а также у внешней задачи Неймана $\forall u_0 \in C(G)$ существует единственное классическое решение
 \end{theorem} 
 
 

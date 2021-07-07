@@ -1,22 +1,22 @@
-\section{Билет 5. Формула Пуассона-Кирхгофа решения задачи Коши для однородного волнового уравнения в $\bR^3$. Существование классического решения этой задачи.}
+\section{Билет 5. Формула Пуассона-Кирхгофа решения задачи Коши для однородного волнового уравнения в $\R^3$. Существование классического решения этой задачи.}
 % Затехал: Погодин Роман
 \begin{theorem}[Из курса мат. анализа]
-Пусть $\Omega_x\subset\bR^n,\ \Omega_y\subset\bR^m$ -- ограниченные области, $f(x,y):\overline{\Omega}_x\times\overline{\Omega}_y\rightarrow \bR,\ f\in C\left(\overline{\Omega}_x\times\overline{\Omega}_y \right)$. Тогда $J(y)=\displaystyle\int\limits_{\Omega_x}f(x,y)dx\in C\left(\overline{\Omega}_y \right)$.\\
+Пусть $\Omega_x\subset\R^n,\ \Omega_y\subset\R^m$ -- ограниченные области, $f(x,y):\overline{\Omega}_x\times\overline{\Omega}_y\rightarrow \R,\ f\in C\left(\overline{\Omega}_x\times\overline{\Omega}_y \right)$. Тогда $J(y)=\displaystyle\int\limits_{\Omega_x}f(x,y)dx\in C\left(\overline{\Omega}_y \right)$.\\
 Если к тому же $\dfrac{\partial f}{\partial y_k}\in C\left(\overline{\Omega}_x\times\overline{\Omega}_y \right)$, то $J(y)$ имеет непрерывную на $\overline{\Omega}_y$ частную производную $\dfrac{\partial J(y)}{\partial y_k}\in C\left(\overline{\Omega}_y \right)$, при этом $\dfrac{\partial J(y)}{\partial y_k}=\displaystyle\int\limits_{\Omega_x}\dfrac{\partial f}{\partial y_k}(x,y)dx$.
 \end{theorem}
 Обозначим ($\tau$ - вспомогательный параметр)
 \[
-u_g(t,x,\tau)=\frac{1}{4\pi a^2t}\displaystyle\iint\limits_{|\xi - x|=at}g(\xi ,\tau ) dS_{\xi},\ a>0,\, t> 0,\, x\in \bR^3,\, \tau \geq 0,\, \xi\in\bR^3.
+u_g(t,x,\tau)=\frac{1}{4\pi a^2t}\displaystyle\iint\limits_{|\xi - x|=at}g(\xi ,\tau ) dS_{\xi},\ a>0,\, t> 0,\, x\in \R^3,\, \tau \geq 0,\, \xi\in\R^3.
 \]
 \begin{lemma}
 Пусть $g(\xi, \tau )$ такая, что 
 \begin{enumerate}
-\item $g \in C\{\xi\in\bR^3,\tau\geq 0 \}$
-\item $D_{\xi}^{\alpha}g(\xi , \tau )\in C\{\xi\in\bR^3,\tau\geq 0 \}\ \forall\alpha : |\alpha |\leq p.$
+\item $g \in C\{\xi\in\R^3,\tau\geq 0 \}$
+\item $D_{\xi}^{\alpha}g(\xi , \tau )\in C\{\xi\in\R^3,\tau\geq 0 \}\ \forall\alpha : |\alpha |\leq p.$
 \end{enumerate}
 Тогда
 \begin{enumerate}
-\item $D_{t,x}^{\alpha}u_g(t,x,\tau )\in C\{\mathbf{t\geq 0}, x\in\bR^3,\tau\geq 0 \}\ \forall\alpha : |\alpha |\leq p$
+\item $D_{t,x}^{\alpha}u_g(t,x,\tau )\in C\{\mathbf{t\geq 0}, x\in\R^3,\tau\geq 0 \}\ \forall\alpha : |\alpha |\leq p$
 \item $\lim\limits_{t\rightarrow +0}u_g(t,x,\tau )=0$
 \item При $p\geq 1$ $\lim\limits_{t\rightarrow +0}\dfrac{\partial u_g}{\partial t}=g(x,\tau)$
 \end{enumerate}
@@ -35,9 +35,9 @@ u_g(t,x,\tau)=\frac{(at)^2}{4\pi a^2t}\iint\limits_{|\eta |=1}g(x+at\eta ,\tau )
 
 Теперь интеграл уже по фиксированному множеству. Все выкладки справедливы при $t>0$. Функция
 \[
-\overline{g}(t,x,\eta ,\tau)=g(x+at\eta, \tau)\in C\{t\geq 0, x\in \bR^3 , |\eta | = 1, \tau\geq 0\}.
+\overline{g}(t,x,\eta ,\tau)=g(x+at\eta, \tau)\in C\{t\geq 0, x\in \R^3 , |\eta | = 1, \tau\geq 0\}.
 \]
-Тогда по теореме из начала билета $J_g(t,x,\tau )\in C\{t\geq 0, x\in \bR^3,\tau\geq 0\}.$
+Тогда по теореме из начала билета $J_g(t,x,\tau )\in C\{t\geq 0, x\in \R^3,\tau\geq 0\}.$
 
 Аналогично будет для производных в силу второй части той же теоремы и наличия соответствующих производных у функции $g$.
 
@@ -66,23 +66,23 @@ U_g(t,x,\tau ) = \begin{cases}
 \begin{equation}
 \left\{
   \begin{array}{ll}
-  u_{tt}-a^2\Delta u=0,\ t>0,\, x\in \bR^3\\
+  u_{tt}-a^2\Delta u=0,\ t>0,\, x\in \R^3\\
   \left. u\right|_{t=0}=0;\ \left. u_t\right|_{t=0}=u_1(x)
   \end{array}
 \right.
 \label{eq::5::cauchy}
 \end{equation}
 \begin{theorem}[Формула Пуассона-Кирхгофа]
-Пусть $u_1(x)\in C^2(\bR^3)$. Тогда 
+Пусть $u_1(x)\in C^2(\R^3)$. Тогда 
 \[
-u(t,x)=\frac{1}{4\pi a^2t}\iint\limits_{|\xi - x|=at}u_1(\xi )dS_{\xi}\in C^2\{t\geq 0, x\in \bR^3 \}
+u(t,x)=\frac{1}{4\pi a^2t}\iint\limits_{|\xi - x|=at}u_1(\xi )dS_{\xi}\in C^2\{t\geq 0, x\in \R^3 \}
 \]
 и является классическим решением задачи \eqref{eq::5::cauchy}
 \end{theorem}
 \begin{proof}
 В силу леммы имеем $\left. u\right|_{t=0}=0;\ \left. u_t\right|_{t=0}=u_1$.
 
-Т.к. $u_1\in C^2(\bR^2),\ u\in C^2\{t\geq 0, x\in\bR^3\}$, то сделаем замену переменной:
+Т.к. $u_1\in C^2(\R^2),\ u\in C^2\{t\geq 0, x\in\R^3\}$, то сделаем замену переменной:
 \[
 u(t, x)=\frac{t}{4\pi}\iint\limits_{|\eta |=1}u_1(x+at\eta )dS_{\eta}.
 \]
@@ -118,8 +118,8 @@ u_t=\frac{u(t, x)}{t}+\frac{1}{4\pi at}\iiint\limits_{|\xi - x|<at}\Delta_{\xi}u
 \begin{equation}
 \left\{
   \begin{array}{ll}
-  u_{tt}-a^2\Delta u=0,\ t>0,\, x\in \bR^3\\
-  \left. u\right|_{t=0}=u_0(x);\ \left. u_t\right|_{t=0}=0,\ u_0\in C^3(\bR^3)
+  u_{tt}-a^2\Delta u=0,\ t>0,\, x\in \R^3\\
+  \left. u\right|_{t=0}=u_0(x);\ \left. u_t\right|_{t=0}=0,\ u_0\in C^3(\R^3)
   \end{array}
 \right.
 \label{eq::5::cauchy2}
@@ -129,14 +129,14 @@ u_t=\frac{u(t, x)}{t}+\frac{1}{4\pi at}\iiint\limits_{|\xi - x|<at}\Delta_{\xi}u
 \[
 \left\{
   \begin{array}{ll}
-  v_{tt}-a^2\Delta v=0,\ t>0,\, x\in \bR^3\\
+  v_{tt}-a^2\Delta v=0,\ t>0,\, x\in \R^3\\
   \left. v\right|_{t=0}=0;\ \left. v_t\right|_{t=0}=u_0(x)
   \end{array}
 \right.
 \]
-Эту задачу мы уже решили. Так как $u_0\in C^3(\bR^3)$, имеем $v\in C^3\{t\geq 0, x\in\bR^3\}$.
+Эту задачу мы уже решили. Так как $u_0\in C^3(\R^3)$, имеем $v\in C^3\{t\geq 0, x\in\R^3\}$.
 \begin{statement}
-$u(x, t)\equiv v_t(x, t)\in C^2\{t\geq 0, x\in\bR^3 \}$ дает решение \eqref{eq::5::cauchy2}.
+$u(x, t)\equiv v_t(x, t)\in C^2\{t\geq 0, x\in\R^3 \}$ дает решение \eqref{eq::5::cauchy2}.
 \end{statement}
 \begin{proof}$\ $
 \begin{enumerate}
@@ -147,7 +147,7 @@ $u(x, t)\equiv v_t(x, t)\in C^2\{t\geq 0, x\in\bR^3 \}$ дает решение 
 \end{proof}
 Мы доказали следующую теорему:
 \begin{theorem}
-Функция $u(t,x)=\dfrac{\partial}{\partial t}\left[\dfrac{1}{4\pi a^2t}\displaystyle\iint\limits_{|\xi -x|=at}u_0(\xi )dS_{\xi } \right],\ t\geq 0,x\in\bR^3$, где $u_0\in C^3(\bR^3)$, является классическим решением задачи \eqref{eq::5::cauchy2}. 
+Функция $u(t,x)=\dfrac{\partial}{\partial t}\left[\dfrac{1}{4\pi a^2t}\displaystyle\iint\limits_{|\xi -x|=at}u_0(\xi )dS_{\xi } \right],\ t\geq 0,x\in\R^3$, где $u_0\in C^3(\R^3)$, является классическим решением задачи \eqref{eq::5::cauchy2}. 
 \end{theorem}
 
 
