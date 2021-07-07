@@ -1,5 +1,4 @@
-% Шаблон Юрия Максимова
-% Лекции Зубова, конспект лекций и билеты Павла Останина
+% Шаблон Юрия Максимова (отредактированный)
 
 \documentclass[12pt]{article}
 \usepackage{graphicx}
@@ -10,34 +9,16 @@
 \usepackage{amscd}        % используется в одном месте в конце 28 билета
 \usepackage{amsmath}
 \usepackage{esint}        % для \oiint
-\usepackage{wrapfig}
+\usepackage{wrapfig}      % можно иллюстрации сбоку от текста
 \usepackage{datetime}
-\usepackage{cancel}
+\usepackage{cancel}       % чтобы зачёркивать члены в формулах
 \usepackage{mathtools}
-\usepackage{units}
-\usepackage{fancyhdr}
-\usepackage{forloop}
 \usepackage{amssymb}
-\usepackage{url}
-\usepackage{comment}
 \usepackage[colorlinks = true, urlcolor = blue]{hyperref}
-\usepackage{xcolor}
 \usepackage[inline]{enumitem}
-\usepackage{wrapfig}
-\usepackage{cmll}
-\usepackage{varwidth}
+\usepackage{cmll}         % Используется в одном месте в 14 билете
+\usepackage{varwidth}     % Чтобы сделать minipage со списком авторов
 \usepackage{subfiles}
-%s\pagenumbering{arabic}
-% Pogodin theorem definitions
-% \
-
-% \newtheorem*{theorem}{Теорема}
-% \newtheorem*{lemma}{Лемма}
-% \newtheorem*{remark}{Замечание}
-% %\newtheorem*{proof}{Доказательство} %уже есть
-% \newtheorem*{statement}{Утверждение}
-% \newtheorem*{definition}{Определение}
-% \newtheorem*{example}{Пример}
 
 % Ivanychev theorem definitions
 \theoremstyle{plain}
@@ -250,34 +231,28 @@
 
 \newpage
 
-\begin{minipage}{1\textwidth}
+\centering
+\begin{varwidth}{\textwidth}
   \centering
-      \begin{varwidth}{\textwidth}
-        \centering
-        %\textbf{Делали:}
-        \subsection*{Делали:}
-
-        \begin{itemize}
-            \item Иванычев Сергей, 376 группа
-            \item Погодин Роман, 374 группа
-            \item Нагайко Иван, 372 группа
-            \item Рязанов Андрей, 374 группа
-            \item Федоряка Дмитрий, 374 группа
-            \item Багно Богдан, 376 группа
-            \item Изутин Никита, 378 группа
-            \item Ермолова Марина, 373 группа
-            \item Хасянов Расул, 371 группа
-            \item Михальченко Егор, 371 группа
-            \item Шлёнский Владислав, 374 группа
-            \item Цветкова Ольга, 374 группа
-            \item Молибог Игорь, 374 группа
-            \item Чигринский Виктор, 374 группа
-            \item Леонтьев Семён, 377 группа
-            \item Кильянов Александр, 372 группа 
-            \item Тернов Лёха, 228 группа
-      \end{itemize}
-    \end{varwidth}
-  \end{minipage}
-  \begin{minipage}{0.1\textwidth}
-  \end{minipage}
+  \subsection*{Делали:}
+  \begin{itemize}
+    \item Иванычев Сергей, 376 группа
+    \item Погодин Роман, 374 группа
+    \item Нагайко Иван, 372 группа
+    \item Рязанов Андрей, 374 группа
+    \item Федоряка Дмитрий, 374 группа
+    \item Багно Богдан, 376 группа
+    \item Изутин Никита, 378 группа
+    \item Ермолова Марина, 373 группа
+    \item Хасянов Расул, 371 группа
+    \item Михальченко Егор, 371 группа
+    \item Шлёнский Владислав, 374 группа
+    \item Цветкова Ольга, 374 группа
+    \item Молибог Игорь, 374 группа
+    \item Чигринский Виктор, 374 группа
+    \item Леонтьев Семён, 377 группа
+    \item Кильянов Александр, 372 группа 
+    \item Тернов Лёха, 228 группа
+  \end{itemize}
+\end{varwidth}
 \end{document}
