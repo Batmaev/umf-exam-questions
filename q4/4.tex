@@ -1,16 +1,22 @@
 % Затехал Иваныч
+\documentclass[../main.tex]{subfiles}
+\begin{document}
 
 \section{Билет 4. Смешанная задача для колебаний полубесконечной струны с закрепленным концом. Условия согласования начальных и граничного данных. Существование и единственность классического решения.}
+
 \subsection{Формулировка}
-    Задача (называется \emph{начально-краевой} или \emph{смешанной})
-    \begin{equation} \label{4_1}
-    \begin{cases}
-        u_{tt} -a^2u_{xx} &= 0 ,\;\; t>0, x>0 \\
-        \while{u}{t=0} &= u_0(x),\quad x\ge 0 \\
-        \while{u_t}{t=0} &= u_1(x),\quad x\ge 0  \\
-        \while{u}{x=0} &= 0, \;\; \text{по сравнению с задачей Коши это дополнительное граничное условие}
-    \end{cases}
-    \end{equation}
+
+Задача (называется \emph{начально-краевой} или \emph{смешанной})
+\begin{equation} \label{4_1}
+\begin{cases}
+  u_{tt} -a^2u_{xx} = 0 ,\;\;\, t>0,\; x>0 \\
+  \begin{aligned}
+    \while{u}{t=0}\; &= u_0(x),\quad x\geq 0 \\
+    \while{u_t}{t=0} &= u_1(x),\quad x\geq 0  \\
+    \while{u}{x=0} &= 0, \;\; \text{по сравнению с задачей Коши это дополнительное граничное условие}
+  \end{aligned}
+\end{cases}
+\end{equation}
     
 \begin{remark}
     Физический смысл: смотрим, как волна отражается от закрепленного конца  
@@ -18,8 +24,8 @@
 Предполагаем, что 
 \begin{equation*}
     \begin{cases}
-        u_0(x) &\in C^2([0, +\infty)) \\
-        u_1(x) &\in C^1([0, +\infty)) \\
+        u_0(x) \in C^2 [0, +\infty) \\
+        u_1(x) \in C^1 [0, +\infty) \\
     \end{cases}
 \end{equation*}
 
@@ -166,3 +172,4 @@ $$
 \hat u(t, 0) = \underbrace{\frac{\hat u_0(- at) + \hat u_0(at)}{2}}_{=0} + \frac{1}{2a} \int_{-at}^{+at} \hat u_1(y)\;dy = 0
 $$
 \end{proof}
+\end{document}
