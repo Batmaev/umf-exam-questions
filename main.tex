@@ -15,10 +15,15 @@
 \usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage[colorlinks = true, urlcolor = blue]{hyperref}
-\usepackage[inline]{enumitem}
+\usepackage{subfiles}
 \usepackage{cmll}         % Используется в одном месте в 14 билете
 \usepackage{varwidth}     % Чтобы сделать minipage со списком авторов
-\usepackage{subfiles}
+\usepackage{tikz}         % LaTeX как графический редактор
+\usetikzlibrary{patterns}
+\usepackage[inline]{enumitem}
+\makeatletter
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
+\makeatother
 
 % Ivanychev theorem definitions
 \theoremstyle{plain}
@@ -106,37 +111,12 @@
 \newcommand{\pdd}[2]{\npd{#1}{#2}{2}}
 %   pdd{f}{x}  ---> (d^2 f) / dx^2
 
-% Позволяет писать \item'ы в строчку
-% Пример:
-% \begin{itemize}
-% 	\item bla \inlineitem bla \inlineitem bla
-%		== здесь перешли на новую строку ==
-%	\item bla \inlineitem bla \inlineitem bla
-% \end{itemize}
-\makeatletter
-\newcommand{\inlineitem}[1][]{%
-\ifnum\enit@type=\tw@
-    {\descriptionlabel{#1}}
-  \hspace{\labelsep}%
-\else
-  \ifnum\enit@type=\z@
-       \refstepcounter{\@listctr}\fi
-    \quad\@itemlabel\hspace{\labelsep}%
-\fi}
 
-\makeatletter
-\AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
-\makeatother
 
-\usepackage{tikz}
-\usetikzlibrary{patterns}
 
 \title{Уравнения математической физики}
 \date{\today \quad \currenttime}
 \author{Билеты к экзамену. Поток В.И. Зубова}
-
-\usepackage{natbib}
-\usepackage{graphicx}
 
 \begin{document}
 
@@ -148,8 +128,6 @@
 
 \tableofcontents
 
-%\subfile{biblio.tex}
-
 \newpage
 \subfile{q1/1 part1.tex}
 \subfile{q1/1 part2.tex}
@@ -158,12 +136,10 @@
 \newpage
 \subfile{q3/3.tex}
 \newpage
-% Сергей Иванычев 
 \subfile{q4/4.tex}
 \newpage
 \subfile{q5/5.tex}
 \newpage
-% Сергей Иванычев 
 \subfile{q6/6.tex}
 \newpage
 \subfile{q7/7.tex}
