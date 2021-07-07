@@ -48,28 +48,23 @@ $\begin{cases} -l<x+at<l \\ -l<x-at<l\end{cases}$ -- {\bf характерист
 \bigskip
 
 \begin{wrapfigure}[3]{R}{0.27\textwidth}
-%\includegraphics[width=0.9\linewidth]{3_1_new} 
-%\begin{comment}
 \begin{tikzpicture}[scale = 0.5]
-  \tikzstyle{axes}=[]
-  \tikzstyle{important line}=[very thick]
-  \tikzstyle{information text}=[rounded corners,fill=red!10,inner sep=1ex]
+  \coordinate (A) at (0, -2);
+  \coordinate (B) at (3, 0);
+  \coordinate (C) at (0, 2);
+  \coordinate (D) at (-3, 0);
 
-   \begin{scope}[style=axes]
-    \draw[->] (-4,0) -- (4,0) node[right] {$x$};
-    \draw[->] (0,-3) -- (0,3) node[left] {$y$};
-    \end{scope}
+  \definecolor{lightGray}{RGB}{216, 216, 216};
+  \filldraw[fill = lightGray] (A) -- (B) -- (C) -- (D) -- cycle;
 
-    \coordinate (A) at (0, -2);
-    \coordinate (B) at (3, 0);
-    \coordinate (C) at (0, 2);
-    \coordinate (D) at (-3, 0);
-    \draw[pattern = north east lines, pattern color = blue] (A) -- (B) -- (C) -- (D) -- cycle;
 
-    \coordinate [label = {right: \Large $Q$}] (F) at (0.7, 0);
-    \end{tikzpicture}
-%\end{comment}
+  \draw[->] (-4,0) -- (4,0) node[right] {$x$};
+  \draw[->] (0,-3) -- (0,3) node[left] {$y$};
+
+  \coordinate [label = {right: \Large $Q$}] (F) at (0.7, 0);
+\end{tikzpicture}
 \end{wrapfigure}
+
 Нами доказана теорема:
 \begin{theorem}
 Пусть $\begin{cases} u_0(x)\in C^2(-l;l) \\ u_1(x) \in C^1(-l;l) \end{cases}$. Тогда ЗК имеет в $Q$\\[0.1em]
