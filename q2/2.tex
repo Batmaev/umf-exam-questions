@@ -53,7 +53,7 @@ $\To$ после преобразования $\omega=0 \Equiv y_n=0$.\\
 \includegraphics[width=0.22\textwidth]{./pic 2_1.pdf}
 \end{center}
 Дополним $\vec{n}$ до базиса -- получим $\rbrs{\vec{l}_1,\dots,\vec{l}_{n-1},\vec{n}}$. Ортогонализуем -- получим $\rbrs{\vec{e}_1,\dots,\vec{e}_{n-1},\vec{n}}.$ Возьмем такое преобразование:
-\[ y = y(x) = \begin{cases} y_1(x_1,\dots,x_n) = \rbrs{\vec{e}_1, \vec{x}-\vec{x^0}} \\ \vdots \\ y_{n-1}(x_1,\dots,x_n) = \rbrs{\vec{e}_{n-1}, \vec{x}-\vec{x^0}} \\ y_n(x_1,\dots,x_n) = \omega(x) \end{cases}\]
+\[ \vec{y}(\vec{x}) = \begin{cases} y_1 = \brs{\vec{x}-\vec{x}_0} \cdot \vec{e}_1 \\ \vdots \\ y_{n-1} = \brs{\vec{x}-\vec{x}_0} \cdot \vec{e}_{n-1} \\ y_n = \omega(\vec{x}) \end{cases}\]
 Проверим $|J(x^0)|\not=0: \quad |J(x^0)| = 
 \begin{vmatrix} 
 \displaystyle\pd{y_1}{x_1}(x^0) & \cdots & \displaystyle\pd{y_1}{x_n}(x^0) \\
@@ -110,7 +110,7 @@ $\Delta u(x) = f(x)\ \text{(ур-е Пуассона)},\ x\in\R^n;$
 
 \begin{offtop}
 Пусть $S:\ \omega(\vec{x}) = 0,\ \omega(\vec{x}) \in C^2(\Omega),\ \nabla\omega\not=0\ \forall \vec{x}\in \Omega$ (гладкая поверхность, нормаль меняется непрерывно).\\
-Будем называть точку $\vec{x^0} \in S\ \text{{\bf характеристической}, если }\ \displaystyle\sum\limits_{i,j=1}^{n}a_{ij}(\vec{x^0})\omega_{x_i}(\vec{x^0})\omega_{x_j}(\vec{x^0}) = 0.$
+Будем называть точку $\vec{x}_0 \in S\ \text{{\bf характеристической}, если }\ \displaystyle\sum\limits_{i,j=1}^{n}a_{ij}(\vec{x}_0)\omega_{x_i}(\vec{x}_0)\omega_{x_j}(\vec{x}_0) = 0.$
 \end{offtop}
 \begin{center}
 \includegraphics[width=0.3\textwidth]{pic 2_2.pdf}
@@ -118,20 +118,20 @@ $\Delta u(x) = f(x)\ \text{(ур-е Пуассона)},\ x\in\R^n;$
 
 \medskip
 
-Функция $u(\vec{x}) = u(x_1,\dots,x_n)$ называется {\bf вещественно-аналитической} в $\vec{x^0}$, если в некоторой $U_{\varepsilon}(\vec{x^0})$ она представима в виде $u(\vec{x}) = \displaystyle\sum\limits_{|\alpha|>0}u_{\alpha}(\vec{x-x^0})^{\alpha},$ где $\alpha$ -- мультииндекс, $u_{\alpha} \in \R, \qquad (\vec{x-x^0})^{\alpha} = (x_1-x_1^0)^{\alpha_1}\cdot\dots\cdot(x-x_n^0)^{\alpha_n}$
+Функция $u(\vec{x}) = u(x_1,\dots,x_n)$ называется {\bf вещественно-аналитической} в $\vec{x}_0$, если в некоторой $U_{\varepsilon}(\vec{x}_0)$ она представима в виде $u(\vec{x}) = \displaystyle\sum\limits_{|\alpha|>0}u_{\alpha}(\vec{x}-\vec{x}_0)^{\alpha},$ где $\alpha$ -- мультииндекс, $u_{\alpha} \in \R, \qquad (\vec{x}-\vec{x}_0)^{\alpha} = (x_1-x_1^0)^{\alpha_1}\cdot\dots\cdot(x-x_n^0)^{\alpha_n}$
 
 \begin{theorem}[Ковалевской]
 Пусть в уравнении $\displaystyle\sum\limits_{i,j=1}^{n} a_{ij}(\vec{x})\frac{\subd^2u}{\subd x_i\subd x_j} + F(\vec{x}, u, \nabla u) = 0$:
 \begin{itemize}[noitemsep]
-\item все $a_{ij}(\vec{x})$ вещественно-аналитические в $\vec{x^0}$ 
-\item $F(\vec{x}, u, \nabla u)$ --вещественное-аналитическая в $(\vec{x^0}, u_0(\vec{x_0}), \nabla u(\vec{x_0}))$ соответственно 
-\item $\omega(\vec{x})$ вещественно-аналитическая в $\vec{x^0}$
-\item $\vec{x^0}$ -- не характеристическая точка $S$
-\item $u_0,\ u_1$ -- вещественно-аналитические в $\vec{x^0}$.
+\item все $a_{ij}(\vec{x})$ вещественно-аналитические в $\vec{x}_0$ 
+\item $F(\vec{x}, u, \nabla u)$ --вещественное-аналитическая в $(\vec{x}_0, u_0(\vec{x}_0), \nabla u(\vec{x}_0))$ соответственно 
+\item $\omega(\vec{x})$ вещественно-аналитическая в $\vec{x}_0$
+\item $\vec{x}_0$ -- не характеристическая точка $S$
+\item $u_0,\ u_1$ -- вещественно-аналитические в $\vec{x}_0$.
 \end{itemize}
 Тогда: 
 \begin{itemize}[noitemsep]
-\item $\exists U_{\varepsilon}(\vec{x^0})$ : в ней $\exists$ вещественно-аналитическое решение Задачи Коши (ЗК)
+\item $\exists U_{\varepsilon}(\vec{x}_0)$ : в ней $\exists$ вещественно-аналитическое решение Задачи Коши (ЗК)
 \item оно единственно в классе вещественно-аналитических функций.
 \end{itemize}
 \end{theorem}

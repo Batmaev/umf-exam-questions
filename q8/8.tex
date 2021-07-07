@@ -29,11 +29,11 @@ $$
 \begin{center}
 \includegraphics[width=0.28\linewidth]{pic 8.pdf}
 \end{center}
-Вектор (внешней) нормали $ \overrightarrow{n} $ к этому усеченному конусу:
+Вектор (внешней) нормали $ \vec{n} $ к этому усеченному конусу:
 \begin{itemize}
-	\item на $\Sigma_T: \overrightarrow{n} = \begin{pmatrix}1 & 0 & 0\end{pmatrix}^T $
-	\item на $\Sigma_0: \overrightarrow{n} = \begin{pmatrix}-1 & 0 & 0\end{pmatrix}^T $
-	\item на $\Gamma_T:\overrightarrow{n}=\dfrac{-1}{\sqrt{w_t^2+w^2_{x_1}+w^2_{x_2}}}\begin{pmatrix}w_t\\w_{x_1}\\w_{x_2}\end{pmatrix}$. \; В силу соотношений $\; w_t^2 - a^2w^2_{x_1} - a^2w^2_{x_2} = 0 $ , имеем $n^2_t = a^2(n^2_{x_1} + n^2_{x_2})$.
+	\item на $\Sigma_T: \vec{n} = \begin{pmatrix}1 & 0 & 0\end{pmatrix}^T $
+	\item на $\Sigma_0: \vec{n} = \begin{pmatrix}-1 & 0 & 0\end{pmatrix}^T $
+	\item на $\Gamma_T:\vec{n}=\dfrac{-1}{\sqrt{w_t^2+w^2_{x_1}+w^2_{x_2}}}\begin{pmatrix}w_t\\w_{x_1}\\w_{x_2}\end{pmatrix}$. \; В силу соотношений $\; w_t^2 - a^2w^2_{x_1} - a^2w^2_{x_2} = 0 $ , имеем $n^2_t = a^2(n^2_{x_1} + n^2_{x_2})$.
 
 Т.к. $n^2_t + n^2_{x_1} + n^2_{x_2} =1,\; n^2_t = \dfrac{a^2}{a^2 +1} \;\Rightarrow n_t = \dfrac{a}{\sqrt{a^2+1}}.$
 \end{itemize}
@@ -53,14 +53,14 @@ $
 \end{multline*}
 
 
-Введем в рассмотрение векторное поле $ \overrightarrow{F} = \begin{pmatrix}F^t &F^{x_1}  &F^{x_2} \end{pmatrix}^T $. Тогда то выражение, к которому мы пришли, есть
+Введем в рассмотрение векторное поле $ \vec{F} = \begin{pmatrix}F^t &F^{x_1}  &F^{x_2} \end{pmatrix}^T $. Тогда то выражение, к которому мы пришли, есть
 $$
- \mathrm{div}\overrightarrow{F} = \frac{\partial }{\partial t}F^t + \frac{\partial }{\partial x_1}F^{x_1} + \frac{\partial }{\partial x_2}F^{x_2}.
+ \mathrm{div}\vec{F} = \frac{\partial }{\partial t}F^t + \frac{\partial }{\partial x_1}F^{x_1} + \frac{\partial }{\partial x_2}F^{x_2}.
 $$
 
 Проинтегрируем эту дивергенцию по объему усеченного конуса:
 \begin{multline*}
-  0=\iiint\limits_{V_T}\mathrm{div}\overrightarrow{F} = \oiint\limits_{\partial V_T}(\overrightarrow{F},\overrightarrow{n})\mathrm{d}S = {}\\
+  0=\iiint\limits_{V_T}\mathrm{div}\vec{F} = \oiint\limits_{\partial V_T}(\vec{F},\vec{n})\mathrm{d}S = {}\\
   {} =\iint\limits_{\Sigma_T}\frac{v^2_t+a^2v^2_{x_1}+a^2v^2_{x_2}}{2}\mathrm{d}S-\iint\limits_{\Sigma_0}\frac{v^2_t+a^2v^2_{x_1}+a^2v^2_{x_2}}{2}\mathrm{d}S + {}\\
   {} +\frac{1}{2}\iint\limits_{\Gamma_T}\brs{(v^2_t+a^2v^2_{x_1}+a^2v^2_{x_2})n_t-2a^2v_{t}v_{x_1}n_{x_1} - 2a^2v_{t}v_{x_2}n_{x_2}}\mathrm{d}S = {}\\
   {} = E(\Sigma_T) + E(\Gamma_T) - E(\Sigma_0) 
