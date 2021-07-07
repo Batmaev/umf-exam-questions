@@ -121,7 +121,7 @@ $u = \mathrm{Re}\, w_1 + \mathrm{Im}\, w_2$.\\
 Вспомогательный факт: $\tilde{w}(z) = \tilde{u}(z) + i \tilde{v}(z) \Rightarrow \frac{d \tilde{w}}{d z} = \tilde{u}_{x_1} + i \tilde{v}_{x_1} \Rightarrow  \tilde{u}_{x_1} = (\mathrm{Re}\, \tilde{w})_{x_1} = \mathrm{Re}\, (\tilde{w}_z)$\\
 В нашем случае: 
 \[
-\pd{}{x_1} \mathrm{Re}\, w_1(z) = \mathrm{Re}\, \d{w}{z} = \mathrm{Re}\, \sum_{k=0}^{\infty} \frac{A_k}{R^k}\brs{z^k}'_z = \sum_{k=0}^{\infty} \frac{A_k}{R^k}\mathrm{Re}\, \d{z^k}{z} = \sum_{k=0}^{\infty} \frac{A_k}{R^k}\pd{}{x_1}\mathrm{Re}\,z^k = \sum_{k=0}^{\infty} \frac{A_k}{R^k}\brs{p_k}'_{x_1}(x_1,x_2)
+\pd{}{x_1} \mathrm{Re}\, w_1(z) = \mathrm{Re}\, \frac{dw}{dz} = \mathrm{Re}\, \sum_{k=0}^{\infty} \frac{A_k}{R^k}\brs{z^k}'_z = \sum_{k=0}^{\infty} \frac{A_k}{R^k}\mathrm{Re}\, \frac{dz^k}{dz} = \sum_{k=0}^{\infty} \frac{A_k}{R^k}\pd{}{x_1}\mathrm{Re}\,z^k = \sum_{k=0}^{\infty} \frac{A_k}{R^k}\brs{p_k}'_{x_1}(x_1,x_2)
 \]
 Аналогично для $B_k$ и для производного любого порядка.
 \end{enumerate}
