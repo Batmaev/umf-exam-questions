@@ -17,7 +17,8 @@
   \end{aligned}
 \end{cases}
 \end{equation}
-    
+\vspace{0pt}  % Почему-то это создаёт дополнительный отступ, которого не хватало
+
 \begin{remark}
     Физический смысл: смотрим, как волна отражается от закрепленного конца  
 \end{remark}
@@ -116,6 +117,7 @@ $$
             \dfrac{u_0(at+x) - u_0(at-x)}{2} + \dfrac{1}{2a}\displaystyle\int_{at-x}^{at+x}u_1(y)\;dy, & \{x\ge -at, x\le at\} \\
         \end{cases}
 \end{equation}
+\vspace{0pt}
 
 \begin{theorem}
     Пусть в смешанной задаче \ref{4_1} функции $u_0(x)$ и $u_1(x)$ таковы, что 
@@ -123,7 +125,7 @@ $$
         \item Выполнено условие гладкости: $u_0(x)\in \C^2[0, +\infty), \; u_1(x) \in \C^1[0, +\infty)$
         \item Выполнено условие согласования: $u_0(0) = u_1(0) = u_0''(0) = 0$
     \end{itemize}
-    Тогда задача \ref{4_1} имеет единственное классическое решение $u \in \C^2(t \ge 0, x\ge 0)$ представленное в \ref{4_2}
+    Тогда задача \ref{4_1} имеет единственное классическое решение $u(t,x) \in \C^2(t \ge 0, x\ge 0)$, представленное в \ref{4_2}
 \end{theorem}
 
 \begin{proof}
@@ -156,20 +158,22 @@ $$
     \while{\hat u_t}{t=0} = \hat u_1(x) & x \in \R^1 \\
 \end{cases} \text{свели к задаче Коши}
 $$
+
 Решение дается формулой Даламбера:
 $$
 \hat u(t, x) = \frac{\hat u_0(x + at) + \hat u_0(x - at)}{2} +\frac{1}{2a}
 \int_{x-at}^{x+at}\hat u_1(y)\;dy
 $$
 Покажем нечетность по $x$:
-$$
+\begin{multline*}
 \hat u(t, -x) = \frac{\hat u_0(-x + at) + \hat u_0(-x - at)}{2} +\frac{1}{2a}
 \int_{-x-at}^{-x+at}\hat u_1(y)\;dy =
-\frac{\hat u_0(x - at) + \hat u_0(x + at)}{2} - \frac{1}{2a}\int_{x-at}^{x+at}\hat u_1(y)\;dy =$$
-$ = -\hat u(t, x)$
+\frac{\hat u_0(x - at) + \hat u_0(x + at)}{2} -\\
+-\frac{1}{2a}\int_{x-at}^{x+at}\hat u_1(y)\;dy = -\hat u(t, x)
+\end{multline*}
 
-$$
-\hat u(t, 0) = \underbrace{\frac{\hat u_0(- at) + \hat u_0(at)}{2}}_{=0} + \frac{1}{2a} \int_{-at}^{+at} \hat u_1(y)\;dy = 0
-$$
+\begin{multline*}
+\hat u(t, 0) = \underbrace{\frac{\hat u_0(- at) + \hat u_0(at)}{2}}_{=0} + \frac{1}{2a} \int_{-at}^{+at} \hat u_1(y)\;dy = 0\hfill
+\end{multline*}
 \end{proof}
 \end{document}
