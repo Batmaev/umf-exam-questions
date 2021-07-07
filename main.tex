@@ -49,7 +49,6 @@
 
 
 % Defines
-\def \subd {\partial }
 
 \newcommand{\while}[2]{\left. #1\right|_{#2}}
 \newcommand{\brs}[1]{\left(#1\right)}
@@ -68,14 +67,16 @@
 \renewcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+
 \renewcommand{\phi}{\varphi}
-\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\eps}{\varepsilon}
+
 \newcommand{\sign}{\mathrm{sign}\;}
 
 \newcommand{\Equiv}{\Leftrightarrow}
 \newcommand{\To}{\Rightarrow}
 
-\newcommand{\eps}{\varepsilon}
+%\newcommand{\eps}{\varepsilon}
 \let \oldcmdforall \forall
 \renewcommand{\forall}{\;\oldcmdforall\:}
 \let \oldcmdexists \exists
@@ -93,7 +94,9 @@
 \let\oldnorm\norm
 \def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
 \makeatother
+
 % derivatives
+\def \subd {\partial }
 \renewcommand{\d}[2]{\frac{d #1}{d #2}}
 \newcommand{\nd}[3]{\frac{d^{#3} #1}{d #2^{#3}}}
 \newcommand{\dd}[2]{\nd{#1}{#2}{2}}

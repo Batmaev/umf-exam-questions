@@ -43,8 +43,8 @@ $\|Ku\|_{C(\bar G)} = \max\limits_{\bar G} |(Ku)(x)| = \max\limits_{\bar G} |\in
 \begin{proof}
 ($\Rightarrow$): Пусть ядро полярное. Тогда $\exists B: |\kappa| \le B$ на $\bar G \times \bar G$ и $|K| \le \frac{B}{|x-y|^\alpha}.$
 \\
-($\Leftarrow$): Пусть $\beta < n \Rightarrow \exists \epsilon > 0: \beta+\epsilon < n.$ Рассмотрим $\kappa =  \begin{cases}
-   K(x,y)|x-y|^{\beta+\epsilon}, &x,y\in G, x\ne y;\\
+($\Leftarrow$): Пусть $\beta < n \Rightarrow \exists \eps > 0: \beta+\eps < n.$ Рассмотрим $\kappa =  \begin{cases}
+   K(x,y)|x-y|^{\beta+\eps}, &x,y\in G, x\ne y;\\
    0, & x=y\in G.
  \end{cases}
 $
@@ -52,9 +52,9 @@ $
 Построенная $\kappa$ непрерывна в $(\bar G \times \bar G)\backslash\{x=y\}.$
 
 Возьмем $x^0,y^0 \in G, x^0 \ne y^0:$
-$|\kappa(x,y) - \kappa(x^0, x^0)| = |\kappa(x,y)| \le |K||x-y|^{\beta+\epsilon} \le \frac{B}{|x-y|^\beta}|x-y|^{\beta+\epsilon}\le B|x-y|^\epsilon = B|(x-x^0)-(y-y^0)|^\epsilon \le B(|x-x^0|+|y-y^0|)^\epsilon \Rightarrow \kappa$ непрерывна всюду в $\bar G \times \bar G.$
+$|\kappa(x,y) - \kappa(x^0, x^0)| = |\kappa(x,y)| \le |K||x-y|^{\beta+\eps} \le \frac{B}{|x-y|^\beta}|x-y|^{\beta+\eps}\le B|x-y|^\eps = B|(x-x^0)-(y-y^0)|^\eps \le B(|x-x^0|+|y-y^0|)^\eps \Rightarrow \kappa$ непрерывна всюду в $\bar G \times \bar G.$
 
-Очевидно из определения $\kappa,$ что можем записать $K(x,y) = \frac{\kappa(x,y)}{|x-y|^{\beta+\epsilon}},$ т.е. это ядро -- полярное по определению.
+Очевидно из определения $\kappa,$ что можем записать $K(x,y) = \frac{\kappa(x,y)}{|x-y|^{\beta+\eps}},$ т.е. это ядро -- полярное по определению.
 \end{proof}
 
 
@@ -63,7 +63,7 @@ $|\kappa(x,y) - \kappa(x^0, x^0)| = |\kappa(x,y)| \le |K||x-y|^{\beta+\epsilon} 
 \end{definition}
 
 \begin{theorem}
-Интегральный оператор $K$ с полярным ядром является ограниченным оператором в $C(\bar G).$ Справедлива оценка: $\|K\| \le \sup_{x\in G}\int_G|K(x,y)|dy; \forall \epsilon > 0$ оператор $K$ можно представить в виде суммы $K = K_\epsilon^{cont}+K_\epsilon^{pol},$ где $\|K_\epsilon^{pol}\| \le \epsilon,$ $\|(K_\epsilon^{pol})'\| \le \epsilon,$ $K_\epsilon^{cont}$ --- и.о. с непрерывным ядром, $K_\epsilon^{pol}$ --- и.о. с полярным ядром.
+Интегральный оператор $K$ с полярным ядром является ограниченным оператором в $C(\bar G).$ Справедлива оценка: $\|K\| \le \sup_{x\in G}\int_G|K(x,y)|dy; \forall \eps > 0$ оператор $K$ можно представить в виде суммы $K = K_\eps^{cont}+K_\eps^{pol},$ где $\|K_\eps^{pol}\| \le \eps,$ $\|(K_\eps^{pol})'\| \le \eps,$ $K_\eps^{cont}$ --- и.о. с непрерывным ядром, $K_\eps^{pol}$ --- и.о. с полярным ядром.
 \end{theorem}
 
 \begin{proof} $\ $
