@@ -43,7 +43,7 @@
 \end{align*}
 Если ввести обозначение $v_1 = \displaystyle\int_0^x u_1(y)\;dy + C$, то при $x \geq 0$
 
-\begin{wrapfigure}[7]{r}{0.45\textwidth}
+\begin{wrapfigure}[7]{r}{0.35\textwidth}
     \centering
     \includegraphics[width=0.35\textwidth]{./pic 4_1.pdf}
 \end{wrapfigure}
@@ -58,6 +58,11 @@ $$
 \while{u}{x=0} = f(at) + g(-at)=0, \;\; t \geq 0
 $$
 \clearpage % костыль чтобы wrapfigure не думал, что иллюстрация простирается на следующие страницы тоже
+
+\begin{wrapfigure}[7]{r}{0.35\textwidth}
+    \includegraphics[width=0.35\textwidth]{./pic 4_2.pdf}
+\end{wrapfigure}
+
 Введем $\xi = -at, \xi \leq 0$, тогда $g(\xi) = -f(-\xi)$ и суммарно:
 \begin{equation*}
     g(\xi) = \begin{cases}
@@ -65,10 +70,6 @@ $$
         -\frac{1}{2}u_0(-\xi)-\frac{1}{2a}v_1(-\xi), & \xi \leq 0\\
     \end{cases}
 \end{equation*}
-
-\begin{wrapfigure}[8]{r}{0.35\textwidth}
-    \includegraphics[width=0.35\textwidth]{./pic 4_2.pdf}
-\end{wrapfigure}
 
 Теперь $g$ известна везде, решение найдено при $x + at > 0$, то есть даже в большей области, чем мы хотели.
 
