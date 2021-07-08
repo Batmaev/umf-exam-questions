@@ -40,19 +40,22 @@
     \end{cases}
 \end{align*}
 Если ввести обозначение $v_1 = \displaystyle\int_0^x u_1(y)\;dy + C$, то при $x \geq 0$
+
+\begin{wrapfigure}[7]{r}{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.35\textwidth]{pic 4.pdf}
+\end{wrapfigure}
+
 \begin{align*}
     & f(x) = \frac{1}{2}u_0(x) + \frac{1}{2a}v_1(x) \\
     & g(x) = \frac{1}{2}u_0(x) - \frac{1}{2a}v_1(x) \\
 \end{align*}
 
-\begin{center}
-\includegraphics[width=0.4\textwidth]{pic 4.pdf}
-\end{center}
-
 Граничные условия нужны для определения $u$ в $(x \geq 0)\cap(t \geq 0)$ (в смысле пересечения областей). Их не обязательно ставить на $x=0$, можно на $x + \alpha t = 0, \; -a < \alpha < a$, то есть там, где известна только одна из функций, а не обе.
 $$
 \while{u}{x=0} = f(at) + g(-at)=0, \;\; t \geq 0
 $$
+\clearpage % костыль чтобы wrapfigure не думал, что иллюстрация простирается на следующие страницы тоже
 Введем $\xi = -at, \xi \leq 0$, тогда $g(\xi) = -f(-\xi)$ и суммарно:
 \begin{equation*}
     g(\xi) = \begin{cases}
