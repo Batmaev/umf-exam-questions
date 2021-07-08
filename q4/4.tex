@@ -45,7 +45,7 @@
 
 \begin{wrapfigure}[7]{r}{0.45\textwidth}
     \centering
-    \includegraphics[width=0.35\textwidth]{pic 4.pdf}
+    \includegraphics[width=0.35\textwidth]{./pic 4_1.pdf}
 \end{wrapfigure}
 
 \begin{align*}
@@ -65,32 +65,13 @@ $$
         -\frac{1}{2}u_0(-\xi)-\frac{1}{2a}v_1(-\xi), & \xi \leq 0\\
     \end{cases}
 \end{equation*}
+
+\begin{wrapfigure}[8]{r}{0.35\textwidth}
+    \includegraphics[width=0.35\textwidth]{./pic 4_2.pdf}
+\end{wrapfigure}
+
 Теперь $g$ известна везде, решение найдено при $x + at > 0$, то есть даже в большей области, чем мы хотели.
 
-\begin{center}
-%\includegraphics[width=0.3\textwidth]{4_2_new}
-\begin{tikzpicture}
-  \tikzstyle{axes}=[]
-  \tikzstyle{important line}=[very thick]
-  \tikzstyle{information text}=[rounded corners,fill=red!10,inner sep=1ex]
-
-   \begin{scope}[style=axes]
-    \draw[->] (-3,0) -- (3,0) node[right] {$x$};
-    \draw[->] (0,-1.7) -- (0,1.8) node[left] {$t$};
-    \end{scope}
-    \coordinate (A) at (-2.6, 1.7);
-    \coordinate (B) at (2.6, -1.7);
-    \coordinate (C) at (2.6, 1.7);
-	
-    \draw[draw = none, pattern = north east lines, pattern color = blue] (A) -- (B) -- (C) -- cycle;
-    
-    \coordinate (D) at (2.2, 1);
-    \coordinate (F) at (3, 0.7);
-
-    \draw[->, very thick] (F) -- (D);
-
-    \end{tikzpicture}
-\end{center}
 
 \subsection{Сшивка}
 Чтобы $g(x) \in C^2(\R)$, решения необходимо <<сшить>>
@@ -118,7 +99,7 @@ $$
 
 \begin{equation} \label{4_2}
         u(t, x) = \begin{cases}
-            \dfrac{u_0(x+at) + u_0(x-at)}{2} + \dfrac{1}{2a}\displaystyle\int_{x-at}^{x+at}u_1(y)\;dy,\quad & \{x\geq -at,\; x\geq at\} \\[0.8em]
+            \dfrac{u_0(x+at) + u_0(x-at)}{2} + \dfrac{1}{2a}\displaystyle\int_{x-at}^{x+at}u_1(y)\;dy,\quad & \{x\geq -at,\; x\geq at\} \\[1em]
 
             \dfrac{u_0(at+x) - u_0(at-x)}{2} + \dfrac{1}{2a}\displaystyle\int_{at-x}^{at+x}u_1(y)\;dy,\quad & \{x\geq -at,\; x\leq at\}
         \end{cases}
