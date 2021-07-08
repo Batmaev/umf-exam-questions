@@ -33,11 +33,13 @@
 \subsection{Общее решение}
 
 \begin{align*}
-    & u(t,x) = f(x +at) + g(x - at) \\
-    & \begin{cases}
-        \while{u}{t=0} &= f(x) + g(x) = u_0(x), \;\; x \geq 0\\
-        \while{u_t}{t=0} &= af'(x) -ag'(x) = u_1(x), \;\; x \geq 0  
-    \end{cases}
+&\ \ u(t,x) = f(x +at) + g(x - at) \\
+&\begin{cases}
+  \begin{aligned}
+    \while{u}{t=0}\; &= f(x) + g(x) = u_0(x), \;\; &x \geq 0\\
+    \while{u_t}{t=0} &= af'(x) -ag'(x) = u_1(x), \;\; &x \geq 0  
+  \end{aligned}
+\end{cases}
 \end{align*}
 Если ввести обозначение $v_1 = \displaystyle\int_0^x u_1(y)\;dy + C$, то при $x \geq 0$
 
