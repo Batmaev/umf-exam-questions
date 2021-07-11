@@ -1,4 +1,8 @@
-\section{Билет 5. Формула Пуассона-Кирхгофа решения задачи Коши для однородного волнового уравнения в $\R^3$. Существование классического решения этой задачи.}
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+
+\section{Билет 5. Формула Пуассона-Кирхгофа решения задачи Коши для однородного волнового уравнения в \texorpdfstring{$\R^3$}{R^3}. Существование классического решения этой задачи.}
 % Затехал: Погодин Роман
 \begin{theorem}[Из курса мат. анализа]
 Пусть $\Omega_x\subset\R^n,\ \Omega_y\subset\R^m$ -- ограниченные области, $f(x,y):\overline{\Omega}_x\times\overline{\Omega}_y\rightarrow \R,\ f\in C\left(\overline{\Omega}_x\times\overline{\Omega}_y \right)$. Тогда $J(y)=\displaystyle\int\limits_{\Omega_x}f(x,y)dx\in C\left(\overline{\Omega}_y \right)$.\\
@@ -41,7 +45,7 @@ u_g(t,x,\tau)=\frac{(at)^2}{4\pi a^2t}\iint\limits_{|\eta |=1}g(x+at\eta ,\tau )
 
 Аналогично будет для производных в силу второй части той же теоремы и наличия соответствующих производных у функции $g$.
 
-\item $\lim\limits_{t\rightarrow +0}U_g(t,x,\tau )=\lim\limits_{t\rightarrow +0}tJ_g(t,x,\tau )=\lim\limits_{t\rightarrow +0}t\cdot\lim\limits_{t\rightarrow +0}\pd{}{t}J_g(t,x,\tau ) = 0$ (последний предел конечен в силу непрерывности).
+\item $\lim\limits_{t\rightarrow +0}U_g(t,x,\tau )=\lim\limits_{t\rightarrow +0}tJ_g(t,x,\tau )=\lim\limits_{t\rightarrow +0}t\cdot\lim\limits_{t\rightarrow +0}J_g(t,x,\tau ) = 0$ (последний предел конечен в силу непрерывности).
 
 Можно записать
 \[
@@ -150,5 +154,4 @@ $u(x, t)\equiv v_t(x, t)\in C^2\{t\geq 0, x\in\R^3 \}$ дает решение \
 Функция $u(t,x)=\dfrac{\partial}{\partial t}\left[\dfrac{1}{4\pi a^2t}\displaystyle\iint\limits_{|\xi -x|=at}u_0(\xi )dS_{\xi } \right],\ t\geq 0,x\in\R^3$, где $u_0\in C^3(\R^3)$, является классическим решением задачи \eqref{eq::5::cauchy2}. 
 \end{theorem}
 
-
-
+\end{document}
