@@ -35,11 +35,11 @@ u(t,x) = \brs{\dfrac{1}{\sqrt{4\pi a^2t}}}^n \int\limits_\R\ldots\int\limits_\R 
 \end{equation}
 Полученная формула называется {\bf формулой Пуассона в $\R^n$}.
 \begin{theorem}
-	Пусть $u_0 \in C(\R^n), \abs{u_0} \leqslant M \forall x \in \R^n$. Тогда 
+	Пусть $u_0 \in C(\R^n), \abs{u_0} \leqslant M \Forall x \in \R^n$. Тогда 
     \begin{equation*}
     	u(t,x) = \brs{\dfrac{1}{\sqrt{4\pi a^2 t}}}^n \int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2t}} u_0(y)dy \text{ ---}
     \end{equation*}
-    классическое решение задачи Коши \ref{10_1}, лежащее в классе $C^\infty(t>0, x \in \R^n) \cap C(t \geqslant 0, x \in \R^n)$. Кроме того,~$\abs{u(t,x)} \leqslant M \forall t > 0, x \in \R^n$.
+    классическое решение задачи Коши \ref{10_1}, лежащее в классе $C^\infty(t>0, x \in \R^n) \cap C(t \geqslant 0, x \in \R^n)$. Кроме того,~$\abs{u(t,x)} \leqslant M \Forall t > 0, x \in \R^n$.
 \end{theorem}
 \begin{proof}
 	Сохраняется из предыдущего билета с заменой $(x-y)^2 \to \abs{x-y}^2$.
@@ -55,9 +55,9 @@ u(t,x) = \brs{\dfrac{1}{\sqrt{4\pi a^2t}}}^n \int\limits_\R\ldots\int\limits_\R 
 \end{equation}
 Используем метод Дюамеля. Предположения относительно $f$:
 \begin{enumerate}
-	\item $D_x^\alpha f(t,x) \in C(t \geqslant 0, x \in \R^n) \forall \alpha: \abs{\alpha} \leqslant 2$;
-    \item $\abs{f(t,x)} \leqslant M_0 \forall t \geqslant 0, x \in \R^n$;
-    \item $\abs{D_x^\alpha f(t,x)} \leqslant M_2 \forall t \geqslant 0, x \in \R^n$.
+	\item $D_x^\alpha f(t,x) \in C(t \geqslant 0, x \in \R^n) \Forall \alpha: \abs{\alpha} \leqslant 2$;
+    \item $\abs{f(t,x)} \leqslant M_0 \Forall t \geqslant 0, x \in \R^n$;
+    \item $\abs{D_x^\alpha f(t,x)} \leqslant M_2 \Forall t \geqslant 0, x \in \R^n$.
 \end{enumerate}
 Сводим задачу к семейству однопараметрических задач:
 \begin{equation}
@@ -135,9 +135,9 @@ $\abs{f\brs{\tau, x+2a\sqrt{\tilde{t}}\eta}e^{-\eta^2}} \leqslant M_0 e^{-\eta^2
 				\end{cases}
 			\end{equation*}
 		\begin{itemize}
-			\item[а)] $u_0 \in C(\R^n), \abs{u_0(x)} \leqslant M_0 \forall x \in \R^n$
+			\item[а)] $u_0 \in C(\R^n), \abs{u_0(x)} \leqslant M_0 \Forall x \in \R^n$
 			\item[б)] $f(t,x) \in C^{1,2}_{t,x}(t \geqslant 0, x \in \R^n)$ 
-            \item[в)] $\abs{f(t,x)}\leq M_1,\ \abs{f_{x_i}(t,x)}\leq M_2,\ \abs{f_{x_ix_j}(t,x)}\leq M_2\ \forall t\geq 0, x\in\R^n$ 
+            \item[в)] $\abs{f(t,x)}\leq M_1,\ \abs{f_{x_i}(t,x)}\leq M_2,\ \abs{f_{x_ix_j}(t,x)}\leq M_2\ \Forall t\geq 0, x\in\R^n$ 
 		\end{itemize}
 		Тогда функция $$u(t,x) = \brs{\dfrac{1}{\sqrt{4\pi a^2t}}}^n \displaystyle\int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2t}} u_0(y)dy + \displaystyle\int\limits_0^t \sbrs{\brs{\dfrac{1}{\sqrt{4\pi a^2(t-\tau)}}}^n \displaystyle\int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2(t-\tau)}} f(\tau,y) dy} d\tau$$
 		является классическим решением задачи Коши, лежит в классе $C(t \geqslant 0, x \in \R^n) \cap C^{1,2}_{t,x}(t > 0, x \in \R^n)$. Кроме того, справедлива оценка $\abs{u(t,x)} \leqslant M_0 + tM_1$

@@ -33,11 +33,11 @@ $\|Ku\|_{C(\bar G)} = \max\limits_{\bar G} |(Ku)(x)| = \max\limits_{\bar G} |\in
 
 
 \begin{definition}[Полярное ядро]
-Ядро $K(x,y)$ называется полярным, если его можно представить в виде $K(x,y) = \frac{\kappa(x,y)}{|x-y|^\alpha}$ $\forall x,y \in \bar G, x\ne y,$ где $\kappa \in C(\bar G \times \bar G),$ $\alpha < n$ --- размерность пространства.
+Ядро $K(x,y)$ называется полярным, если его можно представить в виде $K(x,y) = \frac{\kappa(x,y)}{|x-y|^\alpha} \Forall x,y \in \bar G,\ x\ne y,$ где $\kappa \in C(\bar G \times \bar G),$ $\alpha < n$ --- размерность пространства.
 \end{definition}
 
 \begin{lemma}[Признак полярного ядра]
-Ядро $K$ является полярным $\Leftrightarrow K(x,y) \in C((\bar G \times \bar G)\backslash\{x=y\})$ и $|K(x,y)| \le \frac{B}{|x-y|^\beta}$ $\forall x, y \in \bar G, x \ne y, B>0, \beta < n.$
+Ядро $K$ является полярным $\Leftrightarrow K(x,y) \in C((\bar G \times \bar G)\backslash\{x=y\})$ и $|K(x,y)| \le \frac{B}{|x-y|^\beta} \Forall x, y \in \bar G, x \ne y, B>0, \beta < n.$
 \end{lemma}
 
 \begin{proof}
@@ -63,7 +63,7 @@ $|\kappa(x,y) - \kappa(x^0, x^0)| = |\kappa(x,y)| \le |K||x-y|^{\beta+\eps} \le 
 \end{definition}
 
 \begin{theorem}
-Интегральный оператор $K$ с полярным ядром является ограниченным оператором в $C(\bar G).$ Справедлива оценка: $\|K\| \le \sup_{x\in G}\int_G|K(x,y)|dy; \forall \eps > 0$ оператор $K$ можно представить в виде суммы $K = K_\eps^{cont}+K_\eps^{pol},$ где $\|K_\eps^{pol}\| \le \eps,$ $\|(K_\eps^{pol})'\| \le \eps,$ $K_\eps^{cont}$ --- и.о. с непрерывным ядром, $K_\eps^{pol}$ --- и.о. с полярным ядром.
+Интегральный оператор $K$ с полярным ядром является ограниченным оператором в $C(\bar G).$ Справедлива оценка: $\|K\| \le \sup_{x\in G}\int_G|K(x,y)|dy.$ $\Forall \eps > 0$ оператор $K$ можно представить в виде суммы $K = K_\eps^{cont}+K_\eps^{pol},$ где $\|K_\eps^{pol}\| \le \eps,$ $\|(K_\eps^{pol})'\| \le \eps,$ $K_\eps^{cont}$ --- и.о. с непрерывным ядром, $K_\eps^{pol}$ --- и.о. с полярным ядром.
 \end{theorem}
 
 \begin{proof} $\ $

@@ -5,7 +5,7 @@
 Применим к нашей функции прямое преобразование Кельвина: $u^*(y) = \frac{R}{|y|}u\brs{\frac{R^2}{|y|^2}y}$. Эта функция гармоническая в проколотой окрестности нуля: $0 < |y| < R$.\\
 Далее, $|y|u^*(y) = R u\brs{\frac{R^2}{|y|^2}y} \rightarrow 0, y \rightarrow 0$ (аргумент $\rightarrow \infty$) $\Rightarrow u^*(y) = o \brs{\frac{1}{|y|}}, y \rightarrow 0$. 
 \begin{itemize}
-\item Воспользуемся теоремой об устранимой точке и доопределим $u^*(y)$ в нуле. Теперь $u^*(y)$ -- гармоническая в $|y| < R \Rightarrow$ в $|y| \leq \frac{R}{2}$ есть непрерывность вплоть до границы любых производных $\Rightarrow \forall \alpha \exists M_\alpha: \abs{D^\alpha u^*(y)} \leq M_\alpha, \forall y : |y| \leq \frac{R}{2}$
+\item Воспользуемся теоремой об устранимой точке и доопределим $u^*(y)$ в нуле. Теперь $u^*(y)$ -- гармоническая в $|y| < R \Rightarrow$ в $|y| \leq \frac{R}{2}$ есть непрерывность вплоть до границы любых производных $\Rightarrow \Forall \alpha \exists M_\alpha: \abs{D^\alpha u^*(y)} \leq M_\alpha, \Forall y : |y| \leq \frac{R}{2}$
 \item Пусть $|x| \geq 2R, y = x^* \Rightarrow |x^*| = |y| \leq \frac{R}{2}$. Тогда $u(x) = u\brs{\frac{R^2}{|y|^2}y} = \frac{R}{|x||y|} u\brs{\frac{R^2}{|y|^2}y}  = \frac{R}{|x|} u^*(y)$. Можем оценить: $|u(x)| \leq \frac{R}{|x|} M_0 \Rightarrow u(x) = O\brs{\frac{1}{|x|}}, x \rightarrow \infty$.
 \item Возьмем теперь $\alpha = (1,0,0)$: 
 \begin{align*}

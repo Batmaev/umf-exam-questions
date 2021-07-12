@@ -3,7 +3,7 @@
 \subsection{Интегральное представление решений уравнений Лапласа и Пуассона в ограниченной области.}
 Рассматривается уравнение Пуассона в $\R^3$: $\Delta u(x) = \brs{\pdd{}{x_1}+ \pdd{}{x_2}+\pdd{}{x_3}}u(x) = f(x), x \in \Omega \subset \R^3$, где $\Omega$ -- область.
 \begin{definition}[Гармоническая функция]
-Функция $u(x)$ называется гармонической в $\Omega \in R^3$, если \\ $u(x) \in C^2(\Omega)$ и $\Delta u(x) \equiv 0, \forall x \in \Omega.$ 
+Функция $u(x)$ называется гармонической в $\Omega \in R^3$, если \\ $u(x) \in C^2(\Omega)$ и $\Delta u(x) \equiv 0 \text{ на } \Omega.$ 
 \end{definition}
 Удобно перейти в сферическую систему координат: 
 \[
@@ -66,7 +66,7 @@ $\mathcal{D}(\R^n)$ -- пространство пробных (основных
 В $\mathcal{D}(\R^n)$ вводится сходимость по следующему правилу: $\fbrs{\varphi_k(x)}_{k=1}^{\infty} \rightarrow \varphi(x) \in \mathcal{D}(\R^n) \Longleftrightarrow$
 \begin{itemize}
 \item $\forall \alpha = (\alpha_1, \ldots, \alpha_n)\; \mathcal{D}^\alpha \varphi_k \rightrightarrows \mathcal{D}^\alpha \varphi$
-\item $\exists A > 0: \varphi_k (x) \equiv 0$ при $|x| > A, \forall k \in \N$ (у всех функций общий носитель)
+\item $\exists A > 0: \varphi_k (x) \equiv 0$ при $|x| > A \Forall k \in \N$ (у всех функций общий носитель)
 \end{itemize}
 \end{definition}
 Пример функции из $\mathcal{D}(\R^n)$: 
@@ -80,9 +80,9 @@ $$\omega_\varepsilon(x) = \begin{cases}\frac{1}{\varepsilon^n}e^{-\frac{1}{1-\br
 \begin{definition}
 Непрерывный функционал: $\forall \fbrs{\varphi_k} \rightarrow \varphi$ в  $\mathcal{D}(\R^n) \Rightarrow f(\varphi_k)\rightarrow f(\varphi)$
 \end{definition}
-По определению $\forall \lambda, \mu \text{ -чисел}, \forall f, g \in \mathcal{D}'(\R^n)$ обобщенная функция $F = \lambda f + \mu g \in \mathcal{D}'(\R^n), \;\\(F, \varphi)  \stackrel{\mathrm{def}}{=} \lambda (f, \varphi) + \mu (g, \varphi)$
+По определению $\forall \lambda, \mu \text{ -чисел}, \Forall f, g \in \mathcal{D}'(\R^n)$ обобщенная функция $F = \lambda f + \mu g \in \mathcal{D}'(\R^n), \;\\(F, \varphi)  \stackrel{\mathrm{def}}{=} \lambda (f, \varphi) + \mu (g, \varphi)$
 \begin{definition}[сходимость в $\mathcal{D}'(\R^n)$]
-$\fbrs{f_n}_{n=1}^\infty \rightarrow f \in \mathcal{D}'(\R^n) \stackrel{\mathrm{def}} {\Longleftrightarrow} (f_k, \varphi) \rightarrow (f, \varphi), \forall \varphi \in \mathcal{D}(\R^n)$ (слабая$^*$ сходимость). 
+$\fbrs{f_n}_{n=1}^\infty \rightarrow f \in \mathcal{D}'(\R^n) \stackrel{\mathrm{def}} {\Longleftrightarrow} (f_k, \varphi) \rightarrow (f, \varphi), \Forall \varphi \in \mathcal{D}(\R^n)$ (слабая$^*$ сходимость). 
 \end{definition}
 \begin{definition}
 Функция $f(x)$ называется локально интегрируемой, если $\forall B > 0\; \exists \int_{|x| < B} \abs{f(x)}dx < \infty$. 

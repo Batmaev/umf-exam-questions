@@ -60,7 +60,7 @@ $$\int\limits_{\Omega} u \Delta v\;dx = \oint\limits_{\Gamma}(u \nabla v, \vec{n
 Если $\exists u_{I}$ и $u_{II}$ - классические решения задачи ~\ref{eq:14_1}, то $v(x) = u_{I} - u_{II}$ есть классическое решение полностью однородной задачи: $\Delta v \equiv 0,\; v\bigr|_{\Gamma} = 0$. \\
 По формуле Грина:
 \begin{equation*}
-	\int\limits_{\Omega} v\cancelto{0}{\Delta v}\; dx = \oint\limits_{\partial \Omega}\dfrac{\partial v}{\partial \vec{n}}\cancelto{0}{v}\;ds - \int\limits_{\Omega}(\nabla v, \nabla v)\;dx \Rightarrow \nabla v \equiv 0 \forall x \in \Omega \Rightarrow v(x) = \text{const}
+	\int\limits_{\Omega} v\cancelto{0}{\Delta v}\; dx = \oint\limits_{\partial \Omega}\dfrac{\partial v}{\partial \vec{n}}\cancelto{0}{v}\;ds - \int\limits_{\Omega}(\nabla v, \nabla v)\;dx \Rightarrow \nabla v \equiv 0 \Forall x \in \Omega \Rightarrow v(x) = \text{const}
 \end{equation*}
 С учётом того, что $\Delta(x) = 0$ и $v(x)\bigr|_{\Gamma} = 0$, получим, что $v(x) = 0$, а значит, $u_{I} = u_{II}$, и решение единственно.
 \end{proof}

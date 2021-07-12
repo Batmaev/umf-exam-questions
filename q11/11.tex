@@ -50,7 +50,7 @@ $\while{u(t,x)}{\Omega_T} = \lim\limits_{(\widehat{t}, \widehat{x}) \in Q_T \rig
 
 
 \begin{conseq}
-Пусть $u(t,x) \in C^{1,2}_{t,x}(Q_T) \cap C(\overline{Q_T}), \mathrm{L}u = 0 \forall(t,x) \in Q_T$.
+Пусть $u(t,x) \in C^{1,2}_{t,x}(Q_T) \cap C(\overline{Q_T}), \mathrm{L}u = 0 \Forall(t,x) \in Q_T$.
  Тогда $\max\limits_{\overline{Q_T}}u(t,x)$ и $\min\limits_{\overline{Q_T}}u(t,x)$ достигаются на параболической границе $\Gamma_T$ множества $Q_T$
  \begin{proof}
  Максимум достигается,т.к. $\mathrm{L}u \leq 0$, минимум достигается, т.к. $\mathrm{L}(-u) \leq 0$
@@ -68,7 +68,7 @@ $\while{u(t,x)}{\Omega_T} = \lim\limits_{(\widehat{t}, \widehat{x}) \in Q_T \rig
 \item Пусть $T > 0, \sigma \geq 0$. {\bf Слой толщины T} - множество $\Pi_T =\fbrs{(t,x): 0 < t < T; x \in \R^n}$\\
 Обозначим $M_\sigma(T)$ -{\bf класс функций} $u(t,x) \in C^{1,2}_{t,x}(\Pi_T) \cap
 C(\overline{\Pi_T})$ таких, что $\forall u(t,x) \exists A > 0 , \alpha \geq 0$ такие,
-что $\abs{u(t,x)} \leq A\exp^{\alpha \abs{x}^{\sigma}} \forall (t,x) \in \overline{\Pi_T}$
+что $\abs{u(t,x)} \leq A\exp^{\alpha \abs{x}^{\sigma}} \Forall (t,x) \in \overline{\Pi_T}$
 
 
 \begin{lemma}
@@ -107,10 +107,10 @@ t)^{\frac{n}{2}}}{\dfrac{\abs{x}^2}{4a^2(T-t)^2}}}
 \begin{lemma}
 Пусть $v(t,x)$ такова, что $v \in M_2(T)$ и $v$ - решение полностью 
 однородной ЗК $\fbrs{\mathrm{L}v = 0, \while{v}{t=0}}$.
-Тогда $\exists T_1 \leq T: \abs{v} \leq \varepsilon u_{2T_1}(x,t) \forall \varepsilon > 0$
+Тогда $\exists T_1 \leq T: \abs{v} \leq \varepsilon u_{2T_1}(x,t) \Forall \varepsilon > 0$
 
 \begin{proof}
-$\abs{v} \leq A \exp^{\alpha \abs{x}^2} \forall t, x \in
+$\abs{v} \leq A \exp^{\alpha \abs{x}^2} \Forall t, x \in
  \overline{\Pi_T}$. Выбираем $T_1 \leq T: \dfrac{1}{8a^2T_1} >
  \alpha : T_1 = \min\fbrs{T, \dfrac{1}{16\alpha a^2}}$\\
  Возьмем $\varepsilon > 0$ и $\omega_e^{\pm}(t,x) = \varepsilon
@@ -140,7 +140,7 @@ $\abs{v} \leq A \exp^{\alpha \abs{x}^2} \forall t, x \in
 \end{center}
 Но $\omega_e^{\pm}(t,x)$ удовлетворяет уровнению теплопроводности $\Rightarrow$ на $\Gamma_{T_1}$ достигаются максимум и минимум 
 $\omega_e^{\pm}(t,x) \Rightarrow$ он строго $>0 \Rightarrow \omega_e^{\pm}(t,x)>0$ всюду в полосе $(0,T_1)$.
-Итак,$\mp v(t,x) \leq \varepsilon u_{2T_1}(t,x) \Rightarrow \abs{v} \leq \varepsilon u_{2T_1}(t,x) \forall \varepsilon > 0 \Rightarrow v\equiv 0$ в $\overline{\Pi_{T_1}}$
+Итак,$\mp v(t,x) \leq \varepsilon u_{2T_1}(t,x) \Rightarrow \abs{v} \leq \varepsilon u_{2T_1}(t,x) \Forall \varepsilon > 0 \Rightarrow v\equiv 0$ в $\overline{\Pi_{T_1}}$
  
 \end{proof}
 \end{lemma}
