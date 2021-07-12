@@ -1,4 +1,8 @@
-\section{Билет 6. Формула Кирхгофа решения задачи Коши для неоднородного волнового уравнения в $\R^3$. Метод Дюамеля. Принцип Гюйгенса}
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+
+\section{Билет 6. Формула Кирхгофа решения задачи Коши для неоднородного волнового уравнения в \texorpdfstring{$\R^3$}{R\textasciicircum 3}. Метод Дюамеля. Принцип Гюйгенса}
 % Иваныч техал
 \subsection{Формулировка задачи}
 
@@ -7,7 +11,7 @@
         u_{tt} - a^2\Delta u = f(t, x) & t > 0, x \in \R^3 \\
         \while{u}{t=0} = 0 & \\
         \while{u_t}{t=0} = 0
-    \end{cases} \;\;\text{ считаем что } D_x^\alpha f(t, x) \in \C\{t \geq 0, x \in \R^3\} \forall \alpha: \abs{\alpha} \leq 2
+    \end{cases} \;\;\text{ считаем, что } f(t, x) \in C^{0,2}_{t,x}\, \{t \geq 0,\, x \in \R^3\}
 \end{equation}
 
 \subsection{Метод Дюамеля}
@@ -21,34 +25,40 @@
 \end{cases} \;\;\; \tau \geq 0
 \end{equation}
 
-
-Решение получаем по формуле Пуассона-Кирхгофа:
+Решение задач семейства получаем по формуле Пуассона-Кирхгофа:
 
 \begin{equation*}
-    w(t, x, \tau) = \frac{1}{4\pi a^2(t - \tau)}\iint_{\abs{\xi - x}=a(t-\tau)}f(\tau, \xi)\;dS_\xi \in \C^2\{t \geq \tau, x \in \R^3\}
+    w(t, x, \tau) = \frac{1}{4\pi a^2(t - \tau)}\oiint\limits_{\abs{\xi - x}=a(t-\tau)}f(\tau, \xi)\,dS_\xi \quad \in \; C^{2,2,0}_{t,x,\tau}\,\{t - \tau \geq 0,\, x \in \R^3\}
 \end{equation*}
-Введем в рассмотрение функцию
-$$
-\omega_f(t, x, \tau) = \frac{1}{4\pi a^2t}\iint_{\abs{\xi - x}=at}f(\tau, \xi)\;dS_\xi
-$$
-Тогда $D^\alpha_{t, x}\omega_f(t, x, \tau)\in \C\{x \in \R^3, t \geq \tau, \tau \geq 0\} \forall \alpha: |\alpha| \leq 2$. 
 
-$$w(t, x, \tau) = \omega_f(t-\tau, x, \tau) \Rightarrow D^\alpha_{t, x}w(t, x, \tau) \in \C\{x \in \R^3, t \geq 0, \tau \geq 0\} \forall \alpha: |\alpha| \leq 2$$
+(Под $C^{2,2,0}_{t,x,\tau}$ подразумевается, что $D^\alpha_{t, x}\: w(t, x, \tau)\in C \Forall \alpha\colon |\alpha| \leq 2$)
 
 \begin{statement}
     $$
-    u(t, x) = \int_0^t w(t, x, \tau)d\tau \text{ --- классическое решение задачи \ref{6_1}}
+    u(t, x) = \int_0^t w(t, x, \tau)d\tau \text{ --- классическое решение исходной задачи.}
     $$
 \end{statement}
-\begin{proof}
+\begin{proof}\hfill
 \begin{itemize}
-    \item $$D^\alpha_{t, x} u(t, x) \in \C\{x \in \R^3, t \geq 0\} \forall \alpha: |\alpha| \leq 2$$
-    \item $$\while{u}{t=0} = 0; \;\; \while{u_t}{t=0} = 
-    \while{\brs{\underbrace{w(t, x, t)}_{=0 \text{ из условий Коши в \ref{6_2}}} +\int_0^t \pd{w}{t}d\tau}}{t=0} = \while{\int_0^0\pd{w}{t}d\tau}{t=0} = 0$$
-    \item $$
-    \Delta_xu = \int_0^t\Delta_x w(t, x, \tau)d\tau; \; $$$$ \; u_{tt} = \pd{}{t}\int_0^t \pd{w}{t}\;d\tau = w_t(t, x, t) + \int_0^t w_{tt} (t, x, \tau)\;d\tau = f(t, x) + a^2\int_0^t\Delta_x w(t, x, \tau) \;d\tau = $$
-    $$ = f(t, x) + a^2\Delta_x u
-    $$
+    \item $u(t,x) \in C^2\, \{x \in \R^3,\; t \geq 0\}$
+    
+    \item $\displaystyle \while{u}{t=0} = 0$
+    
+    \item Вычислим $\while{u_t}{t=0}$
+    
+    Интегралы, в которых и пределы, и подынтегральная функция зависят от параметра, дифференциируются по формуле
+    $$\pd{}{t} \int\limits_{a(t)}^{b(t)} f(t,x)\,dx = f(t,b(t)) \cdot b' - f(t,a(t)) \cdot a' + \int\limits_{a(t)}^{b(t)} f'_x(t,x)\,dx$$
+    В нашем случае $a = 0,\ b = t,\ b' = 1$. Поэтому
+    $$\while{u_t}{t=0} = 
+    \while{\brs{\underbrace{w(t, x, \tau)|_{\tau = t}}_\text{= 0 из нач. усл. в \eqref{6_2}} + \int_0^t \pd{w}{t}d\tau}}{t=0} = \int_0^0 \pd{w}{t}\, d\tau = 0$$
+
+    \item $\displaystyle \ \Delta_xu = \int_0^t\Delta_x w(t, x, \tau)d\tau$
+
+    \begin{align*}
+        u_{tt} &= \pd{}{t}\int_0^t \pd{w}{t}\, d\tau = w_t(t, x, \tau)|_{\tau = t} + \int_0^t w_{tt} (t, x, \tau)\, d\tau
+        = f(\tau, x)|_{\tau = t} + a^2 \int_0^t \Delta_x w(t, x, \tau) \, d\tau \\[0.5em]
+        &= f(t, x) + a^2\Delta_x u
+    \end{align*}
 \end{itemize}
 
 Значит, рассматриваемая функция удовлетворяет уравнению.
@@ -119,3 +129,5 @@ $$
 \begin{center}
     \includegraphics[width=0.4\textwidth]{6_1_new}
 \end{center}
+
+\end{document}
