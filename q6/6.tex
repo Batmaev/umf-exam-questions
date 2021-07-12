@@ -19,7 +19,7 @@
 Сведем задачу к задаче Коши для однородного волнового уравнения. Рассмотрим однопараметрическое семейство задач:
 \begin{equation} \label{6_2}
 \begin{cases}
-    w_{tt}(t, x, \tau) - a^2\Delta_x w(t, x, \tau) = 0 & t > \tau, x \in \R^3 \\
+    w_{tt}(t, x, \tau) - a^2\Delta_x w(t, x, \tau) = 0 & t > \tau;\ x \in \R^3 \\
     \while{w}{t=\tau} = 0 & \\
     \while{w_t}{t=\tau} = f(\tau, x) &
 \end{cases} \;\;\; \tau \geq 0
@@ -47,7 +47,7 @@
     \item Вычислим $\while{u_t}{t=0}$
     
     Интегралы, в которых и пределы, и подынтегральная функция зависят от параметра, дифференциируются по формуле
-    $$\pd{}{t} \int\limits_{a(t)}^{b(t)} f(t,x)\,dx = f(t,b(t)) \cdot b' - f(t,a(t)) \cdot a' + \int\limits_{a(t)}^{b(t)} f'_x(t,x)\,dx$$
+    $$\pd{}{t} \int_{a(t)}^{b(t)} f(t,x)\,dx = f(t,b(t)) \cdot b' - f(t,a(t)) \cdot a' + \int_{a(t)}^{b(t)} f'_x(t,x)\,dx$$
     В нашем случае $a = 0,\ b = t,\ b' = 1$. Поэтому
     $$\while{u_t}{t=0} = 
     \while{\brs{\underbrace{w(t, x, \tau)|_{\tau = t}}_\text{= 0 из нач. усл. в \eqref{6_2}} + \int_0^t \pd{w}{t}d\tau}}{t=0} = \int_0^0 \pd{w}{t}\, d\tau = 0$$
@@ -68,9 +68,9 @@
     Пусть в  задаче \eqref{6_1} функция $f(t,x)$ такова, что $D^\alpha_x\, f \in C\,\{t \geq 0,\; x \in \R^3\}$\\ 
     Тогда функция 
     \begin{equation} \label{6_3}
-        u(t, x) = \int_0^t \frac{d\tau}{4\pi a^2(t - \tau)}
-        \oiint\limits_{\abs{\xi - x} = a(t - \tau)}
-        f(\tau, \xi)\, dS_\xi
+        u(t, x) = \int\limits_0^t{ \frac{1}{4\pi a^2(t - \tau)}
+        \sbrs{\oiint\limits_{\;\abs{\xi - x} = a(t - \tau)}
+        f(\tau, \xi)\, dS_\xi} d\tau}
     \end{equation}
     является классическим решением, причем 
     $$
@@ -83,13 +83,20 @@
 Преобразуем полученную формулу \eqref{6_3}: 
 
 \begin{align*}
-    \int_0^t \frac{d\tau}{4\pi a^2(t - \tau)}
+    &\int\limits_0^t \frac{d\tau}{4\pi a^2(t - \tau)}
     \oiint\limits_{\abs{\xi - x} = a(t - \tau)} f(\tau, \xi)\, dS_\xi = 
-    \begin{bmatrix} a(t - \tau) = \rho \\ \tau = t -\rho/a \\ d\tau = -d\rho/a\end{bmatrix} = -\int_{at}^0\frac{1}{4\pi a \rho}\frac{d\rho}{a}\iint_{\abs{\xi - x} = \rho} f(t - \rho/a, \xi) \;dS_\xi = \\
-    = \frac{1}{4\pi a^2}\int_0^{at}\sbrs{\iint_{\abs{\xi - x} = \rho} \frac{f(t - \frac{\abs{\xi - x}}{a}, \xi)}{\abs{\xi - x}}\;dS_\xi}\;d\rho = \boxed{\frac{1}{4\pi a^2} \iiint_{\abs{\xi - x} < at}\frac{f(t - \frac{\abs{\xi - x}}{a}, \xi)}{\abs{\xi - x}}\;d\xi}
+    \begin{bmatrix} 
+        \rho = a(t - \tau) \\
+        \tau = t -\rho/a \\
+        d\tau = -d\rho/a 
+    \end{bmatrix} = 
+    -\int\limits_{at}^0 \frac{1}{4\pi a \rho} \frac{d\rho}{a} 
+    \oiint\limits_{\abs{\xi - x} = \rho} f \brs{t - \frac{\rho}{a},\; \xi} dS_\xi = \\[1em]
+    &= \frac{1}{4\pi a^2} \int\limits_0^{at} d\rho \oiint\limits_{\abs{\xi - x} = \rho} \frac{f(t - \frac{\abs{\xi - x}}{a},\; \xi)}{\abs{\xi - x}}\, dS_\xi
+    = \boxed{\frac{1}{4\pi a^2} \iiint\limits_{\abs{\xi - x} < at}\frac{f(t - \frac{\abs{\xi - x}}{a}, \xi)}{\abs{\xi - x}}\;d\xi}
 \end{align*}
 
-Последнее выражение называется \emph{запаздывающим потенциалом}.
+Выражение в рамке называется \emph{запаздывающим потенциалом}.
 
 \subsection{Общая задача}
 $$
@@ -100,20 +107,22 @@ $$
 \end{cases}
 $$
 
-\begin{theorem}
-    Пусть в общей задаче Коши имеем:
+\begin{theorem}[формула Кирхгофа]
+    Пусть в общей задаче Коши
     $$
-    u_0 \in \C^3(\R), u_1\in \C^2(\R), D^\alpha_{x}f(t, x)\in \C\{t \geq 0, x \in \R^3\} \forall \alpha: \abs{\alpha} \leq 2
-    $$
-    Тогда 
-    \begin{equation} \label{6_4}
-        u(t, x) = \pd{}{t}\sbrs{\frac{1}{4\pi a^2t}\iint_{\abs{\xi - x}=at}u_0(\xi)\;dS_\xi} + \frac{1}{4\pi a^2t} \iint_{\abs{\xi - x}=at}u_1(\xi)\;dS_\xi +
-        \frac{1}{4\pi a^2} \iiint_{\abs{\xi - x} < at}\frac{f(t - \frac{\abs{\xi - x}}{a}, \xi)}{\abs{\xi - x}}\;d\xi, 
-%        
-        u(t, x) \in \C^2\{t \ge 0, x \in \R^3\}
-    \end{equation}
-    является классическим решением общей задачи Коши. Формула \ref{6_4} называется формулой Кирхгофа.
+    u_0 \in C^3(\R) \qquad 
+    u_1 \in C^2(\R) \qquad 
+    f \in C^{0,2}_{t,x}\,\{t \geq 0,\; x \in \R^3\} $$
+    Тогда выражение
+    \begin{equation*} \label{6_4}
+        u(t, x) = \pd{}{t} \frac{1}{4\pi a^2t}\oiint\limits_{\abs{\xi - x}=at}u_0(\xi)\, dS_\xi
+        + \frac{1}{4\pi a^2t} \oiint\limits_{\abs{\xi - x}=at}u_1(\xi)\, dS_\xi 
+        + \frac{1}{4\pi a^2} \iiint\limits_{\abs{\xi - x} < at} \frac{f(t - \frac{\abs{\xi - x}}{a}, \xi)}{\abs{\xi - x}}\, d\xi
+    \end{equation*}
+
+    является классическим решением общей задачи Коши; \; $u(t,x) \in C^2\,\{t \geq 0,\ x \in \R^3\}$
 \end{theorem}
+
 \subsection{Принцип Гюйгенса}
 
 Пусть $f=0$, то есть источников нет, а начальное возмущение локализовано в пространстве (носители функций $u_0$ и $u_1$ содержатся в некотором компакте $M$). Тогда в каждой точке воздействие будет локализовано во времени. У такого конечного возмущения есть передний и задний фронты. 
@@ -122,7 +131,7 @@ $$
 \end{statement}
 
 \begin{proof}
-Из формулы \hyperref[6_4]{Кирхгофа} видно, что в заданной точке $x_0 \in \R^3$ вне отрезка времени $[t_1; t_2]$ функция
+Из \hyperref[6_4]{формулы Кирхгофа} видно, что в заданной точке $x_0 \in \R^3$ вне отрезка времени $[t_1; t_2]$ функция
 $u(x_0, t)$ тождественна нулю, где 
 $$
 t_1 = \frac{1}{a}\inf_{y\in M}|y-x_0|, 
