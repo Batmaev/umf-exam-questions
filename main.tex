@@ -14,12 +14,13 @@
 \usepackage{cancel}       % чтобы зачёркивать члены в формулах
 \usepackage{mathtools}
 \usepackage{amssymb}
-\usepackage[colorlinks = true, urlcolor = blue]{hyperref}
+\usepackage{tikz}         % LaTeX как графический редактор
+\usetikzlibrary{patterns}
+\definecolor{DarkBlue}{RGB}{0, 0, 205}
+\usepackage[colorlinks = true, urlcolor = blue, linkcolor = DarkBlue]{hyperref}
 \usepackage{subfiles}
 \usepackage{cmll}         % Используется в одном месте в 14 билете
 \usepackage{varwidth}     % Чтобы сделать minipage со списком авторов
-\usepackage{tikz}         % LaTeX как графический редактор
-\usetikzlibrary{patterns}
 \usepackage[inline]{enumitem}
 \makeatletter
 \AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
