@@ -78,28 +78,35 @@ $\begin{cases} -l<x+at<l \\ -l<x-at<l\end{cases}$ -- {\bf характерист
 \item покажем непрерывность решения по входным данным $u_0$ и $u_1$.\\Берем две задачи:
 \[ 
 \begin{cases} 
-  \stackrel{\text{\tiny{1}}}{u}_{tt}-a^2\stackrel{\text{\tiny{1}}}{u}_{xx} = 0, \quad (t,x)\in Q\\
+  \overset{\text{\tiny{1}}}{u}_{tt}-a^2\overset{\text{\tiny{1}}}{u}_{xx} = 0, &(t,x)\in Q\\
 
-  \stackrel{\text{\tiny{1}}}{u}\bigr|_{t=0} = \stackrel{\text{\tiny{1}}}{u}_0(x), \quad \abs{x}<l\\ 
+  \overset{\text{\tiny{1}}}{u}\bigr|_{t=0} = \overset{\text{\tiny{1}}}{u}_0(x), &\abs{x}<l\\ 
   
-  \stackrel{\text{\tiny{1}}}{u}_t\bigr|_{t=0} = \stackrel{\text{\tiny{1}}}{u}_1(x), \quad \abs{x}<l\end{cases} \qquad
+  \overset{\text{\tiny{1}}}{u}_t\bigr|_{t=0} = \overset{\text{\tiny{1}}}{u}_1(x), &\abs{x}<l\end{cases} \qquad
 \begin{cases} 
-  \stackrel{\text{\tiny{2}}}{u}_{tt}-a^2\stackrel{\text{\tiny{2}}}{u}_{xx} = 0, \quad (t,x)\in Q\\
+  \overset{\text{\tiny{2}}}{u}_{tt}-a^2\overset{\text{\tiny{2}}}{u}_{xx} = 0, &(t,x)\in Q\\
 
-  \stackrel{\text{\tiny{2}}}{u}\bigr|_{t=0} = \stackrel{\text{\tiny{2}}}{u}_0(x), \quad \abs{x}<l\\
+  \overset{\text{\tiny{2}}}{u}\bigr|_{t=0} = \overset{\text{\tiny{2}}}{u}_0(x), &\abs{x}<l\\
 
-  \stackrel{\text{\tiny{2}}}{u}_t\bigr|_{t=0} = \stackrel{\text{\tiny{2}}}{u}_1(x), \quad \abs{x}<l\end{cases}
+  \overset{\text{\tiny{2}}}{u}_t\bigr|_{t=0} = \overset{\text{\tiny{2}}}{u}_1(x), &\abs{x}<l
+\end{cases}
 \]
-Пусть $\abs{\stackrel{\text{\tiny{1}}}{u}_0 - \stackrel{\text{\tiny{2}}}{u}_0}<\delta_0,\ \abs{\stackrel{\text{\tiny{1}}}{u}_1 - \stackrel{\text{\tiny{2}}}{u}_1}<\delta_1 \;\Forall x\colon \abs{x}<l.$ \quad Введем 
+Пусть $\abs{\overset{\text{\tiny{1}}}{u}_0 - \overset{\text{\tiny{2}}}{u}_0}<\delta_0,\ \abs{\overset{\text{\tiny{1}}}{u}_1 - \overset{\text{\tiny{2}}}{u}_1}<\delta_1 \;\Forall x\colon \abs{x}<l.$ \quad Введем 
 $\begin{cases}
-v_0 = \stackrel{\text{\tiny{1}}}{u}_0 - \stackrel{\text{\tiny{2}}}{u}_0 \\
-v_1 = \stackrel{\text{\tiny{1}}}{u}_1 - \stackrel{\text{\tiny{2}}}{u}_1 \\
-v = \stackrel{\text{\tiny{1}}}{u} - \stackrel{\text{\tiny{2}}}{u}
+v_0 = \overset{\text{\tiny{1}}}{u}_0 - \overset{\text{\tiny{2}}}{u}_0 \\
+v_1 = \overset{\text{\tiny{1}}}{u}_1 - \overset{\text{\tiny{2}}}{u}_1 \\
+v = \overset{\text{\tiny{1}}}{u} - \overset{\text{\tiny{2}}}{u}
 \end{cases}$\\
-Тогда задача для $v:\ \begin{cases} 
-v_{tt}-a^2v_{xx} = 0, \quad (t,x) \in Q\\ 
-\while{v}{t=0} = v_0(x),\quad \abs{x}<l,\ \abs{v_0}<\delta_0\\ 
-\while{v_t}{t=0} = v_1(x),\quad \abs{x}<l,\ \abs{v_1}<\delta_1
+Тогда задача для $v:\ 
+\begin{cases} 
+v_{tt}-a^2v_{xx} = 0, \qquad (t,x) \in Q\\
+
+\begin{aligned}
+v|_{t=0}\; = v_0(x),\quad &\abs{x}<l,\ \abs{v_0}<\delta_0\\
+
+v_t|_{t=0} = v_1(x),\quad &\abs{x}<l,\ \abs{v_1}<\delta_1
+\end{aligned}
+
 \end{cases}$
 \vspace{0.2em}
 
