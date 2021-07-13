@@ -47,7 +47,7 @@
     \item Вычислим $\while{u_t}{t=0}$
     
     Интегралы, в которых и пределы, и подынтегральная функция зависят от параметра, дифференциируются по формуле
-    $$\pd{}{t} \int_{a(t)}^{b(t)} f(t,x)\,dx = f(t,b(t)) \cdot b' - f(t,a(t)) \cdot a' + \int_{a(t)}^{b(t)} f'_x(t,x)\,dx$$
+    $$\pd{}{t} \int_{a(t)}^{b(t)} f(t,x)\,dx = f(t,b(t)) \cdot b' - f(t,a(t)) \cdot a' + \int_{a(t)}^{b(t)} f'_t(t,x)\,dx$$
     В нашем случае $a = 0,\ b = t,\ b' = 1$. Поэтому
     $$\while{u_t}{t=0} = 
     \while{\brs{\underbrace{w(t, x, \tau)|_{\tau = t}}_\text{= 0 из нач. усл. в \eqref{6_2}} + \int_0^t \pd{w}{t}d\tau}}{t=0} = \int_0^0 \pd{w}{t}\, d\tau = 0$$
@@ -110,8 +110,8 @@ $$
 \begin{theorem}[формула Кирхгофа]
     Пусть в общей задаче Коши
     $$
-    u_0 \in C^3(\R) \qquad 
-    u_1 \in C^2(\R) \qquad 
+    u_0 \in C^3(\R^3) \qquad 
+    u_1 \in C^2(\R^3) \qquad 
     f \in C^{0,2}_{t,x}\,\{t \geq 0,\; x \in \R^3\} $$
     Тогда выражение
     \begin{equation*} \label{6_4}
