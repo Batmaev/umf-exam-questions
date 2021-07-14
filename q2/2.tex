@@ -8,7 +8,7 @@
 \label{eq::2::init}
 \sum\limits_{i,j=1}^{n} a_{ij}(x)\frac{\partial^2u}{\partial x_i\partial x_j} + F(x, u, \nabla u) = 0
 \end{equation}
-и поверхность $S:\ \omega(x) = \omega(x_1, \dots, x_n) = 0,\ \omega \in C^2(\Omega)$ и $\mathrm{grad}(\omega) \not= 0$ на $\Omega$ (нет особых точек).\\
+и поверхность $S:\ \omega(x) = \omega(x_1, \dots, x_n) = 0,\ \omega \in C^2(\Omega)$ и $\grad(\omega) \not= 0$ на $\Omega$ (нет особых точек).\\
 На поверхности задано гладкое некасательное поле $\vec{\nu} = (\nu_1(x), \dots, \nu_n(x)),\ \; \langle \vec{\nu}, \vec{n} \rangle \not= 0$.
 \begin{definition}[Задача Коши]
 В $U(x^0)\subset\Omega,\ x^0 \in S$, найти то решение уравнения \eqref{eq::2::init}, которое удовлетворяет двум условиям:
@@ -81,7 +81,7 @@ $\displaystyle\pdd{u}{x} - \displaystyle\pdd{u}{y} = 0.\quad S$ -- прямая 
 \begin{example}
 $u_{tt}-a^2\Delta_xu = f(t,x),\ x\in\R^3\ $(волновое уравнение).
 
-Характеристическое уравнение: $\brs{\displaystyle\pd{\omega}{t}}^2 - a^2(\mathrm{grad}(\omega))^2 = 0$
+Характеристическое уравнение: $\brs{\displaystyle\pd{\omega}{t}}^2 - a^2(\grad(\omega))^2 = 0$
 
 Этому уравнению удовлетворяет $\omega(t,x) = \underbrace{a^2t^2 - \vec{x}^2 = 0}_{\text{конус}}$.
 \end{example}

@@ -18,7 +18,7 @@
 \end{minipage}
 \begin{minipage}{0.8\textwidth}
 Для ограниченных областей с гладкими границами справедлива формула Остроградского-Гаусса ($F$ - непрерывно дифференцируемое векторное поле):
-$$\int\limits_{\Omega} \text{div} \vec{F}(x)\;dx = \int\limits_{\partial \Omega} \brbr{\vec{F}(x), \vec{n}}\;dS = \int\limits_{\Gamma} \brbr{\vec{F}(x), \vec{n}}\;dS$$
+$$\int\limits_{\Omega} \div \vec{F}(x)\;dx = \int\limits_{\partial \Omega} \brbr{\vec{F}(x), \vec{n}}\;dS = \int\limits_{\Gamma} \brbr{\vec{F}(x), \vec{n}}\;dS$$
 \end{minipage} \\
 \begin{lemma} \ \\
 \subsubsection{Формулы Грина}
@@ -29,11 +29,11 @@ $$ \forall u(x) \in C^2(\overline{\Omega}), v(x) \in C^2(\overline{\Omega}) \to 
 \end{lemma}
 \begin{proof}\ \\
 \subsubsection{Первая формула Грина}
-Пусть $\vec{f}(x), v(x)$ - гладкие векторное и скалярное поля соответственно: $\text{div}(\vec{f} \cdot v) = (\nabla, \overset{\shpos}{\vec{f}}v) + (\nabla, \vec{f}\overset{\shpos}{v}) = v\text{div} \vec{f} + (\vec{f}, \text{grad}{v})$. \\
-Положим $\vec{f} = \nabla u \in C^1 \Rightarrow \text{div} (v \nabla u) = v \underbrace{\text{div}(\nabla u)}_{\Delta u} + (\nabla u, \nabla v)$. \\
+Пусть $\vec{f}(x), v(x)$ - гладкие векторное и скалярное поля соответственно: $\div(\vec{f} \cdot v) = (\nabla, \overset{\shpos}{\vec{f}}v) + (\nabla, \vec{f}\overset{\shpos}{v}) = v\div \vec{f} + (\vec{f}, \grad{v})$. \\
+Положим $\vec{f} = \nabla u \in C^1 \Rightarrow \div (v \nabla u) = v \underbrace{\div(\nabla u)}_{\Delta u} + (\nabla u, \nabla v)$. \\
 Интегрируем по объёму в $\Omega$:
 \begin{equation*}
-	\int\limits_{\Omega} v \Delta u\;dx = 	\int\limits_{\Omega} \text{div}(v\nabla u)\;dx -\int\limits_{\Omega} (\nabla u, \nabla v)\;dx = \oint\limits_{\Gamma}(v \nabla u, \vec{n})\;ds - \int\limits_{\Omega}(\nabla u, \nabla v)\;dx
+	\int\limits_{\Omega} v \Delta u\;dx = 	\int\limits_{\Omega} \div(v\nabla u)\;dx -\int\limits_{\Omega} (\nabla u, \nabla v)\;dx = \oint\limits_{\Gamma}(v \nabla u, \vec{n})\;ds - \int\limits_{\Omega}(\nabla u, \nabla v)\;dx
 \end{equation*}
 Заметим, что:
 $$(v\nabla u, \vec{n}) = v \sum\limits_{k = 1}^{\dim \R^n}\dfrac{\partial u(x)}{\partial x_k} n_k = \dfrac{\partial u}{\partial \vec{n}}(x) \cdot v(x)$$

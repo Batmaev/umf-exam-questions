@@ -28,7 +28,7 @@ V\bigr|_{x = 0} = V\bigr|_{x = l} = 0.
 Докажем, что $V \equiv 0$ с помощью интеграла энергии: рассмотрим функцию $I = V_{t}\bigl[V_{tt} - a^2V_{xx}\bigr],\; (t, x) \in Q_{T}$.
 \begin{equation*}
 I = V_{t}V_{tt} - a^2V_{t}V_{xx} = \dfrac{1}{2}\bigl(V_{t}^{2}\bigr)_{t} - a^2\bigl(V_{t}V_{x}
-\bigr)_{x} + a^2\underbrace{V_{x}V_{xt}}_{\frac{1}{2} \bigl(V_{x}^{2}\bigr)_{t}} = \underbrace{\biggl(\dfrac{V_{t}^2 + a^2V_{x}^{2}}{2}\biggr)_{t}}_{F^1_t}  \underbrace{ - \bigl(a^{2}V_{t}V_{x}\bigr)_{x}}_{F_{x}^{2}}\; \biggr|\; \text{div}\vec{F} = \text{div} \begin{pmatrix}
+\bigr)_{x} + a^2\underbrace{V_{x}V_{xt}}_{\frac{1}{2} \bigl(V_{x}^{2}\bigr)_{t}} = \underbrace{\biggl(\dfrac{V_{t}^2 + a^2V_{x}^{2}}{2}\biggr)_{t}}_{F^1_t}  \underbrace{ - \bigl(a^{2}V_{t}V_{x}\bigr)_{x}}_{F_{x}^{2}}\; \biggr|\; \div\vec{F} = \div \begin{pmatrix}
 F^1 \\
 F^2
 \end{pmatrix}
@@ -77,7 +77,7 @@ F^2
 \end{center}
 \end{minipage}
 \begin{minipage}[c]{0.8\textwidth}
-$$0 = \iint\limits_{Q_{ \tau, \varepsilon}}I\;dxdt = \iint\limits_{Q_{\tau, \varepsilon}}\text{div} \vec{F}\;dxdt = \oint\limits_{\partial Q_{\tau, \varepsilon}} \bfbr{-\dfrac{V_t^2 + a^2V_{x}^2}{2}\;dx - a^2V_tV_x\;dt}$$
+$$0 = \iint\limits_{Q_{ \tau, \varepsilon}}I\;dxdt = \iint\limits_{Q_{\tau, \varepsilon}}\div \vec{F}\;dxdt = \oint\limits_{\partial Q_{\tau, \varepsilon}} \bfbr{-\dfrac{V_t^2 + a^2V_{x}^2}{2}\;dx - a^2V_tV_x\;dt}$$
 \begin{center}
 Распишем интеграл по $\partial Q_{\tau, \varepsilon}$:
 \end{center}
