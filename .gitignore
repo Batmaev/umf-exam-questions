@@ -1,7 +1,7 @@
 main.pdf
 /*/*.pdf
 !pic*.pdf
-*.svg
+*.afdesign
 *.toc
 *.log
 *.gz
