@@ -41,10 +41,10 @@
 \begin{proof}\hfill
 \begin{itemize}
     \item $u(t,x) \in C^2\, \{x \in \R^3,\; t \geq 0\}$
+
+    \item $u|_{t=0} = 0$
     
-    \item $\displaystyle \while{u}{t=0} = 0$
-    
-    \item Вычислим $\while{u_t}{t=0}$
+    \item Вычислим $u_t|_{t=0}$
     
     Интегралы, в которых и пределы, и подынтегральная функция зависят от параметра, дифференциируются по формуле
     $$\pd{}{t} \int_{a(t)}^{b(t)} f(t,x)\,dx = f(t,b(t)) \cdot b' - f(t,a(t)) \cdot a' + \int_{a(t)}^{b(t)} f'_t(t,x)\,dx$$
