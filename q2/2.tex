@@ -49,11 +49,14 @@ $$\displaystyle\sum\limits_{i,j=1}^{n-1}a_{ij}u_{x_ix_j} + \displaystyle\sum\lim
 \[y = y(x) = \begin{cases} y_1 = y_1(x_1,\dots, x_n) \\ \vdots \\ y_{n-1} = y_{n-1}(x_1,\dots,x_n) \\ y_n = \omega(x_1,\dots,x_n) \end{cases} \]
 $\Rightarrow$ после преобразования $\omega=0 \Equiv y_n=0$.\\
 Найдём это преобразование: возьмем $\vec{n} = \nabla \omega$.
+\vspace{0.2em}
 \begin{center}
-\includegraphics[width=0.22\textwidth]{./pic 2_1.pdf}
+\includegraphics[width=0.34\textwidth]{./pic 2_1.pdf}
 \end{center}
+\vspace{-0.7em} % Тень на картинке простирается далеко вниз, поэтому кажется, что там есть пустое место. Чтобы его убрать, делаю отрицательное vspace
 Дополним $\vec{n}$ до базиса -- получим $\rbrs{\vec{l}_1,\dots,\vec{l}_{n-1},\vec{n}}$. Ортогонализуем -- получим $\rbrs{\vec{e}_1,\dots,\vec{e}_{n-1},\vec{n}}.$ Возьмем такое преобразование:
 \[ \vec{y}(\vec{x}) = \begin{cases} y_1 = \brs{\vec{x}-\vec{x}_0} \cdot \vec{e}_1 \\ \vdots \\ y_{n-1} = \brs{\vec{x}-\vec{x}_0} \cdot \vec{e}_{n-1} \\ y_n = \omega(\vec{x}) \end{cases}\]
+
 Проверим $|J(x^0)|\not=0: \quad |J(x^0)| = 
 \begin{vmatrix} 
 \displaystyle\pd{y_1}{x_1}(x^0) & \cdots & \displaystyle\pd{y_1}{x_n}(x^0) \\
