@@ -22,7 +22,7 @@ $$v(x) = \lambda \int_{G}K'(x,y)v(y)dy + g(x), \; x \in \overline{G}, K'(x,y) = 
 Билет посвящен доказательству этих теорем.
 
 \begin{theorem}[Апроксимационная теорема Вейерштрасса]
-  Пусть $\Omega$ -- ограниченная область в $\R^{n}$, а $W(x) \in C(\overline{G})$. Тогда $\forall \varepsilon > 0 \exists P_{\varepsilon}(x)$ -- многочлен от $x_{1}..x_{n}$ такой, что $\norm{h(x) - P_{\varepsilon}(x)}_{C(\overline{G})} < \varepsilon$.
+  Пусть $\Omega$ -- ограниченная область в $\R^{n}$, а $W(x) \in C(\overline{G})$. Тогда $\forall \varepsilon > 0 \Exists P_{\varepsilon}(x)$ -- многочлен от $x_{1}..x_{n}$ такой, что $\norm{h(x) - P_{\varepsilon}(x)}_{C(\overline{G})} < \varepsilon$.
 \end{theorem}
 
 Будем использовать данный факт из анализа.
@@ -66,7 +66,7 @@ $$v(x) = \lambda \int_{G}K'(x,y)v(y)dy + g(x), \; x \in \overline{G}, K'(x,y) = 
     Полученный ряд сходится абсолютно т.к. справедлива оценка
     $$ \abs{\lambda^{j}\int_{G}K^{j}(a(x))b(x)dx} \leq \norm{a}\cdot\norm{b}\cdot mes G \cdot \underbrace{\abs{\lambda^{j}\cdot\norm{K}^{j}}}_{q_{j}; \; q < 1}$$
     Докажем теперь вторую часть:
-     $$\norm{\lambda K^{'}} < 1 \Longrightarrow \exists (I - \lambda K^{'})^{-1} \in \mathcal{L}(C(\overline{G})) \Longrightarrow (I - \lambda K^{'})^{-1}b = \sum_{j = 0}^{inf}\lambda^{j}(K^{'})^{j}b(x)$$
+     $$\norm{\lambda K^{'}} < 1 \Longrightarrow \Exists (I - \lambda K^{'})^{-1} \in \mathcal{L}(C(\overline{G})) \Longrightarrow (I - \lambda K^{'})^{-1}b = \sum_{j = 0}^{inf}\lambda^{j}(K^{'})^{j}b(x)$$
      Тогда:
      $$\rbrs{(I - \lambda K)^{-1}a; b} \overset{*}{=} \sum_{j=0}^{\infty}\lambda^{j}\rbrs{K^{j}a; b} = \sum_{j=0}^{\infty}\lambda^{j}\rbrs{a; (K^{'})^{j}b} = \rbrs{a; \sum_{j=0}^{\infty}\lambda^{j}(K^{'})^{j}b} = \rbrs{a; (I - \lambda K^{'})^{-1}b}$$
       Докажем (*):
