@@ -30,8 +30,19 @@ u_0(x) = \begin{cases}
 	\xi = \beta x, &\beta > 0.
 \end{cases}
 \end{equation*}
-Пусть $u(t, x)$ - решение задачи. Введём $v(\tau, \xi) = u\left(\dfrac{\tau}{\alpha}, \dfrac{\xi}{\beta}\right)$, тогда: $v_\tau = \dfrac{1}{\alpha}u_t, v_{\xi} = \dfrac{1}{\beta}u_x, v_{\xi \xi} = \dfrac{1}{\beta^2}u_{xx}$. \\
-Из уравнения: $v_{\tau} = \dfrac{\beta^2}{\alpha}a^2v_{\xi \xi}$ следует, что при $\alpha = \beta^2$ новая функция тоже будет решением, а значит, решение задачи не единственно: для любого решения $u(t, x)$ функция $v(t, x) = u\left(\dfrac{t}{\beta^2}, \dfrac{x}{\beta}\right)$ будет решеним задачи Коши $\forall \beta > 0$.
+Пусть $u(t, x)$ - решение задачи. \ Введём $v(\tau, \xi) = u\left(\dfrac{\tau}{\alpha},\ \dfrac{\xi}{\beta}\right)$. \ Тогда
+\begin{enumerate}
+	\vspace{-0.7em} % Мне показалось, что отступ между текстом и первым элементом слишком большой. Я мог бы использовать \begin{enumerate}[topsep = 0em], но тогда отступ после последнего элемента тоже бы уменьшился
+	\item $v\bigr|_{t=0} = \begin{cases} \begin{aligned}
+		1, && \frac{\xi}{\beta} \geq 0 &&\Leftrightarrow && \xi \geq 0 \\
+		0, && \frac{\xi}{\beta} < 0 && \Leftrightarrow && \xi < 0
+	\end{aligned}\end{cases}$
+
+	\item $v_\tau = \dfrac{1}{\alpha}u_t, \quad v_\xi = \dfrac{1}{\beta}\, u_x, \quad v_{\xi \xi} = \dfrac{1}{\beta^2}\, u_{xx} \qquad\Rightarrow\qquad \alpha v_{\tau} = a^2 \beta^2 v_{\xi \xi}$
+\end{enumerate}
+
+Функция $v$ в общем случае будет решением другой задачи Коши, но при $\alpha = \beta^2$ --- той же самой задачи Коши. Значит, решение не единственно: если $u(t,x)$ --- решение, то $\,\forall\, \beta > 0$ функция $v(t,x) = u\left(\dfrac{t}{\beta^2},\ \dfrac{x}{\beta}\right)$ --- тоже решение.
+
 \begin{definition} 
 	Множество преобразований $\{u_{\alpha}\}_{\alpha \in \mathcal{D}}$ - \textit{однопараметрическая группа преобразований} если:
 	\begin{itemize}
