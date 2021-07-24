@@ -44,19 +44,25 @@ u_0(x) = \begin{cases}
 Функция $v$ в общем случае будет решением другой задачи Коши, но при $\alpha = \beta^2$ --- той же самой задачи Коши. Значит, решение не единственно: если $u(t,x)$ --- решение, то $\,\forall\, \beta > 0$ функция $v(t,x) = u\left(\dfrac{t}{\beta^2},\ \dfrac{x}{\beta}\right)$ --- тоже решение.
 
 \begin{definition} 
-	Множество преобразований $\{u_{\alpha}\}_{\alpha \in \mathcal{D}}$ - \textit{однопараметрическая группа преобразований} если:
-	\begin{itemize}
-	\item $\forall \alpha_1, \alpha_2 \in \mathcal{D} \Exists !~ \alpha \in \mathcal{D}\colon\; u_{\alpha} = u_{\alpha_1} \circ u_{\alpha_2}$, то есть задана $\gamma\colon\; \mathcal{D} \times \mathcal{D} \to \mathcal{D}$
-	\item $\exists ! ~\alpha_{0} \in \mathcal{D}\colon\; \forall \alpha \in \mathcal{D}\colon\; \gamma(\alpha_0, \alpha) = \gamma(\alpha, \alpha_0) = \alpha$, то есть $u_{\alpha_0}$ - тождественное.
-	\item $\forall \alpha \in \mathcal{D}\Exists !~ \beta \in \mathcal{D}\colon\; \gamma(\alpha, \beta) = \gamma(\beta, \alpha) = \alpha_0$, то есть $u_{\beta}$ - обратное к $u_{\alpha}$.
+Множество преобразований $\{u_{\alpha}\}_{\alpha \in \mathcal{D}}$ - \emph{однопараметрическая группа преобразований,} если:
+\begin{itemize}
+	\item Это множество замкнуто относительно операции композиции:
+	$$\forall\, \alpha, \beta \in \mathcal{D} \quad \bigl(\exists!\,\gamma \in \mathcal{D} \quad u_\alpha \circ u_\beta = u_\gamma \bigr)$$
+	
+	\item Оно содержит нейтральный элемент --- тождественное преобразование:
+	$$\exists!\, o \in \mathcal{D} \quad \bigl(\forall\, \alpha \in \mathcal{D} \quad u_o \circ u_\alpha = u_\alpha \circ u_o = u_\alpha \bigr)$$
+	
+	\item У каждого элемента есть обратный, и их композиция в любом порядке даёт тождественное преобразование.
 \end{itemize}
 \end{definition}
+	
 \begin{definition}
-Функция $I(x)$ - \textit{инвариант однопараметрической группы преобразовний}, если: $\forall \alpha \in \mathcal{D}\colon\; I(x) \equiv I(u_{\alpha}(x))$.
+	Функция $I(x)$ --- \textit{инвариант однопараметрической группы преобразовний}, если $\Forall \alpha \in \mathcal{D} \quad I(x) \equiv I(u_{\alpha}(x))$
+	\end{definition}
+	\begin{definition}
+	Говорят, что \textit{уравнение допускает однопараметрическую группу преобразований}, если оно инвариантно относительно всех преобразований группы.
 \end{definition}
-\begin{definition}
-	Говорят, что \textit{уравнение допускает однопараметрическую группу преобразований}, если оно инвариантно относительно $u_{\alpha}\; \forall \alpha \in \mathcal{D}$.
-\end{definition}
+
 \begin{definition}
 Решение уравнения называется \textit{автомодельным}, если оно зависит только от инвариантов некоторой допустимой группы преобразований.
 \end{definition}
