@@ -1,41 +1,50 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
 \section{Билет 9. Формула Пуассона решения задачи Коши для однородного уравнения теплопроводности в \texorpdfstring{$\R^1$}{R}. Фундаментальное решение. Существование классического решения задачи Коши при непрерывной ограниченной начальной функции.}
 
-\paragraph{Задача}:
+\paragraph{Задача:}
 \begin{equation*}
 \begin{cases}
-	u_t - a^2u_{xx} = 0, t > 0, \; x \in \R, \\
-	u\bigr|_{t = 0} = u_0(x), \; x \in \R
+	u_t - a^2u_{xx} = 0, &x \in \R,\ t > 0 \\
+	u\bigr|_{t = 0} = u_0(x), &x \in \R
 \end{cases}
 \end{equation*}
-Пусть для начала:
+
+\subsection{Мотивация из физических соображений}
+
+На консультации 2021 года лектор сказал, что эту часть можно не учить. Так что можете сразу перейти к \hyperref[sec:FormalProof]{формальному доказательству формулы Пуассона.}
+\vspace{0.7em}
+
+Итак, пусть для начала:
 \begin{equation*}
-	u_0(x) = \begin{cases} 
-1, x \geq 0, \\
-0, x < 0 
+u_0(x) = \begin{cases} 
+	1, &x \geq 0, \\
+	0, &x < 0 
 \end{cases} 
 \end{equation*}
 Сделаем замену: 
 \begin{equation*}
 \begin{cases}
-	\tau = \alpha t, \alpha > 0, \\
-	\xi = \beta x, \beta > 0.
+	\tau = \alpha t, &\alpha > 0, \\
+	\xi = \beta x, &\beta > 0.
 \end{cases}
 \end{equation*}
 Пусть $u(t, x)$ - решение задачи. Введём $v(\tau, \xi) = u\left(\dfrac{\tau}{\alpha}, \dfrac{\xi}{\beta}\right)$, тогда: $v_\tau = \dfrac{1}{\alpha}u_t, v_{\xi} = \dfrac{1}{\beta}u_x, v_{\xi \xi} = \dfrac{1}{\beta^2}u_{xx}$. \\
 Из уравнения: $v_{\tau} = \dfrac{\beta^2}{\alpha}a^2v_{\xi \xi}$ следует, что при $\alpha = \beta^2$ новая функция тоже будет решением, а значит, решение задачи не единственно: для любого решения $u(t, x)$ функция $v(t, x) = u\left(\dfrac{t}{\beta^2}, \dfrac{x}{\beta}\right)$ будет решеним задачи Коши $\forall \beta > 0$.
 \begin{definition} 
-Множество преобразований $\{u_{\alpha}\}_{\alpha \in \mathcal{D}}$ - \textit{однопараметрическая группа преобразований} если:
-\begin{itemize}
-\item $\forall \alpha_1, \alpha_2 \in \mathcal{D} \Exists !~ \alpha \in \mathcal{D}\colon\; u_{\alpha} = u_{\alpha_1} \circ u_{\alpha_2}$, то есть задана $\gamma\colon\; \mathcal{D} \times \mathcal{D} \to \mathcal{D}$
-\item $\exists ! ~\alpha_{0} \in \mathcal{D}\colon\; \forall \alpha \in \mathcal{D}\colon\; \gamma(\alpha_0, \alpha) = \gamma(\alpha, \alpha_0) = \alpha$, то есть $u_{\alpha_0}$ - тождественное.
-\item $\forall \alpha \in \mathcal{D}\Exists !~ \beta \in \mathcal{D}\colon\; \gamma(\alpha, \beta) = \gamma(\beta, \alpha) = \alpha_0$, то есть $u_{\beta}$ - обратное к $u_{\alpha}$.
+	Множество преобразований $\{u_{\alpha}\}_{\alpha \in \mathcal{D}}$ - \textit{однопараметрическая группа преобразований} если:
+	\begin{itemize}
+	\item $\forall \alpha_1, \alpha_2 \in \mathcal{D} \Exists !~ \alpha \in \mathcal{D}\colon\; u_{\alpha} = u_{\alpha_1} \circ u_{\alpha_2}$, то есть задана $\gamma\colon\; \mathcal{D} \times \mathcal{D} \to \mathcal{D}$
+	\item $\exists ! ~\alpha_{0} \in \mathcal{D}\colon\; \forall \alpha \in \mathcal{D}\colon\; \gamma(\alpha_0, \alpha) = \gamma(\alpha, \alpha_0) = \alpha$, то есть $u_{\alpha_0}$ - тождественное.
+	\item $\forall \alpha \in \mathcal{D}\Exists !~ \beta \in \mathcal{D}\colon\; \gamma(\alpha, \beta) = \gamma(\beta, \alpha) = \alpha_0$, то есть $u_{\beta}$ - обратное к $u_{\alpha}$.
 \end{itemize}
 \end{definition}
 \begin{definition}
 Функция $I(x)$ - \textit{инвариант однопараметрической группы преобразовний}, если: $\forall \alpha \in \mathcal{D}\colon\; I(x) \equiv I(u_{\alpha}(x))$.
 \end{definition}
 \begin{definition}
-Говорят, что \textit{уравнение допускает однопараметрическую группу преобразований}, если оно инвариантно относительно $u_{\alpha}\; \forall \alpha \in \mathcal{D}$.
+	Говорят, что \textit{уравнение допускает однопараметрическую группу преобразований}, если оно инвариантно относительно $u_{\alpha}\; \forall \alpha \in \mathcal{D}$.
 \end{definition}
 \begin{definition}
 Решение уравнения называется \textit{автомодельным}, если оно зависит только от инвариантов некоторой допустимой группы преобразований.
@@ -112,6 +121,10 @@ u(t,x) &= \sbrs { \Psi (t,x, \xi) = -\frac{1}{2}\Phi \brs{\frac{x - \xi}{\sqrt{4
 Предположение: решение будет $$u(t,x) = \frac{1}{\sqrt{4\pi a^2 t}} \int_{-\infty}^{\infty}e^{-\dfrac{(x-\xi)^2}{4a^2t}} u_0(y) dy - \text{ Формула Пуассона} $$
 Функция $$\mathcal{E}(t,x) =  \frac{1}{\sqrt{4\pi a^2 t}} e^{-\dfrac{x^2}{4a^2 t}} - \textbf{фундаментальное решение (или функция источника)}$$
 \end{enumerate}
+
+\subsection{Строгое доказательство}
+\label{sec:FormalProof}
+
 \begin{theorem}
 Пусть $u_0\in C(\R^1),\ \abs{u_0(x)}\leq M_0\ \forall x\in \R^1$. Тогда функция $u(t,x) = \dfrac{1}{\sqrt{4\pi a^2 t}} \displaystyle\int_{-\infty}^{\infty}e^{-\dfrac{(x - y)^2}{4a^2t}} u_0(y) dy$
 \begin{enumerate}
@@ -190,3 +203,4 @@ u_t-a^2u_{xx}=\int\limits_{-\infty}^{+\infty}\cancelto{0}{\left[\mathcal{E}_t(t,
 
 
 
+\end{document}
