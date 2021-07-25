@@ -60,7 +60,7 @@ u_0(x) = \begin{cases}
 	Функция $I(x)$ --- \textit{инвариант однопараметрической группы преобразовний}, если $\Forall \alpha \in \mathcal{D} \quad I(x) \equiv I(u_{\alpha}(x))$
 	\end{definition}
 	\begin{definition}
-	Говорят, что \textit{уравнение допускает однопараметрическую группу преобразований}, если все преобразования группы переводят решения этого уравнения в решения. \footnote{В прошлых версиях файла определение гласило, что уравнение допускает группу преобразований, если оно инвариантно относительно всех преобразований группы. Но непонятно, что подразумевается под инвариантностью \emph{уравнения}. Новое определение же опирается на инвариантность \emph{функций}. Я взял его с \href{https://matem.anrb.ru/bsuconf/2012/adlerv7.pdf}{этого сайта.}}
+	Говорят, что \textit{уравнение допускает однопараметрическую группу преобразований}, если все преобразования группы переводят решения этого уравнения в решения. \footnote{В прошлых версиях файла определение гласило, что уравнение допускает группу преобразований, если оно инвариантно относительно всех преобразований группы. Но непонятно, что подразумевается под инвариантностью \emph{уравнения}. Новое определение же опирается на инвариантность \emph{функций}. Оно взято с \href{https://matem.anrb.ru/bsuconf/2012/adlerv7.pdf}{этого сайта.}}
 \end{definition}
 
 \begin{definition}
@@ -74,14 +74,14 @@ u_0(x) = \begin{cases}
 \end{cases}
 \end{equation*}
 есть однопарметрическая группа преобразований, $z = \dfrac{x}{\sqrt{t}} $ --- инвариант группы. \\
-Найдём такое решение $u(t, x) = f\erbr{\dfrac{x}{\sqrt{t}}} = f(z)$. \\
+Найдём такое решение $u(t, x) = f\brs{\dfrac{x}{\sqrt{t}}} = f(z)$. \\
 Тогда:
 \begin{equation*}
-	u_t = f^{'}\erbr{\dfrac{x}{\sqrt{t}}} \cdot \erbr{\dfrac{-x}{2t^{\frac{3}{2}}}}, \; \; u_x = f^{'}\erbr{\dfrac{x}{\sqrt{t}}} \cdot \dfrac{1}{\sqrt{t}},\; \; u_{xx} = f^{''}\erbr{\dfrac{x}{\sqrt{t}}} \cdot \dfrac{1}{t}
+	u_t = f'\brs{\dfrac{x}{\sqrt{t}}} \cdot \brs{\dfrac{-x}{2t^{\frac{3}{2}}}}, \; \; u_x = f^{'}\brs{\dfrac{x}{\sqrt{t}}} \cdot \dfrac{1}{\sqrt{t}},\; \; u_{xx} = f^{''}\brs{\dfrac{x}{\sqrt{t}}} \cdot \dfrac{1}{t}
 \end{equation*}
 Подставляем в первое уравнение задачи:
 \begin{equation*}
-	-\dfrac{x}{2t\sqrt{t}} f^{'}\erbr{\dfrac{x}{\sqrt{t}}} = a^2 f^{''}\erbr{\dfrac{x}{\sqrt{t}}} \cdot \dfrac{1}{t} \Leftrightarrow a^2f^{''}(z) = -\dfrac{z}{2}f^{'}(z) \Rightarrow \ln|f^{'}(z)| = -\dfrac{z^2}{4a^2} + \tilde{C}_1
+	-\dfrac{x}{2t\sqrt{t}} f^{'}\brs{\dfrac{x}{\sqrt{t}}} = a^2 f^{''}\brs{\dfrac{x}{\sqrt{t}}} \cdot \dfrac{1}{t} \Leftrightarrow a^2f^{''}(z) = -\dfrac{z}{2}f^{'}(z) \Rightarrow \ln|f^{'}(z)| = -\dfrac{z^2}{4a^2} + \tilde{C}_1
 \end{equation*}
 Получили, что: $f(z) = C_1 \displaystyle\int\limits_{-\infty}^z e^{-\dfrac{\eta^2}{4a^2}}\;d\eta + C_2$
 \paragraph{Задача была следующей:} бесконечный стержень разделён на две половины, начальные температуры половин $T_0 = 0$ и $T_1 = 1$. \\
@@ -111,7 +111,7 @@ $$\boxed{C_2 = 0}, \; \; \int\limits_{-\infty}^{+\infty} e^{-\dfrac{\eta^2}{4a^2
 \end{equation*}
 Тогда:
 \begin{equation*}
-	u(t, x) = f\erbr{\dfrac{x}{\sqrt{t}}} = \dfrac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{\frac{x}{\sqrt{4 t a^2}}} e^{-\mu^2}\;d \mu = \dfrac{1}{2}\efbr{1 + \Phi\erbr{\dfrac{x}{\sqrt{4 a^2 t}}}}
+	u(t, x) = f\brs{\dfrac{x}{\sqrt{t}}} = \dfrac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{\frac{x}{\sqrt{4 t a^2}}} e^{-\mu^2}\;d \mu = \dfrac{1}{2}\sbrs{1 + \Phi\brs{\dfrac{x}{\sqrt{4 a^2 t}}}}
 \end{equation*}
 \begin{enumerate}
 \item Мы рассмотрим модельную задачу.

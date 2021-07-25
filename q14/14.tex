@@ -1,3 +1,7 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+
 \section{Билет 14. Формулы Грина для оператора Лапласа. Постановка краевых задач Дирихле и Неймана для уравнения Пуассона в ограниченной области. Единственность классического решения задачи Дирихле. Неединственность решения задачи Неймана и необходимое условие её разрешимости.}
 % Затехал Шлёнский Владос
 \subsection{Формулы Грина}
@@ -18,7 +22,7 @@
 \end{minipage}
 \begin{minipage}{0.8\textwidth}
 Для ограниченных областей с гладкими границами справедлива формула Остроградского-Гаусса ($F$ - непрерывно дифференцируемое векторное поле):
-$$\int\limits_{\Omega} \div \vec{F}(x)\;dx = \int\limits_{\partial \Omega} \brbr{\vec{F}(x), \vec{n}}\;dS = \int\limits_{\Gamma} \brbr{\vec{F}(x), \vec{n}}\;dS$$
+$$\int\limits_{\Omega} \div \vec{F}(x)\;dx = \int\limits_{\partial \Omega} \bigl(\vec{F}(x),\: \vec{n}\bigr)\;dS = \int\limits_{\Gamma} \bigl(\vec{F}(x),\: \vec{n}\bigr)\;dS$$
 \end{minipage} \\
 \begin{lemma} \ \\
 \subsubsection{Формулы Грина}
@@ -89,6 +93,7 @@ $$\int\limits_{\Omega} u \Delta v\;dx = \oint\limits_{\Gamma}(u \nabla v, \vec{n
 \end{lemma}
 \begin{proof}
 \begin{equation*}
-\int\limits_{\Omega} f(x)\;dx = \int\limits_{\Omega} \Delta u\;dx = \int\limits_{\Omega} \Delta u \cdot 1\; dx = \bfbr{\text{1-ая формула Грина}} = \int\limits_{\partial \Omega} \dfrac{\partial u}{\partial \vec{n}} \cdot 1\;ds - \cancelto{0}{\int\limits_{\Omega} (\nabla u, \nabla 1)\;dx} = \int\limits_{\partial \Omega} u_1(x) \cdot 1\;ds 
+\int\limits_{\Omega} f(x)\;dx = \int\limits_{\Omega} \Delta u\;dx = \int\limits_{\Omega} \Delta u \cdot 1\; dx = \bigl[\text{1-ая формула Грина}\bigr] = \int\limits_{\partial \Omega} \dfrac{\partial u}{\partial \vec{n}} \cdot 1\;ds - \cancelto{0}{\int\limits_{\Omega} (\nabla u, \nabla 1)\;dx} = \int\limits_{\partial \Omega} u_1(x) \cdot 1\;ds 
 \end{equation*}
 \end{proof}
+\end{document}
