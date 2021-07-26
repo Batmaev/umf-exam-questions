@@ -79,48 +79,35 @@ u_0(x) = \begin{cases}
 Найдём автомодельное решение $u(t, x) = f\brs{\dfrac{x}{\sqrt{t}}} = f(z)$. \\
 В этом случае:
 \begin{equation*}
-	u_t = f'\brs{\dfrac{x}{\sqrt{t}}} \cdot \brs{\dfrac{-x}{2t^{3/2}}} 
-	\qquad u_x = f'\brs{\dfrac{x}{\sqrt{t}}} \cdot \dfrac{1}{\sqrt{t}} 
-	\qquad u_{xx} = f''\brs{\dfrac{x}{\sqrt{t}}} \cdot \dfrac{1}{t}
+	u_t = f'\brs{\dfrac{x}{\sqrt{t}}} \cdot \brs{\frac{-x}{2t^{3/2}}} 
+	\qquad u_x = f'\brs{\frac{x}{\sqrt{t}}} \cdot \frac{1}{\sqrt{t}} 
+	\qquad u_{xx} = f''\brs{\frac{x}{\sqrt{t}}} \cdot \frac{1}{t}
 \end{equation*}
 
 Подставляем в уравнение:
 \vspace{-0.7em}
 \begin{align*}
-	&-\dfrac{x}{2t\sqrt{t}} f'(z) = a^2 f''(z) \cdot \dfrac{1}{t}\\[0.3em]
+	&-\frac{x}{2t\sqrt{t}} f'(z) = a^2 f''(z) \cdot \frac{1}{t}\\[0.3em]
 	&\frac{f''(z)}{f'(z)} = - \frac{1}{a^2} \frac{x}{2\sqrt t} = -\frac{1}{2 a^2} z\\[0.2em]
-	%a^2f''(z) &= -\dfrac{z}{2}f'(z) \\
-	&\ln|f'(z)| = -\dfrac{z^2}{4a^2} + \tilde{C}_1
+	&\ln|f'(z)| = -\frac{z^2}{4a^2} + \tilde{C}_1
 \end{align*}
-Получили, что \ $f(z) = C_1 \displaystyle\int\limits_{-\infty}^z e^{-\dfrac{\eta^2}{4a^2}}\;d\eta + C_2$
-\paragraph{Задача была следующей:} бесконечный стержень разделён на две половины, начальные температуры половин $T_0 = 0$ и $T_1 = 1$. \\
-Из физических соображений: \\
-\begin{minipage}[c]{0.2\textwidth}
-\begin{flushright}
-\begin{align*}
-	\lim\limits_{z \to - \infty} f(z) = 0, \\
-	\lim\limits_{z \to + \infty} f(z) = 1.
-\end{align*}
-\end{flushright}
-\end{minipage}
-\begin{minipage}[c]{0\textwidth}
-$$\biggr\rangle \Longrightarrow$$
-\end{minipage}
-\begin{minipage}[c]{0.7\textwidth}
-\vspace{30pt}
-$$\boxed{C_2 = 0}, \; \; \int\limits_{-\infty}^{+\infty} e^{-\dfrac{\eta^2}{4a^2}}\;d \eta = C_1^{-1} = 2a \underbrace{\int\limits_{-\infty}^{+\infty} e^{-\dfrac{\eta^2}{4a^2}}\;d \dfrac{\eta}{2a}}_{\sqrt{\pi}} \Rightarrow \boxed{C_1 = \dfrac{1}{\sqrt{4 \pi a^2}}}$$
-\end{minipage} \\
+Получили, что \ $f(z) = C_1 \displaystyle\int\limits_{-\infty}^z e^{-\frac{\eta^2}{4a^2}}\;d\eta + C_2$
+\paragraph{Задача была следующей:} бесконечный стержень разделён на две половины, начальные температуры половин $T_0 = 0$ и $T_1 = 1$. Из физических соображений:
+\begin{flalign*}
+	& \lim\limits_{z \to - \infty} f(z) = 0 \quad \Rightarrow \quad C_2 = 0 & \\
+	& \lim\limits_{z \to + \infty} f(z) = 1 \quad \Rightarrow \quad \int\limits_{-\infty}^{+\infty} e^{-\frac{\eta^2}{4a^2}}\;d \eta = C_1^{-1} = 2a \underbrace{\int\limits_{-\infty}^{+\infty} e^{-\frac{\eta^2}{4a^2}}\;d \frac{\eta}{2a}}_{\sqrt{\pi}} \quad\ \Rightarrow \quad\ C_1 = \frac{1}{\sqrt{4 \pi a^2}} &
+\end{flalign*}
 Окончательно:
 \begin{equation*}
-	f(z) = \dfrac{1}{\sqrt{4 \pi a^2}}\int\limits_{-\infty}^{z} e^{-\dfrac{\eta^2}{4a^2}}\;d \eta = \dfrac{2a}{\sqrt{4 \pi a^2}} \int\limits_{-\infty}^{z/2a}e^{-\mu^2}\;d \mu = \dfrac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{z/2a}e^{-\mu^2}\;d \mu 
+	f(z) = \frac{1}{\sqrt{4 \pi a^2}}\int\limits_{-\infty}^{z} e^{-\frac{\eta^2}{4a^2}}\;d \eta = \frac{2a}{\sqrt{4 \pi a^2}} \int\limits_{-\infty}^{z/2a}e^{-\mu^2}\;d \mu = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{z/2a}e^{-\mu^2}\;d \mu 
 \end{equation*}
 Введём \textbf{интеграл ошибок}:
 \begin{equation*}
-	\Phi(z) = \dfrac{2}{\sqrt{\pi}} \int\limits_{0}^{z}e^{-\xi^2}\;d \xi,\; \; \Phi(\pm \infty) = \pm 1,\; \; \Phi(0) = 0. 
+	\Phi(z) = \frac{2}{\sqrt{\pi}} \int\limits_{0}^{z}e^{-\xi^2}\;d \xi,\; \; \Phi(\pm \infty) = \pm 1,\; \; \Phi(0) = 0. 
 \end{equation*}
 Тогда:
 \begin{equation*}
-	u(t, x) = f\brs{\dfrac{x}{\sqrt{t}}} = \dfrac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{\frac{x}{\sqrt{4 t a^2}}} e^{-\mu^2}\;d \mu = \dfrac{1}{2}\sbrs{1 + \Phi\brs{\dfrac{x}{\sqrt{4 a^2 t}}}}
+	u(t, x) = f\brs{\frac{x}{\sqrt{t}}} = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{\frac{x}{\sqrt{4 t a^2}}} e^{-\mu^2}\;d \mu = \frac{1}{2}\sbrs{1 + \Phi\brs{\frac{x}{\sqrt{4 a^2 t}}}}
 \end{equation*}
 \begin{enumerate}
 \item Мы рассмотрим модельную задачу.
@@ -141,11 +128,12 @@ $$u(t,x) = \sum_{k=1}^{N}\sbrs{\frac{\fbrs{-\frac{1}{2}\Phi \brs{\frac{x-x_{2k}}
 \item Окончательно, пусть $u_0(x)$ финитна, непрерывна, ограничена. Разбиваем ее носитель $\mathrm{supp}\; u_0(x)$ на отрезки, аппроксимируем кусочно постоянной. Для приближенных решений справедливо:
 \begin{align*}
 u(t,x) &= \sbrs { \Psi (t,x, \xi) = -\frac{1}{2}\Phi \brs{\frac{x - \xi}{\sqrt{4a^2t}}}} = \sum \frac{\Psi(t,x,x_{2k})-\Psi(t,x,x_{1k})}{x_{2k}-x_{1k}} u_0 \brs{\frac{x_{2k}+x_{1k}}{2}} \brs{x_{2k}-x_{1k}} \approx\\
-& \approx \sum_{k=1}^N \left. \pd{\Psi}{\xi}\right |_{\xi = \frac{x_{2k}+x_{1k}}{2}} u_0 \brs{\frac{x_{2k}+x_{1k}}{2}}\brs{x_{2k}-x_{1k}} = \sbrs{\pd{\Psi}{\xi} = \frac{1}{\sqrt{4 \pi a^2 t}} e^{-\dfrac{(x-\xi)^2}{4a^2t}}} = \\
-&= \sum_{k=1}^N \frac{1}{\sqrt{4 \pi a^2 t}} \left. e^{-\dfrac{(x-\xi)^2}{4a^2t}} \right |_{\xi = \frac{x_{2k}+x_{1k}}{2}} u_{*k} \brs{x_{2k} - x_{1k}} - \text{ Интегральная сумма Римана}
+& \approx \sum_{k=1}^N \left. \pd{\Psi}{\xi}\right |_{\xi = \frac{x_{2k}+x_{1k}}{2}} u_0 \brs{\frac{x_{2k}+x_{1k}}{2}}\brs{x_{2k}-x_{1k}} = \sbrs{\pd{\Psi}{\xi} = \frac{1}{\sqrt{4 \pi a^2 t}} e^{-\frac{(x-\xi)^2}{4a^2t}}} = \\
+&= \sum_{k=1}^N \frac{1}{\sqrt{4 \pi a^2 t}} \left. e^{-\frac{(x-\xi)^2}{4a^2t}} \right |_{\xi = \frac{x_{2k}+x_{1k}}{2}} u_{*k} \brs{x_{2k} - x_{1k}} - \text{ Интегральная сумма Римана}
 \end{align*}
-Предположение: решение будет $$u(t,x) = \frac{1}{\sqrt{4\pi a^2 t}} \int_{-\infty}^{\infty}e^{-\dfrac{(x-\xi)^2}{4a^2t}} u_0(y) dy - \text{ Формула Пуассона} $$
-Функция $$\mathcal{E}(t,x) =  \frac{1}{\sqrt{4\pi a^2 t}} e^{-\dfrac{x^2}{4a^2 t}} - \textbf{фундаментальное решение (или функция источника)}$$
+Предположение: решение будет $$u(t,x) = \frac{1}{\sqrt{4\pi a^2 t}} \int_{-\infty}^{\infty}e^{-\frac{(x-\xi)^2}{4a^2t}} u_0(y) dy - \text{ Формула Пуассона} $$
+Функция 
+$$\mathcal{E}(t,x) =  \frac{1}{\sqrt{4\pi a^2 t}} e^{-\frac{x^2}{4a^2 t}} - \textbf{фундаментальное решение (или функция источника)}$$
 \end{enumerate}
 
 \subsection{Строгое доказательство}
