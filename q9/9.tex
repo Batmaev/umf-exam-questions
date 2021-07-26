@@ -91,32 +91,32 @@ u_0(x) = \begin{cases}
 	&\frac{f''(z)}{f'(z)} = - \frac{1}{a^2} \frac{x}{2\sqrt t} = -\frac{1}{2 a^2} z\\[0.2em]
 	&\ln|f'(z)| = -\frac{z^2}{4a^2} + \tilde{C}_1
 \end{align*}
-Получили, что \ $f(z) = C_1 \displaystyle\int\limits_{-\infty}^z e^{-\frac{\eta^2}{4a^2}}\;d\eta + C_2$
+Получили, что \ $f(z) = C_1 \displaystyle\int\limits_{-\infty}^z e^{-\frac{\eta^2}{4a^2}}\, d\eta + C_2$
 \paragraph{Задача была следующей:} бесконечный стержень разделён на две половины, начальные температуры половин $T_0 = 0$ и $T_1 = 1$. Из физических соображений:
 \begin{flalign*}
 	& \lim\limits_{z \to - \infty} f(z) = 0 \quad \Rightarrow \quad C_2 = 0 & \\
-	& \lim\limits_{z \to + \infty} f(z) = 1 \quad \Rightarrow \quad \int\limits_{-\infty}^{+\infty} e^{-\frac{\eta^2}{4a^2}}\;d \eta = C_1^{-1} = 2a \underbrace{\int\limits_{-\infty}^{+\infty} e^{-\frac{\eta^2}{4a^2}}\;d \frac{\eta}{2a}}_{\sqrt{\pi}} \quad\ \Rightarrow \quad\ C_1 = \frac{1}{\sqrt{4 \pi a^2}} &
+	& \lim\limits_{z \to + \infty} f(z) = 1 \quad \Rightarrow \quad \int\limits_{-\infty}^{+\infty} e^{-\frac{\eta^2}{4a^2}}\, d \eta = C_1^{-1} = 2a \underbrace{\int\limits_{-\infty}^{+\infty} e^{-\frac{\eta^2}{4a^2}}\, d \frac{\eta}{2a}}_{\sqrt{\pi}} \quad\ \Rightarrow \quad\ C_1 = \frac{1}{\sqrt{4 \pi a^2}} &
 \end{flalign*}
 Окончательно:
 \begin{equation*}
-	f(z) = \frac{1}{\sqrt{4 \pi a^2}}\int\limits_{-\infty}^{z} e^{-\frac{\eta^2}{4a^2}}\;d \eta = \frac{2a}{\sqrt{4 \pi a^2}} \int\limits_{-\infty}^{z/2a}e^{-\mu^2}\;d \mu = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{z/2a}e^{-\mu^2}\;d \mu 
+	f(z) = \frac{1}{\sqrt{4 \pi a^2}}\int\limits_{-\infty}^{z} e^{-\frac{\eta^2}{4a^2}}\, d \eta = \frac{2a}{\sqrt{4 \pi a^2}} \int\limits_{-\infty}^{z/2a}e^{-\mu^2}\, d \mu = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{z/2a}e^{-\mu^2}\, d \mu 
 \end{equation*}
 Введём \textbf{интеграл ошибок}:
 \begin{equation*}
-	\erf(z) = \frac{2}{\sqrt{\pi}} \int\limits_{0}^{z}e^{-\xi^2}\;d \xi,\; \; \erf(\pm \infty) = \pm 1,\; \; \erf(0) = 0. 
+	\erf(z) = \frac{2}{\sqrt{\pi}} \int\limits_{0}^{z}e^{-\xi^2}\, d \xi \qquad \erf(\pm \infty) = \pm 1,\; \; \erf(0) = 0
 \end{equation*}
 Тогда:
 \begin{equation*}
-	u(t, x) = f\brs{\frac{x}{\sqrt{t}}} = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{\frac{x}{\sqrt{4 t a^2}}} e^{-\mu^2}\;d \mu = \frac{1}{2}\sbrs{1 + \erf\brs{\frac{x}{\sqrt{4 a^2 t}}}}
+	u(t, x) = f\brs{\frac{x}{\sqrt{t}}} = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{\frac{x}{\sqrt{4 t a^2}}} e^{-\mu^2}\, d \mu = \frac{1}{2}\sbrs{1 + \erf\brs{\frac{x}{\sqrt{4 a^2 t}}}}
 \end{equation*}
 \begin{enumerate}
-\item Мы рассмотрим модельную задачу.
+\item Мы рассмотрели модельную задачу
 \begin{center}
-\includegraphics[width=0.2\textwidth]{9_1_new}
+\includegraphics[height=0.125\textwidth]{./pic 9_1.pdf}
 \end{center}
-\item Увеличим ступеньку в $u_*$ раз и сдвинем.
+\item Увеличим ступеньку в $u_*$ раз и сдвинем
 $$u(t,x) = \frac{u_*}{2}\sbrs{1+\erf \brs{\frac{x-x_0}{\sqrt{4a^2t}}}}$$
-\item Можем получить и ступеньку конечной ширины.
+\item Можем получить и решение для ступеньки конечной ширины:
 $$u(t,x) = \frac{u_*}{2}\sbrs{\erf \brs{\frac{x-x_1}{\sqrt{4a^2t}}}-\erf \brs{\frac{x-x_2}{\sqrt{4a^2t}}}}$$
 \item Для системы из $N$ интервалов имеем:
 \begin{center}
