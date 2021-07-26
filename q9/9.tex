@@ -103,11 +103,11 @@ u_0(x) = \begin{cases}
 \end{equation*}
 Введём \textbf{интеграл ошибок}:
 \begin{equation*}
-	\Phi(z) = \frac{2}{\sqrt{\pi}} \int\limits_{0}^{z}e^{-\xi^2}\;d \xi,\; \; \Phi(\pm \infty) = \pm 1,\; \; \Phi(0) = 0. 
+	\erf(z) = \frac{2}{\sqrt{\pi}} \int\limits_{0}^{z}e^{-\xi^2}\;d \xi,\; \; \erf(\pm \infty) = \pm 1,\; \; \erf(0) = 0. 
 \end{equation*}
 Тогда:
 \begin{equation*}
-	u(t, x) = f\brs{\frac{x}{\sqrt{t}}} = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{\frac{x}{\sqrt{4 t a^2}}} e^{-\mu^2}\;d \mu = \frac{1}{2}\sbrs{1 + \Phi\brs{\frac{x}{\sqrt{4 a^2 t}}}}
+	u(t, x) = f\brs{\frac{x}{\sqrt{t}}} = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{\frac{x}{\sqrt{4 t a^2}}} e^{-\mu^2}\;d \mu = \frac{1}{2}\sbrs{1 + \erf\brs{\frac{x}{\sqrt{4 a^2 t}}}}
 \end{equation*}
 \begin{enumerate}
 \item Мы рассмотрим модельную задачу.
@@ -115,19 +115,19 @@ u_0(x) = \begin{cases}
 \includegraphics[width=0.2\textwidth]{9_1_new}
 \end{center}
 \item Увеличим ступеньку в $u_*$ раз и сдвинем.
-$$u(t,x) = \frac{u_*}{2}\sbrs{1+\Phi \brs{\frac{x-x_0}{\sqrt{4a^2t}}}}$$
+$$u(t,x) = \frac{u_*}{2}\sbrs{1+\erf \brs{\frac{x-x_0}{\sqrt{4a^2t}}}}$$
 \item Можем получить и ступеньку конечной ширины.
-$$u(t,x) = \frac{u_*}{2}\sbrs{\Phi \brs{\frac{x-x_1}{\sqrt{4a^2t}}}-\Phi \brs{\frac{x-x_2}{\sqrt{4a^2t}}}}$$
+$$u(t,x) = \frac{u_*}{2}\sbrs{\erf \brs{\frac{x-x_1}{\sqrt{4a^2t}}}-\erf \brs{\frac{x-x_2}{\sqrt{4a^2t}}}}$$
 \item Для системы из $N$ интервалов имеем:
 \begin{center}
 \includegraphics[width=0.2\textwidth]{9_2_new}
 \end{center}
-$$u(t,x) = \sum_{k=1}^{N}\frac{u_{*k}}{2}\sbrs{\Phi \brs{\frac{x-x_{1k}}{\sqrt{4a^2t}}}-\Phi \brs{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}$$
+$$u(t,x) = \sum_{k=1}^{N}\frac{u_{*k}}{2}\sbrs{\erf \brs{\frac{x-x_{1k}}{\sqrt{4a^2t}}}-\erf \brs{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}$$
 Последнее можно переписать в следующем виде:
-$$u(t,x) = \sum_{k=1}^{N}\sbrs{\frac{\fbrs{-\frac{1}{2}\Phi \brs{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}-\fbrs{-\frac{1}{2}\Phi \brs{\frac{x-x_{1k}}{\sqrt{4a^2t}}}}}{x_{2k}-x_{1k}}}u_{*k} (x_{2k} - x_{1k})$$
+$$u(t,x) = \sum_{k=1}^{N}\sbrs{\frac{\fbrs{-\frac{1}{2}\erf \brs{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}-\fbrs{-\frac{1}{2}\erf \brs{\frac{x-x_{1k}}{\sqrt{4a^2t}}}}}{x_{2k}-x_{1k}}}u_{*k} (x_{2k} - x_{1k})$$
 \item Окончательно, пусть $u_0(x)$ финитна, непрерывна, ограничена. Разбиваем ее носитель $\mathrm{supp}\; u_0(x)$ на отрезки, аппроксимируем кусочно постоянной. Для приближенных решений справедливо:
 \begin{align*}
-u(t,x) &= \sbrs { \Psi (t,x, \xi) = -\frac{1}{2}\Phi \brs{\frac{x - \xi}{\sqrt{4a^2t}}}} = \sum \frac{\Psi(t,x,x_{2k})-\Psi(t,x,x_{1k})}{x_{2k}-x_{1k}} u_0 \brs{\frac{x_{2k}+x_{1k}}{2}} \brs{x_{2k}-x_{1k}} \approx\\
+u(t,x) &= \sbrs { \Psi (t,x, \xi) = -\frac{1}{2}\erf \brs{\frac{x - \xi}{\sqrt{4a^2t}}}} = \sum \frac{\Psi(t,x,x_{2k})-\Psi(t,x,x_{1k})}{x_{2k}-x_{1k}} u_0 \brs{\frac{x_{2k}+x_{1k}}{2}} \brs{x_{2k}-x_{1k}} \approx\\
 & \approx \sum_{k=1}^N \left. \pd{\Psi}{\xi}\right |_{\xi = \frac{x_{2k}+x_{1k}}{2}} u_0 \brs{\frac{x_{2k}+x_{1k}}{2}}\brs{x_{2k}-x_{1k}} = \sbrs{\pd{\Psi}{\xi} = \frac{1}{\sqrt{4 \pi a^2 t}} e^{-\frac{(x-\xi)^2}{4a^2t}}} = \\
 &= \sum_{k=1}^N \frac{1}{\sqrt{4 \pi a^2 t}} \left. e^{-\frac{(x-\xi)^2}{4a^2t}} \right |_{\xi = \frac{x_{2k}+x_{1k}}{2}} u_{*k} \brs{x_{2k} - x_{1k}} - \text{ Интегральная сумма Римана}
 \end{align*}
