@@ -3,13 +3,11 @@
 
 \section{Билет 9. Формула Пуассона решения задачи Коши для однородного уравнения теплопроводности в \texorpdfstring{$\R^1$}{R}. Фундаментальное решение. Существование классического решения задачи Коши при непрерывной ограниченной начальной функции.}
 
-\paragraph{Задача:}
-\begin{equation*}
+$$\text{Задача: \ }
 \begin{cases}
 	u_t - a^2u_{xx} = 0, &x \in \R,\ t > 0 \\
 	u\bigr|_{t = 0} = u_0(x), &x \in \R
-\end{cases}
-\end{equation*}
+\end{cases} $$
 
 \subsection{Наводящие соображения}
 
@@ -33,12 +31,12 @@ u_0(x) = \begin{cases}
 Пусть $u(t, x)$ - решение задачи. \ Введём $v(\tau, \xi) = u\left(\dfrac{\tau}{\alpha},\ \dfrac{\xi}{\beta}\right)$. \ Тогда
 \begin{enumerate}
 	\vspace{-0.7em} % Мне показалось, что отступ между текстом и первым элементом слишком большой. Я мог бы использовать \begin{enumerate}[topsep = 0em], но тогда отступ после последнего элемента тоже бы уменьшился
-	\item $v\bigr|_{t=0} = \begin{cases} \begin{aligned}
+	\item \qquad $v\bigr|_{t=0} = \begin{cases} \begin{aligned}
 		1, && \frac{\xi}{\beta} \geq 0 &&\Leftrightarrow && \xi \geq 0 \\
 		0, && \frac{\xi}{\beta} < 0 && \Leftrightarrow && \xi < 0
 	\end{aligned}\end{cases}$
 
-	\item $v_\tau = \dfrac{1}{\alpha}u_t, \quad v_\xi = \dfrac{1}{\beta}\, u_x, \quad v_{\xi \xi} = \dfrac{1}{\beta^2}\, u_{xx} \qquad\Rightarrow\qquad \alpha v_{\tau} = a^2 \beta^2 v_{\xi \xi}$
+	\item \qquad $v_\tau = \dfrac{1}{\alpha}u_t, \quad v_\xi = \dfrac{1}{\beta}\, u_x, \quad v_{\xi \xi} = \dfrac{1}{\beta^2}\, u_{xx} \qquad\Rightarrow\qquad \alpha v_{\tau} = a^2 \beta^2 v_{\xi \xi}$
 \end{enumerate}
 
 Функция $v$ в общем случае будет решением другой задачи Коши, но при $\alpha = \beta^2$ --- той же самой задачи Коши. Значит, решение не единственно: если $u(t,x)$ --- решение, то $\,\forall\, \beta > 0$ функция $v(t,x) = u\left(\dfrac{t}{\beta^2},\ \dfrac{x}{\beta}\right)$ --- тоже решение.
@@ -123,37 +121,63 @@ $$u(t,x) = \frac{u_*}{2}\sbrs{\erf \brs{\frac{x-x_1}{\sqrt{4a^2t}}}-\erf \brs{\f
 \includegraphics[height=0.125\textwidth]{./pic 9_2.pdf}
 \end{center}
 $$u(t,x) = \sum_{k=1}^{N}\frac{u_{*k}}{2}\sbrs{\erf \brs{\frac{x-x_{1k}}{\sqrt{4a^2t}}}-\erf \brs{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}$$
+
 Последнее можно переписать в следующем виде:
-$$u(t,x) = \sum_{k=1}^{N}\sbrs{\frac{\fbrs{-\frac{1}{2}\erf \brs{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}-\fbrs{-\frac{1}{2}\erf \brs{\frac{x-x_{1k}}{\sqrt{4a^2t}}}}}{x_{2k}-x_{1k}}}u_{*k} (x_{2k} - x_{1k})$$
-\item Окончательно, пусть $u_0(x)$ финитна, непрерывна, ограничена. Разбиваем ее носитель $\mathrm{supp}\; u_0(x)$ на отрезки, аппроксимируем кусочно постоянной. Для приближенных решений справедливо:
+$$u(t,x) = \sum_{k=1}^{N}\sbrs{\frac{\fbrs{-\frac{1}{2}\erf \brs{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}-\fbrs{-\frac{1}{2}\erf \brs{\frac{x-x_{1k}}{\sqrt{4a^2t}}}}}{x_{2k}-x_{1k}}}u_{*k} \cdot (x_{2k} - x_{1k})$$
+\item Окончательно, пусть $u_0(x)$ финитна, непрерывна, ограничена. Разбиваем ее носитель $\supp u_0(x)$ на отрезки, аппроксимируем кусочно постоянной. Для приближенных решений справедливо:
 \begin{align*}
-u(t,x) &= \sbrs { \Psi (t,x, \xi) = -\frac{1}{2}\erf \brs{\frac{x - \xi}{\sqrt{4a^2t}}}} = \sum \frac{\Psi(t,x,x_{2k})-\Psi(t,x,x_{1k})}{x_{2k}-x_{1k}} u_0 \brs{\frac{x_{2k}+x_{1k}}{2}} \brs{x_{2k}-x_{1k}} \approx\\
-& \approx \sum_{k=1}^N \left. \pd{\Psi}{\xi}\right |_{\xi = \frac{x_{2k}+x_{1k}}{2}} u_0 \brs{\frac{x_{2k}+x_{1k}}{2}}\brs{x_{2k}-x_{1k}} = \sbrs{\pd{\Psi}{\xi} = \frac{1}{\sqrt{4 \pi a^2 t}} e^{-\frac{(x-\xi)^2}{4a^2t}}} = \\
-&= \sum_{k=1}^N \frac{1}{\sqrt{4 \pi a^2 t}} \left. e^{-\frac{(x-\xi)^2}{4a^2t}} \right |_{\xi = \frac{x_{2k}+x_{1k}}{2}} u_{*k} \brs{x_{2k} - x_{1k}} - \text{ Интегральная сумма Римана}
+u(t,x) &= \sbrs{
+		\Psi (t,x, \xi) = -\frac{1}{2} \erf\brs{\frac{x - \xi}{\sqrt{4a^2t}}}
+		,\quad \xi_k = \frac{x_{2k} - x_{1k}}{2}
+	} = \\[0.7em] 
+& = \sum_{k=1}^N \frac{
+		\Psi(t,x,x_{2k})-\Psi(t,x,x_{1k})
+	}{x_{2k}-x_{1k}} 
+	\cdot u_{*k} \cdot
+	(x_{2k} - x_{1k}) \approx\\[0.7em]
+& \approx \sum_{k=1}^N \while{ \pd{\Psi}{\xi} }{ \xi = \xi_k } 
+	u_0(\xi_k) (x_{2k} - x_{1k}) 
+	= \sbrs{
+		\pd{\Psi}{\xi} = \frac{1}{\sqrt{4 \pi a^2 t}} e^{-\frac{(x-\xi)^2}{4a^2t}}
+		} = \\[0.7em]
+&= \sum_{k=1}^N \frac{1}{\sqrt{4 \pi a^2 t}} \while{
+		e^{-\frac{(x-\xi)^2}{4a^2t}}
+	}{\xi = \xi_k}
+	u_0(\xi_k) (x_{2k} - x_{1k}) \text{ \ --- \ Интегральная сумма Римана}
 \end{align*}
-Предположение: решение будет $$u(t,x) = \frac{1}{\sqrt{4\pi a^2 t}} \int_{-\infty}^{\infty}e^{-\frac{(x-\xi)^2}{4a^2t}} u_0(y) dy - \text{ Формула Пуассона} $$
+
+Предположение: решение будет 
+$$
+u(t,x) = \frac{1}{\sqrt{4\pi a^2 t}} \int_{-\infty}^{\infty} e^{-\frac{(x-\xi)^2}{4a^2t}} u_0(\xi)\, d\xi 
+\text{ \ --- \ Формула Пуассона} $$
 Функция 
-$$\mathcal{E}(t,x) =  \frac{1}{\sqrt{4\pi a^2 t}} e^{-\frac{x^2}{4a^2 t}} - \textbf{фундаментальное решение (или функция источника)}$$
+$$\mathcal{E}(t,x) =  \frac{1}{\sqrt{4\pi a^2 t}} e^{-\frac{x^2}{4a^2 t}} \textbf{ \;---\; фундаментальное решение (или функция источника)}$$
 \end{enumerate}
 
 \subsection{Строгое доказательство}
 \label{sec:FormalProof}
 
 \begin{theorem}
-Пусть $u_0\in C(\R^1),\ \abs{u_0(x)}\leq M_0\ \forall x\in \R^1$. Тогда функция $u(t,x) = \dfrac{1}{\sqrt{4\pi a^2 t}} \displaystyle\int_{-\infty}^{\infty}e^{-\dfrac{(x - y)^2}{4a^2t}} u_0(y) dy$
+Пусть $u_0\in C(\R^1),\quad \abs{u_0(x)}\leq M_0 \;\;\forall\, x\in \R^1.$ \ Тогда функция 
+$$u(t,x) = \dfrac{1}{\sqrt{4\pi a^2 t}} \displaystyle\int_{-\infty}^{\infty}e^{-\dfrac{(x - y)^2}{4a^2t}} u_0(y) dy$$
 \begin{enumerate}
+
 \item Принадлежит классу $C^{\infty}(t>0, x\in\R^1)\cap C(t\geq 0, x\in\R^1)$
+
 \item Является классическим решением задачи Коши
 \begin{equation*}
 \begin{cases}
-	u_t - a^2u_{xx} = 0, t > 0, \; x \in \R^3, \\
-	u\bigr|_{t = 0} = u_0(x), \; x \in \R
+	u_t - a^2u_{xx} = 0, &x \in \R,\ t > 0 \\
+	u\bigr|_{t = 0} = u_0(x), &x \in \R
 \end{cases}
 \end{equation*}
-\item $\abs{u(t,x)}\leq M\ \forall t \geq 0,x\in\R^1$
+
+\item $\abs{u(t,x)}\leq M \;\; \Forall t \geq 0, \Forall x\in\R^1$
 \end{enumerate}
 \end{theorem}
+
 \begin{proof}
+\hfill
 \begin{enumerate}
 \item 
 В исходном интеграле для $u(t,x)$ сделаем такую замену:
