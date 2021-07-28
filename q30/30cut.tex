@@ -5,12 +5,12 @@
 
 \begin{definition}
 Функция вида
-$V^{(2)}(x) = \int\limits_{\Gamma} \, \frac{\partial}{\partial \bar{n}_y}\brs{\frac{1}{\abs{x-y}}}\nu(y) dS_y $
+$V^{(2)}(x) = \int\limits_{\Gamma} \, \frac{\partial}{\partial \bar{n}_y}\roundBr{\frac{1}{\abs{x-y}}}\nu(y) dS_y $
 называется \textit{\text{потенциалом двойного слоя}}
 \end{definition}
 
 Сразу будет удобно переписать определение в иной форме:
-$$ \frac{\partial}{\partial \bar{n}_y}\brs{\frac{1}{\abs{x-y}}} = \sum_{k=1}^3 n_k(y)\frac{\partial}{\partial y_k}\frac{1}{\abs{x-y}} = \sum_{k=1}^3 \frac{n_k(y)(x_k - y_k)}{\abs{x-y}^3} = \frac{(x-y, \bar{n}_y)}{\abs{x-y}^3} \Rightarrow $$
+$$ \frac{\partial}{\partial \bar{n}_y}\roundBr{\frac{1}{\abs{x-y}}} = \sum_{k=1}^3 n_k(y)\frac{\partial}{\partial y_k}\frac{1}{\abs{x-y}} = \sum_{k=1}^3 \frac{n_k(y)(x_k - y_k)}{\abs{x-y}^3} = \frac{(x-y, \bar{n}_y)}{\abs{x-y}^3} \Rightarrow $$
 $$ \Rightarrow V^{(2)}(x) = \int\limits_{\Gamma} \, \frac{(x-y, \bar{n}_y)}{\abs{x-y}^3}\nu(y) dS_y $$
 
 \begin{lemma} Пусть $\nu(x) \in C(\Gamma)$. Тогда:
@@ -19,7 +19,7 @@ $$ \Rightarrow V^{(2)}(x) = \int\limits_{\Gamma} \, \frac{(x-y, \bar{n}_y)}{\abs
 а) $V^{(2)}(x)$ - гармоническая функция в в $x\in \R^3\backslash \Gamma$;
 
 \
-б) $\displaystyle V^{(2)}(x) = O\brs{\frac{1}{\abs{x}^2}}$ при $\abs{x} \rightarrow \infty$
+б) $\displaystyle V^{(2)}(x) = O\roundBr{\frac{1}{\abs{x}^2}}$ при $\abs{x} \rightarrow \infty$
 \end{lemma}
 
 \begin{proof}
@@ -30,7 +30,7 @@ $$ \Rightarrow V^{(2)}(x) = \int\limits_{\Gamma} \, \frac{(x-y, \bar{n}_y)}{\abs
 \underbrace{n_k(y)}_{\substack{\in C(\Gamma)\\ \text{т.к.} \Gamma \in C^2}}
 \underbrace{\nu(y)}_{\substack{\in C(\Gamma)\\ \text{по}\\ \text{условию}}} 
 \
-\underbrace{\frac{\partial}{\partial y_k} \frac{1}{\abs{x-y}}}_{\substack{-\frac{\partial}{\partial x_k} \frac{1}{\abs{x-y}}\\ \in C\brs{(\R^3\backslash\Gamma)\times\Gamma}}}dS_y
+\underbrace{\frac{\partial}{\partial y_k} \frac{1}{\abs{x-y}}}_{\substack{-\frac{\partial}{\partial x_k} \frac{1}{\abs{x-y}}\\ \in C\roundBr{(\R^3\backslash\Gamma)\times\Gamma}}}dS_y
 \
 =
 \
@@ -42,10 +42,10 @@ $$ \Rightarrow V^{(2)}(x) = \int\limits_{\Gamma} \, \frac{(x-y, \bar{n}_y)}{\abs
 \
 
 б) Возьмём сразу сферу радиуса $R$ такую, что $\Gamma$ лежит внутри сферы. При $$\abs{x} \rightarrow \infty \Rightarrow \abs{x}>2R \Rightarrow
-\abs{y} \leq \frac{\abs{x}}{2} \Rightarrow \abs{x-y}^2\geq \brs{\abs{x} - \abs{y}}^2 \geq \frac{\abs{x}}{4}  $$
+\abs{y} \leq \frac{\abs{x}}{2} \Rightarrow \abs{x-y}^2\geq \roundBr{\abs{x} - \abs{y}}^2 \geq \frac{\abs{x}}{4}  $$
 $$\abs{\frac{\partial}{\partial\bar{n}_y} \frac{1}{\abs{x-y}}} \leq \frac{\abs{x-y}\cdot\abs{\bar{n}_y}}{\abs{x-y}^3} = \frac{1}{\abs{x-y}^2} \Rightarrow$$
-$$\Rightarrow\abs{V^{(2)}(x)} = \abs{\int\limits_{\Gamma} \, \frac{\partial}{\partial \bar{n}_y}\brs{\frac{1}{\abs{x-y}}}\nu(y) dS_y}\leq\frac{4}{\abs{x}^2}\int\limits_{\Gamma} \, \abs{\nu(y)}dS_y\leq4\norm{\nu(y)}_{C(\Gamma)}\int\limits_{\Gamma} dS_y\cdot\frac{1}{\abs{x}^2 \Rightarrow}$$
-$$\Rightarrow V^{(2)}(x) = O\brs{\frac{1}{\abs{x}^2}} \text{при} x\rightarrow \infty$$
+$$\Rightarrow\abs{V^{(2)}(x)} = \abs{\int\limits_{\Gamma} \, \frac{\partial}{\partial \bar{n}_y}\roundBr{\frac{1}{\abs{x-y}}}\nu(y) dS_y}\leq\frac{4}{\abs{x}^2}\int\limits_{\Gamma} \, \abs{\nu(y)}dS_y\leq4\norm{\nu(y)}_{C(\Gamma)}\int\limits_{\Gamma} dS_y\cdot\frac{1}{\abs{x}^2 \Rightarrow}$$
+$$\Rightarrow V^{(2)}(x) = O\roundBr{\frac{1}{\abs{x}^2}} \text{при} x\rightarrow \infty$$
 \end{proof}
 
 \begin{lemma}
@@ -71,14 +71,14 @@ $\displaystyle y=(0,0,0)$, $x = (\xi_1,\xi_2, F(\xi_1, \xi_2))$, $\bar{n}_y = (0
 \begin{proof}
 Используем признак полярного ядра (билет №24). В силу леммы $\abs{K(x,y)} \leq \frac{M}{\abs{x-y}}$ и 
 \
-$K(x,y) = \displaystyle \frac{(x-y, \bar{n}_y)}{\abs{x-y}^2}\in C\brs{(\Gamma\times\Gamma)\backslash \fbrs{x=y}}$
+$K(x,y) = \displaystyle \frac{(x-y, \bar{n}_y)}{\abs{x-y}^2}\in C\roundBr{(\Gamma\times\Gamma)\backslash \curlyBr{x=y}}$
 Оператор с полярным ядром переводит непрерывные функции в непрерывные, а $\nu \in C(\Gamma) \Rightarrow V^{(2)}(x)\in C(\Gamma)$
 
 \end{proof}
 Наша цель - описать скачок $V^{(2)}(x)$ при переходе через границу. Для этого потребуется несколько вспомогательных утверждений.
 \begin{lemma}
 Пусть $\Omega$ - ограниченная область с границей $\Gamma\in C^2$. Тогда интеграл $\displaystyle V^{(2)}_{GAUSS}(x) = 
-\int\limits_{\Gamma} \frac{\partial}{\partial\bar{n}_y}\brs{\frac{1}{\abs{x-y}}}\nu(y) \cdot 1 \cdot dS_y = \dfrac{(x-y, \bar{n}_y)}{\abs{x-y}^3} dS_y$ - (интеграл Гаусса) равен 
+\int\limits_{\Gamma} \frac{\partial}{\partial\bar{n}_y}\roundBr{\frac{1}{\abs{x-y}}}\nu(y) \cdot 1 \cdot dS_y = \dfrac{(x-y, \bar{n}_y)}{\abs{x-y}^3} dS_y$ - (интеграл Гаусса) равен 
 
 $\begin{cases} -4\pi, x\in \Omega \\
 -2\pi, x\in \Gamma \\ 0, x\in\R^3\backslash \overline{\Omega}
@@ -87,7 +87,7 @@ $\begin{cases} -4\pi, x\in \Omega \\
 
 \begin{proof}
 1) Пусть $x \in \Omega$. Возьмём $u(x)\equiv 1$ и запишем представление этой функции в виде суммы трёх потенциалов:
-$$u(x) \equiv 1 = \int\limits_{\Omega} \brs{\frac{-1}{4\pi\abs{x-y}}}\underbrace{\Delta 1}_{\substack{ = 0}} dy + \int\limits_{\Gamma}\frac{\partial}{\partial \bar{n}_y}\brs{\frac{-1}{4\pi\abs{x-y}}}u(y)dS_y - \int\limits_{\Gamma}\brs{\frac{-1}{4\pi\abs{x-y}}}
+$$u(x) \equiv 1 = \int\limits_{\Omega} \roundBr{\frac{-1}{4\pi\abs{x-y}}}\underbrace{\Delta 1}_{\substack{ = 0}} dy + \int\limits_{\Gamma}\frac{\partial}{\partial \bar{n}_y}\roundBr{\frac{-1}{4\pi\abs{x-y}}}u(y)dS_y - \int\limits_{\Gamma}\roundBr{\frac{-1}{4\pi\abs{x-y}}}
 \
 \underbrace{\frac{\partial u(y)}{\bar{n}_y}}_{\substack{ = 0}}
 \
@@ -99,7 +99,7 @@ $$
 Возьмём $u(y) \equiv 1$ и $v(y) = \frac{1}{\abs{x-y}}$ и воспользуемся для этих функций первой формулой Грина:
 $$\int\limits_{\Omega} \underbrace{\Delta_y v(y)}_{\substack{ = 0}} \cdot u(y)dy = \underbrace{\int\limits_{\Gamma}\frac{\partial}{\partial \bar{n}_y}v(y)u(y)dS_y}_{\substack{ = V_{GAUSS}^{(2)}(x)}}
 -
-\underbrace{\int\limits_{\Omega}\brs{\nabla_y v(y), \nabla 1}dy}_{\substack{ = 0}}
+\underbrace{\int\limits_{\Omega}\roundBr{\nabla_y v(y), \nabla 1}dy}_{\substack{ = 0}}
 \Rightarrow
 V_{GAUSS}^{(2)}(x) = 0
 $$
@@ -108,20 +108,20 @@ $$
 \begin{center}
 \includegraphics[width=0.2\textwidth]{30_1_new}
 \end{center}
-Согласно второму пункту можем написать $\displaystyle\int\limits_{\partial \Omega_\varepsilon}\dfrac{\partial}{\partial \bar{n}_y}\brs{\dfrac{1}{\abs{x-y}}} dS_y = 0$
-Значит $$\underbrace{\int\limits_{\Gamma_\varepsilon} \frac{\partial}{\partial \bar{n}_y}\brs{\frac{1}{\abs{x-y}}} dS_y}_{\substack{\rightarrow \int\limits_{\Gamma} \text{при } \varepsilon \rightarrow 0}}
+Согласно второму пункту можем написать $\displaystyle\int\limits_{\partial \Omega_\varepsilon}\dfrac{\partial}{\partial \bar{n}_y}\roundBr{\dfrac{1}{\abs{x-y}}} dS_y = 0$
+Значит $$\underbrace{\int\limits_{\Gamma_\varepsilon} \frac{\partial}{\partial \bar{n}_y}\roundBr{\frac{1}{\abs{x-y}}} dS_y}_{\substack{\rightarrow \int\limits_{\Gamma} \text{при } \varepsilon \rightarrow 0}}
 +
- \int\limits_{\sigma_\varepsilon} \frac{\partial}{\partial \bar{n}_y}\brs{\frac{1}{\abs{x-y}}} dS_y = 0 $$
- Покажем, что $$\displaystyle\int\limits_{\sigma_\varepsilon} \dfrac{\partial}{\partial \bar{n}_y}\brs{\dfrac{1}{\abs{x-y}}} dS_y \rightarrow 2\pi \text{ при } \varepsilon \rightarrow 0 \text{ } \dfrac{\partial}{\partial \bar{n}_y}\brs{\dfrac{1}{\abs{x-y}}} = \dfrac{(x-y, \bar{n}_y)}{\abs{x-y}^3} = \dfrac{\abs{x-y}\abs{\bar{n}_y}}{\abs{x-y}^3} 
+ \int\limits_{\sigma_\varepsilon} \frac{\partial}{\partial \bar{n}_y}\roundBr{\frac{1}{\abs{x-y}}} dS_y = 0 $$
+ Покажем, что $$\displaystyle\int\limits_{\sigma_\varepsilon} \dfrac{\partial}{\partial \bar{n}_y}\roundBr{\dfrac{1}{\abs{x-y}}} dS_y \rightarrow 2\pi \text{ при } \varepsilon \rightarrow 0 \text{ } \dfrac{\partial}{\partial \bar{n}_y}\roundBr{\dfrac{1}{\abs{x-y}}} = \dfrac{(x-y, \bar{n}_y)}{\abs{x-y}^3} = \dfrac{\abs{x-y}\abs{\bar{n}_y}}{\abs{x-y}^3} 
 =
 \dfrac{1}{\abs{x-y}^2} = \dfrac{1}{\eps^2} $$
-Поэтому $\displaystyle\int\limits_{\sigma_\varepsilon} \dfrac{\partial}{\partial \bar{n}_y}\brs{\dfrac{1}{\abs{x-y}}} dS_y = \dfrac{1}{\varepsilon^2}\int\limits_{\sigma_\varepsilon}dS_y$
+Поэтому $\displaystyle\int\limits_{\sigma_\varepsilon} \dfrac{\partial}{\partial \bar{n}_y}\roundBr{\dfrac{1}{\abs{x-y}}} dS_y = \dfrac{1}{\varepsilon^2}\int\limits_{\sigma_\varepsilon}dS_y$
 \
 
 При малых $\varepsilon$ кусок границы $\Gamma$ внутри $\rightarrow$ к полуплоскости $\Rightarrow \sigma_\varepsilon \rightarrow$ к полусфере.
 \
 
-Поэтому  $\int\limits_{\sigma_\varepsilon}dS_y = 2\pi\varepsilon^2\brs{1+O(1)}$, что и требовалось
+Поэтому  $\int\limits_{\sigma_\varepsilon}dS_y = 2\pi\varepsilon^2\roundBr{1+O(1)}$, что и требовалось
 \end{proof}
 
 $\bf{Offtop:}$ Геометрический смысл интеграла Гаусса: 
@@ -137,7 +137,7 @@ $\dfrac{(y-x, \bar{n}_y)}{\abs{x-y}^3}dS_y = \dfrac{dS_ycos\beta}{\abs{x-y}^2} =
 Пусть $\Omega$ - ограниченная область в $\R^3$  с границей $\Gamma \in C^2$. Пусть $x^o \in \Gamma$. Тогда
 \
 
- $\forall x: (x\in \R^3)\cap\brs{\abs{x-x^o}<\dfrac{d_*}{2}} $ верно $\displaystyle\int\limits_{\abs{y-x^o}<d_*}\dfrac{(x-y, \bar{n}_y)}{\abs{x-y}^3}dS_y <K, d_* = \dfrac{1}{2}min\brs{d, \dfrac{2}{M_2}}
+ $\forall x: (x\in \R^3)\cap\roundBr{\abs{x-x^o}<\dfrac{d_*}{2}} $ верно $\displaystyle\int\limits_{\abs{y-x^o}<d_*}\dfrac{(x-y, \bar{n}_y)}{\abs{x-y}^3}dS_y <K, d_* = \dfrac{1}{2}min\roundBr{d, \dfrac{2}{M_2}}
 $
 \
 
@@ -145,7 +145,7 @@ $
 \end{lemma}
 \begin{lemma}
 Пусть $\Omega$ - ограниченная область в $\R^3$ с границей $\Gamma \in C^2$. Пусть $x^o\in \Gamma$. Тогда 
-$\displaystyle\lim_{x \to x^o} W(x, x^o) = W(x^o, x^o)$, где $W(x, x^o) = \displaystyle\int\limits_{\abs{y-x^o}<d_*}\dfrac{(x-y, \bar{n}_y)}{\abs{x-y}^3}\brs{\nu(y) - \nu(x^o)}dS_y$,  а $\nu(x)\in C(\Gamma)$
+$\displaystyle\lim_{x \to x^o} W(x, x^o) = W(x^o, x^o)$, где $W(x, x^o) = \displaystyle\int\limits_{\abs{y-x^o}<d_*}\dfrac{(x-y, \bar{n}_y)}{\abs{x-y}^3}\roundBr{\nu(y) - \nu(x^o)}dS_y$,  а $\nu(x)\in C(\Gamma)$
 \end{lemma}
 
 \begin{proof}
@@ -156,31 +156,31 @@ $\exists \beta = \beta(\varepsilon): \Forall y \in \Gamma: \abs{y-x^o}<\delta \r
 $
 . Выберем $\beta \leq \dfrac{d_*}{2}$
 $$
-\abs{W(x,x^o) - W(x^o,x^o)} = \abs{\displaystyle\int\limits_{\Gamma}\brs{\dfrac{(x-y, \bar{n}_y)}{\abs{x-y}^3} 
+\abs{W(x,x^o) - W(x^o,x^o)} = \abs{\displaystyle\int\limits_{\Gamma}\roundBr{\dfrac{(x-y, \bar{n}_y)}{\abs{x-y}^3} 
 -
-\dfrac{(x^o-y, \bar{n}_y)}{\abs{x^o-y}^3} }\brs{\nu(y) - \nu(x^o)}dS_y} 
+\dfrac{(x^o-y, \bar{n}_y)}{\abs{x^o-y}^3} }\roundBr{\nu(y) - \nu(x^o)}dS_y} 
 \leq
 $$
 $$
 \leq
-\displaystyle\int\limits_{\abs{y-x^o}<\beta}\underbrace{\brs{\dfrac{(x-y, \bar{n}_y)}{\abs{x-y}^3} 
+\displaystyle\int\limits_{\abs{y-x^o}<\beta}\underbrace{\roundBr{\dfrac{(x-y, \bar{n}_y)}{\abs{x-y}^3} 
 -
 \dfrac{(x^o-y, \bar{n}_y)}{\abs{x^o-y}^3} }}_{\substack{\leq K+K}}
-\underbrace{\brs{\nu(y) - \nu(x^o)}}_{\substack{\leq \varepsilon}}dS_y 
+\underbrace{\roundBr{\nu(y) - \nu(x^o)}}_{\substack{\leq \varepsilon}}dS_y 
 \
 +$$ $$
 \
-\displaystyle\int\limits_{\Gamma\backslash\brs{\abs{y-x^o}<\beta}}\underbrace{\brs{\dfrac{(x-y, \bar{n}_y)}{\abs{x-y}^3} 
+\displaystyle\int\limits_{\Gamma\backslash\roundBr{\abs{y-x^o}<\beta}}\underbrace{\roundBr{\dfrac{(x-y, \bar{n}_y)}{\abs{x-y}^3} 
 -
 \dfrac{(x^o-y, \bar{n}_y)}{\abs{x^o-y}^3} }}_{\substack{\leq \psi(x); \psi(x^o) = 0 \\ 
 \Downarrow \\
 \exists \delta_1: \norm{\psi(x)}< \varepsilon,\\
 \text{если} \abs{x-x^o} < \delta_1 
 }}
-\underbrace{\brs{\nu(y) - \nu(x^o)}}_{\substack{\leq 2\norm{\nu}_{C(\Gamma)}}}dS_y 
+\underbrace{\roundBr{\nu(y) - \nu(x^o)}}_{\substack{\leq 2\norm{\nu}_{C(\Gamma)}}}dS_y 
 $$
 
-Значит, при $\abs{x-x^o}\leq max \brs{\dfrac{d_*}{2}, \delta_1(\varepsilon)}$
+Значит, при $\abs{x-x^o}\leq max \roundBr{\dfrac{d_*}{2}, \delta_1(\varepsilon)}$
 имеет место оценка 
 $\abs{W(x, x^o) - W(x^o, x^o)} \leq 2K\varepsilon + 2\varepsilon\norm{\nu}_{C(\Gamma)}
 $

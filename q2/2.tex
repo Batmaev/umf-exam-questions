@@ -16,7 +16,7 @@
 \item $u(x)|_{S\cap U(x^0)}=u_0(x)$
 \item $\while{\pd{u}{\vec{\nu}}}{S\cap U(x^0)} = u_1(x)$ -- выводящая производная
 
-Здесь введена производная по направлению: $\pd{u}{\vec{\nu}} = \brs{\vec{\nu},\, \nabla u} = \displaystyle\sum\limits_{k=1}^{n} \nu_k(x)\, \dfrac{\partial u}{\partial x_k}(x) $
+Здесь введена производная по направлению: $\pd{u}{\vec{\nu}} = \roundBr{\vec{\nu},\, \nabla u} = \displaystyle\sum\limits_{k=1}^{n} \nu_k(x)\, \dfrac{\partial u}{\partial x_k}(x) $
 \end{enumerate}
 \end{definition}
 Может не быть непрерывной зависимости от начальных данных.\\
@@ -54,8 +54,8 @@ $\Rightarrow$ после преобразования $\omega=0 \Equiv y_n=0$.\\
 \includegraphics[width=0.34\textwidth]{./pic 2_1.pdf}
 \end{center}
 \vspace{-0.7em} % Тень на картинке простирается далеко вниз, поэтому кажется, что там есть пустое место. Чтобы его убрать, делаю отрицательное vspace
-Дополним $\vec{n}$ до базиса -- получим $\rbrs{\vec{l}_1,\dots,\vec{l}_{n-1},\vec{n}}$. Ортогонализуем -- получим $\rbrs{\vec{e}_1,\dots,\vec{e}_{n-1},\vec{n}}.$ Возьмем такое преобразование:
-\[ \vec{y}(\vec{x}) = \begin{cases} y_1 = \brs{\vec{x}-\vec{x}_0} \cdot \vec{e}_1 \\ \vdots \\ y_{n-1} = \brs{\vec{x}-\vec{x}_0} \cdot \vec{e}_{n-1} \\ y_n = \omega(\vec{x}) \end{cases}\]
+Дополним $\vec{n}$ до базиса -- получим $\angleBr{\vec{l}_1,\dots,\vec{l}_{n-1},\vec{n}}$. Ортогонализуем -- получим $\angleBr{\vec{e}_1,\dots,\vec{e}_{n-1},\vec{n}}.$ Возьмем такое преобразование:
+\[ \vec{y}(\vec{x}) = \begin{cases} y_1 = \roundBr{\vec{x}-\vec{x}_0} \cdot \vec{e}_1 \\ \vdots \\ y_{n-1} = \roundBr{\vec{x}-\vec{x}_0} \cdot \vec{e}_{n-1} \\ y_n = \omega(\vec{x}) \end{cases}\]
 Проверим, что якобиан не равен 0:
 
 $$
@@ -82,7 +82,9 @@ $$
 Из соображений непрерывности $J \neq 0$ также в некоторой окрестности точки $x_0$.\\
 Значит, это диффеоморфизм класса $C^2$.
 
-В новых переменных: $\displaystyle\sum\limits_{k,l=1}^{n}\hat{a}_{kl}(y)\spd{\hat{u}}{y_k}{y_l} + \hat{F}(y, \hat{u}, \nabla_y \hat{u}) = 0$
+В новых переменных: $\displaystyle\sum_{k,l=1}^n
+\hat{a}_{kl}(y) \spd{\hat{u}}{y_k}{y_l}
++ \hat{F} (y, \hat{u}, \nabla_y \hat{u}) = 0$
 
 Условие характеристичности: \ $\displaystyle 0 = \hat{a}_{nn} = \sum\limits_{i,j=1}^{n} a_{ij}[x(y)]\pd{y_n}{x_i}\pd{y_n}{x_j}$
 
@@ -110,7 +112,7 @@ $\pdd{u}{x} - \pdd{u}{y} = 0.\quad S$ -- прямая $x=y, \quad \vec{n} = \lef
 \begin{example}
 $u_{tt}-a^2\Delta_xu = f(t,x),\ x\in\R^3\ $(волновое уравнение).
 
-Характеристическое уравнение: $\brs{\pd{\omega}{t}}^2 - a^2(\grad \omega)^2 = 0$
+Характеристическое уравнение: $\roundBr{\pd{\omega}{t}}^2 - a^2(\grad \omega)^2 = 0$
 
 Этому уравнению удовлетворяет $\omega(t,x) = \underbrace{a^2t^2 - \vec{x}^2 = 0}_{\text{конус}}$.
 \end{example}

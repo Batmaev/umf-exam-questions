@@ -35,11 +35,11 @@ $
 u(a) = \dfrac{1}{4\pi r^2}\oint\limits_{\abs{y-a} = r}u(y
 )\;dS_y  =
 \dfrac{u(a)}{4\pi r^2}\oint\limits_{\abs{y-a} = r} \;dS_y  +
- 		\dfrac{1}{4\pi r^2}\oint\limits_{\abs{y-a} = r}\brs{u(y
+ 		\dfrac{1}{4\pi r^2}\oint\limits_{\abs{y-a} = r}\roundBr{u(y
 )-u(a)}\;dS_y =
-	u(a) + \dfrac{1}{4\pi r^2}\oint\limits_{\abs{y-a} = r}\brs{u(y
+	u(a) + \dfrac{1}{4\pi r^2}\oint\limits_{\abs{y-a} = r}\roundBr{u(y
 )-u(a)}\;dS_y \Rightarrow 
-	\oint\limits_{\abs{y-a} = r}\underbrace{\brs{u(y)-u(a)}}_{\le 0,\ \text{непрерывна}}\;dS_y = 0
+	\oint\limits_{\abs{y-a} = r}\underbrace{\roundBr{u(y)-u(a)}}_{\le 0,\ \text{непрерывна}}\;dS_y = 0
 	 \Leftrightarrow
 	\quad u(y) = u(a) \Forall y: |y-a|=r < d_a
  $
@@ -53,14 +53,14 @@ u(a) = \dfrac{1}{4\pi r^2}\oint\limits_{\abs{y-a} = r}u(y
 Соединим $a$ и $b$ кусочно-гладкой кривой. Эту кривую параметризуем натуральным параметром(параметризация кривой длиной её дуги): 
 $x = x(s), x(0) = a, x(L) = b$.
 {\bf Обозначим}
-$d = dist\fbrs{\gamma = x; \partial{\Omega}} > 0$
+$d = dist\curlyBr{\gamma = x; \partial{\Omega}} > 0$
 ($d$ действительно $> 0$ : если $d = 0$, то 
-$\exists\{x_n\}_{n=1}^\infty \subset \gamma: \rho\brs{x_n, \partial\Omega}\to 0$.
+$\exists\{x_n\}_{n=1}^\infty \subset \gamma: \rho\roundBr{x_n, \partial\Omega}\to 0$.
  Выделим из $\{x_n\}$ сходящуюся $\{x_{n_k}\}=\{y_k\}$($\gamma$ - ограничено). Пусть $y_k \to y_0$. Тогда $y_0$ - предельная для
  $\partial \Omega$ в силу замкнутости 
  $y_0 \in \gamma \cup \partial \Omega \Rightarrow$ противоречие)\\
  Разобьем $[0,L]$ на части размера $\Delta S = \dfrac{L}{N}$\\
- Пусть $\fbrs{S_k = k\Delta S, x_k = x(S_k)}$. 
+ Пусть $\curlyBr{S_k = k\Delta S, x_k = x(S_k)}$. 
  Число N выберем так, чтобы $\Delta S = \dfrac{L}{N} < d$\\
  \begin{center}
  \includegraphics[scale=0.5]{19_2_new}

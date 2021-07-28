@@ -50,7 +50,7 @@
     $$\pd{}{t} \int_{a(t)}^{b(t)} f(t,x)\,dx = f(t,b(t)) \cdot b' - f(t,a(t)) \cdot a' + \int_{a(t)}^{b(t)} f'_t(t,x)\,dx$$
     В нашем случае $a = 0,\ b = t,\ b' = 1$. Поэтому
     $$\while{u_t}{t=0} = 
-    \while{\brs{\underbrace{w(t, x, \tau)|_{\tau = t}}_\text{= 0 из нач. усл. в \eqref{6_2}} + \int_0^t \pd{w}{t}d\tau}}{t=0} = \int_0^0 \pd{w}{t}\, d\tau = 0$$
+    \while{\roundBr{\underbrace{w(t, x, \tau)|_{\tau = t}}_\text{= 0 из нач. усл. в \eqref{6_2}} + \int_0^t \pd{w}{t}d\tau}}{t=0} = \int_0^0 \pd{w}{t}\, d\tau = 0$$
 
     \item $\displaystyle \ \Delta_xu = \int_0^t\Delta_x w(t, x, \tau)d\tau$
 
@@ -69,7 +69,7 @@
     Тогда функция 
     \begin{equation} \label{6_3}
         u(t, x) = \int\limits_0^t{ \frac{1}{4\pi a^2(t - \tau)}
-        \sbrs{\oiint\limits_{\;\abs{\xi - x} = a(t - \tau)}
+        \squareBr{\oiint\limits_{\;\abs{\xi - x} = a(t - \tau)}
         f(\tau, \xi)\, dS_\xi} d\tau}
     \end{equation}
     является классическим решением, причем 
@@ -90,7 +90,7 @@
         d\tau = -d\rho/a 
     \end{bmatrix} = 
     -\int\limits_{at}^0 \frac{1}{4\pi a \rho} \frac{d\rho}{a} 
-    \oiint\limits_{\abs{\xi - x} = \rho} f \brs{t - \frac{\rho}{a},\; \xi} dS_\xi = \\[1em]
+    \oiint\limits_{\abs{\xi - x} = \rho} f \roundBr{t - \frac{\rho}{a},\; \xi} dS_\xi = \\[1em]
     &= \frac{1}{4\pi a^2} \int\limits_0^{at} d\rho \oiint\limits_{\abs{\xi - x} = \rho} \frac{f(t - \frac{\abs{\xi - x}}{a},\; \xi)}{\abs{\xi - x}}\, dS_\xi
     = \boxed{\frac{1}{4\pi a^2} \iiint\limits_{\abs{\xi - x} < at}\frac{f(t - \frac{\abs{\xi - x}}{a}, \xi)}{\abs{\xi - x}}\;d\xi}
 \end{align*}

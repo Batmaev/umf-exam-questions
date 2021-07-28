@@ -13,8 +13,8 @@
 
 Запишем интегральное представление:
 
-$$ u = \int_{\Omega}{\brs{\frac{-1}{4 \pi |x-y|}}  {\triangle u(y)} dy} - \oint_{\partial \Omega}{\brs{\frac{-1}{4 \pi |x-y|}} \frac{\partial u(y)}{\partial \overrightarrow{n}_y} d S_y} + 
-\oint_{\partial \Omega}{ {u(y)} \frac{\partial}{\partial \overrightarrow{n}_y}\brs{\frac{-1}{4 \pi |x-y|}}d S_y}
+$$ u = \int_{\Omega}{\roundBr{\frac{-1}{4 \pi |x-y|}}  {\triangle u(y)} dy} - \oint_{\partial \Omega}{\roundBr{\frac{-1}{4 \pi |x-y|}} \frac{\partial u(y)}{\partial \overrightarrow{n}_y} d S_y} + 
+\oint_{\partial \Omega}{ {u(y)} \frac{\partial}{\partial \overrightarrow{n}_y}\roundBr{\frac{-1}{4 \pi |x-y|}}d S_y}
 $$
 
 Рассмотрим задачу при фиксированном $x \in \Omega$:
@@ -35,13 +35,13 @@ $$=\oint_{\partial \Omega} {\frac{\partial u(y)}{\partial \overrightarrow{n}_y} 
 
 Отсюда получаем
 
-$$\int_{\Omega}{g(x,y) f(y) dy} + \underset{wanted~to~find}{\oint_{\partial \Omega}{\brs{\frac{-1}{4 \pi |x-y|}} \frac{\partial u(y)}{\partial \overrightarrow{n}_y} d S_y}}+ \oint_{\partial \Omega}
+$$\int_{\Omega}{g(x,y) f(y) dy} + \underset{wanted~to~find}{\oint_{\partial \Omega}{\roundBr{\frac{-1}{4 \pi |x-y|}} \frac{\partial u(y)}{\partial \overrightarrow{n}_y} d S_y}}+ \oint_{\partial \Omega}
 {\frac{\partial g(x,y)}{\partial \overrightarrow{n}_y}u(y) dS_y} = 0
 $$
 
 Тогда
 
-$$u(x) = \int_{\Omega} {\brs{\frac{-1}{4 \pi |x-y|} +g(x,y)} f(y) dy} + \oint_{\partial \Omega} {u_0(y) \frac{\partial}{\partial \overrightarrow{n}_y} \brs{\frac{-1}{4 \pi |x-y|}+g(x,y)}dS_y}
+$$u(x) = \int_{\Omega} {\roundBr{\frac{-1}{4 \pi |x-y|} +g(x,y)} f(y) dy} + \oint_{\partial \Omega} {u_0(y) \frac{\partial}{\partial \overrightarrow{n}_y} \roundBr{\frac{-1}{4 \pi |x-y|}+g(x,y)}dS_y}
 $$
 
 \textbf{Функция Грина}, по определению:
@@ -114,20 +114,20 @@ $$
 \left. \frac{\partial G(x,y)}{\partial \overrightarrow{n}_y} \right|_{|y|=R} 
 =
 \sum_{k=1}^{3}{\frac{1}{4 \pi} \frac{y_k}{R}
-\left[ \frac{y_k-x_k}{|y-x|^3} -\frac{R}{|x|}\brs{\frac{|x|}{R}}^3
+\left[ \frac{y_k-x_k}{|y-x|^3} -\frac{R}{|x|}\roundBr{\frac{|x|}{R}}^3
 \frac{y_k - x_k^*}{|y-x|^3} \right] }
 =
-\frac{1}{4 \pi R |y-x|^3} \sum_{k=1}^{3}{y_k \sbrs{y_k-x_k-\frac{|x|^2}{R^2}(y_k - x_k^*)}}
+\frac{1}{4 \pi R |y-x|^3} \sum_{k=1}^{3}{y_k \squareBr{y_k-x_k-\frac{|x|^2}{R^2}(y_k - x_k^*)}}
 =
 $$
 
 $$
 =
-\frac{1}{4 \pi R |y-x|^3} \sbrs{\rbrs{y,y-x} - \frac{|x|^2}{R^2}
-\rbrs{y,y-x^*}}
+\frac{1}{4 \pi R |y-x|^3} \squareBr{\angleBr{y,y-x} - \frac{|x|^2}{R^2}
+\angleBr{y,y-x^*}}
 =
-\frac{1}{4 \pi R |y-x|^3} \sbrs{\underset{=R^2}{\rbrs{y,y}} - \rbrs{y,x}
--\frac{|x|^2}{R^2}\underset{=R^2}{\rbrs{y,y}}+ \underset{=\rbrs{y,x}}{\frac{|x|^2}{R^2} \rbrs{y,x^*}}  }
+\frac{1}{4 \pi R |y-x|^3} \squareBr{\underset{=R^2}{\angleBr{y,y}} - \angleBr{y,x}
+-\frac{|x|^2}{R^2}\underset{=R^2}{\angleBr{y,y}}+ \underset{=\angleBr{y,x}}{\frac{|x|^2}{R^2} \angleBr{y,x^*}}  }
 = $$ 
 $$
 =\frac{R^2 - |x|^2}{4 \pi R |y-x|^3}

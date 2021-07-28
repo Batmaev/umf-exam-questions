@@ -36,7 +36,7 @@ $$
 Можем записать:
 
 $$\mathcal{D}_{x}^{\alpha} u(x) = \frac{1}{4 \pi R} 
-\oint_{|y|=R}{\mathcal{D}_{x}^{\alpha}\brs{\frac{R^2-|x|^2}{|y-x|^3}}u(y) dS_y}$$
+\oint_{|y|=R}{\mathcal{D}_{x}^{\alpha}\roundBr{\frac{R^2-|x|^2}{|y-x|^3}}u(y) dS_y}$$
 
 }
 
@@ -48,7 +48,7 @@ $$\mathcal{D}_{x}^{\alpha} u(x) = \frac{1}{4 \pi R}
 
 Докажем по индукции, что
  
-$$\forall \alpha = (\alpha_1,\alpha_2,\alpha_3)~~~ \mathcal{D}_{x}^{\alpha}\sbrs{\frac{R^2-|x|^2}{|x-y|^3}} = \frac{P_{\alpha}(R,x,y)}{|x-y|^{3+2|\alpha|}},$$
+$$\forall \alpha = (\alpha_1,\alpha_2,\alpha_3)~~~ \mathcal{D}_{x}^{\alpha}\squareBr{\frac{R^2-|x|^2}{|x-y|^3}} = \frac{P_{\alpha}(R,x,y)}{|x-y|^{3+2|\alpha|}},$$
 
 где $P_\alpha$ - однородный многочлен степени $|a|+2$ от $R, x_1,x_2,x_3,y_1,y_2,y_3$.
 
@@ -56,14 +56,14 @@ $$\forall \alpha = (\alpha_1,\alpha_2,\alpha_3)~~~ \mathcal{D}_{x}^{\alpha}\sbrs
 \begin{itemize}
 	\item {База:}
 	
-	$$\mathcal{D}_{x}^{(0,0,0)}\sbrs{\frac{R^2-|x|^2}{|x-y|^3}} = \frac{R^2-x_1^2-x_2^2-x_3^2}{|x-y|^3}$$
+	$$\mathcal{D}_{x}^{(0,0,0)}\squareBr{\frac{R^2-|x|^2}{|x-y|^3}} = \frac{R^2-x_1^2-x_2^2-x_3^2}{|x-y|^3}$$
 	
 	\item {Переход. 
 Пусть требуемое верно $\forall \alpha: |a|\le k$. Возьмём $\hat{\alpha}=(\alpha_1+1, \alpha_2, \alpha_3)$:}
 
 $$
-\mathcal{D}_{x}^{\hat{\alpha}}\sbrs{\frac{R^2-|x|^2}{|x-y|^3}} = \frac{\partial}{\partial x_1}
-\sbrs{\frac{P_{\alpha}(R,x,y)}{|x-y|^{3+2|\alpha|}}}
+\mathcal{D}_{x}^{\hat{\alpha}}\squareBr{\frac{R^2-|x|^2}{|x-y|^3}} = \frac{\partial}{\partial x_1}
+\squareBr{\frac{P_{\alpha}(R,x,y)}{|x-y|^{3+2|\alpha|}}}
 =
 \frac{
 \frac{\partial P_{\alpha}}{\partial x_1} \cdot |x-y|^2 - (3+2|\alpha|)\cdot P_\alpha \cdot (x_1-y_1)
@@ -81,10 +81,10 @@ $$
 \item{
 Покажем теперь, что $\forall |x| \le \frac{R}{2}, \Forall |y|=R, \Forall \alpha =(\alpha_1,\alpha_2,\alpha_3)$ справедлива оценка:
 
-$$\left| \mathcal{D}_{x}^{\alpha}\brs{\frac{R^2-|x|^2}{|x-y|^3}} \right| \le \frac{C_\alpha}{R^{1+|\alpha|}}.
+$$\left| \mathcal{D}_{x}^{\alpha}\roundBr{\frac{R^2-|x|^2}{|x-y|^3}} \right| \le \frac{C_\alpha}{R^{1+|\alpha|}}.
 $$
 
-Действительно, $|P_\alpha| \le \tilde{C}_\alpha R^{|a|+2}$, а $|x-y|^{3+2|\alpha|} \ge \brs{\frac{R}{2}}^{3+2|\alpha|} = \hat{C_\alpha}R^{3+2|\alpha|}$. Отсюда следует требуемая оценка.
+Действительно, $|P_\alpha| \le \tilde{C}_\alpha R^{|a|+2}$, а $|x-y|^{3+2|\alpha|} \ge \roundBr{\frac{R}{2}}^{3+2|\alpha|} = \hat{C_\alpha}R^{3+2|\alpha|}$. Отсюда следует требуемая оценка.
 }
 
 \item{
@@ -94,7 +94,7 @@ $$
 $$
 \left| \mathcal{D}_x^{\alpha} u(x) \right| = \frac{1}{4 \pi R} 
 \left|
-\oint_{|y|=R}{\mathcal{D}_x^{\alpha}\brs{\frac{R^2-|x|^2}{|y-x|^3}}u(y)dS_y}
+\oint_{|y|=R}{\mathcal{D}_x^{\alpha}\roundBr{\frac{R^2-|x|^2}{|y-x|^3}}u(y)dS_y}
 \right|
 \le
 \frac{1}{4 \pi R} \cdot C \cdot (1+ |x|)^\mu \cdot 

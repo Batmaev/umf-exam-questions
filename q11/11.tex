@@ -65,7 +65,7 @@ $\while{u(t,x)}{\Omega_T} = \lim\limits_{(\widehat{t}, \widehat{x}) \in Q_T \rig
   
   
 \begin{itemize}
-\item Пусть $T > 0, \sigma \geq 0$. {\bf Слой толщины T} - множество $\Pi_T =\fbrs{(t,x): 0 < t < T; x \in \R^n}$\\
+\item Пусть $T > 0, \sigma \geq 0$. {\bf Слой толщины T} - множество $\Pi_T =\curlyBr{(t,x): 0 < t < T; x \in \R^n}$\\
 Обозначим $M_\sigma(T)$ -{\bf класс функций} $u(t,x) \in C^{1,2}_{t,x}(\Pi_T) \cap
 C(\overline{\Pi_T})$ таких, что $\forall\: u(t,x) \Exists A > 0 , \alpha \geq 0$ такие,
 что $\abs{u(t,x)} \leq A\exp^{\alpha \abs{x}^{\sigma}} \Forall (t,x) \in \overline{\Pi_T}$
@@ -86,13 +86,13 @@ $\forall T > 0$ функция $u_T(t,x) = \dfrac{1}{(T-t)^{\frac{n}{2}}}
 \begin{proof}
 \begin{itemize}
 
-\item $u_T \in C^\infty \fbrs{t<T, x \in \R^n}$
+\item $u_T \in C^\infty \curlyBr{t<T, x \in \R^n}$
 
-\item $\pd{u_T}{t} = \sbrs{\dfrac{n}{2(T-t)^\frac{n}{2}} + \dfrac{1}{(T-
+\item $\pd{u_T}{t} = \squareBr{\dfrac{n}{2(T-t)^\frac{n}{2}} + \dfrac{1}{(T-
 t)^{\frac{n}{2}}}{\dfrac{\abs{x}^2}{4a^2(T-t)^2}}}
 \exp^{\dfrac{\abs{x}^2}{4a^2(T-t)}}$
 
-\item $\Delta_xu_T = \sbrs{\dfrac{1}{(T-t)^\frac{n}
+\item $\Delta_xu_T = \squareBr{\dfrac{1}{(T-t)^\frac{n}
 {2}}\dfrac{2n}{4a^2(T-t)} + \dfrac{1}{(T-t)^\frac{n}
 {2}}\dfrac{4\abs{x}^2}{4^2a^4(T-t)^{2}}}
 \exp^{\dfrac{\abs{x}^2}{4a^2(T-t)}} \Rightarrow 
@@ -106,13 +106,13 @@ t)^{\frac{n}{2}}}{\dfrac{\abs{x}^2}{4a^2(T-t)^2}}}
 
 \begin{lemma}
 Пусть $v(t,x)$ такова, что $v \in M_2(T)$ и $v$ - решение полностью 
-однородной ЗК $\fbrs{\mathrm{L}v = 0, \while{v}{t=0}}$.
+однородной ЗК $\curlyBr{\mathrm{L}v = 0, \while{v}{t=0}}$.
 Тогда $\exists T_1 \leq T: \abs{v} \leq \varepsilon u_{2T_1}(x,t) \Forall \varepsilon > 0$
 
 \begin{proof}
 $\abs{v} \leq A \exp^{\alpha \abs{x}^2} \Forall t, x \in
  \overline{\Pi_T}$. Выбираем $T_1 \leq T: \dfrac{1}{8a^2T_1} >
- \alpha : T_1 = \min\fbrs{T, \dfrac{1}{16\alpha a^2}}$\\
+ \alpha : T_1 = \min\curlyBr{T, \dfrac{1}{16\alpha a^2}}$\\
  Возьмем $\varepsilon > 0$ и $\omega_e^{\pm}(t,x) = \varepsilon
  u_{2T_1} \pm v(t,x)$. 
  Нужно показать, что $\omega_e^{\pm}(t,x) > 0$:\\
@@ -126,10 +126,10 @@ $\abs{v} \leq A \exp^{\alpha \abs{x}^2} \Forall t, x \in
   \exp^{\dfrac{\abs{x}^2}{4a^2 2(T_1)}} - A\exp^{\alpha \abs{x}^2}=
    \dfrac{\varepsilon}{(2T_1)^{\frac{n}{2}}}
    \exp^{\dfrac{\abs{x}^2}{8a^2(T_1)}}
-   \sbrs{1 - 
+   \squareBr{1 - 
       \boxed{  
       \dfrac{(2T_1)^{\frac{n}{2}}}{\varepsilon}A 
-      \exp^{-\brs{\frac{1}{8a^2(T_1)}-\alpha}\abs{x}^2}}  
+      \exp^{-\roundBr{\frac{1}{8a^2(T_1)}-\alpha}\abs{x}^2}}  
       }
  $\\
  (для выделенной части $\exists R>0:$ эта часть $<\frac{1}{2}$ при 

@@ -40,7 +40,7 @@ $$
 
   В силу уравнения характеристик $\; w_t^2 - a^2w^2_x - a^2w^2_y = 0 \;$ (задаёт конус) имеем
 
-  $n^2_t = a^2 \brs{n^2_x + n^2_y}$\\
+  $n^2_t = a^2 \roundBr{n^2_x + n^2_y}$\\
   $n^2_t + n^2_x + n^2_y = 1 \quad \Rightarrow \quad n^2_t = \dfrac{a^2}{a^2 +1} \quad \Rightarrow\quad n_t = \dfrac{a}{\sqrt{a^2+1}}.$
 \end{itemize}
 
@@ -51,9 +51,9 @@ $ \; \psi = v_t(v_{tt}- a^2v_{xx} - a^2v_{yy})\; $ тождественно ра
 Раскроем скобки:
 \begin{flalign*}
   \qquad 0\;\; &= v_t v_{tt} - a^2 v_t v_{xx}-a^2 v_t v_{yy}= &&\\
-  &=\frac{1}{2}\brs{v^2_t}_t + a^2 v_x v_{xt}-\brs{a^2 v_t v_x}_x + a^2 v_y v_{yt} - \brs{a^2 v_t v_y}_y = &&\\ 
-  &=\frac{1}{2}\brs{v^2_t}_t - \brs{a v_t v_x}_x - \brs{a v_t v_y}_y + \brs{\frac{1}{2}a^2v^2_x}_t+\brs{\frac{1}{2}a^2v^2_y}_t = &&\\ 
-  &=\brs{\frac{v^2_t+a^2v^2_x+a^2v^2_y}{2}}_t+\brs{-a^2 v_t v_x}_x + \brs{-a^2 v_t v_y}_y = &&\\
+  &=\frac{1}{2}\roundBr{v^2_t}_t + a^2 v_x v_{xt}-\roundBr{a^2 v_t v_x}_x + a^2 v_y v_{yt} - \roundBr{a^2 v_t v_y}_y = &&\\ 
+  &=\frac{1}{2}\roundBr{v^2_t}_t - \roundBr{a v_t v_x}_x - \roundBr{a v_t v_y}_y + \roundBr{\frac{1}{2}a^2v^2_x}_t+\roundBr{\frac{1}{2}a^2v^2_y}_t = &&\\ 
+  &=\roundBr{\frac{v^2_t+a^2v^2_x+a^2v^2_y}{2}}_t+\roundBr{-a^2 v_t v_x}_x + \roundBr{-a^2 v_t v_y}_y = &&\\
   &= F^{(t)}_t + F^{(x)}_x + F^{(y)}_y = \div\vec{F},
 \end{flalign*}
 \qquad где введено поле $\vec{F}$.
@@ -62,8 +62,8 @@ $ \; \psi = v_t(v_{tt}- a^2v_{xx} - a^2v_{yy})\; $ тождественно ра
 %   0 = v_t v_{tt} - a^2 v_t v_{xx}-a^2 v_t v_{yy}= \\
 %   \begin{aligned}
 %   &=\frac{1}{2}(v^2_t)_t + a^2 v_x v_{xt}-(a^2 v_t v_x)_x + a^2 v_y v_{yt} - (a^2 v_t v_y)_y = \\ 
-%   &=\frac{1}{2}(v^2_t)_t - (a v_t v_x)_x-(a v_t v_y)_y + \brs{\frac{1}{2}a^2v^2_x}_t+\brs{\frac{1}{2}a^2v^2_y}_t = \\ 
-%   &=\brs{\frac{v^2_t+a^2v^2_x+a^2v^2_y}{2}}_t+(-a^2 v_t v_x)_x+(-a^2 v_t v_y)_y =
+%   &=\frac{1}{2}(v^2_t)_t - (a v_t v_x)_x-(a v_t v_y)_y + \roundBr{\frac{1}{2}a^2v^2_x}_t+\roundBr{\frac{1}{2}a^2v^2_y}_t = \\ 
+%   &=\roundBr{\frac{v^2_t+a^2v^2_x+a^2v^2_y}{2}}_t+(-a^2 v_t v_x)_x+(-a^2 v_t v_y)_y =
 %   \end{aligned} \\
 %   = F^{(t)}_t + F^{(x)}_x + F^{(y)}_y = \div \vec{F}
 % \end{multline*}
@@ -75,7 +75,7 @@ $ \; \psi = v_t(v_{tt}- a^2v_{xx} - a^2v_{yy})\; $ тождественно ра
   0 = \iiint\limits_{V_T}\div\vec{F} =
   \oiint\limits_{\partial V_T}(\vec{F},\vec{n})\, dS 
   =\iint\limits_{\Sigma_T}\frac{v^2_t+a^2v^2_x+a^2v^2_y}{2}\, dS - \iint\limits_{\Sigma_0}\frac{v^2_t+a^2v^2_x+a^2v^2_y}{2}\, dS + \\[0.4em]
-  + \frac{1}{2}\iint\limits_{\Gamma_T}\brs{(v^2_t+a^2v^2_x+a^2v^2_y)n_t-2a^2v_tv_xn_x - 2a^2v_tv_yn_y}dS
+  + \frac{1}{2}\iint\limits_{\Gamma_T}\roundBr{(v^2_t+a^2v^2_x+a^2v^2_y)n_t-2a^2v_tv_xn_x - 2a^2v_tv_yn_y}dS
   \ = \ E(\Sigma_T) - E(\Sigma_0) + E(\Gamma_T)
 \end{multline*}
 
@@ -87,9 +87,9 @@ $ \; \psi = v_t(v_{tt}- a^2v_{xx} - a^2v_{yy})\; $ тождественно ра
 
 Покажем, что и $ E(\Gamma_T)\geq 0 $: разделим и домножим её на $ n_t=\dfrac{a}{\sqrt{a^2+1}} $
 \begin{multline*}
-  \frac{1}{2}\frac{\sqrt{a^2+1}}{a}\iint\limits_{\Gamma_T}\brs{(v^2_t+a^2v^2_x+a^2v^2_y)n^2_t \; - \; 2a^2v_tv_xn_tn_x \; - \; 2a^2v_tv_yn_tn_y} dS = \\ \shoveleft{
+  \frac{1}{2}\frac{\sqrt{a^2+1}}{a}\iint\limits_{\Gamma_T}\roundBr{(v^2_t+a^2v^2_x+a^2v^2_y)n^2_t \; - \; 2a^2v_tv_xn_tn_x \; - \; 2a^2v_tv_yn_tn_y} dS = \\ \shoveleft{
   =\frac{1}{2}\frac{\sqrt{a^2+1}}{a}\iint\limits_{\Gamma_T} \Bigl( v^2_t \overbrace{a^2(n^2_x + n^2_y)}^\text{= $n_t^2$}\; + \; a^2v^2_xn^2_t \; + \; a^2v^2_yn^2_t\; - \; 2a^2v_tv_xn_tn_x \; - \; 2a^2 v_t v_y n_t n_y \Bigr)\, dS }\\
-  = \frac{1}{2} a \sqrt{a^2+1} \iint\limits_{\Gamma_T} \brs{(v_tn_x -v_xn_t)^2+(v_tn_y-v_yn_t)^2} dS \;\ \geq\ 0  
+  = \frac{1}{2} a \sqrt{a^2+1} \iint\limits_{\Gamma_T} \roundBr{(v_tn_x -v_xn_t)^2+(v_tn_y-v_yn_t)^2} dS \;\ \geq\ 0  
 \end{multline*}
 
 Значит,\; $ E(\Sigma_0)=E(\Sigma_T)=E(\Gamma_T)\equiv 0.$

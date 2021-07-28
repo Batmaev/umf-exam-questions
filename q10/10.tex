@@ -27,17 +27,17 @@
 \begin{enumerate}
 	\item Очевидно, $u(t,x) \in C(t \geqslant 0, x \in \R^n) \cap C^\infty(t > 0, x \in \R^n)$;
     \item $u(0,x) = \displaystyle\prod_{k=1}^n \varphi_k(x_k)$;
-    \item $u_t(t,x) = \dfrac{\partial}{\partial t} \sbrs{\displaystyle\prod_{k=1}^n \uk(t,x_k)} = \displaystyle\sum_{j=1}^n \sbrs{\uj_t(t,x_j) \displaystyle\underset{k \not= j}{\prod_{k=1}^n} \uk(t,x_k)} = \displaystyle\sum_{j=1}^n \sbrs{a^2 \uj_{x_jx_j} \displaystyle\underset{k \not= j}{\prod_{k=1}^n} \uk(t,x_k)} = \\ = a^2 \displaystyle\sum_{j=1}^n \dfrac{\partial^2}{\partial x_j^2} \displaystyle\prod_{k=1}^n \uk(t,x_k) = a^2 \displaystyle \sum_{j=1}^n \dfrac{\partial^2}{\partial x_j^2} u(t,x) = a^2 \Delta_x u(t,x)$.
+    \item $u_t(t,x) = \dfrac{\partial}{\partial t} \squareBr{\displaystyle\prod_{k=1}^n \uk(t,x_k)} = \displaystyle\sum_{j=1}^n \squareBr{\uj_t(t,x_j) \displaystyle\underset{k \not= j}{\prod_{k=1}^n} \uk(t,x_k)} = \displaystyle\sum_{j=1}^n \squareBr{a^2 \uj_{x_jx_j} \displaystyle\underset{k \not= j}{\prod_{k=1}^n} \uk(t,x_k)} = \\ = a^2 \displaystyle\sum_{j=1}^n \dfrac{\partial^2}{\partial x_j^2} \displaystyle\prod_{k=1}^n \uk(t,x_k) = a^2 \displaystyle \sum_{j=1}^n \dfrac{\partial^2}{\partial x_j^2} u(t,x) = a^2 \Delta_x u(t,x)$.
 \end{enumerate}
 Итак, в случае разделения переменных имеем:
 \begin{equation}
-u(t,x) = \brs{\dfrac{1}{\sqrt{4\pi a^2t}}}^n \int\limits_\R\ldots\int\limits_\R e^{-\frac{\sum_{j=1}^n (x_j - y_j)^2}{4a^2t}} \prod_{k=1}^n \varphi_k(y_k) dy_1\ldots dy_n = \boxed{\brs{\dfrac{1}{\sqrt{4\pi a^2 t}}}^n \int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2t}} u_0(y)dy}
+u(t,x) = \roundBr{\dfrac{1}{\sqrt{4\pi a^2t}}}^n \int\limits_\R\ldots\int\limits_\R e^{-\frac{\sum_{j=1}^n (x_j - y_j)^2}{4a^2t}} \prod_{k=1}^n \varphi_k(y_k) dy_1\ldots dy_n = \boxed{\roundBr{\dfrac{1}{\sqrt{4\pi a^2 t}}}^n \int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2t}} u_0(y)dy}
 \end{equation}
 Полученная формула называется {\bf формулой Пуассона в $\R^n$}.
 \begin{theorem}
 	Пусть $u_0 \in C(\R^n), \abs{u_0} \leqslant M \Forall x \in \R^n$. Тогда 
     \begin{equation*}
-    	u(t,x) = \brs{\dfrac{1}{\sqrt{4\pi a^2 t}}}^n \int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2t}} u_0(y)dy \text{ ---}
+    	u(t,x) = \roundBr{\dfrac{1}{\sqrt{4\pi a^2 t}}}^n \int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2t}} u_0(y)dy \text{ ---}
     \end{equation*}
     классическое решение задачи Коши \ref{10_1}, лежащее в классе $C^\infty(t>0, x \in \R^n) \cap C(t \geqslant 0, x \in \R^n)$. Кроме того,~$\abs{u(t,x)} \leqslant M \Forall t > 0, x \in \R^n$.
 \end{theorem}
@@ -68,7 +68,7 @@ u(t,x) = \brs{\dfrac{1}{\sqrt{4\pi a^2t}}}^n \int\limits_\R\ldots\int\limits_\R 
 \end{equation}
 Решение даётся формулой Пуассона в $\R^n$:
 \begin{equation*}
-	v(t,x,\tau) = \brs{\dfrac{1}{\sqrt{4\pi a^2 (t - \tau)}}}^n \int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2(t-\tau)}} f(\tau, y) dy
+	v(t,x,\tau) = \roundBr{\dfrac{1}{\sqrt{4\pi a^2 (t - \tau)}}}^n \int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2(t-\tau)}} f(\tau, y) dy
 \end{equation*}
 $v(t,x,\tau)$ непрерывно продолжима до $t \geqslant \tau$, ограничена: $\abs{v(t,x,\tau)} \leqslant M_0$.
 
@@ -76,15 +76,15 @@ $v(t,x,\tau)$ непрерывно продолжима до $t \geqslant \tau$,
 
 Исследуем вспомогательную функцию:
 \begin{equation*}
-	w(\tilde{t}, x, \tau) = \brs{\dfrac{1}{\sqrt{4\pi a^2\tilde{t}}}}^n \int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2\tilde{t}}} f(\tau,y) dy, \quad \tilde{t} > 0, \tau \geqslant 0, x, y \in \R^n
+	w(\tilde{t}, x, \tau) = \roundBr{\dfrac{1}{\sqrt{4\pi a^2\tilde{t}}}}^n \int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2\tilde{t}}} f(\tau,y) dy, \quad \tilde{t} > 0, \tau \geqslant 0, x, y \in \R^n
 \end{equation*}
-Введём $\eta = \dfrac{y-x}{2a\sqrt{\tilde{t}}} \Rightarrow y = x + 2a\sqrt{\tilde{t}} \eta \Rightarrow dy = dy_1\ldots dy_n = \brs{2a\sqrt{\tilde{t}}}^n d\eta_1\ldots d\eta_n = \brs{2a\sqrt{\tilde{t}}}^n d\eta$.
+Введём $\eta = \dfrac{y-x}{2a\sqrt{\tilde{t}}} \Rightarrow y = x + 2a\sqrt{\tilde{t}} \eta \Rightarrow dy = dy_1\ldots dy_n = \roundBr{2a\sqrt{\tilde{t}}}^n d\eta_1\ldots d\eta_n = \roundBr{2a\sqrt{\tilde{t}}}^n d\eta$.
 
-Тогда $w(\tilde{t}, x, \tau) = \dfrac{1}{\pi^{n/2}} \displaystyle\int\limits_{\R^n} e^{-\eta^2} f\brs{\tau, x+2a\sqrt{\tilde{t}}\eta}d\eta, \quad \tilde{t} > 0$
+Тогда $w(\tilde{t}, x, \tau) = \dfrac{1}{\pi^{n/2}} \displaystyle\int\limits_{\R^n} e^{-\eta^2} f\roundBr{\tau, x+2a\sqrt{\tilde{t}}\eta}d\eta, \quad \tilde{t} > 0$
 
-$f\brs{\tau, x+2a\sqrt{\tilde{t}}\eta} \in C(\tau \geqslant 0, \tilde{t} \geqslant 0, x \in \R^n, \eta \in \R^n)$
+$f\roundBr{\tau, x+2a\sqrt{\tilde{t}}\eta} \in C(\tau \geqslant 0, \tilde{t} \geqslant 0, x \in \R^n, \eta \in \R^n)$
 
-$\abs{f\brs{\tau, x+2a\sqrt{\tilde{t}}\eta}e^{-\eta^2}} \leqslant M_0 e^{-\eta^2}$ и $\displaystyle\int\limits_{\R^n} e^{-\eta^2}d\eta <+\infty \Rightarrow w(\tilde{t}, x, \tau)$ сходится равномерно.
+$\abs{f\roundBr{\tau, x+2a\sqrt{\tilde{t}}\eta}e^{-\eta^2}} \leqslant M_0 e^{-\eta^2}$ и $\displaystyle\int\limits_{\R^n} e^{-\eta^2}d\eta <+\infty \Rightarrow w(\tilde{t}, x, \tau)$ сходится равномерно.
 
 Итак, $w \in C(\tilde{t} \geqslant 0, \tau \geqslant 0, x \in \R^n)$.
 
@@ -93,19 +93,19 @@ $\abs{f\brs{\tau, x+2a\sqrt{\tilde{t}}\eta}e^{-\eta^2}} \leqslant M_0 e^{-\eta^2
 \end{statement}
 
 \begin{proof}
-	$w_{x_i}(\tilde{t}, x, \tau) \sim \dfrac{1}{\pi^{n/2}} \displaystyle\int\limits_{\R^n} e^{-\eta^2} f_{x_i}\brs{\tau, x+2a\sqrt{\tilde{t}}\eta}d\eta, \quad \tilde{t} > 0$
+	$w_{x_i}(\tilde{t}, x, \tau) \sim \dfrac{1}{\pi^{n/2}} \displaystyle\int\limits_{\R^n} e^{-\eta^2} f_{x_i}\roundBr{\tau, x+2a\sqrt{\tilde{t}}\eta}d\eta, \quad \tilde{t} > 0$
 
-	$f_{x_i}\brs{\tau, x+2a\sqrt{\tilde{t}}\eta} \in C(\tau \geqslant 0, \tilde{t} \geqslant 0, x \in \R^n, \eta \in \R^n)$
+	$f_{x_i}\roundBr{\tau, x+2a\sqrt{\tilde{t}}\eta} \in C(\tau \geqslant 0, \tilde{t} \geqslant 0, x \in \R^n, \eta \in \R^n)$
 
-	$\abs{f_{x_i}\brs{\tau, x+2a\sqrt{\tilde{t}}\eta}e^{-\eta^2}} \leqslant M_2 e^{-\eta^2} \Rightarrow w_{x_i}(\tilde{t}, x, \tau)$ сходится равномерно.
+	$\abs{f_{x_i}\roundBr{\tau, x+2a\sqrt{\tilde{t}}\eta}e^{-\eta^2}} \leqslant M_2 e^{-\eta^2} \Rightarrow w_{x_i}(\tilde{t}, x, \tau)$ сходится равномерно.
 
 	Поэтому, вместо '$\sim$' можно поставить '$=$':
 
-	$w_{x_i}(\tilde{t}, x, \tau) = \dfrac{1}{\pi^{n/2}} \displaystyle\int\limits_{\R^n} e^{-\eta^2} f_{x_i}\brs{\tau, x+2a\sqrt{\tilde{t}}\eta}d\eta, \quad \tilde{t} > 0$
+	$w_{x_i}(\tilde{t}, x, \tau) = \dfrac{1}{\pi^{n/2}} \displaystyle\int\limits_{\R^n} e^{-\eta^2} f_{x_i}\roundBr{\tau, x+2a\sqrt{\tilde{t}}\eta}d\eta, \quad \tilde{t} > 0$
 
 	Аналогично и для вторых производных по $x$:
 
-	$w_{x_ix_j}(\tilde{t}, x, \tau) = \dfrac{1}{\pi^{n/2}} \displaystyle\int\limits_{\R^n} e^{-\eta^2} f_{x_ix_j}\brs{\tau, x+2a\sqrt{\tilde{t}}\eta} d\eta, \quad \tilde{t} > 0$
+	$w_{x_ix_j}(\tilde{t}, x, \tau) = \dfrac{1}{\pi^{n/2}} \displaystyle\int\limits_{\R^n} e^{-\eta^2} f_{x_ix_j}\roundBr{\tau, x+2a\sqrt{\tilde{t}}\eta} d\eta, \quad \tilde{t} > 0$
 \end{proof}
 	
 	Теперь производная по времени: в силу того, что уравнение
@@ -139,7 +139,7 @@ $\abs{f\brs{\tau, x+2a\sqrt{\tilde{t}}\eta}e^{-\eta^2}} \leqslant M_0 e^{-\eta^2
 			\item[б)] $f(t,x) \in C^{1,2}_{t,x}(t \geqslant 0, x \in \R^n)$ 
             \item[в)] $\abs{f(t,x)}\leq M_1,\ \abs{f_{x_i}(t,x)}\leq M_2,\ \abs{f_{x_ix_j}(t,x)}\leq M_2\ \Forall t\geq 0, x\in\R^n$ 
 		\end{itemize}
-		Тогда функция $$u(t,x) = \brs{\dfrac{1}{\sqrt{4\pi a^2t}}}^n \displaystyle\int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2t}} u_0(y)dy + \displaystyle\int\limits_0^t \sbrs{\brs{\dfrac{1}{\sqrt{4\pi a^2(t-\tau)}}}^n \displaystyle\int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2(t-\tau)}} f(\tau,y) dy} d\tau$$
+		Тогда функция $$u(t,x) = \roundBr{\dfrac{1}{\sqrt{4\pi a^2t}}}^n \displaystyle\int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2t}} u_0(y)dy + \displaystyle\int\limits_0^t \squareBr{\roundBr{\dfrac{1}{\sqrt{4\pi a^2(t-\tau)}}}^n \displaystyle\int\limits_{\R^n} e^{-\frac{\abs{x-y}^2}{4a^2(t-\tau)}} f(\tau,y) dy} d\tau$$
 		является классическим решением задачи Коши, лежит в классе $C(t \geqslant 0, x \in \R^n) \cap C^{1,2}_{t,x}(t > 0, x \in \R^n)$. Кроме того, справедлива оценка $\abs{u(t,x)} \leqslant M_0 + tM_1$
 	\end{theorem}
 	\begin{proof}

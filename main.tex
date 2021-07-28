@@ -1,6 +1,7 @@
 % Шаблон Юрия Максимова (отредактированный)
 
 \documentclass[12pt]{article}
+
 \usepackage{graphicx}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -25,6 +26,7 @@
 \makeatletter
 \AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
 \makeatother
+
 
 % Ivanychev theorem definitions
 \theoremstyle{plain}
@@ -55,13 +57,36 @@
 
 
 
+
 \newcommand{\while}[2]{\left. #1\right|_{#2}}
-\newcommand{\brs}[1]{\left(#1\right)}
-\newcommand{\sbrs}[1]{\left[#1\right]}
-\newcommand{\fbrs}[1]{\left\{#1\right\}}
-\newcommand{\rbrs}[1]{\left\langle #1 \right\rangle}
+\newcommand{\roundBr}[1]{\left(#1\right)}
+\newcommand{\squareBr}[1]{\left[#1\right]}
+\newcommand{\curlyBr}[1]{\left\{#1\right\}}
+\newcommand{\angleBr}[1]{\left\langle #1 \right\rangle}
 
 
+
+
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+% \pd{f}{x}  ---> df/dx
+
+\newcommand{\spd}[3]{\dfrac{\partial^2 #1}{\partial #2\partial #3}}
+% spd{f}{x}{y} ---> (d^2 f) / (dx dy)
+
+\newcommand{\npd}[3]{\dfrac{\partial^{#3} #1}{\partial #2^{#3}}}
+% npd{f}{x}{n} ---> (d^n f) / dx^n
+
+\newcommand{\pdd}[2]{\npd{#1}{#2}{2}}
+% pdd{f}{x}  ---> (d^2 f) / dx^2
+
+
+
+
+\renewcommand{\phi}{\varphi}
+\newcommand{\eps}{\varepsilon}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -69,23 +94,17 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 
-\renewcommand{\phi}{\varphi}
-\newcommand{\eps}{\varepsilon}
-
-\newcommand{\sign}{\mathrm{sign}\;}
-\newcommand{\Equiv}{\Leftrightarrow}
-
-
 \newcommand{\Forall}{\;\;\forall\:}
 \newcommand{\Exists}{\;\;\exists\:}
+\newcommand{\Equiv}{\Leftrightarrow}
 
-\renewcommand{\leq}{\leqslant}
-\renewcommand{\geq}{\geqslant}
 
 \DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\erf}{erf}
 \renewcommand{\div}{\operatorname{div}}
+\newcommand{\sign}{\mathrm{sign}\;}
+
 
 % \abs and \norm
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
@@ -97,22 +116,6 @@
 \let\oldnorm\norm
 \def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
 \makeatother
-
-
-
-\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
-%   \pd{f}{x}  ---> df/fx
-
-\newcommand{\spd}[3]{\dfrac{\partial^2 #1}{\partial #2\partial #3}}
-% spd{f}{x}{y} ---> (d^2 f) / (dx dy)
-
-\newcommand{\npd}[3]{\dfrac{\partial^{#3} #1}{\partial #2^{#3}}}
-% npd{f}{x}{n} ---> (d^n f) / dx^n
-
-\newcommand{\pdd}[2]{\npd{#1}{#2}{2}}
-%   pdd{f}{x}  ---> (d^2 f) / dx^2
-
-
 
 
 \title{Уравнения математической физики}

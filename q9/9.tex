@@ -74,12 +74,12 @@ u_0(x) = \begin{cases}
 \end{equation*}
 есть однопарметрическая группа преобразований, $z = \dfrac{x}{\sqrt{t}} $ --- инвариант группы.
 \end{example}
-Найдём автомодельное решение $u(t, x) = f\brs{\dfrac{x}{\sqrt{t}}} = f(z)$. \\
+Найдём автомодельное решение $u(t, x) = f\roundBr{\dfrac{x}{\sqrt{t}}} = f(z)$. \\
 В этом случае:
 \begin{equation*}
-	u_t = f'\brs{\dfrac{x}{\sqrt{t}}} \cdot \brs{\frac{-x}{2t^{3/2}}} 
-	\qquad u_x = f'\brs{\frac{x}{\sqrt{t}}} \cdot \frac{1}{\sqrt{t}} 
-	\qquad u_{xx} = f''\brs{\frac{x}{\sqrt{t}}} \cdot \frac{1}{t}
+	u_t = f'\roundBr{\dfrac{x}{\sqrt{t}}} \cdot \roundBr{\frac{-x}{2t^{3/2}}} 
+	\qquad u_x = f'\roundBr{\frac{x}{\sqrt{t}}} \cdot \frac{1}{\sqrt{t}} 
+	\qquad u_{xx} = f''\roundBr{\frac{x}{\sqrt{t}}} \cdot \frac{1}{t}
 \end{equation*}
 
 Подставляем в уравнение:
@@ -105,7 +105,7 @@ u_0(x) = \begin{cases}
 \end{equation*}
 Тогда:
 \begin{equation*}
-	u(t, x) = f\brs{\frac{x}{\sqrt{t}}} = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{\frac{x}{\sqrt{4 t a^2}}} e^{-\mu^2}\, d \mu = \frac{1}{2}\sbrs{1 + \erf\brs{\frac{x}{\sqrt{4 a^2 t}}}}
+	u(t, x) = f\roundBr{\frac{x}{\sqrt{t}}} = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{\frac{x}{\sqrt{4 t a^2}}} e^{-\mu^2}\, d \mu = \frac{1}{2}\squareBr{1 + \erf\roundBr{\frac{x}{\sqrt{4 a^2 t}}}}
 \end{equation*}
 \begin{enumerate}
 \item Мы рассмотрели модельную задачу
@@ -113,21 +113,21 @@ u_0(x) = \begin{cases}
 \includegraphics[height=0.11\textwidth]{./pic 9_1.pdf}
 \end{center}
 \item Увеличим ступеньку в $u_*$ раз и сдвинем
-$$u(t,x) = \frac{u_*}{2}\sbrs{1+\erf \brs{\frac{x-x_0}{\sqrt{4a^2t}}}}$$
+$$u(t,x) = \frac{u_*}{2}\squareBr{1+\erf \roundBr{\frac{x-x_0}{\sqrt{4a^2t}}}}$$
 \item Можем получить и решение для ступеньки конечной ширины:
-$$u(t,x) = \frac{u_*}{2}\sbrs{\erf \brs{\frac{x-x_1}{\sqrt{4a^2t}}}-\erf \brs{\frac{x-x_2}{\sqrt{4a^2t}}}}$$
+$$u(t,x) = \frac{u_*}{2}\squareBr{\erf \roundBr{\frac{x-x_1}{\sqrt{4a^2t}}}-\erf \roundBr{\frac{x-x_2}{\sqrt{4a^2t}}}}$$
 \item Для системы из $N$ интервалов имеем:
 \begin{center}
 \includegraphics[height=0.125\textwidth]{./pic 9_2.pdf}
 \end{center}
-$$u(t,x) = \sum_{k=1}^{N}\frac{u_{*k}}{2}\sbrs{\erf \brs{\frac{x-x_{1k}}{\sqrt{4a^2t}}}-\erf \brs{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}$$
+$$u(t,x) = \sum_{k=1}^{N}\frac{u_{*k}}{2}\squareBr{\erf \roundBr{\frac{x-x_{1k}}{\sqrt{4a^2t}}}-\erf \roundBr{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}$$
 
 Последнее можно переписать в следующем виде:
-$$u(t,x) = \sum_{k=1}^{N}\sbrs{\frac{\fbrs{-\frac{1}{2}\erf \brs{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}-\fbrs{-\frac{1}{2}\erf \brs{\frac{x-x_{1k}}{\sqrt{4a^2t}}}}}{x_{2k}-x_{1k}}}u_{*k} \cdot (x_{2k} - x_{1k})$$
+$$u(t,x) = \sum_{k=1}^{N}\squareBr{\frac{\curlyBr{-\frac{1}{2}\erf \roundBr{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}-\curlyBr{-\frac{1}{2}\erf \roundBr{\frac{x-x_{1k}}{\sqrt{4a^2t}}}}}{x_{2k}-x_{1k}}}u_{*k} \cdot (x_{2k} - x_{1k})$$
 \item Окончательно, пусть $u_0(x)$ финитна, непрерывна, ограничена. Разбиваем ее носитель $\supp u_0(x)$ на отрезки, аппроксимируем кусочно постоянной. Для приближенных решений справедливо:
 \begin{align*}
-u(t,x) &= \sbrs{
-		\Psi (t,x, \xi) = -\frac{1}{2} \erf\brs{\frac{x - \xi}{\sqrt{4a^2t}}}
+u(t,x) &= \squareBr{
+		\Psi (t,x, \xi) = -\frac{1}{2} \erf\roundBr{\frac{x - \xi}{\sqrt{4a^2t}}}
 		,\quad \xi_k = \frac{x_{2k} - x_{1k}}{2}
 	} = \\[0.7em] 
 & = \sum_{k=1}^N \frac{
@@ -137,7 +137,7 @@ u(t,x) &= \sbrs{
 	(x_{2k} - x_{1k}) \approx\\[0.7em]
 & \approx \sum_{k=1}^N \while{ \pd{\Psi}{\xi} }{ \xi = \xi_k } 
 	u_0(\xi_k) (x_{2k} - x_{1k}) 
-	= \sbrs{
+	= \squareBr{
 		\pd{\Psi}{\xi} = \frac{1}{\sqrt{4 \pi a^2 t}} e^{-\frac{(x-\xi)^2}{4a^2t}}
 		} = \\[0.7em]
 &= \sum_{k=1}^N \frac{1}{\sqrt{4 \pi a^2 t}} \while{

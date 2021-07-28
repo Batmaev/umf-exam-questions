@@ -8,12 +8,12 @@
 		\while{u}{x=0} = \psi_0(t), \quad \while{u}{x=l} = \psi_1(t), \quad & 0 \leqslant t \leqslant T;
 	\end{cases}
 \end{equation}
-Рассматриваем ее классическое решение~--- функцию $u(t,x) \in C^{1,2}_{t,x}(Q_T) \cap C(\overline{Q_T})$, где \\ $Q_T = \fbrs{(t,x) : t \in (0,T); x \in (0,l)}$, удовлетворяющую в $Q_T$ уравнению, начальному и граничным условиям.
+Рассматриваем ее классическое решение~--- функцию $u(t,x) \in C^{1,2}_{t,x}(Q_T) \cap C(\overline{Q_T})$, где \\ $Q_T = \curlyBr{(t,x) : t \in (0,T); x \in (0,l)}$, удовлетворяющую в $Q_T$ уравнению, начальному и граничным условиям.
 \begin{theorem}[Единственности]
 	Не может существовать более одного классического решения задачи \ref{12_1}
 \end{theorem}
 \begin{proof}
-	Если $u_1, u_2$~--- классические решения, то $v = u_1 - u_2$~--- классическое решение полностью однородной задачи. На параболической границе $\Gamma_T = \fbrs{t=0, x \in \sbrs{0,l}} \cup \fbrs{x=0, t \in \sbrs{0,T}} \cup \fbrs{x=l, t \in \sbrs{0,T}}$ $\while{v}{\Gamma_T} = 0$. Но на $\Gamma_T$ достигается максимум и минимум $v$ в $Q_T$ в силу принципа максимума $\Rightarrow v \equiv 0$
+	Если $u_1, u_2$~--- классические решения, то $v = u_1 - u_2$~--- классическое решение полностью однородной задачи. На параболической границе $\Gamma_T = \curlyBr{t=0, x \in \squareBr{0,l}} \cup \curlyBr{x=0, t \in \squareBr{0,T}} \cup \curlyBr{x=l, t \in \squareBr{0,T}}$ $\while{v}{\Gamma_T} = 0$. Но на $\Gamma_T$ достигается максимум и минимум $v$ в $Q_T$ в силу принципа максимума $\Rightarrow v \equiv 0$
 \end{proof}
 
 Частный случай, указанный в билете:
@@ -53,8 +53,8 @@
 
 Введем оператор $A$:
 \begin{itemize}
-	\item $\mathrm{D}(A) = \fbrs{X \in C^2[0,l] : X(0) = X(l) = 0}$
-	\item $\mathrm{Im}(A) = \fbrs{Y \in C[0,l]}$
+	\item $\mathrm{D}(A) = \curlyBr{X \in C^2[0,l] : X(0) = X(l) = 0}$
+	\item $\mathrm{Im}(A) = \curlyBr{Y \in C[0,l]}$
 	\item $AX = -\Delta X = Y$
 \end{itemize}
 
@@ -95,51 +95,51 @@
 			X(l) = C_2\sin\sqrt{\lambda}l = 0;
 		\end{cases}$
 
-		$\sqrt{\lambda}l = \pi k \Rightarrow \lambda_k = \brs{\dfrac{\pi k}{l}}^2, k \in \N$
+		$\sqrt{\lambda}l = \pi k \Rightarrow \lambda_k = \roundBr{\dfrac{\pi k}{l}}^2, k \in \N$
 
-		Функции $X_k(x) = \sin\brs{\dfrac{\pi k}{l}x}$
+		Функции $X_k(x) = \sin\roundBr{\dfrac{\pi k}{l}x}$
 \end{itemize}
 Теперь для найденных $\lambda_k$ решаем $\dot{\Theta}_k(t) + \lambda_k a^2 \Theta_k(t) = 0 \Rightarrow \Theta_k(t) = e^{-a^2\lambda_kt}$
 
-Мы нашли $u_k(t,x) = e^{-a^2\lambda_kt}\sin\brs{\dfrac{\pi k}{l}}$~--- счетное число бесконечно гладких решений: $u_k$ удовлетворяет задаче
+Мы нашли $u_k(t,x) = e^{-a^2\lambda_kt}\sin\roundBr{\dfrac{\pi k}{l}}$~--- счетное число бесконечно гладких решений: $u_k$ удовлетворяет задаче
 
 \begin{equation*}
 	\begin{cases}
-		\brs{u_k}_t - a^2\brs{u_k}_{xx} = 0, \\
+		\roundBr{u_k}_t - a^2\roundBr{u_k}_{xx} = 0, \\
 		u_k(t,0) = u_k(t,l) = 0, \\
 		u_k(0,x) = X_k(x) = \sin\lambda_kx;
 	\end{cases}
 \end{equation*}
 Тогда $u_A(t,x) = \displaystyle\sum\limits_{k=1}^N A_k u_k(t,x)$~--- решение для задачи с начальным условием $u(0,x) = \displaystyle\sum\limits_{k=1}^N A_k X_k(x)$.
 
-Обозначим $Ku_0$~--- класс функций $u_0 = \displaystyle\sum\limits_{k=1}^N A_k X_k(x)$~--- тех, для которых умеем выписать явное решение. Пусть $A_k$~--- $k$-мерные векторы. Между $Ku_0$ и $A_k$ есть биекция (по $u_0 = \displaystyle\sum\limits_{k=1}^N A_k X_k(x)$ однозначно восстанавливаем $A_k = \dfrac{2}{l}\displaystyle\int\limits_0^l u_0(x) \sin\brs{\dfrac{\pi k}{l}x}dx$)
+Обозначим $Ku_0$~--- класс функций $u_0 = \displaystyle\sum\limits_{k=1}^N A_k X_k(x)$~--- тех, для которых умеем выписать явное решение. Пусть $A_k$~--- $k$-мерные векторы. Между $Ku_0$ и $A_k$ есть биекция (по $u_0 = \displaystyle\sum\limits_{k=1}^N A_k X_k(x)$ однозначно восстанавливаем $A_k = \dfrac{2}{l}\displaystyle\int\limits_0^l u_0(x) \sin\roundBr{\dfrac{\pi k}{l}x}dx$)
 
 Бесконечномерный вектор подойдет уже не всегда. Как минимум ряд $\displaystyle\sum\limits_{k=1}^\infty A_k X_k(x)$ должен сойтись в замыкании области. Функция $\displaystyle\sum\limits_{k=1}^\infty A_k u_k(t,x)$ должна быть нужной гладкости, а также удовлетворять уравнению \ref{12_1}.
 
 \begin{statement}
-	$\fbrs{A_k}_{k=1}^{+\infty}: \displaystyle\sum\limits_{k=1}^{+\infty} \abs{A_k} < +\infty$ подойдет
+	$\curlyBr{A_k}_{k=1}^{+\infty}: \displaystyle\sum\limits_{k=1}^{+\infty} \abs{A_k} < +\infty$ подойдет
 \end{statement}
 
 \begin{proof}
-	Пусть $u_0(x) = \displaystyle\sum\limits_{k=1}^{+\infty} A_k\sin\brs{\dfrac{\pi k}{l}x}, \displaystyle\sum\limits_{k=1}^{+\infty} \abs{A_k} < +\infty$. Тогда $\abs{A_k\sin\brs{\dfrac{\pi k}{l}x}} \leqslant \abs{A_k} \Rightarrow$ по теореме Вейерштрасса ряд сходится абсолютно и равномерно $\Rightarrow$ сумма непрерывна.
+	Пусть $u_0(x) = \displaystyle\sum\limits_{k=1}^{+\infty} A_k\sin\roundBr{\dfrac{\pi k}{l}x}, \displaystyle\sum\limits_{k=1}^{+\infty} \abs{A_k} < +\infty$. Тогда $\abs{A_k\sin\roundBr{\dfrac{\pi k}{l}x}} \leqslant \abs{A_k} \Rightarrow$ по теореме Вейерштрасса ряд сходится абсолютно и равномерно $\Rightarrow$ сумма непрерывна.
 
-	Равномерно сходящийся ряд можно почленно интегрировать $\Rightarrow$ по $u_0(x)$ восстанавливаем $A_n$: $\displaystyle\int\limits_0^l u_0(x)\sin\brs{\dfrac{\pi n}{l}x}dx = \displaystyle\sum_{k=1}^{+\infty} A_k \displaystyle\int\limits_0^l \sin\brs{\dfrac{\pi k}{l}x} \sin\brs{\dfrac{\pi n}{l}x} dx \Rightarrow A_n = \dfrac{2}{l} \displaystyle\int\limits_0^l u_0(x) \sin\brs{\dfrac{\pi n}{l}x} dx$
+	Равномерно сходящийся ряд можно почленно интегрировать $\Rightarrow$ по $u_0(x)$ восстанавливаем $A_n$: $\displaystyle\int\limits_0^l u_0(x)\sin\roundBr{\dfrac{\pi n}{l}x}dx = \displaystyle\sum_{k=1}^{+\infty} A_k \displaystyle\int\limits_0^l \sin\roundBr{\dfrac{\pi k}{l}x} \sin\roundBr{\dfrac{\pi n}{l}x} dx \Rightarrow A_n = \dfrac{2}{l} \displaystyle\int\limits_0^l u_0(x) \sin\roundBr{\dfrac{\pi n}{l}x} dx$
 
-	Теперь рассмотрим ряд $u_A(t,x) \sim \displaystyle\sum\limits_{k=1}^{+\infty} A_k e^{-\brs{\frac{a\pi k}{l}}^2t} \sin\brs{\dfrac{\pi k}{l}x}$
+	Теперь рассмотрим ряд $u_A(t,x) \sim \displaystyle\sum\limits_{k=1}^{+\infty} A_k e^{-\roundBr{\frac{a\pi k}{l}}^2t} \sin\roundBr{\dfrac{\pi k}{l}x}$
 
 	Пока не можем поставить знак равенства, поскольку еще не выяснили сходимость.
 
-	$\abs{A_k e^{-\brs{\frac{a\pi k}{l}}^2t} \sin\brs{\dfrac{\pi k}{l}x}} \leqslant \abs{A_k} \Rightarrow$ ряд сходится абсолютно и равномерно, и мы можем поставить знак равенства:
+	$\abs{A_k e^{-\roundBr{\frac{a\pi k}{l}}^2t} \sin\roundBr{\dfrac{\pi k}{l}x}} \leqslant \abs{A_k} \Rightarrow$ ряд сходится абсолютно и равномерно, и мы можем поставить знак равенства:
 
-	$u_A(t,x) = \displaystyle\sum\limits_{k=1}^{+\infty} A_k e^{-\brs{\frac{a\pi k}{l}}^2t} \sin\brs{\dfrac{\pi k}{l}x}$
+	$u_A(t,x) = \displaystyle\sum\limits_{k=1}^{+\infty} A_k e^{-\roundBr{\frac{a\pi k}{l}}^2t} \sin\roundBr{\dfrac{\pi k}{l}x}$
 
 	Покажем, что получилась $u_A(t,x) \in C^\infty(t>0, 0 \leqslant x \leqslant l)$. 
 
-	Возьмем прямоугольник $Q_\delta = \fbrs{(t,x) : t \geqslant \delta > 0, 0 \leqslant x \leqslant l}$. 
+	Возьмем прямоугольник $Q_\delta = \curlyBr{(t,x) : t \geqslant \delta > 0, 0 \leqslant x \leqslant l}$. 
 
-	Формально $\dfrac{\partial u_A}{\partial t} \sim -\displaystyle\sum\limits_{k=1}^{+\infty} A_k\brs{\dfrac{a\pi k}{l}}^2 e^{-\brs{\frac{a\pi k}{l}}^2t} \sin\brs{\dfrac{\pi k}{l}x} = -\displaystyle\sum\limits_{k=1}^{+\infty} \varphi_k(t,x)$
+	Формально $\dfrac{\partial u_A}{\partial t} \sim -\displaystyle\sum\limits_{k=1}^{+\infty} A_k\roundBr{\dfrac{a\pi k}{l}}^2 e^{-\roundBr{\frac{a\pi k}{l}}^2t} \sin\roundBr{\dfrac{\pi k}{l}x} = -\displaystyle\sum\limits_{k=1}^{+\infty} \varphi_k(t,x)$
 
-	Для краткости введём $y = \brs{\dfrac{a\pi k}{l}}^2$.
+	Для краткости введём $y = \roundBr{\dfrac{a\pi k}{l}}^2$.
 
 	Оценка: $\abs{\varphi_k} \leqslant \abs{A_k}ye^{-y\delta} = \abs{A_k} \dfrac{1}{\delta} (y\delta) e^{-y\delta} \leqslant \abs{A_k} \dfrac{1}{\delta e}$
 
@@ -147,11 +147,11 @@
 
 	Итак, по теореме Вейерштрасса, ряд сходится абсолютно и равномерно.
 
-	Варьируя $\delta$, прямоугольниками $Q_\delta$ заметаем всю область $\fbrs{t > 0, 0 \leqslant x \leqslant l}$
+	Варьируя $\delta$, прямоугольниками $Q_\delta$ заметаем всю область $\curlyBr{t > 0, 0 \leqslant x \leqslant l}$
 
 	Для остальных производных получим то же самое~--- всегда будет получаться произведение многочлена на экспоненту с отрицательным показателем.
 
-	Мы научились решать задачу для $u_0(x) = \displaystyle\sum\limits_{k=1}^{+\infty} A_k \sin\brs{\dfrac{\pi k}{l}x}$.
+	Мы научились решать задачу для $u_0(x) = \displaystyle\sum\limits_{k=1}^{+\infty} A_k \sin\roundBr{\dfrac{\pi k}{l}x}$.
 \end{proof}
 \newpage
 Докажем серию лемм.
@@ -170,16 +170,16 @@
 	\end{enumerate}
 \end{proof}
 \begin{lemma}
-	Оператор $A = -\dfrac{d^2}{dx^2}$, определенный на $\mathrm{D}(A)$, является симметричным относительно скалярного произведения в $\mathbb{L}_2\brs{[0,l]}: (u,v) = \displaystyle\int\limits_0^l u(x) \overline{v(x)} dx$
+	Оператор $A = -\dfrac{d^2}{dx^2}$, определенный на $\mathrm{D}(A)$, является симметричным относительно скалярного произведения в $\mathbb{L}_2\roundBr{[0,l]}: (u,v) = \displaystyle\int\limits_0^l u(x) \overline{v(x)} dx$
 \end{lemma}
 \begin{proof}
-	$(Au,v) = \displaystyle\int\limits_0^l (-u''(x))\overline{v(x)}dx = \underset{= 0, \text{ в силу определения $\mathrm{D}(A)$}}{\underline{\left.-u'(x)\overline{v(x)}\right|_0^l}} + \displaystyle\int\limits_0^l u'(x) \overline{v'(x)} dx = \underset{= 0, \text{ в силу определения $\mathrm{D}(A)$}}{\underline{\left.u(x)\overline{v'(x)}\right|_0^l}} + \displaystyle\int\limits_0^l u(x)\brs{-\overline{v''(x)}}dx = (u, Av)$
+	$(Au,v) = \displaystyle\int\limits_0^l (-u''(x))\overline{v(x)}dx = \underset{= 0, \text{ в силу определения $\mathrm{D}(A)$}}{\underline{\left.-u'(x)\overline{v(x)}\right|_0^l}} + \displaystyle\int\limits_0^l u'(x) \overline{v'(x)} dx = \underset{= 0, \text{ в силу определения $\mathrm{D}(A)$}}{\underline{\left.u(x)\overline{v'(x)}\right|_0^l}} + \displaystyle\int\limits_0^l u(x)\roundBr{-\overline{v''(x)}}dx = (u, Av)$
 \end{proof}
 \begin{lemma}
-	Пусть $\fbrs{e_k}$~--- не более чем счетная ортогональная система в линейном пространстве со скалярным произведением: $(e_k, e_j) = \delta_{kj} \underset{>0}{\underline{(e_k, e_k)}}$. Тогда $\forall f$ из этого пространства справедливо неравенство Бесселя: $\displaystyle\sum\limits_{k=1}^{+\infty} \abs{c_k}^2 (e_k, e_k) = \displaystyle\sum\limits_{k=1}^{+\infty} \abs{\dfrac{(f,e_k)}{(e_k,e_k)}}^2 (e_k, e_k) \leq (f, f)$
+	Пусть $\curlyBr{e_k}$~--- не более чем счетная ортогональная система в линейном пространстве со скалярным произведением: $(e_k, e_j) = \delta_{kj} \underset{>0}{\underline{(e_k, e_k)}}$. Тогда $\forall f$ из этого пространства справедливо неравенство Бесселя: $\displaystyle\sum\limits_{k=1}^{+\infty} \abs{c_k}^2 (e_k, e_k) = \displaystyle\sum\limits_{k=1}^{+\infty} \abs{\dfrac{(f,e_k)}{(e_k,e_k)}}^2 (e_k, e_k) \leq (f, f)$
 \end{lemma}
 \begin{proof}
-	$0 \leq \brs{f - \displaystyle\sum\limits_{k=1}^n c_ke_k, f - \displaystyle\sum\limits_{k=1}^n c_ke_k} = (f,f) - \displaystyle\sum\limits_{k=1}^n c_k(e_k,f) - \displaystyle\sum\limits_{j=1}^n \overline{c_j} (f,e_j) + \displaystyle\sum\limits_{k=1}^n \displaystyle\sum\limits_{j=1}^n c_k \overline{c_j} (e_k, e_j) = \\ = (f,f) - \displaystyle\sum\limits_{k=1}^n c_k \overline{c_k} (e_k, e_k) - \displaystyle\sum\limits_{j=1}^n c_j \overline{c_j} (e_j, e_j) + \displaystyle\sum\limits_{i=1}^n c_i \overline{c_i} (e_i, e_i) = (f,f) - \displaystyle\sum\limits_{k=1}^n \abs{c_k}^2 (e_k, e_k)$. Переходя к пределу при $n \to +\infty$, получаем $\displaystyle\sum\limits_{k=1}^{+\infty} \abs{c_k}^2 (e_k, e_k) \leq (f,f)$.
+	$0 \leq \roundBr{f - \displaystyle\sum\limits_{k=1}^n c_ke_k, f - \displaystyle\sum\limits_{k=1}^n c_ke_k} = (f,f) - \displaystyle\sum\limits_{k=1}^n c_k(e_k,f) - \displaystyle\sum\limits_{j=1}^n \overline{c_j} (f,e_j) + \displaystyle\sum\limits_{k=1}^n \displaystyle\sum\limits_{j=1}^n c_k \overline{c_j} (e_k, e_j) = \\ = (f,f) - \displaystyle\sum\limits_{k=1}^n c_k \overline{c_k} (e_k, e_k) - \displaystyle\sum\limits_{j=1}^n c_j \overline{c_j} (e_j, e_j) + \displaystyle\sum\limits_{i=1}^n c_i \overline{c_i} (e_i, e_i) = (f,f) - \displaystyle\sum\limits_{k=1}^n \abs{c_k}^2 (e_k, e_k)$. Переходя к пределу при $n \to +\infty$, получаем $\displaystyle\sum\limits_{k=1}^{+\infty} \abs{c_k}^2 (e_k, e_k) \leq (f,f)$.
 \end{proof}
 \begin{lemma}
 	Пусть два ряда $\displaystyle\sum\limits_{k=1}^{+\infty} \abs{\alpha_k}^2 = A, \: \displaystyle\sum\limits_{k=1}^{+\infty} \abs{\beta_k}^2 = B$ сходятся. Тогда ряд $\displaystyle\sum\limits_{k=1}^{+\infty} \alpha_k \beta_k$ сходится абсолютно, причем $\displaystyle\sum\limits_{k=1}^{+\infty} \abs{\alpha_k \beta_k} \leq \sqrt{A} \sqrt{B}$
@@ -188,26 +188,26 @@
 	$\displaystyle\sum\limits_{k=1}^{n} \abs{\alpha_k \beta_k} \underset{\text{КБШ}}{\leq} \sqrt{\displaystyle\sum\limits_{k=1}^{n} \abs{\alpha_k}^2} \sqrt{\displaystyle\sum\limits_{k=1}^{n} \abs{\beta_k}^2}$. Переходя к пределу при $n \to +\infty$, получаем требуемое.
 \end{proof}
 \begin{lemma}
-	Пусть $v(x) \in C^1\brs{[0,l]}, v(0) = v(l) = 0$. 
+	Пусть $v(x) \in C^1\roundBr{[0,l]}, v(0) = v(l) = 0$. 
 
-	Тогда ряд $\displaystyle\sum\limits_{k=1}^{+\infty} A_k \sin\brs{\dfrac{\pi k}{l}x}$, где $A_k = \dfrac{2}{l}\displaystyle\int\limits_0^l v(y)\sin\brs{\dfrac{\pi k}{l}y}dy$, сходится на $[0,l]$ к $v(x)$ абсолютно и равномерно.
+	Тогда ряд $\displaystyle\sum\limits_{k=1}^{+\infty} A_k \sin\roundBr{\dfrac{\pi k}{l}x}$, где $A_k = \dfrac{2}{l}\displaystyle\int\limits_0^l v(y)\sin\roundBr{\dfrac{\pi k}{l}y}dy$, сходится на $[0,l]$ к $v(x)$ абсолютно и равномерно.
 \end{lemma}
 \begin{proof}
 	\begin{enumerate}
-		\item Система $\fbrs{e_k} = \fbrs{\sin\brs{\dfrac{\pi k}{l}x}}$ ортогональна относительно скалярного произведения в $\mathbb{L}_2\brs{[0,l]}$, так как состоит из собственных функций оператора <<$-\Delta$>> с однородными условиями Дирихле~--- симметричного в $\mathbb{L}_2\brs{[0,l]}$ оператора.
+		\item Система $\curlyBr{e_k} = \curlyBr{\sin\roundBr{\dfrac{\pi k}{l}x}}$ ортогональна относительно скалярного произведения в $\mathbb{L}_2\roundBr{[0,l]}$, так как состоит из собственных функций оператора <<$-\Delta$>> с однородными условиями Дирихле~--- симметричного в $\mathbb{L}_2\roundBr{[0,l]}$ оператора.
 		\item $A_k = \dfrac{(v,e_k)}{(e_k,e_k)},$ ряд $\displaystyle\sum\limits_{k=1}^{+\infty} \abs{A_k}^2 < +\infty$ по неравенству Бесселя.
-		\item $A_k = \underset{=0}{\underline{-\left.\dfrac{2}{l} \dfrac{l}{\pi k} v(y) \cos\brs{\dfrac{\pi k}{l}y}\right|_0^l}} + \dfrac{2}{l} \dfrac{l}{\pi k} \displaystyle\int\limits_0^l v'(y) \cos\brs{\dfrac{\pi k}{l}y}dy = \dfrac{l}{\pi k} \alpha_k$, где $\alpha_k = \dfrac{2}{l} \displaystyle\int\limits_0^l v'(y) \cos\brs{\dfrac{\pi k}{l}y}dy$.
-		\item Ряд $\displaystyle\sum\limits_{k=1}^{+\infty} \abs{\alpha_k}^2 < +\infty$ по неравенству Бесселя, т.к. система $\fbrs{g_k} = \fbrs{\cos\brs{\dfrac{\pi k}{l}x}}$ ортогональна относительно скалярного произведения в $\mathbb{L}_2\brs{[0,l]}$, так как состоит из собственных функций оператора <<$-\Delta$>> с однородными условиями Неймана~--- симметричного в $\mathbb{L}_2\brs{[0,l]}$ оператора.
+		\item $A_k = \underset{=0}{\underline{-\left.\dfrac{2}{l} \dfrac{l}{\pi k} v(y) \cos\roundBr{\dfrac{\pi k}{l}y}\right|_0^l}} + \dfrac{2}{l} \dfrac{l}{\pi k} \displaystyle\int\limits_0^l v'(y) \cos\roundBr{\dfrac{\pi k}{l}y}dy = \dfrac{l}{\pi k} \alpha_k$, где $\alpha_k = \dfrac{2}{l} \displaystyle\int\limits_0^l v'(y) \cos\roundBr{\dfrac{\pi k}{l}y}dy$.
+		\item Ряд $\displaystyle\sum\limits_{k=1}^{+\infty} \abs{\alpha_k}^2 < +\infty$ по неравенству Бесселя, т.к. система $\curlyBr{g_k} = \curlyBr{\cos\roundBr{\dfrac{\pi k}{l}x}}$ ортогональна относительно скалярного произведения в $\mathbb{L}_2\roundBr{[0,l]}$, так как состоит из собственных функций оператора <<$-\Delta$>> с однородными условиями Неймана~--- симметричного в $\mathbb{L}_2\roundBr{[0,l]}$ оператора.
 
 		Ряд $\displaystyle\sum\limits_{k=1}^{+\infty} \dfrac{1}{k^2} = \dfrac{\pi^2}{6}$ сходится. Тогда сходится абсолютно ряд $\displaystyle\sum\limits_{k=1}^{+\infty} \dfrac{\alpha_k}{k} \Rightarrow \displaystyle\sum\limits_{k=1}^{+\infty} \abs{A_k} < +\infty$. 
 
-		Функция $\varphi(x) = \displaystyle\sum\limits_{k=1}^{n} A_k \sin\brs{\dfrac{\pi k x}{l}}$ непрерывна.
+		Функция $\varphi(x) = \displaystyle\sum\limits_{k=1}^{n} A_k \sin\roundBr{\dfrac{\pi k x}{l}}$ непрерывна.
 		\item Сходимость к $v(x)$: Построим
 			\begin{equation*}
 				\tilde{v}(x) = \begin{cases} v(x), & x \in [0,l] \\ -v(-x), & x \in [-l,0] \end{cases}
 			\end{equation*}
 			Затем продолжим на $\R$, сделав периодической: $\tilde{v}(x+2l) = \tilde{v}(x)$.
-			Получаем непрерывную периодическую функцию, а во всех точках $x \in [0,l] \Exists \tilde{v}'_-(x), \tilde{v}'_+(x)$. Тогда ряд Фурье этой функции сходится к ней на всей $\R$. В силу нечетности $\tilde{v}$, этот ряд~--- только по синусам, а коэффициенты Фурье равны $A_k$ (для них совпадают формулы). Значит, на $[0,l]$ имеем $v(x) = \displaystyle\sum\limits_{k=1}^{+\infty} A_k \sin\brs{\dfrac{\pi k}{l}x}$
+			Получаем непрерывную периодическую функцию, а во всех точках $x \in [0,l] \Exists \tilde{v}'_-(x), \tilde{v}'_+(x)$. Тогда ряд Фурье этой функции сходится к ней на всей $\R$. В силу нечетности $\tilde{v}$, этот ряд~--- только по синусам, а коэффициенты Фурье равны $A_k$ (для них совпадают формулы). Значит, на $[0,l]$ имеем $v(x) = \displaystyle\sum\limits_{k=1}^{+\infty} A_k \sin\roundBr{\dfrac{\pi k}{l}x}$
 	\end{enumerate}
 \end{proof}
 Таким образом, доказана теорема:
@@ -220,5 +220,5 @@
 			\while{u}{x=0} = \while{u}{x=l} = 0, \quad & 0 \leq t \leq T;
 		\end{cases}
 	\end{equation*}
-	функция $u_0(x)$ удовлетворяет условиям гладкости $\brs{u_0 \in C^1\brs{[0,l]}}$ и согласования $\brs{u_0(0) = u_0(l) = 0}$. Тогда ряд $\displaystyle\sum\limits_{k=1}^{+\infty} A_k e^{-\brs{\frac{a\pi k}{l}}^2t} \sin\brs{\dfrac{\pi k}{l}x} = u(t,x)$, где $A_k = \dfrac{2}{l} \displaystyle\int\limits_0^l u_0(x) \sin\brs{\dfrac{\pi k}{l}x} dx$, сходится абсолютно и равномерно в $\overline{Q_T} = [0,T] \times [0,l]$, функция $u(t,x) \in C(\overline{Q_T}) \cap C^{\infty}(Q_T)$ и является классическим решением этой задачи, а любая производная при $t > 0$ от $u(t,x)$ может быть найдена почленным дифференцированием.
+	функция $u_0(x)$ удовлетворяет условиям гладкости $\roundBr{u_0 \in C^1\roundBr{[0,l]}}$ и согласования $\roundBr{u_0(0) = u_0(l) = 0}$. Тогда ряд $\displaystyle\sum\limits_{k=1}^{+\infty} A_k e^{-\roundBr{\frac{a\pi k}{l}}^2t} \sin\roundBr{\dfrac{\pi k}{l}x} = u(t,x)$, где $A_k = \dfrac{2}{l} \displaystyle\int\limits_0^l u_0(x) \sin\roundBr{\dfrac{\pi k}{l}x} dx$, сходится абсолютно и равномерно в $\overline{Q_T} = [0,T] \times [0,l]$, функция $u(t,x) \in C(\overline{Q_T}) \cap C^{\infty}(Q_T)$ и является классическим решением этой задачи, а любая производная при $t > 0$ от $u(t,x)$ может быть найдена почленным дифференцированием.
 \end{theorem}
