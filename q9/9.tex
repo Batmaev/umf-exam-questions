@@ -89,19 +89,19 @@ u_0(x) = \begin{cases}
 	&\frac{f''(z)}{f'(z)} = - \frac{1}{a^2} \frac{x}{2\sqrt t} = -\frac{1}{2 a^2} z\\[0.2em]
 	&\ln|f'(z)| = -\frac{z^2}{4a^2} + \tilde{C}_1
 \end{align*}
-Получили, что \ $f(z) = C_1 \displaystyle\int\limits_{-\infty}^z e^{-\frac{\eta^2}{4a^2}}\, d\eta + C_2$
+Получили, что \ $f(z) = C_1 \displaystyle \int\limits_{-\infty}^z \expT{-\frac{\eta^2}{4a^2}}\, d\eta + C_2$
 \paragraph{Задача была следующей:} бесконечный стержень разделён на две половины, начальные температуры половин $T_0 = 0$ и $T_1 = 1$. Из физических соображений:
 \begin{flalign*}
 	& \lim\limits_{z \to - \infty} f(z) = 0 \quad \Rightarrow \quad C_2 = 0 & \\
-	& \lim\limits_{z \to + \infty} f(z) = 1 \quad \Rightarrow \quad \int\limits_{-\infty}^{+\infty} e^{-\frac{\eta^2}{4a^2}}\, d \eta = C_1^{-1} = 2a \underbrace{\int\limits_{-\infty}^{+\infty} e^{-\frac{\eta^2}{4a^2}}\, d \frac{\eta}{2a}}_{\sqrt{\pi}} \quad\ \Rightarrow \quad\ C_1 = \frac{1}{\sqrt{4 \pi a^2}} &
+	& \lim\limits_{z \to + \infty} f(z) = 1 \quad \Rightarrow \quad \int\limits_{-\infty}^{+\infty} \expT{-\frac{\eta^2}{4a^2}}\, d \eta = C_1^{-1} = 2a \underbrace{\int\limits_{-\infty}^{+\infty} \expT{-\frac{\eta^2}{4a^2}}\, d \frac{\eta}{2a}}_{\sqrt{\pi}} \quad\ \Rightarrow \quad\ C_1 = \frac{1}{\sqrt{4 \pi a^2}} &
 \end{flalign*}
 Окончательно:
 \begin{equation*}
-	f(z) = \frac{1}{\sqrt{4 \pi a^2}}\int\limits_{-\infty}^{z} e^{-\frac{\eta^2}{4a^2}}\, d \eta = \frac{2a}{\sqrt{4 \pi a^2}} \int\limits_{-\infty}^{z/2a}e^{-\mu^2}\, d \mu = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{z/2a}e^{-\mu^2}\, d \mu 
+	f(z) = \frac{1}{\sqrt{4 \pi a^2}}\int\limits_{-\infty}^{z} \expT{-\frac{\eta^2}{4a^2}}\, d \eta = \frac{2a}{\sqrt{4 \pi a^2}} \int\limits_{-\infty}^{z/2a}e^{-\mu^2}\, d \mu = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{z/2a}e^{-\mu^2}\, d \mu 
 \end{equation*}
 Введём \textbf{интеграл ошибок}:
 \begin{equation*}
-	\erf(z) = \frac{2}{\sqrt{\pi}} \int\limits_{0}^{z}e^{-\xi^2}\, d \xi \qquad \erf(\pm \infty) = \pm 1,\; \; \erf(0) = 0
+	\erf(z) = \frac{2}{\sqrt{\pi}} \int\limits_{0}^{z}e^{-\xi^2}\, d \xi\, , \qquad \erf(\pm \infty) = \pm 1,\; \; \erf(0) = 0
 \end{equation*}
 Тогда:
 \begin{equation*}
@@ -138,20 +138,20 @@ u(t,x) &= \squareBr{
 & \approx \sum_{k=1}^N \while{ \pd{\Psi}{\xi} }{ \xi = \xi_k } 
 	u_0(\xi_k) (x_{2k} - x_{1k}) 
 	= \squareBr{
-		\pd{\Psi}{\xi} = \frac{1}{\sqrt{4 \pi a^2 t}} e^{-\frac{(x-\xi)^2}{4a^2t}}
+		\pd{\Psi}{\xi} = \frac{1}{\sqrt{4 \pi a^2 t}} \expT{-\frac{(x-\xi)^2}{4a^2t}}
 		} = \\[0.7em]
 &= \sum_{k=1}^N \frac{1}{\sqrt{4 \pi a^2 t}} \while{
-		e^{-\frac{(x-\xi)^2}{4a^2t}}
+		\expT{-\frac{(x-\xi)^2}{4a^2t}}
 	}{\xi = \xi_k}
 	u_0(\xi_k) (x_{2k} - x_{1k}) \text{ \ --- \ Интегральная сумма Римана}
 \end{align*}
 
 Предположение: решение будет 
 $$
-u(t,x) = \frac{1}{\sqrt{4\pi a^2 t}} \int_{-\infty}^{\infty} e^{-\frac{(x-\xi)^2}{4a^2t}} u_0(\xi)\, d\xi 
+u(t,x) = \frac{1}{\sqrt{4\pi a^2 t}} \int_{-\infty}^{\infty} \expT{-\frac{(x-\xi)^2}{4a^2t}} u_0(\xi)\, d\xi 
 \text{ \ --- \ Формула Пуассона} $$
 Функция 
-$$\mathcal{E}(t,x) =  \frac{1}{\sqrt{4\pi a^2 t}} e^{-\frac{x^2}{4a^2 t}} \textbf{ \;---\; фундаментальное решение (или функция источника)}$$
+$$\mathcal{E}(t,x) =  \frac{1}{\sqrt{4\pi a^2 t}} \expT{-\frac{x^2}{4a^2 t}} \textbf{\, ---\, фундаментальное решение (или функция источника)}$$
 \end{enumerate}
 
 \subsection{Строгое доказательство}
@@ -159,7 +159,7 @@ $$\mathcal{E}(t,x) =  \frac{1}{\sqrt{4\pi a^2 t}} e^{-\frac{x^2}{4a^2 t}} \textb
 
 \begin{theorem}
 Пусть $u_0\in C(\R^1),\quad \abs{u_0(x)}\leq M_0 \;\;\forall\, x\in \R^1.$ \ Тогда функция 
-$$u(t,x) = \dfrac{1}{\sqrt{4\pi a^2 t}} \displaystyle\int_{-\infty}^{\infty}e^{-\dfrac{(x - y)^2}{4a^2t}} u_0(y) dy$$
+$$u(t,x) = \dfrac{1}{\sqrt{4\pi a^2 t}} \displaystyle\int_{-\infty}^{\infty}\expT{-\frac{(x - y)^2}{4a^2t}} u_0(y) dy$$
 \begin{enumerate}
 
 \item Принадлежит классу $C^{\infty}(t>0, x\in\R^1)\cap C(t\geq 0, x\in\R^1)$
@@ -192,7 +192,7 @@ u(t,x)=\frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-\eta^2} u_0(x+2a\sqrt{t}\e
 
 Возьмем 
 \[
-u_x(t, x)\sim \int_{-\infty}^{\infty}\frac{1}{4a^3\sqrt{\pi}t^{3/2}}e^{-\dfrac{(x-y)^2}{4a^2t}} (y-x)u_0(y) dy=J, 
+u_x(t, x)\sim \int_{-\infty}^{\infty}\frac{1}{4a^3\sqrt{\pi}t^{3/2}}\expT{-\frac{(x-y)^2}{4a^2t}} (y-x)u_0(y) dy=J, 
 \]
 где выражение под интегралом лежит в $C(t\geq 0, x\in\R^1,\eta\in\R^1)$.
 Покажем равномерную сходимость этого интеграла серией оценок:
@@ -214,16 +214,16 @@ u_x(t, x)\sim \int_{-\infty}^{\infty}\frac{1}{4a^3\sqrt{\pi}t^{3/2}}e^{-\dfrac{(
 \end{enumerate}
 Получили следующую оценку:
 \[
-\abs{\frac{1}{4a^3\sqrt{\pi}t^{3/2}}e^{-\dfrac{(x-y)^2}{4a^2t}} (y-x)u_0(y)}\leq \frac{M_0}{4a^3\sqrt{\pi}t^{3/2}}(\abs{y}+A)e^{-\dfrac{\phi_A(y)}{4a^2t}}
+\abs{\frac{1}{4a^3\sqrt{\pi}t^{3/2}}\expT{-\frac{(x-y)^2}{4a^2t}} (y-x)u_0(y)}\leq \frac{M_0}{4a^3\sqrt{\pi}t^{3/2}}(\abs{y}+A)\expT{-\frac{\phi_A(y)}{4a^2t}}
 \]
 Этот интеграл сходится при ограничения на $t$, т.е. в прямоугольнике $Q=\{t\in (t_1, t_2),x\in (-A, A)\}$, т.е. есть равномерная сходимость $J$ в любом прямоугольнике. Беря в качестве $Q$ всевозможные такие прямоугольники, получим $J\in C(t\geq 0, x\in\R^1)$. Аналогично будет для любой другой производной (будет асимптотика $\abs{P_n(y)}e^{-\alpha y^2}$).
 \item $\ $
 \[
 \begin{split}
-&\mathcal{E} (t, x-y)=\frac{1}{\sqrt{4\pi a^2t}}e^{-\frac{(x-y)^2}{4a^2t}}\\[7pt] 
-&\mathcal{E}_x (t, x-y)=-\frac{(x-y)}{{2\sqrt{\pi} 2a^3t^{3/2}}}e^{-\frac{(x-y)^2}{4a^2t}}\\[7pt]
-&\mathcal{E}_{xx} (t, x-y)=\frac{1}{2\sqrt{\pi}}\left[\frac{-1}{2a^3t^{3/2}}+\frac{(x-y)^2}{4a^5t^{5/2}} \right]e^{-\frac{(x-y)^2}{4a^2t}}\\[7pt] 
-&\mathcal{E}_t (t, x-y)=\frac{1}{2\sqrt{\pi}}\left[\frac{-1}{2at^{3/2}}+\frac{(x-y)^2}{4a^3t^{5/2}} \right]e^{-\frac{(x-y)^2}{4a^2t}}
+&\mathcal{E} (t, x-y)=\frac{1}{\sqrt{4\pi a^2t}}\expT{-\frac{(x-y)^2}{4a^2t}}\\[7pt] 
+&\mathcal{E}_x (t, x-y)=-\frac{(x-y)}{{2\sqrt{\pi} 2a^3t^{3/2}}}\expT{-\frac{(x-y)^2}{4a^2t}}\\[7pt]
+&\mathcal{E}_{xx} (t, x-y)=\frac{1}{2\sqrt{\pi}}\left[\frac{-1}{2a^3t^{3/2}}+\frac{(x-y)^2}{4a^5t^{5/2}} \right]\expT{-\frac{(x-y)^2}{4a^2t}}\\[7pt] 
+&\mathcal{E}_t (t, x-y)=\frac{1}{2\sqrt{\pi}}\left[\frac{-1}{2at^{3/2}}+\frac{(x-y)^2}{4a^3t^{5/2}} \right]\expT{-\frac{(x-y)^2}{4a^2t}}
 \end{split}
 \]
 Тогда 

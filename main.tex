@@ -59,10 +59,17 @@
 
 
 \newcommand{\while}[2]{\left. #1\right|_{#2}}
+
 \newcommand{\roundBr}[1]{\left(#1\right)}
 \newcommand{\squareBr}[1]{\left[#1\right]}
 \newcommand{\curlyBr}[1]{\left\{#1\right\}}
 \newcommand{\angleBr}[1]{\left\langle #1 \right\rangle}
+
+% в выражении вида e^\frac дробь получается слишком мелкой, 
+% в e^\dfrac - слишком большой, а в e^\tfrac - идеальной.
+% однако в выражениях вида e^{-\tfrac} знак "-" и дробная черта находятся на разной высоте.
+% поэтому нужна эта команда:
+\newcommand{\expT}[1]{e^{\textstyle #1}}
 
 
 
