@@ -159,10 +159,10 @@ $$\mathcal{E}(t,x) =  \frac{1}{\sqrt{4\pi a^2 t}} \expT{-\frac{x^2}{4a^2 t}} \te
 
 \begin{theorem}
 Пусть $u_0\in C(\R^1),\quad \abs{u_0(x)}\leq M_0 \;\;\forall\, x\in \R^1.$ \ Тогда функция 
-$$u(t,x) = \dfrac{1}{\sqrt{4\pi a^2 t}} \displaystyle\int_{-\infty}^{\infty}\expT{-\frac{(x - y)^2}{4a^2t}} u_0(y) dy$$
+$$u(t,x) = \frac{1}{\sqrt{4\pi a^2 t}} \int_{-\infty}^{\infty} \expT{-\frac{(x - y)^2}{4a^2t}} u_0(y) dy$$
 \begin{enumerate}
 
-\item Принадлежит классу $C^{\infty}(t>0, x\in\R^1)\cap C(t\geq 0, x\in\R^1)$
+\item Принадлежит классу $C^{\infty}\, (t>0,\ x\in\R^1) \ \cap\ C(t \geq 0,\ x\in\R^1)$
 
 \item Является классическим решением задачи Коши
 \begin{equation*}
@@ -182,13 +182,17 @@ $$u(t,x) = \dfrac{1}{\sqrt{4\pi a^2 t}} \displaystyle\int_{-\infty}^{\infty}\exp
 \item 
 В исходном интеграле для $u(t,x)$ сделаем такую замену:
 \[
-\frac{y-x}{2a\sqrt{t}}=\eta ,\ y=x+2a\sqrt{t}\eta ,\ dy=2a\sqrt{t}d\eta
+\frac{y-x}{\sqrt{4 a^2 t}}=\eta, 
+\quad  y = x + \sqrt{4 a^2 t}\,\eta,
+\quad dy = \sqrt{4 a^2 t}\, d\eta
 \]
 Тогда получим
-\[
-u(t,x)=\frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-\eta^2} u_0(x+2a\sqrt{t}\eta) d\eta,\ u_0(x+2a\sqrt{t}\eta)  \in C(t\geq 0, x\in\R^1,\eta\in\R^1)
-\]
-Оценим $\abs{e^{-\eta^2} u_0(x+2a\sqrt{t}\eta)}\leq M_0e^{-\eta^2}$, причем $\displaystyle\int_{-\infty}^{\infty}M_0e^{-\eta^2}d\eta <\infty\Rightarrow$ этот интеграл сходится абсолютно и равномерно, а значит лежит в $C(t\geq 0, x\in\R^1)$. Отсюда следует третье утверждение теоремы.
+\begin{multline*}
+u(t,x)=\frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-\eta^2} u_0(x+\sqrt{4 a^2 t}\, \eta)\: d\eta \\
+u_0(x+\sqrt{4 a^2 t}\,\eta) 
+\;\ \in \;\ C(t \geq 0,\ x \in \R^1,\ \eta \in \R^1) \hspace{8.5em}
+\end{multline*}
+Оценим $\abs{e^{-\eta^2} u_0(x+\sqrt{4 a^2 t}\, \eta)}\leq M_0e^{-\eta^2}$, причем $\displaystyle\int_{-\infty}^{\infty}M_0e^{-\eta^2}d\eta <\infty\Rightarrow$ этот интеграл сходится абсолютно и равномерно, а значит лежит в $C(t\geq 0, x\in\R^1)$. Отсюда следует третье утверждение теоремы.
 
 Возьмем 
 \[
