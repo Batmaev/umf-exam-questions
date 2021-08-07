@@ -31,9 +31,9 @@ u_0(x) = \begin{cases}
 Пусть $u(t, x)$ - решение задачи. \ Введём $v(\tau, \xi) = u\left(\dfrac{\tau}{\alpha},\ \dfrac{\xi}{\beta}\right)$. \ Тогда
 \begin{enumerate}
 	\vspace{-0.7em} % Мне показалось, что отступ между текстом и первым элементом слишком большой. Я мог бы использовать \begin{enumerate}[topsep = 0em], но тогда отступ после последнего элемента тоже бы уменьшился
-	\item \qquad $v\bigr|_{t=0} = \begin{cases} \begin{aligned}
-		1, && \frac{\xi}{\beta} \geq 0 &&\Leftrightarrow && \xi \geq 0 \\
-		0, && \frac{\xi}{\beta} < 0 && \Leftrightarrow && \xi < 0
+	\item \qquad $v\bigr|_{\tau=0} = \begin{cases} \begin{aligned}
+		1, \quad && \frac{\xi}{\beta} \geq 0 &&\Leftrightarrow && \xi \geq 0 \\
+		0, \quad && \frac{\xi}{\beta} < 0 && \Leftrightarrow && \xi < 0
 	\end{aligned}\end{cases}$
 
 	\item \qquad $v_\tau = \dfrac{1}{\alpha}u_t, \quad v_\xi = \dfrac{1}{\beta}\, u_x, \quad v_{\xi \xi} = \dfrac{1}{\beta^2}\, u_{xx} \qquad\Rightarrow\qquad \alpha v_{\tau} = a^2 \beta^2 v_{\xi \xi}$
@@ -201,14 +201,14 @@ u_x(t, x)\sim \int_{-\infty}^{\infty}\frac{1}{4a^3\sqrt{\pi}t^{3/2}}\expT{-\frac
 \end{equation}
 Выражение под интегралом лежит в $C(t > 0,\;\: x, y \in \R^1)$. 
 
-Пусть $x \in [-A, A]$. Тогда покажем равномерную сходимость интеграла серией оценок:
+Пусть $x \in [-A, A]$. Покажем равномерную сходимость интеграла серией оценок:
 
 \begin{enumerate}
 
 	\item При $|y|>A \colon\ $
 
 	$(y-x)^2 \geq (|y|-A)^2
-	=y^2 + A^2 - 2\dfrac{|y|}{\sqrt{2}}\roundBr{\sqrt{2}A}$
+	=y^2 + A^2 - 2\dfrac{|y|}{\sqrt{2}}\roundBr{\sqrt{2}A}.$
 
 	Поскольку $2ab \leq a^2 + b^2$,
 
@@ -225,7 +225,7 @@ u_x(t, x)\sim \int_{-\infty}^{\infty}\frac{1}{4a^3\sqrt{\pi}t^{3/2}}\expT{-\frac
 	\end{cases}
 	$
 
-	\item Кроме того, $\abs{y-x}\leq \abs{y}+A$
+	\item Кроме того, $\abs{y-x}\leq \abs{y}+A$.
 	\end{enumerate}
 
 Получили следующую оценку (при $|x| < A$):
@@ -234,8 +234,8 @@ u_x(t, x)\sim \int_{-\infty}^{\infty}\frac{1}{4a^3\sqrt{\pi}t^{3/2}}\expT{-\frac
 \]
 Если $t \in [t_1, t_2] \subset (0, +\infty)$, то это можно ограничить выражением $C \cdot (|y| + A) \cdot \expT{\frac{\phi_A(y)}{B}},$ интеграл от которого сходится, поэтому исходный интеграл сходится равномерно.
 
-Равномерная сходимость (по двум параметрам) есть в любом прямоугольнике 
-$$Q = \curlyBr{ |x| < A\ \bigwedge\ t \in [t_1, t_2] }$$
+Равномерная сходимость (по двум параметрам сразу) есть в любом прямоугольнике 
+$$Q = \Bigl\{ |x| < A, \;\ t \in [t_1, t_2] \Bigr\}$$
 Беря в качестве $Q$ все возможные такие прямоугольники, получим, что производная $u_x$ на всём множестве $\bigl\{ t > 0,\ x \in \R^1 \bigr\}$ существует, непрерывна и равна интегралу \eqref{eq:9:u_x}.
 
 Аналогично будет для любой другой производной (будет асимптотика $\abs{P_n(y)}e^{-\alpha y^2}$).
