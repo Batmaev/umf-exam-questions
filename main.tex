@@ -69,8 +69,8 @@
 
 
 \setcounter{secnumdepth}{1} % Считаю, что subsections не нужны номера.
-\newcommand{\Subsection}[1]{\phantomsection\subsection{#1}}
-\newcommand{\Subsubsection}[1]{\phantomsection\subsubsection{#1}}
+\newcommand{\Subsection}{\phantomsection\subsection}
+\newcommand{\Subsubsection}{\phantomsection\subsubsection}
 % По какой-то причине hyperref не может делать ссылки на разделы без номеров, ему нужен \phantomsection.
 % Новыми командами-с-большой-буквы можно пользоваться так же, как обычными
 
