@@ -2,9 +2,9 @@
 \begin{document}
 
 
-\section{Билет 14. Формулы Грина для оператора Лапласа. Постановка краевых задач Дирихле и Неймана для уравнения Пуассона в ограниченной области. Единственность классического решения задачи Дирихле. Неединственность решения задачи Неймана и необходимое условие её разрешимости.}
+\section{Формулы Грина для оператора Лапласа. Постановка краевых задач Дирихле и Неймана для уравнения Пуассона в ограниченной области. Единственность классического решения задачи Дирихле. Неединственность решения задачи Неймана и необходимое условие её разрешимости.}
 % Затехал Шлёнский Владос
-\subsection{Формулы Грина}
+\Subsection{Формулы Грина}
 \begin{definition}
 Ограниченная область $\Omega$ называется \textit{областью с гладкой границей}, если $\forall x_0 \in \Gamma = \partial \Omega$ найдутся:
 \begin{itemize}
@@ -25,14 +25,14 @@
 $$\int\limits_{\Omega} \div \vec{F}(x)\;dx = \int\limits_{\partial \Omega} \bigl(\vec{F}(x),\: \vec{n}\bigr)\;dS = \int\limits_{\Gamma} \bigl(\vec{F}(x),\: \vec{n}\bigr)\;dS$$
 \end{minipage} \\
 \begin{lemma} \ \\
-\subsubsection{Формулы Грина}
+\Subsubsection{Формулы Грина}
 Пусть $\Omega$ - ограниченная область с границей класса $C^1$ в $\R^n$, тогда справедливы следующие формулы.
 	$$\forall u(x) \in C^2(\Omega)\cap C^1(\overline{\Omega}), v(x) \in C^1(\overline{\Omega}) \to \int\limits_{\Omega} (\Delta u)v\; dx = \oint\limits_{\Gamma} \dfrac{\partial u}{\partial \vec{n}} v\;dS_x - \int\limits_{\Omega}(\nabla u, \nabla v)\;dx $$
 $$ \forall u(x) \in C^2(\overline{\Omega}), v(x) \in C^2(\overline{\Omega}) \to \int\limits_{\Omega} (\Delta u)v\; dx - \int\limits_{\Omega} (\Delta v)u\; dx = \oint\limits_{\Gamma} \dfrac{\partial u}{\partial \vec{n}} v\;dS_x - \oint\limits_{\Gamma} \dfrac{\partial v}{\partial \vec{n}} u\;dS_x$$
 Полученные формулы называются первой и второй\; \textit{формулами Грина} соответственно.
 \end{lemma}
 \begin{proof}\ \\
-\subsubsection{Первая формула Грина}
+\Subsubsection{Первая формула Грина}
 Пусть $\vec{f}(x), v(x)$ - гладкие векторное и скалярное поля соответственно: $\div(\vec{f} \cdot v) = (\nabla, \overset{\shpos}{\vec{f}}v) + (\nabla, \vec{f}\overset{\shpos}{v}) = v\div \vec{f} + (\vec{f}, \grad{v})$. \\
 Положим $\vec{f} = \nabla u \in C^1 \Rightarrow \div (v \nabla u) = v \underbrace{\div(\nabla u)}_{\Delta u} + (\nabla u, \nabla v)$. \\
 Интегрируем по объёму в $\Omega$:
@@ -42,12 +42,12 @@ $$ \forall u(x) \in C^2(\overline{\Omega}), v(x) \in C^2(\overline{\Omega}) \to 
 Заметим, что:
 $$(v\nabla u, \vec{n}) = v \sum\limits_{k = 1}^{\dim \R^n}\dfrac{\partial u(x)}{\partial x_k} n_k = \dfrac{\partial u}{\partial \vec{n}}(x) \cdot v(x)$$
 При подстановке данного результата в равенство выше немедленно получим первую формулу Грина.
-\subsubsection{Вторая формула Грина}
+\Subsubsection{Вторая формула Грина}
 Для получения второй формулы Грина необходимо вычесть из первой формулы Грина симметричное ему по $u$ и $v$ равенство:
 $$\int\limits_{\Omega} u \Delta v\;dx = \oint\limits_{\Gamma}(u \nabla v, \vec{n})\;ds - \int\limits_{\Omega}(\nabla v, \nabla u)\;dx$$
 \end{proof}
 
-\subsection{Внутрення задача Дирихе для уравнения Пуассона}
+\Subsection{Внутрення задача Дирихе для уравнения Пуассона}
 Пусть $\Omega$ - ограниченная область с границей $\Gamma$ класса $C^1, u_0(x) \in C(\Gamma), f(x) \in C(\overline{\Omega})$. Требуется найти $u(x)$, удовлетворяющую условиям:
 \begin{equation}
 \label{eq:14_1}
@@ -68,7 +68,7 @@ $$\int\limits_{\Omega} u \Delta v\;dx = \oint\limits_{\Gamma}(u \nabla v, \vec{n
 \end{equation*}
 С учётом того, что $\Delta(x) = 0$ и $v(x)\bigr|_{\Gamma} = 0$, получим, что $v(x) = 0$, а значит, $u_{I} = u_{II}$, и решение единственно.
 \end{proof}
-\subsection{Внутренняя задача Неймана для уравнения Пуассона}
+\Subsection{Внутренняя задача Неймана для уравнения Пуассона}
 Пусть $\Omega$ -ограниченная область с границей класса $C^1, u_1(x) \in C(\Gamma), f(x) \in C(\overline{\Omega})$. Требуется найти $u(x)$ удовлетворяющую условиям:
 \begin{equation}
 \label{eq:14_2}
