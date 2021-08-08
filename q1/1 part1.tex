@@ -1,7 +1,7 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 
-\section{Билет 1. Приведение к каноническому виду в точке дифференциальных уравнений в частных производных (ДУЧП) 2 порядка в \texorpdfstring{$\R^n$}{R\textasciicircum n} с линейной старшей частью. Классификация уравнений. Приведение уравнений 2 порядка к каноническому виду на плоскости}
+\section[Приведение уравнения к каноническому виду]{Приведение к каноническому виду в точке дифференциальных уравнений в частных производных (ДУЧП) 2 порядка в \texorpdfstring{$\R^n$}{R\textasciicircum n} с линейной старшей частью. Классификация уравнений. Приведение уравнений 2 порядка к каноническому виду на плоскости}
 
 % Затехал: К.А.А., 372
 
@@ -52,7 +52,7 @@ $\Phi(h) = \eta^2_1 + \dots + \eta^2_p - \eta^2_{p+1} - \dots - \eta^2_{p+q}$
 
 $$\pdd{\hat{u}}{y_1} + \dots + \pdd{\hat{u}}{y_p} - \pdd{\hat{u}}{y_{p+1}} - \dots - \pdd{\hat{u}}{y_{p+q}} + \hat{F}(y, \hat{u}, \nabla_y\hat{u}) = 0.$$
 
-\textbf{Классификация уравнений:}
+\Subsection{Классификация уравнений}
 \begin{enumerate}
 	\item \textit{Эллиптический тип}: $p = n$ или $q = n$
 	\item \textit{Ультрагиперболический тип}: $p+q = n$
@@ -77,7 +77,7 @@ $$\pdd{\hat{u}}{y_1} + \dots + \pdd{\hat{u}}{y_p} - \pdd{\hat{u}}{y_{p+1}} - \do
 	
 \end{enumerate}
 
-\textbf{Приведение уравнения 2 порядка к каноническому виду на плоскости:}
+\Subsection{Приведение уравнения 2 порядка к каноническому виду на плоскости}
 
 Рассмотрим в $\R^2$ уравнение $a(x, y)u_{xx}+2b(x,y)u_{xy}+c(x,y)u_{yy} + F(x, y, u, \nabla u) = 0$
 
@@ -99,7 +99,7 @@ b & c
 \eta_x & \eta_y
 \end{array}\right)$$
 
-\subsection{Гиперболический случай}
+\Subsubsection{Гиперболический случай}
 
 Выбираем $(x_0, y_0) \in \Omega$, пусть $d(x_0, y_0) = ac - b^2 < 0$. В силу непрерывности есть $U_\eps(x_0, y_0)$, где $d < 0$.
 
@@ -188,4 +188,90 @@ $$
 \abs{a(x^*, y^*)} + \abs{c(x^*, y^*)} > 0,
 $$ то заменим $\xi = x + y,\ \eta = x - y$ и получим случай а.
 \end{enumerate}
+
+\Subsubsection{Параболический случай}
+Пусть в точке и некоторой ее окрестности тип параболический, то есть $d = ac - b^2 = 0$, причем $\forall (x, y) \in U(x^0, y^0) \hookrightarrow a^2 + c^2 \ne 0$. Уравнение характеристик:
+$$
+aw_x^2 + 2bw_x w_y+cw_y^2 = 0 \Rightarrow (w_x + \lambda w_y)^2 = 0
+\Rightarrow \lambda = \lambda_+ + \lambda_-=\frac{b}{a}
+$$
+Находим решение $w =  \eta(x, y) \in C^2(U(x^0, y^0)):\ \nabla w(x, y) \ne 0$.
+$$
+\begin{cases}
+    \xi = \xi(x, y) & \text{эту берем произвольно, чтобы был диффеоморфизм} \\
+    \eta = \eta(x, y) & \text{эту построили. Доказательство того, что всегда можно выбрать, опущено}
+\end{cases}
+$$
+Мы взяли $\xi$ такое, что $\hat c \equiv 0$. Покажем, что и $\hat b \equiv 0$:
+$$
+\hat A = JAJ^\intercal \Rightarrow \abs{\hat A} = \abs{J}^2\cdot\abs{A} = \abs{J}^2(ac - b^2) = 0 = \underbrace{\hat a \hat c}_{=0} - \hat b^2 \Rightarrow \hat b = 0
+$$
+Пришли к 
+$$
+\hat a(\xi, \eta)\hat u_{\xi\xi} + \hat F(\xi, \eta, \hat u, \nabla_{\xi, \eta}\hat u) = 0
+$$
+$\hat a \not \equiv 0$, иначе 1 порядок, а обратная замена дает второй порядок
+
+\Subsubsection{Эллиптический случай}
+$$
+d(x, y) = ac - b^2 > 0 \;\Forall (x, y) \in U(x^0, y^0)
+$$
+Во всех точках окрестности выполнено $a\ne 0$ и $c\ne 0$, иначе было бы $d = -b^2 \leq 0$.\\ 
+Характеристическое уравнение:
+$$
+\squareBr{w_x + \lambda_+w_y}\squareBr{w_x + \lambda_-w_y} = 0,
+$$
+где $\lambda_\pm = \frac{b^2\pm\sqrt{b^2 - ac}}{a} = \mu \pm i\nu; \;\ \mu, \nu \in C^2$.\quad При этом для функций $\lambda_+, \lambda_-$ известно $\lambda_+ = \overline{\lambda_-}.$
+\vspace{0.3em}
+
+Получилось два линейных ДУЧП первого порядка: \quad $w_x \pm \lambda_\pm w_y = 0 $
+
+Представим $w = \xi \pm i\eta \;\ \Rightarrow\;\ 
+(\xi \pm i\eta)_x + (\mu + i\nu)(\xi \pm i\eta)_y = 0$
+$$
+\begin{cases}
+    \mathrm{Re:} & \xi_x + \mu\xi_y - \nu\eta_y = 0\\
+    \mathrm{Im:} & \eta_x + \nu\xi_y + \mu\eta_y = 0
+\end{cases}\qquad \text{Искомая замена }
+\begin{cases}
+    \xi = \xi(x, y) \\
+    \eta = \eta(x, y)
+\end{cases} \in C^2,
+$$
+Невырожденность:
+$$ J = 
+\begin{vmatrix}
+    \xi_x & \xi_y \\
+    \eta_x & \eta_y
+\end{vmatrix} =
+\begin{vmatrix}
+    (-\mu\xi_y + \nu\eta_y) & \xi_y \\
+    (-\nu\xi_y - \mu\eta_y) & \eta_y
+\end{vmatrix} =
+\nu (\xi_y^2 + \eta_y^2) \neq 0, \text{ т.к} $$
+\begin{itemize}[nolistsep]
+    \item $\nu \neq 0$
+    \item если $\eta_y = \xi_y = 0$, то в силу уравнений на действительную и мнимую части
+    
+    $\xi_x = \eta_x = 0 \; \Rightarrow \; \nabla w = 0$
+\end{itemize}
+\begin{multline*}
+a w_x^2 + 2bw_x w_y + c w_y^2 = 0 \Rightarrow \\
+\underbrace{(a\xi^2_x + 2b\xi_x\xi_y + c\xi_y^2)}_{\hat a} -
+\underbrace{(a\eta_x^2 + 2b\eta_x\eta_y + c\eta_y^2)}_{\hat c}+ 
+\underbrace{2i(a\xi_x\xi_y + b(\xi_x\eta_y + \xi_y\eta_x) + c\xi_y\eta_y)}_{2\hat b} = 0
+\end{multline*}
+Откуда $\hat a = \hat c,\;\ \hat b = 0$, то есть получаем уравнение
+$$
+\hat u_{\xi\xi} + \hat u_{\eta\eta} + \hat F(\xi, \eta, \hat u, \nabla_{\xi\eta}\hat u) = 0
+$$
+
+\Subsection{Формальный вид уравнения характеристик}
+$$
+a\;dy\;dy - 2b\;dy\;dx + c\;dx\;dx =0
+$$
+Оно так выглядит из $(dy - \lambda_+dx)(dy - \lambda_-dx)=0$, то есть 
+$$
+(dy)^2 - \underbrace{(\lambda_+ + \lambda_-)}_{2b/a}\;dx\;dy + \underbrace{\lambda_+\lambda_-}_{c/a}(dx)^2 = 0
+$$
 \end{document}

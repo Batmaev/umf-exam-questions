@@ -20,6 +20,7 @@
 \definecolor{DarkBlue}{RGB}{0, 0, 205}
 \usepackage[colorlinks = true, urlcolor = blue, linkcolor = DarkBlue]{hyperref}
 \usepackage{subfiles}
+\usepackage{titlesec}     % Слово "Билет" перед номерами sections
 \usepackage{cmll}         % Используется в одном месте в 14 билете
 \usepackage{varwidth}     % Чтобы сделать minipage со списком авторов
 \usepackage[inline]{enumitem}
@@ -56,6 +57,13 @@
 \setlength{\parskip}{1ex}
 
 
+\titleformat{\section}[block]{\Large\bfseries}{Билет \thesection. }{0pt}{}
+
+\setcounter{secnumdepth}{1}
+\newcommand{\Subsection}[1]{\phantomsection\subsection{#1}}
+\newcommand{\Subsubsection}[1]{\phantomsection\subsubsection{#1}}
+% subsections не нужны номера.
+% По какой-то причине hyperref не может делать ссылки на разделы без номеров, ему нужен \phantomsection
 
 
 \newcommand{\while}[2]{\left. #1\right|_{#2}}
@@ -141,7 +149,7 @@
 
 \newpage
 \subfile{q1/1 part1.tex}
-\subfile{q1/1 part2.tex}
+%\subfile{q1/1 part2.tex}
 \newpage
 \subfile{q2/2.tex}
 \newpage
