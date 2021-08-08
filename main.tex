@@ -57,12 +57,20 @@
 \setlength{\parskip}{1ex}
 
 
-\titleformat{\section}[block]{\Large\bfseries}{Билет \thesection. }{0pt}{}
+\titleformat{\section}[block]{\large\bfseries}{Билет \thesection. }{0.1em}{}
+% Пишет слово "Билет" перед номером билета.
+% Не делает отступ, если заголовок простирается на несколько строк.
+% Более маленький шрифт
 
-\setcounter{secnumdepth}{1}
+\titleformat{\subsection}{\bfseries}{\thesubsection}{1em}{}
+% Более маленький шрифт.
+% Он совпадает со шрифтом для subsubsection, но варианты размера закончились
+
+
+
+\setcounter{secnumdepth}{1} % Считаю, что subsections не нужны номера.
 \newcommand{\Subsection}[1]{\phantomsection\subsection{#1}}
 \newcommand{\Subsubsection}[1]{\phantomsection\subsubsection{#1}}
-% Считаю, что subsections не нужны номера.
 % По какой-то причине hyperref не может делать ссылки на разделы без номеров, ему нужен \phantomsection.
 % Новыми командами-с-большой-буквы можно пользоваться так же, как обычными
 
@@ -73,6 +81,7 @@
 \newcommand{\squareBr}[1]{\left[#1\right]}
 \newcommand{\curlyBr}[1]{\left\{#1\right\}}
 \newcommand{\angleBr}[1]{\left\langle #1 \right\rangle}
+
 
 % в выражении вида e^\frac дробь получается слишком мелкой, 
 % в e^\dfrac - слишком большой, а в e^\tfrac - идеальной.
