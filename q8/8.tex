@@ -1,7 +1,7 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 
-\section{Теорема о единственности классического решения задачи Коши для волнового уравнения (на примере случая \texorpdfstring{$\R^2$}{R\textasciicircum 2}). Метод интеграла энергии.}
+\section[Теорема единственности для волнового уравнения]{Теорема о единственности классического решения задачи Коши для волнового уравнения (на примере случая $\R^2$). Метод интеграла энергии.}
 
 
 \begin{theorem} Классическое решение ЗК для волнового уравнения в $\mathbb{R}^n$ единственно.
@@ -45,8 +45,8 @@ $$
 \end{itemize}
 
 
-Функция 
-$ \; \psi = v_t(v_{tt}- a^2v_{xx} - a^2v_{yy})\; $ тождественно равна нулю.
+Функция \imaginarySubsection{Интеграл энергии}
+$ \psi = v_t(v_{tt}- a^2v_{xx} - a^2v_{yy})\; $ тождественно равна нулю.
 
 Раскроем скобки:
 \begin{flalign*}
@@ -58,17 +58,6 @@ $ \; \psi = v_t(v_{tt}- a^2v_{xx} - a^2v_{yy})\; $ тождественно ра
 \end{flalign*}
 \qquad где введено поле $\vec{F}$.
 \vspace{0.7em}
-% \begin{multline*}
-%   0 = v_t v_{tt} - a^2 v_t v_{xx}-a^2 v_t v_{yy}= \\
-%   \begin{aligned}
-%   &=\frac{1}{2}(v^2_t)_t + a^2 v_x v_{xt}-(a^2 v_t v_x)_x + a^2 v_y v_{yt} - (a^2 v_t v_y)_y = \\ 
-%   &=\frac{1}{2}(v^2_t)_t - (a v_t v_x)_x-(a v_t v_y)_y + \roundBr{\frac{1}{2}a^2v^2_x}_t+\roundBr{\frac{1}{2}a^2v^2_y}_t = \\ 
-%   &=\roundBr{\frac{v^2_t+a^2v^2_x+a^2v^2_y}{2}}_t+(-a^2 v_t v_x)_x+(-a^2 v_t v_y)_y =
-%   \end{aligned} \\
-%   = F^{(t)}_t + F^{(x)}_x + F^{(y)}_y = \div \vec{F}
-% \end{multline*}
-% Введем в рассмотрение векторное поле $ \vec{F} = \begin{pmatrix}F^{(t)} &F^{(x)}  &F^{(y)} \end{pmatrix}^T $. Тогда то выражение, к которому мы пришли, есть
-% $\div \vec{F}$.
 
 Проинтегрируем полученную дивергенцию по объему усеченного конуса:
 \begin{multline*}
