@@ -108,7 +108,7 @@ b & c
 Во всех точках этой окрестности тип -- гиперболический.
 
 \begin{definition}
-\textit{Второй канонический тип:} $\hat{u}_{\xi\eta} + \hat{F}(\xi, \eta, \hat{u}, \nabla \hat{u}) = 0$, то есть $\hat{a} \equiv \hat{c} \equiv 0 \\\Forall \xi, \eta \in V(\xi^0, \eta^0)$.
+\textit{Второй канонический тип:} $\hat{u}_{\xi\eta} + \hat{F}(\xi, \eta, \hat{u}, \nabla \hat{u}) = 0$, то есть $\hat{a} \equiv \hat{c} \equiv 0 \\\Forall (\xi, \eta) \in V(\xi^0, \eta^0)$.
 \end{definition}
 Введём переменную $w$, которая обозначает либо $\xi$, либо $\eta$.
 
@@ -132,7 +132,6 @@ b & c
 Достаточно занулить одну из скобок: $\ w_x + \lambda_\pm w_y = 0.$
 
 Подобные уравнения 1 порядка решаются при помощи первых интегралов:
-
 $$a_1(x, y)w_x + a_2(x, y)w_y = 0 
 \quad\Leftrightarrow\quad
 \text{решение -- ПИ системы: }
@@ -143,8 +142,7 @@ $$a_1(x, y)w_x + a_2(x, y)w_y = 0
 \Leftrightarrow\quad
 \frac{dx}{a_1} = dt = \frac{dy}{a_2}
 $$
-
-В нашем случае $\frac{dx}{1} = \frac{dy}{\lambda_\pm} \ \Leftrightarrow\ dy - \lambda_\pm dx = 0 $ --- первые интегралы этого уравнения дают решение исходного уравнения характеристик.
+В нашем случае $\frac{dx}{1} = \frac{dy}{\lambda_\pm} \ \Leftrightarrow\ dy - \lambda_\pm dx = 0 $ --- первые интегралы этого уравнения дают решение исходного уравнения характеристик. Если $a,b,c \in C^2$, то $\lambda_\pm$ и первые интегралы также принадлежат $C^2$.
 
 Покажем невырожденность:
 \begin{equation*}
@@ -166,7 +164,7 @@ $$
 	\Rightarrow \nabla \xi = 0)
 \end{multline*}
 
-Итак, $\bigl( \xi(x, y), \eta(x, y) \bigr)$ - диффеорморфизм класса $C^2$. Он зануляет $\hat{a}$ и $\hat{c}$. Получается уравнение во второй канонической форме.
+Итак, $(x,y) \mapsto (\xi,\eta)$ -- диффеоморфизм класса $C^2$. Он зануляет $\hat{a}$ и $\hat{c}$. Получается уравнение во второй канонической форме.
 \begin{remark} 
 От II канонической форме к I:
 \begin{equation*}
@@ -178,7 +176,7 @@ $$
 \end{equation*}
 Тогда наше уравнение: 
 \begin{equation*}
-	\tilde{u}_{\alpha \alpha} - \tilde{u}_{\beta \beta} + \tilde{F}(\alpha, \beta, \tilde{u}, \nabla_{\alpha \beta}\tilde{u}) = 0 -\; \text{I каноническая форма}
+	\tilde{u}_{\alpha \alpha} - \tilde{u}_{\beta \beta} + \tilde{F}(\alpha, \beta, \tilde{u}, \nabla_{\alpha \beta}\tilde{u}) = 0 \text{ --- I каноническая форма}
 \end{equation*}
 \end{remark}
 \item Если $a(x, y) \equiv c(x, y) \equiv 0 \Forall (x, y) \in U(x^{\circ}, y^{\circ})$, то $b \neq 0$, иначе уравнение в нуле функции $b$ -- не второго порядка.
