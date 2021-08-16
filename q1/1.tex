@@ -34,14 +34,14 @@ $A = A^T \Rightarrow \hat{A}^T = \hat{A}$. Вопрос в выборе $J$ та
 
 Введём 2 базиса: $\begin{array}{c} \left(e_1 \dots e_n\right) \\ \left(e'_1 \dots e'_n\right) \end{array}$ В них $h \sim \begin{array}{c} \xi = (\xi_1 \dots \xi_n)^T \\ \eta = (\eta_1 \dots \eta_n)^T \end{array}; \quad \Phi \sim \begin{array}{c} \norm{c_{ij}} \\ \norm{\hat{c}_{ij}}
 \end{array}; \quad \Phi(h) = \begin{array}{c}
-\xi^T c \xi \\ \eta^T \hat{c} \eta
+\xi^T C \xi \\ \eta^T \hat{C} \eta
 \end{array}$
 
-Пусть $\xi = S\eta$. Тогда $\Phi(h) = \eta^TS^TCS\eta = \eta^T\hat{C}\eta \rightarrow \hat{c} = S^TCS.$
+Пусть $\xi = S\eta$. Тогда $\Phi(h) = \eta^TS^TCS\eta = \eta^T\hat{C}\eta \ \rightarrow\ \hat{C} = S^TCS.$
 
 Существует такой базис, что
 
-$\hat{C} = diag(\underbrace{+1, +1 \dots +1}_{p\text{ штук}}, \underbrace{-1, -1 \dots -1}_{q\text{ штук}}, 0, 0 \dots 0)$
+$\hat{C} = \operatorname{diag}(\underbrace{+1, +1 \dots +1}_{p\text{ штук}}, \underbrace{-1, -1 \dots -1}_{q\text{ штук}}, 0, 0 \dots 0)$
 
 $\Phi(h) = \eta^2_1 + \dots + \eta^2_p - \eta^2_{p+1} - \dots - \eta^2_{p+q}$
 
@@ -57,12 +57,12 @@ $$\pdd{\hat{u}}{y_1} + \dots + \pdd{\hat{u}}{y_p} - \pdd{\hat{u}}{y_{p+1}} - \do
 \begin{enumerate}
 	\item \textit{Эллиптический тип}: $p = n$ или $q = n$
 	\item \textit{Ультрагиперболический тип}: $p+q = n$
-	\item \textit{Гиперболический тип}: $p = 1, q = n-1$
+	\item \textit{Гиперболический тип}: $p = 1,\ q = n-1$
 	\item \textit{Ультрапараболический тип}: $p + q < n$
-	\item \textit{Параболический тип}: $q = 0, p = n-1$
+	\item \textit{Параболический тип}: $q = 0,\ p = n-1$
 \end{enumerate}
 
-\begin{remark} $\hat{A}(y^0) = J(x^0)A(x^0)J^T(x^0) \Rightarrow \sign\abs{\hat{A}(y^0)} = \sign\abs{A(x^0)}$ \end{remark}
+\begin{remark} $\hat{A}(y^0) = J(x^0)A(x^0)J^T(x^0) \ \Rightarrow\ \sign\det\bigl( \hat{A}(y^0) \bigr) = \sign\det\bigl( A(x^0) \bigr)$ \end{remark}
 
 В случае $n = 2$ тип уравнения в точке определяется по знаку определителя:
 \begin{enumerate}
@@ -88,8 +88,9 @@ b & c  \end{array} \right|$
 
 Введём преобразование $ (x,y) \mapsto (\xi, \eta),\;\ \begin{cases} \xi = \xi(x, y) \\ \eta = \eta(x, y)\end{cases}$--- \ диффеоморфизм класса $C^2$.
 
-В новых координатах $\hat{a}\left(\xi, \eta\right)\hat{u}_{\xi\xi} + 2\hat{b}\left(\xi, \eta\right)\hat{u}_{\xi\eta} + \hat{c}\left(\xi, \eta\right)\hat{u}_{\eta\eta} + \hat{F}\left(\xi,\eta,\hat{u},\nabla_{\xi\eta}\hat{u}\right) = 0$
-$$\hat{A}\left(\xi,\eta\right) = \left( \begin{array}{cc}
+В новых координатах \ $\hat{a}(\xi, \eta)\hat{u}_{\xi\xi} + 2\hat{b}(\xi, \eta)\hat{u}_{\xi\eta} + \hat{c}(\xi, \eta)\hat{u}_{\eta\eta} + \hat{F}(\xi,\eta,\hat{u},\nabla_{\xi\eta}\hat{u}) = 0$
+%
+$$\hat{A}(\xi, \eta) = \left( \begin{array}{cc}
 \hat{a} & \hat{b} \\
 \hat{b} & \hat{c}
 \end{array}\right); \quad A = \left( \begin{array}{cc}
@@ -107,7 +108,7 @@ b & c
 Во всех точках этой окрестности тип -- гиперболический.
 
 \begin{definition}
-\textit{Второй канонический тип:} $\hat{u}_{\xi\eta} + \hat{F}(\xi, \eta, \hat{u}, \nabla \hat{u}) = 0$, то есть $\hat{a} \equiv \hat{c} \equiv 0 \Forall \xi, \eta \in V(\xi^{\circ}, \eta^{\circ})$.
+\textit{Второй канонический тип:} $\hat{u}_{\xi\eta} + \hat{F}(\xi, \eta, \hat{u}, \nabla \hat{u}) = 0$, то есть $\hat{a} \equiv \hat{c} \equiv 0 \\\Forall \xi, \eta \in V(\xi^0, \eta^0)$.
 \end{definition}
 Введём переменную $w$, которая обозначает либо $\xi$, либо $\eta$.
 
@@ -117,15 +118,15 @@ b & c
 \end{equation*}
 (При $w = \xi$ это выражение равно $\hat a_{11}$, а при $w = \eta$ оно равно $\hat a_{22}$)
 
-От решений хотим $\grad w \neq 0$, так как если $\nabla \eta = 0$ или $\nabla \xi = 0$, то $J = 0$.
+От решений хотим $\grad w \neq 0$, так как если $\nabla \eta = 0$ или $\nabla \xi = 0$, то $\det(J) = 0$.
 
 \begin{remark}
-	$w(x) = 0$ -- характеристическая $\Rightarrow \tilde{w}(x) =  w(x) - c = 0$ -- также характеристическая: $\tilde{c} \in C^2,\; \nabla \tilde{w} \neq 0$, $\tilde{w}$ -- удовлетворяет характеристическому уравнению.
+	$w(x) = 0$ -- характеристическая $\Rightarrow \tilde{w}(x) = w(x) - c = 0$ -- также характеристическая: $\tilde{c} \in C^2,\ \nabla \tilde{w} \neq 0,\ \tilde{w}$ -- удовлетворяет характеристическому уравнению.
 \end{remark}
 
 \begin{definition}
-Переменные $\xi, \eta$ - \textit{характеристические}; поверхности $\xi = C_1,\; \eta = C_2$ - \textit{характеристические}.
-\end{definition} 
+Переменные $\xi, \eta$ -- \textit{характеристические}; поверхности $\xi = \text{const},\ \eta = \text{const}$ -- \textit{характеристические}.
+\end{definition}
 \begin{enumerate}[label=\asbuk*),ref=\asbuk*]
 \item Пусть $a(x^{\circ}, y^{\circ}) \neq 0$, для $c(x^{\circ}, y^{\circ}) \neq 0$ рассуждения такие же.
 
@@ -134,17 +135,24 @@ b & c
 	w_x^2 + \dfrac{2b}{a}w_x w_y + \dfrac{c}{a}w_y^2 = \roundBr{w_x + \dfrac{b}{a}w_y}^2 - \dfrac{b^2 - ac}{a}w_y 
 	= \bigl[ w_x + \lambda_{+}(x, y)w_y \bigr] \cdot \bigl[ w_x + \lambda_{-}w_y \bigr] = 0,
 \end{equation*}
-где введены обозначения $\lambda_{\pm} = \frac{1}{a}(b \pm \sqrt{b^2 - ac})$; верно, что $\lambda_{-}  \neq \lambda_{+} \Forall (x, y) \in U_{\eps}(x^{\circ}, y^{\circ})$, так как $d = ac - b^2 < 0$.
+где введены обозначения $\lambda_\pm = \frac{1}{a}(b \pm \sqrt{b^2 - ac})$; верно, что $\lambda_{-}  \neq \lambda_{+} \Forall (x, y) \in U_{\eps}(x^{\circ}, y^{\circ})$, так как $d = ac - b^2 < 0$.
 
-Рассмотрим ЛДУЧП 1-го порядка $w_x + \lambda(x, y)w_y = 0$.
+Достаточно занулить одну из скобок: $\ w_x + \lambda_\pm w_y = 0.$
 
-Из теории: у однородного ДУЧП $a_1(x, y)w_x + a_2(x, y)w_y = 0$ при условии $a_1^2 + a_2^2 > 0$ решение есть: 
-\begin{equation*}
-	\exists\: w(x, y) \in C^2(\Omega),\; \nabla w \neq 0\; \text{и}\; \dfrac{dx}{a_1} = \dfrac{dy}{a_2} -\; \text{первый интеграл}
-\end{equation*}
-В нашем случае $\frac{dx}{1} = \frac{dy}{\lambda} \Leftrightarrow dy - \lambda dx = 0$ --- ПИ этого уравнения даёт решение исходного ДУЧП.
+Подобные уравнения 1 порядка решаются при помощи первых интегралов:
 
-Значит, в обеих скобках есть по решению, причём $\nabla w \neq 0$.
+$$a_1(x, y)w_x + a_2(x, y)w_y = 0 
+\quad\Leftrightarrow\quad
+\text{решение -- ПИ системы: }
+\begin{cases}
+	\frac{dx}{dt} = a_1 \\
+	\frac{dy}{dt} = a_2
+\end{cases}
+\Leftrightarrow\quad
+\frac{dx}{a_1} = dt = \frac{dy}{a_2}
+$$
+
+В нашем случае $\frac{dx}{1} = \frac{dy}{\lambda_\pm} \ \Leftrightarrow\ dy - \lambda_\pm dx = 0 $ --- первые интегралы этого уравнения дают решение исходного уравнения характеристик.
 
 Покажем невырожденность:
 \begin{equation*}
