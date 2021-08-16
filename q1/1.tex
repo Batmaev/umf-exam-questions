@@ -160,8 +160,9 @@ $$
 	\begin{pmatrix}
 		-\lambda_{+} \xi_y & \xi_y \\
 		-\lambda_{-}\eta_y & \eta_y
-	\end{pmatrix} = \underbrace{(\lambda_{-} - \lambda_{+})}_{\substack{\neq 0\;\text{\tiny в силу} \\ \text{\tiny гиперболичности}}}\cdot \; \xi_y \eta_y \neq 0 \\ (\text{если}\; \xi_{y} = 0, \text{ то } \xi_x = 0 
-	\Rightarrow \nabla \xi = 0)
+	\end{pmatrix} = \overbrace{(\lambda_{-} - \lambda_{+})}^{\substack{\neq 0\;\text{\tiny в силу} \\ \text{\tiny гиперболичности}}}\cdot \; \xi_y \eta_y \neq 0 \\ 
+	(\text{если } \xi_{y} = 0, \text{ то } \xi_x = 0 
+	\ \Rightarrow\; \nabla \xi = 0)
 \end{multline*}
 
 Итак, $(x,y) \mapsto (\xi,\eta)$ -- диффеоморфизм класса $C^2$. Он зануляет $\hat{a}$ и $\hat{c}$. Получается уравнение во второй канонической форме.
@@ -182,10 +183,15 @@ $$
 \item Если $a(x, y) \equiv c(x, y) \equiv 0 \Forall (x, y) \in U(x^{\circ}, y^{\circ})$, то $b \neq 0$, иначе уравнение в нуле функции $b$ -- не второго порядка.
 
 То есть уравнение уже имеет II каноническую форму, преобразование в I -- выше. 
-\item Если $a(x^0, y^0) = c(x^0, y^0) = 0$, но в любой окрестности $W(x^0, y^0)$ есть точки, где
+\item Если $a \not\equiv 0$ или $c \not\equiv 0$, но $a(x^0, y^0) = c(x^0, y^0) = 0$, то $b(x^0, y^0) \neq 0$. \\
+Заменим $\xi = x + y,\ \eta = x - y$ и получим:
 $$
-\abs{a(x^*, y^*)} + \abs{c(x^*, y^*)} > 0,
-$$ то заменим $\xi = x + y,\ \eta = x - y$ и получим случай а.
+\begin{aligned}
+\hat{a}(\xi^0, \eta^0) &= 2b(x^0, y^0) \neq 0 \\
+\hat{c}(\xi^0, \eta^0) &= -2b(x^0, y^0)
+\end{aligned}
+$$
+Это случай (а).
 \end{enumerate}
 
 \Subsubsection{Параболический случай}
