@@ -26,18 +26,18 @@ $$\hat{a}_{kl}(y) \coloneqq \sum_{i,j=1}^na_{ij}(x(y))\pd{y_k}{x_i}\pd{y_l}{x_j}
 
 Введём матрицы: $A(x^0) = \norm{a_{ij}(x^0)}_{i,j=1}^n; \qquad \hat{A}(y^0) = \norm{\hat{a}_{ij}(y^0)}_{i,j=1}^n.$
 
-$J(x^0) = \norm{\pd{y_i}{x_j}(x^0)}_{i,j=1}^n$ -- в малой $U(x^0)$ задаёт преобразование $\hat{A}(y^0) = J(x^0)A(x^0)J^T(x^0)$ 
+$J(x^0) = \norm{\pd{y_i}{x_j}(x^0)}_{i,j=1}^n$ -- в малой $U(x^0)$ задаёт преобразование $\hat{A}(y^0) = J(x^0)A(x^0)J^\Transp(x^0)$ 
 
-$A = A^T \Rightarrow \hat{A}^T = \hat{A}$. Вопрос в выборе $J$ такого, что $\hat{A}$ диагональна.
+$A = A^\Transp \Rightarrow \hat{A}^\Transp = \hat{A}$. Вопрос в выборе $J$ такого, что $\hat{A}$ диагональна.
 
 Пусть в $\R^n$ заданы элемент $h$ и квадратичная форма $\Phi(h).$
 
-Введём 2 базиса: $\begin{array}{c} \left(e_1 \dots e_n\right) \\ \left(e'_1 \dots e'_n\right) \end{array}$ В них $h \sim \begin{array}{c} \xi = (\xi_1 \dots \xi_n)^T \\ \eta = (\eta_1 \dots \eta_n)^T \end{array}; \quad \Phi \sim \begin{array}{c} \norm{c_{ij}} \\ \norm{\hat{c}_{ij}}
+Введём 2 базиса: $\begin{array}{c} \left(e_1 \dots e_n\right) \\ \left(e'_1 \dots e'_n\right) \end{array}$ В них $h \sim \begin{array}{c} \xi = (\xi_1 \dots \xi_n)^\Transp \\ \eta = (\eta_1 \dots \eta_n)^\Transp \end{array}; \quad \Phi \sim \begin{array}{c} \norm{c_{ij}} \\ \norm{\hat{c}_{ij}}
 \end{array}; \quad \Phi(h) = \begin{array}{c}
-\xi^T C \xi \\ \eta^T \hat{C} \eta
+\xi^\Transp C \xi \\ \eta^\transp \hat{C} \eta
 \end{array}$
 
-Пусть $\xi = S\eta$. Тогда $\Phi(h) = \eta^TS^TCS\eta = \eta^T\hat{C}\eta \ \rightarrow\ \hat{C} = S^TCS.$
+Пусть $\xi = S\eta$. Тогда $\Phi(h) = \eta^\transp S^\Transp C S \eta = \eta^\transp\hat{C}\eta \ \rightarrow\ \hat{C} = S^\Transp C S.$
 
 Существует такой базис, что
 
@@ -45,7 +45,7 @@ $\hat{C} = \operatorname{diag}(\underbrace{+1, +1 \dots +1}_{p\text{ штук}},
 
 $\Phi(h) = \eta^2_1 + \dots + \eta^2_p - \eta^2_{p+1} - \dots - \eta^2_{p+q}$
 
-В равенстве $\hat{A}(y^0) = J(x^0)A(x^0)J^T(x^0)$ нужно взять $J(x^0) = S^T$
+В равенстве $\hat{A}(y^0) = J(x^0)A(x^0)J^\Transp(x^0)$ нужно взять $J(x^0) = S^\Transp$
 
 Такие преобразования существуют, их много. Например, $y = y^0 + J(x^0)(x-x^0)$
 
@@ -62,7 +62,7 @@ $$\pdd{\hat{u}}{y_1} + \dots + \pdd{\hat{u}}{y_p} - \pdd{\hat{u}}{y_{p+1}} - \do
 	\item \textit{Параболический тип}: $q = 0,\ p = n-1$
 \end{enumerate}
 
-\begin{remark} $\hat{A}(y^0) = J(x^0)A(x^0)J^T(x^0) \ \Rightarrow\ \sign\det\bigl( \hat{A}(y^0) \bigr) = \sign\det\bigl( A(x^0) \bigr)$ \end{remark}
+\begin{remark} $\hat{A}(y^0) = J(x^0)A(x^0)J^\Transp(x^0) \ \Rightarrow\ \sign\det\bigl( \hat{A}(y^0) \bigr) = \sign\det\bigl( A(x^0) \bigr)$ \end{remark}
 
 В случае $n = 2$ тип уравнения в точке определяется по знаку определителя:
 \begin{enumerate}
@@ -96,7 +96,7 @@ $$\hat{A}(\xi, \eta) = \left( \begin{array}{cc}
 \end{array}\right); \quad A = \left( \begin{array}{cc}
 a & b \\
 b & c
-\end{array}\right); \quad \hat{A} = JAJ^T; \quad J = \left(\begin{array}{cc}
+\end{array}\right); \quad \hat{A} = JAJ^\Transp; \quad J = \left(\begin{array}{cc}
 \xi_x & \xi_y \\
 \eta_x & \eta_y
 \end{array}\right)$$
@@ -212,7 +212,7 @@ $$
 $$
 Мы взяли $\xi$ такое, что $\hat c \equiv 0$. Покажем, что и $\hat b \equiv 0$:
 $$
-\hat A = JAJ^\intercal \Rightarrow \abs{\hat A} = \abs{J}^2\cdot\abs{A} = \abs{J}^2(ac - b^2) = 0 = \underbrace{\hat a \hat c}_{=0} - \hat b^2 \Rightarrow \hat b = 0
+\hat A = JAJ^\Transp \Rightarrow \abs{\hat A} = \abs{J}^2\cdot\abs{A} = \abs{J}^2(ac - b^2) = 0 = \underbrace{\hat a \hat c}_{=0} - \hat b^2 \Rightarrow \hat b = 0
 $$
 Пришли к 
 $$

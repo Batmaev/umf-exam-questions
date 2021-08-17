@@ -26,7 +26,7 @@
 
 
 Далее определим характеристическую поверхность.\\
-Пусть $S$ -- гиперплоскость $x_n = 0$. Нормаль $\vec{n} = (0,0,\dots,0, 1)^T,\\
+Пусть $S$ -- гиперплоскость $x_n = 0$. Нормаль $\vec{n} = (0,0,\dots,0, 1)^\Transp,\\
 u(x_1, \dots, x_{n-1}, 0) = u_0(x_1, \dots, x_{n-1}),\quad \dfrac{\partial u}{\partial\vec{n}} = \dfrac{\partial u}{\partial x_n} = u_1(x_1, \dots, x_{n-1}) $
 
 Мы знаем значения функции на гиперплоскости.\\
@@ -59,24 +59,23 @@ $\Rightarrow$ после преобразования $\omega=0 \Leftrightarrow 
 Дополним $\vec{n}$ до базиса -- получим $\angleBr{\vec{l}_1,\dots,\vec{l}_{n-1},\vec{n}}$. Ортогонализуем -- получим $\angleBr{\vec{e}_1,\dots,\vec{e}_{n-1},\vec{n}}.$ Возьмем такое преобразование:
 \[ \vec{y}(\vec{x}) = \begin{cases} y_1 = \roundBr{\vec{x}-\vec{x}_0} \cdot \vec{e}_1 \\ \vdots \\ y_{n-1} = \roundBr{\vec{x}-\vec{x}_0} \cdot \vec{e}_{n-1} \\ y_n = \omega(\vec{x}) \end{cases}\]
 Проверим, что якобиан не равен 0:
-
 $$
 J = \begin{vmatrix} 
 \pd{y_1}{x_1} & \cdots & \pd{y_1}{x_n} \\
 \cdots &\cdots &\cdots \\
 \pd{\omega}{x_1} & \cdots & \pd{\omega}{x_n} \end{vmatrix}
 = \begin{vmatrix}
-\;(\qquad e_1^T \qquad)\;\\[0.2em]
+\;(\qquad e_1^\transp \qquad)\;\\[0.2em]
 \cdots\\[0.2em]
-\;(\qquad e_n^T \qquad)\;\\[0.6em]
-\;(\;\;\: \nabla\omega(x)^T \;\;\:)\;
+\;(\qquad e_n^\transp \qquad)\;\\[0.6em]
+\;(\;\;\: \nabla\omega(x)^\Transp \;\;\:)\;
 \end{vmatrix}
 \overset{\text{$x = x_0$}}{=\joinrel=}
 \begin{vmatrix}
-    \;(\qquad e_1^T \qquad)\;\\[0.2em]
+    \;(\qquad e_1^\transp \qquad)\;\\[0.2em]
     \cdots\\[0.2em]
-    \;(\qquad e_n^T \qquad)\;\\[0.6em]
-    \;(\qquad n^T \qquad)\;
+    \;(\qquad e_n^\transp \qquad)\;\\[0.6em]
+    \;(\qquad n^\transp \qquad)\;
     \end{vmatrix}
 $$
 
