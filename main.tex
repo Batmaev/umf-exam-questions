@@ -60,20 +60,19 @@
 \titleformat{\section}[block]{\large\bfseries}{Билет \thesection. }{0.1em}{}
 % Пишет слово "Билет" перед номером билета.
 % Не делает отступ, если заголовок простирается на несколько строк.
-% Более маленький шрифт
+% Более маленький шрифт, чем по умолчанию.
 
 \titleformat{\subsection}{\bfseries}{\thesubsection}{1em}{}
-% Более маленький шрифт.
+% Более маленький шрифт, чем по умолчанию.
 % Он совпадает со шрифтом для subsubsection, но варианты размера закончились
 
 
 
-\setcounter{secnumdepth}{1} % Считаю, что subsections не нужны номера.
+\setcounter{secnumdepth}{1}  % Считаю, что subsections не нужны номера.
 \newcommand{\Subsection}{\phantomsection\subsection}
 \newcommand{\Subsubsection}{\phantomsection\subsubsection}
 % По какой-то причине hyperref не может делать ссылки на разделы без номеров, ему нужен \phantomsection.
 % Новыми командами-с-большой-буквы можно пользоваться так же, как обычными
-
 
 \newcommand{\imaginarySubsection}[1]{\phantomsection\addcontentsline{toc}{subsection}{#1}}
 
@@ -90,10 +89,27 @@
 
 % в выражении вида e^\frac дробь получается слишком мелкой, 
 % в e^\dfrac - слишком большой, а в e^\tfrac - идеальной.
-% однако в выражениях вида e^{-\tfrac} знак "-" и дробная черта находятся на разной высоте.
+% однако в выражениях вида e^{-\tfrac} знак '-' и дробная черта находятся на разной высоте.
 % поэтому нужна эта команда:
 \newcommand{\expT}[1]{e^{\textstyle #1}}
+% Example:
+% \expT{-\frac{x^2}{2}}    --->    e^-x^2/2
 
+
+
+% LaTeX не предоставляет готового символа для транспонирования.
+% Если просто писать x^T, то буква T кажется слишком большой
+% по сравнению с маленькой буквой x.
+\newcommand{\transp}{{\scriptscriptstyle T}}  % после маленьких букв
+\newcommand{\Transp}{{{}^T}}                  % после заглавных букв
+%
+% Example: 
+% x^\transp A^\Transp x     --->    x^T A^T x
+% Буквы 'T' после 'x' и 'A' будут одинакового размера, но на разной высоте
+%
+% Ещё интересный вариант без засечек
+% \newcommand{\transp}{{\scriptscriptstyle\text{\sffamily\itshape T}}}
+% \newcommand{\Transp}{{{}^\text{\sffamily\itshape T}}}
 
 
 
@@ -126,8 +142,6 @@
 
 \newcommand{\Forall}{\;\;\forall\:}
 \newcommand{\Exists}{\;\;\exists\:}
-\newcommand{\Equiv}{\Leftrightarrow}
-
 
 \DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator{\supp}{supp}
