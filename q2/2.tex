@@ -10,7 +10,7 @@
 \label{eq::2::init}
 \sum\limits_{i,j=1}^{n} a_{ij}(x)\frac{\partial^2u}{\partial x_i\partial x_j} + F(x, u, \nabla u) = 0
 \end{equation}
-и поверхность $S:\ \omega(x) = \omega(x_1, \dots, x_n) = 0,\ \omega \in C^2(\Omega)$ и $\grad(\omega) \not= 0$ на $\Omega$ (нет особых точек).\\
+и поверхность $S\colon\ \omega(x) = \omega(x_1, \dots, x_n) = 0,\ \omega \in C^2(\Omega)$ и $\grad(\omega) \not= 0$ на $\Omega$ (нет особых точек).\\
 На поверхности задано гладкое некасательное поле $\vec{\nu} = (\nu_1(x), \dots, \nu_n(x)),\ \; \langle \vec{\nu}, \vec{n} \rangle \not= 0$.
 \begin{definition}[Задача Коши]
 В $U(x^0)\subset\Omega,\ x^0 \in S$, найти то решение уравнения \eqref{eq::2::init}, которое удовлетворяет двум условиям:
@@ -91,7 +91,7 @@ $$
 
 \imaginarySubsection{Характеристическая поверхность}
 \begin{definition}[Характеристическая точка]
-    Пусть дважды гладкая поверхность $S$ задана уравнением $\omega(x) = 0. \quad (\omega \in C^2;$ \ во всех точках $\nabla\omega \neq 0).$\\
+    Пусть дважды гладкая поверхность $S$ задана уравнением $\omega(x) = 0. \quad (\omega \in C^2;\ \nabla\omega \neq 0)$\\
     Тогда точка $x_0 \in S$ называется характеристической, если в этой точке $\ \displaystyle\sum\limits_{i,j=1}^{n} a_{ij}\, \omega_{x_i}\, \omega_{x_j} = 0$
 \end{definition}
 
@@ -142,7 +142,7 @@ $\Delta u(x) = f(x)\ \text{(ур-е Пуассона)},\ x\in\R^n;$
 А мы требовали $\nabla \omega \neq 0\ \Rightarrow\ $ у уравнения эллиптического типа нет характеристик.
 \end{example}
 
-\bigskip
+\Subsection{Теорема Ковалевской}
 
 Функция $u(\vec{x}) = u(x_1,\dots,x_n)$ называется {\bf вещественно-аналитической} в $\vec{x}_0$, если в некоторой $U_{\varepsilon}(\vec{x}_0)$ она представима в виде 
 $$u(\vec{x}) = \displaystyle\sum\limits_{|\alpha|>0}u_{\alpha}(\vec{x}-\vec{x}_0)^{\alpha},$$
@@ -159,7 +159,7 @@ $$u(\vec{x}) = \displaystyle\sum\limits_{|\alpha|>0}u_{\alpha}(\vec{x}-\vec{x}_0
 \end{itemize}
 Тогда: 
 \begin{itemize}[nolistsep, noitemsep]
-\item $\exists\: U_{\varepsilon}(\vec{x}_0)$ : в ней $\exists$ вещественно-аналитическое решение Задачи Коши (ЗК)
+\item $\exists\: U_{\varepsilon}(\vec{x}_0)\colon$ в ней $\exists$ вещественно-аналитическое решение задачи Коши
 \item оно единственно в классе вещественно-аналитических функций.
 \end{itemize}
 \end{theorem}
@@ -167,16 +167,15 @@ $$u(\vec{x}) = \displaystyle\sum\limits_{|\alpha|>0}u_{\alpha}(\vec{x}-\vec{x}_0
 \Subsection{Понятие о корректности}
 
 Рассмотрим абстрактную дифференциальную задачу:
-
 \begin{equation}
 \label{eq::2::diff}
 \tag{*}
-\begin{cases} L(\vec{x}, D)u(\vec{x}) = f(\vec{x}),\ \vec{x} \in \Omega \subseteq \R^n  \\
-B_j(\vec{x},D) u(\vec{x}) = g_j(\vec{x}),\ \vec{x}\in \Gamma,\ j\in\overline{1,m},
+\begin{cases} L\, u(\vec{x}) = f(\vec{x}),\ &\vec{x} \in \Omega \subseteq \R^n  \\
+B_j\, u(\vec{x}) = g_j(\vec{x}),\ &\vec{x}\in \Gamma \subset \bar{\Omega},\quad j = 1 \ldots m
 \end{cases}
 \end{equation}
-$L$ -- линейный дифференциальный оператор порядка $p$\\
-$B_j$ -- конечное семейство линейных дифференциальных операторов в $\Gamma \subset \bar{\Omega}$.
+$L\;\, = L(\vec{x}, \partial)\;\,$ --- линейный дифференциальный оператор порядка $p$\\
+$B_j = B_j(\vec{x}, \partial)$ --- конечное семейство линейных дифференциальных операторов на $\Gamma \subset \bar{\Omega}$
 
 \begin{center}
 \includegraphics[width=0.15\textwidth]{pic 2_3.pdf}
@@ -194,16 +193,22 @@ $B_j$ -- конечное семейство линейных дифференц
 то {\bf задача корректна по отношению к выбранному набору пространств.}
 \end{definition}
 
+\begin{remark}
+    Часто говорят, что решение корректной задачи должно непрерывно зависеть от начальных данных. Но в определении лектора, которое приведено выше, вместо непрерывности по начальным данным требуется ограниченность. Так тоже правильно, потому что задача линейна, а линейные операторы непрерывны тогда и только тогда, когда они ограничены.
+\end{remark}
+
 \imaginarySubsection{Пример Адамара}
 \begin{example}[Адамара]
 Рассмотрим задачу Коши для уравнения Лапласа:
 
 $\begin{cases} u_{xx}+u_{yy} = 0 \\
-u|_{y=0} = u_0(x) = e^{-\sqrt{n}}\cos{nx} \rightrightarrows 0\ \text{вместе со своими производными} \\
+u|_{y=0} = u_0(x) = e^{-\sqrt{n}}\cos{nx} \text{ --- равномерно стремится к 0 вместе со своими производными} \\
 u_y|_{y=0} = u_1(x) \equiv 0
 \end{cases}$
 
-При $u_0 = 0 \hookrightarrow u\equiv 0$. Если задача корректна, то при увеличении $n$ решения должны $\rightarrow 0$. 
+При $u_0(x) \equiv 0$ решение будет $u(x,y) \equiv 0$. 
+
+Если задача корректна, то при $n \rightarrow \infty$ решения должны (равномерно?) стремиться к 0.
 
 Функции $u_n=e^{-\sqrt{n}}\cos{nx}\ch{ny}$ -- решения.
 
