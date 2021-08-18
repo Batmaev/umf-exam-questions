@@ -1,128 +1,228 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 
-
 \section[Однородное волновое уравнение в \texorpdfstring{$\R^3$}{R\textasciicircum 3}]{Формула Пуассона-Кирхгофа решения задачи Коши для однородного волнового уравнения в $\R^3$. Существование классического решения этой задачи.}
 % Затехал: Погодин Роман
 \begin{theorem}[Из курса мат. анализа]
-Пусть $\Omega_x\subset\R^n,\ \Omega_y\subset\R^m$ -- ограниченные области, $f(x,y):\overline{\Omega}_x\times\overline{\Omega}_y\rightarrow \R,\ f\in C\left(\overline{\Omega}_x\times\overline{\Omega}_y \right)$. Тогда $J(y)=\displaystyle\int\limits_{\Omega_x}f(x,y)\, dx\ \in C\left(\overline{\Omega}_y \right)$\\
-Если к тому же $\dfrac{\partial f}{\partial y_k}\in C\left(\overline{\Omega}_x\times\overline{\Omega}_y \right)$, то $J(y)$ имеет непрерывную на $\overline{\Omega}_y$ частную производную $\dfrac{\partial J(y)}{\partial y_k}$, которая равна $\displaystyle\int\limits_{\Omega_x}\dfrac{\partial f}{\partial y_k}(x,y)\, dx.$
+Пусть 
+$\Omega_x\subset\R^n,\ \Omega_y\subset\R^m$ -- ограниченные области,
+$f(x,y)\colon \overline{\Omega}_x \times \overline{\Omega}_y \rightarrow \R,\ 
+f \in C \roundBr{ \overline{\Omega}_x\times\overline{\Omega}_y }$. 
+Тогда 
+$J(y) = \displaystyle\int\limits_{\Omega_x} f(x,y)\, dx\ 
+\in C \roundBr{ \overline{\Omega}_y }$ \\
+%
+Если к тому же 
+$\dfrac{\partial f}{\partial y_k} 
+\in C \roundBr{ \overline{\Omega}_x\times\overline{\Omega}_y }$, 
+то $J(y)$ имеет непрерывную на $\overline{\Omega}_y$ частную производную $\pd{J(y)}{y_k}$, 
+которая равна $\displaystyle\int\limits_{\Omega_x} \pd{f}{y_k} (x,y)\, dx.$
 \end{theorem}
+
+\imaginarySubsection{Лемма}
+
 Обозначим ($\tau$ - вспомогательный параметр)
 \[
 u_g(t,x,\tau)=\frac{1}{4\pi a^2t}\displaystyle\oiint\limits_{|\xi - x|=at}g(\xi ,\tau )\, dS_{\xi}\, , \qquad a>0,\ t> 0,\ x\in \R^3,\ \tau \geq 0,\ \xi\in\R^3
 \]
+
 \begin{lemma}
-\label{lem:5:continuity}
 Пусть $g(\xi, \tau )$ такая, что 
 \begin{enumerate}
 \item $g \in C\,\{\xi\in\R^3,\ \tau\geq 0 \}$
 \item $D_{\xi}^{\alpha}\, g(\xi , \tau )\in C\,\{\xi\in\R^3,\ \tau\geq 0 \} \Forall\alpha\colon |\alpha |\leq p.$
 \end{enumerate}
+
 Тогда
 \begin{enumerate}
-\item $D_{t,x}^{\alpha}\, u_g(t,x,\tau )\in C\,\{\mathbf{t\geq 0},\ x\in\R^3,\ \tau\geq 0 \} \Forall\alpha\colon |\alpha |\leq p$
-\item $\lim\limits_{t\rightarrow +0}u_g(t,x,\tau )=0$
+
+\item $D_{t,x}^{\alpha}\, u_g(t,x,\tau )
+      \in C\, \{\mathbf{t\geq 0},\   x\in\R^3,\   \tau \geq 0 \}
+      \Forall\alpha\colon |\alpha| \leq p$
+
+\item $\lim\limits_{t\rightarrow +0} u_g(t,x,\tau) = 0$
+
 \item При $p\geq 1$ $\lim\limits_{t\rightarrow +0}\dfrac{\partial u_g}{\partial t}=g(x,\tau)$
+
 \end{enumerate}
 \end{lemma}
+
 \begin{proof} Докажем отдельно все три утверждения.
+%
 \begin{enumerate}
 \item Сведем интеграл к интегралу по единичной сфере с центром в нуле с помощью такой замены:
 \[
-\eta = \frac{\xi - x}{at} \ \Rightarrow\ \xi = x+at\eta,\ |\vec{\eta}|=1.
+\eta = \frac{\xi - x}{at}
+\ \Rightarrow\ 
+\xi = x+at\eta,\ |\vec{\eta}|=1.
 \]
 В таком случае элемент площади $dS_{\xi}=(at)^2dS_{\eta}$. Во введенном выше интеграле получим 
 \[
-u_g(t,x,\tau)=\frac{(at)^2}{4\pi a^2t}\oiint\limits_{|\eta |=1}g(x+at\eta,\, \tau)\, dS_{\eta}=tJ_g(t,x,\tau ),
+u_g(t,x,\tau) = \frac{(at)^2}{4\pi a^2t}
+\oiint\limits_{|\eta|=1}   g(x+at\eta,\,\tau)\,   dS_{\eta} 
+= t J_g(t,x,\tau),
 \]
-где $\displaystyle J_g(t,x,\tau )= \frac{1}{4\pi}\oiint\limits_{|\eta |=1}g(x+at\eta,\, \tau)\, dS_{\eta}$
+где $\displaystyle J_g(t,x,\tau) = \frac{1}{4\pi}
+\oiint\limits_{|\eta|=1}   g(x+at\eta,\,\tau)\,   dS_{\eta}$
 
 Теперь интеграл уже по фиксированному множеству. Все выкладки справедливы при $t>0$. Функция
 \[
-\overline{g}(t,x,\eta,\tau) = g(x+at\eta,\, \tau)\ \in C\,\{t\geq 0,\ x\in \R^3,\ |\eta | = 1,\ \tau\geq 0\}.
+\tilde{g}(t,x,\eta,\tau) = g(x+at\eta,\, \tau)\ 
+\in C\, \{t \geq 0,\   x\in\R^3,\   |\eta| = 1,\   \tau \geq 0\}.
 \]
-Тогда по теореме из начала билета $J_g(t,x,\tau )\in C\,\{t\geq 0,\ x\in \R^3,\ \tau\geq 0\}.$
+Тогда по теореме из начала билета 
+$J_g(t,x,\tau) \in C\, \{t\geq 0,\   x\in\R^3,\   \tau \geq 0\}.$
 
 Аналогично будет для производных в силу второй части той же теоремы и наличия соответствующих производных у функции $g$.
 
-\item $\lim\limits_{t\rightarrow +0}U_g(t,x,\tau )=\lim\limits_{t\rightarrow +0}tJ_g(t,x,\tau )=\lim\limits_{t\rightarrow +0}t\cdot\lim\limits_{t\rightarrow +0}J_g(t,x,\tau ) = 0$ (последний предел конечен в силу непрерывности).
+\item $\lim\limits_{t\rightarrow +0} U_g(t,x,\tau)
+     = \lim\limits_{t\rightarrow +0} t J_g(t,x,\tau)
+     = \lim\limits_{t\rightarrow +0} t 
+ \cdot \lim\limits_{t\rightarrow +0} J_g(t,x,\tau) = 0$ 
+ (последний предел конечен в силу непрерывности).
 
 Можно записать
 \[
-U_g(t,x,\tau ) = \begin{cases}
-u_g(t,x, \tau ), &t>0\\
-0, &t=0
-\end{cases} \quad \in C\left(\overline{\Omega} \right),
+U_g(t,x,\tau) 
+= \begin{cases}
+    u_g(t,x, \tau), &t>0\\
+    0, &t=0
+  \end{cases} \quad 
+\in C \roundBr{ \overline{\Omega} },
 \]
 где последнее включение означает непрерывные в области и непрерывно продолжимые на границу функции.
 
 \item При $p\geq 1$ запишем следующее:
 \begin{equation*}
 \begin{split}
-&\lim\limits_{t\rightarrow +0}\frac{\partial}{\partial t} u_g(t,x, \tau) 
-=\lim\limits_{t\rightarrow +0}\frac{\partial}{\partial t}\left[tJ_g(t,x,\tau )\right]
-=\lim\limits_{t\rightarrow +0}J_g(t,x,\tau )+\cancelto{0}{\lim\limits_{t\rightarrow +0}t\cdot \frac{\partial}{\partial t}J_g(t,x,\tau )}=\\
-&=J_g(0, x, \tau)
-=\frac{1}{4\pi}\oiint\limits_{|\eta |=1}g(x+at\eta ,\tau)\, dS_{\eta }\Biggr|_{t=0}
-=g(x, \tau )\frac{1}{4\pi}\oiint\limits_{|\eta |=1}dS_{\eta}=g(x,\tau ).
+&\lim\limits_{t\rightarrow +0} \pd{}{t} u_g(t,x, \tau) 
+=\lim\limits_{t\rightarrow +0} \pd{}{t} \squareBr{t J_g(t,x,\tau)}
+=\lim\limits_{t\rightarrow +0} J_g(t,x,\tau)
++\cancelto{0}
+{\lim\limits_{t\rightarrow +0} t \cdot \pd{}{t} J_g(t,x,\tau)} = \\
+%
+&= J_g(0, x, \tau) = \frac{1}{4\pi}
+\oiint\limits_{|\eta|=1}   g(x+at\eta,\tau)\,   dS_{\eta }
+\Biggr|_{t=0}
+= g(x,\tau) \frac{1}{4\pi}
+\oiint\limits_{|\eta|=1}   dS_{\eta}   =   g(x,\tau).
 \end{split}
 \end{equation*}
 \end{enumerate}
 \end{proof}
 
 \imaginarySubsection{Формула Пуассона-Кирхгофа}
+
 Перейдем к решению задачи Коши
 \begin{equation}
 \begin{cases}
-  u_{tt}-a^2\Delta u=0,\quad t>0,\ x\in \R^3\\
-  u|_{t=0}=0\\
-  u_t|_{t=0}=u_1(x)
+  u_{tt} - a^2\Delta u = 0,   \quad t>0,\   x \in \R^3 \\
+   u |_{t=0} = 0   \\
+  u_t|_{t=0} = u_1(x)
 \end{cases}
 \label{eq::5::cauchy}
 \end{equation}
+
 \begin{theorem}[Формула Пуассона-Кирхгофа]
-Пусть $u_1(x)\in C^2(\R^3)$. Тогда 
+Пусть $u_1(x) \in C^2(\R^3)$. Тогда 
 \[
-u(t,x)=\frac{1}{4\pi a^2t} \oiint\limits_{|\xi - x|=at}u_1(\xi )dS_{\xi} \quad \in \: C^2\, \{t\geq 0,\ x\in \R^3 \}
+u(t,x) = \frac{1}{4\pi a^2t}
+\oiint\limits_{|\xi-x|=at}  u_1(\xi)\,  dS_{\xi}   \quad
+\in\: C^2\,   \{t\geq 0,\   x \in \R^3 \}
 \]
 является классическим решением задачи \eqref{eq::5::cauchy}
 \end{theorem}
-\begin{proof}
-В силу леммы имеем $\left. u\right|_{t=0}=0;\ \left. u_t\right|_{t=0}=u_1$.
 
-Т.к. $u_1\in C^2(\R^2),\ u\in C^2\,\{t\geq 0, x\in\R^3\}$, то сделаем замену переменной:
+\begin{proof}
+В силу леммы имеем 
+$u|_{t=0} = 0;\ u_t|_{t=0} = u_1$.
+
+Т.к. $u_1 \in C^2(\R^2),\ u \in C^2\,\{t\geq 0, x\in\R^3\}$, то сделаем замену переменной:
 \[
-u(t, x)=\frac{t}{4\pi}\oiint\limits_{|\eta |=1}u_1(x+at\eta )dS_{\eta}.
+u(t,x) = \frac{t}{4\pi}
+\oiint\limits_{|\eta|=1}  u_1(x+at\eta)\,  dS_{\eta}.
 \]
 Осталось только проверить, что $u$ удовлетворяет уравнению
 \[
-\Delta_xu(x, t)=\frac{t}{4\pi}\oiint\limits_{|\eta |=1}\Delta_{\xi}u_1(x+at\eta )dS_{\eta}=\frac{1}{4\pi a^2t}\oiint\limits_{|\xi - x|=at}\Delta_{\xi}u_1(\xi )dS_{\xi}.
+\Delta_x u(x,t) 
+= \frac{t}{4\pi}
+  \oiint\limits_{|\eta|=1}   \Delta_{\xi} u_1(x+at\eta)\,  dS_{\eta}
+= \frac{1}{4\pi a^2t}
+  \oiint\limits_{|\xi-x|=at}  \Delta_{\xi} u_1(\xi)\,  dS_{\xi}.
 \]
-При $t>0$ (использовано $\vec{n}=\dfrac{\xi - x}{|\xi - x|}=\dfrac{\xi - x}{at}=\eta$)
+При $t>0$ (использовано $\vec{n} 
+     = \dfrac{\xi-x}{|\xi-x|} 
+     = \dfrac{\xi-x}{at}   =  \eta$):
 \begin{equation*}
 \begin{split}
-&u_t(x,t)=\frac{1}{4\pi}\oiint\limits_{|\eta |=1}u_1(x+at\eta )dS_{\eta}+\frac{ta}{4\pi}\oiint\limits_{|\eta |=1}\sum\limits_{k=1}^3 \frac{\partial u_1}{\partial \xi_k}(x+at\eta )\eta_k\cdot dS_{\eta}=\\[0.75em]
-&=\frac{u(x, t)}{t}+\frac{ta}{4\pi}\oiint\limits_{|\eta |=1}\sum\limits_{k=1}^3 \frac{\partial u_1}{\partial \xi_k}(\xi )n_k(\xi )\cdot dS_{\eta}=\frac{u(x, t)}{t}+\frac{1}{4\pi at}\oiint\limits_{|\xi - x |=at}\frac{\partial u_1}{\partial \vec{n}}(\xi )\cdot dS_{\xi}=\frac{u(x, t)}{t} + \frac{1}{4\pi at}I
+%
+&u_t(x,t) = \frac{1}{4\pi}
+\oiint\limits_{|\eta|=1}  u_1(x+at\eta)\,  dS_{\eta}
++\frac{ta}{4\pi}
+\oiint\limits_{|\eta|=1}
+      \sum\limits_{k=1}^3 
+      \pd{u_1}{\xi_k} (x+at\eta) \eta_k 
+      \cdot dS_{\eta} 
+ = \\[0.75em]
+%
+&=\frac{u(x,t)}{t} + \frac{ta}{4\pi}
+\oiint\limits_{|\eta|=1}
+       \sum\limits_{k=1}^3 
+       \pd{u_1}{\xi_k} (\xi)  n_k(\xi)
+       \cdot dS_{\eta}
+%
+=\frac{u(x,t)}{t} + \frac{1}{4\pi at}
+\oiint\limits_{|\xi-x|=at}
+       \pd{u_1}{\vec{n}}(\xi) 
+       \cdot dS_{\xi}
+%
+=\frac{u(x,t)}{t} + \frac{1}{4\pi at} I
+%
 \end{split}
 \end{equation*}
 Заметим, что
 \[
-\iiint\limits_{|\xi - x|<at}\Delta_{\xi}u_1(\xi)\, d\xi =\iiint\limits_{|\xi - x|<at}\div (\nabla u_1)\, d\xi =\oiint\limits_{|\xi - x|=at} (\nabla u_1,\, \vec{n})\, dS_{\xi }=\oiint\limits_{|\xi - x|=at}\frac{\partial u_1}{\partial\vec{n}}\, dS_{\xi }=I
+ \iiint\limits_{|\xi-x|<at}  \Delta_{\xi}  u_1(\xi)\,   d\xi 
+=\iiint\limits_{|\xi-x|<at}    \div  (\nabla u_1)\,     d\xi 
+=\oiint\limits_{|\xi-x|=at}  (\nabla u_1,\, \vec{n})\,  dS_{\xi }
+=\oiint\limits_{|\xi-x|=at}     \pd{u_1}{\vec{n}}\,     dS_{\xi }=I
 \]
 Тогда получим 
 $$
-u_t=\frac{u}{t}+\frac{1}{4\pi at}\iiint\limits_{|\xi - x|<at}\Delta_{\xi}u_1(\xi )d\xi \\
-= \frac{u}{t}+\frac{1}{4\pi at}\int\limits_0^{at} \left[\oiint\limits_{|\xi - x|=\rho}\Delta_{\xi}u_1(\xi )dS_{\xi}\right]d\rho \\
-= \frac{u}{t}+\frac{1}{4\pi at}\int\limits_0^{at}\phi (\rho )d\rho
+u_t = \frac{u}{t} + \frac{1}{4\pi at}
+ \iiint\limits_{|\xi-x|<at}  \Delta_{\xi}  u_1(\xi)\,   d\xi \\
+%
+=\frac{u}{t} + \frac{1}{4\pi at}
+\int\limits_0^{at} 
+  \left[
+    \oiint\limits_{|\xi-x|=\rho}  \Delta_{\xi} u_1(\xi)\,  dS_{\xi}
+  \right] d\rho \\
+%
+=\frac{u}{t} + \frac{1}{4\pi at}
+\int\limits_0^{at}  \phi(\rho)\,  d\rho
 $$
 
 \begin{equation*}
 \begin{split}
-&u_{tt}(x, t)=\frac{\partial}{\partial t}\left[\frac{u}{t}+\frac{I}{4\pi at} \right]=\frac{u_t}{t}-\frac{u}{t^2}-\frac{I}{4\pi at^2}+\frac{I_t}{4\pi at}=\frac{u}{t\cdot t}+\frac{I}{4\pi at^2}-\frac{u}{t^2}-\frac{I}{4\pi at^2}+\frac{I_t}{4\pi at}=\\
-&=\frac{I_t}{4\pi at}=\frac{1}{4\pi at}\frac{\partial}{\partial t}\int\limits_0^{at}\phi (\rho )d\rho = \frac{1}{4\pi at}a\phi(at)=\frac{1}{4\pi t}\oiint\limits_{|\xi - x|=at}\Delta_{\xi}u_1(\xi )dS_{\xi}.
+&u_{tt}(x,t) = \pd{}{t}
+  \left[
+    \frac{u}{t} + \frac{I}{4\pi at} 
+  \right]
+= \frac{u_t}{t} - \frac{u}{t^2}
+  - \frac{I}{4\pi at^2} + \frac{I_t}{4\pi at} 
+= \frac{u}{t \cdot t} + \frac{I}{4\pi at^2}
+  - \frac{u}{t^2} - \frac{I}{4\pi at^2} 
+  + \frac{I_t}{4\pi at} = \\
+%
+&=\frac{I_t}{4\pi at} 
+= \frac{1}{4\pi at} \pd{}{t}
+  \int\limits_0^{at}  \phi(\rho)\,  d\rho 
+= \frac{1}{4\pi at} a \phi(at)
+= \frac{1}{4\pi t}
+  \oiint\limits_{|\xi-x|=at}  \Delta_{\xi}  u_1(\xi)\,  dS_{\xi}.
 \end{split}
 \end{equation*}
+%
 Итак, $u(x, t)$ - классическое решение.
 \end{proof}
 
@@ -136,29 +236,51 @@ $$
 \label{eq::5::cauchy2}
 \end{equation}
 
-Введем $v(t, x)$:
+Введем $v(t,x)$:
 \[
 \begin{cases}
-  v_{tt}-a^2\Delta v=0,\quad t>0,\ x\in \R^3 \\
-  v|_{t=0}=0\\ 
-  v_t|_{t=0}=u_0(x)
+  v_{tt} - a^2 \Delta v=0,  \quad t>0,\ x\in \R^3 \\
+  v  |_{t=0} = 0 \\ 
+  v_t|_{t=0} = u_0(x)
 \end{cases}
 \]
-Эту задачу мы уже решили. Так как $u_0\in C^3(\R^3)$, имеем $v\in C^3\,\{t\geq 0,\ x\in\R^3\}$.
+
+Эту задачу мы уже решили. Так как $u_0\in C^3(\R^3)$, 
+имеем $v\in C^3\, \{t\geq 0,\  x\in\R^3\}$.
+
 \begin{statement}
-$u(x, t)\equiv v_t(x, t)\in C^2\,\{t\geq 0,\ x\in\R^3 \}$ дает решение задачи \eqref{eq::5::cauchy2}.
+$u(x,t) \equiv v_t(x, t) \in C^2\, \{t\geq 0,\  x\in\R^3 \}$ 
+дает решение задачи \eqref{eq::5::cauchy2}.
 \end{statement}
+
 \begin{proof}$\ $
 \begin{enumerate}
-\item $u_{tt} - a^2 \Delta u = \partial_t (v_{tt} - a^2 \Delta v) = \partial_t\: 0 = 0$
-%$v_{tt}-a^2\Delta v=0 \Rightarrow v_{ttt}-a^2(\Delta v)_t=0\Rightarrow (v_t)_{tt}-a^2\Delta (v_t)=0\Rightarrow u_{tt}-a^2\Delta u=0$
-\item $\left. u\right|_{t=0}=\left. v_t\right|_{t=0}=u_0(x)$
-\item $\while{u_t}{t=0} = \while{v_{tt}}{t=0}=\while{a^2 \Delta v}{t=0}=0$ (на гиперплоскости $t=0\colon\ \while{v}{t=0} \equiv 0\ \Rightarrow\ \while{\pd{v}{x_i}}{t=0} \equiv 0\ \Rightarrow\ \while{\pdd{v}{x_i}}{t=0} \equiv 0.\;$ При этом $v_t$ может быть ненулевой.)
+
+\item  $u_{tt} - a^2 \Delta u 
+= \partial_t (v_{tt} - a^2 \Delta v) 
+= \partial_t\: 0 
+= 0$
+
+\item $ u|_{t=0} = v_t|_{t=0} = u_0(x) $
+
+\item $u_t|_{t=0} = v_{tt}|_{t=0} = a^2 \Delta v |_{t=0} = 0$ 
+%
+(на гиперплоскости  $t=0  \colon\ 
+                 v|_{t=0} \equiv 0\ \Rightarrow\ 
+ \while{\pd{v}{x_i}}{t=0} \equiv 0\ \Rightarrow\ 
+\while{\pdd{v}{x_i}}{t=0} \equiv 0. $ 
+\; При этом $v_t$ может быть ненулевой.)
+
 \end{enumerate}
 \end{proof}
+
 Мы доказали следующую теорему:
 \begin{theorem}
-Функция $u(t,x)=\dfrac{\partial}{\partial t}\left[\dfrac{1}{4\pi a^2t}\displaystyle\oiint\limits_{|\xi -x|=at}u_0(\xi )dS_{\xi } \right],\ t\geq 0,\ x\in\R^3$, где $u_0\in C^3(\R^3)$, \\[1em]
+Функция $u(t,x) = \pd{}{t}
+  \left[
+    \dfrac{1}{4\pi a^2t}\displaystyle\oiint\limits_{|\xi-x|=at}  u_0(\xi)\,  dS_{\xi } 
+  \right],\ 
+t \geq 0,\   x\in\R^3$,  где $u_0 \in C^3(\R^3)$, \\[1em]
 является классическим решением задачи \eqref{eq::5::cauchy2}. 
 \end{theorem}
 
