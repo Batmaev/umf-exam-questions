@@ -15,6 +15,7 @@
 \usepackage{cancel}       % чтобы зачёркивать члены в формулах
 \usepackage{mathtools}
 \usepackage{amssymb}
+\usepackage{mleftright}   % Аналоги \left( \right) без странных отступов
 \usepackage{tikz}         % LaTeX как графический редактор
 \usetikzlibrary{patterns}
 \definecolor{DarkBlue}{RGB}{12, 12, 171}
@@ -78,12 +79,12 @@
 
 
 
-\newcommand{\while}[2]{\left. #1\right|_{#2}}
+\newcommand{\while}[2]{\mleft. #1\mright|_{#2}}
 
-\newcommand{\roundBr}[1]{\left(#1\right)}
-\newcommand{\squareBr}[1]{\left[#1\right]}
-\newcommand{\curlyBr}[1]{\left\{#1\right\}}
-\newcommand{\angleBr}[1]{\left\langle #1 \right\rangle}
+\newcommand{\roundBr}[1]{\mleft(#1\mright)}
+\newcommand{\squareBr}[1]{\mleft[#1\mright]}
+\newcommand{\curlyBr}[1]{\mleft\{#1\mright\}}
+\newcommand{\angleBr}[1]{\mleft\langle #1 \mright\rangle}
 
 
 
