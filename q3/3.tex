@@ -3,7 +3,7 @@
   
 \section[Задача Коши для колебаний струны]{Задача Коши для уравнения колебаний струны. Формула Даламбера. Область зависимости решения от начальных данных. Существование и единственность классического решения. Корректность постановки задачи.}
 % Затехал: Рязанов Андрей
-\textbullet\ Задача: \quad $\begin{cases} u_{tt}-a^2u_{xx} = 0\\ \while{u(t,x)}{t=0} = u_0(x)\\ \while{u_t}{t=0} = u_1(x)\end{cases}\quad -l<x<l$
+\textbullet\ Задача: \quad $\begin{cases} u_{tt}-a^2u_{xx} = 0\\ \eval{u(t,x)}_{t=0} = u_0(x)\\ \eval{u_t}_{t=0} = u_1(x)\end{cases}\quad -l<x<l$
 \vspace{0.5em}
 
 Что понимать под решением задачи?
@@ -24,8 +24,8 @@ $\begin{cases} \xi = x+at \\ \eta = x-at \end{cases} \Leftarrow \begin{cases} x+
 \textbullet\ Решим ЗК (поверхности нигде не касаются характеристик -- задача должна быть корректной):
 \begin{equation*}
 \begin{aligned}
-&\while{u}{t=0} = f(x) + g(x) = u_0(x), \quad &-l < x< l&\\
-&\while{u_t}{t=0} =  af'(x) - ag'(x) = u_1(x), \quad &-l < x < l& \quad \Rightarrow\ f(x) - g(x) = \frac1{a}\int _{-l}^xu_1(z)dz + C = \frac1{a}V_1(x)
+&\eval{u}_{t=0} = f(x) + g(x) = u_0(x), \quad &-l < x< l&\\
+&\eval{u_t}_{t=0} =  af'(x) - ag'(x) = u_1(x), \quad &-l < x < l& \quad \Rightarrow\ f(x) - g(x) = \frac1{a}\int _{-l}^xu_1(z)dz + C = \frac1{a}V_1(x)
 \end{aligned}
 \end{equation*}
 \begin{center}
@@ -85,18 +85,18 @@ $\begin{cases} -l<x+at<l \\ -l<x-at<l\end{cases}$ -- {\bf характерист
 \begin{cases} 
   \overset{\text{\tiny{1}}}{u}_{tt}-a^2\overset{\text{\tiny{1}}}{u}_{xx} = 0, &(t,x)\in Q\\
 
-  \overset{\text{\tiny{1}}}{u}\bigr|_{t=0} = \overset{\text{\tiny{1}}}{u}_0(x), &\abs{x}<l\\ 
+  \overset{\text{\tiny{1}}}{u}\bigr|_{t=0} = \overset{\text{\tiny{1}}}{u}_0(x), &\abs*{x}<l\\ 
   
-  \overset{\text{\tiny{1}}}{u}_t\bigr|_{t=0} = \overset{\text{\tiny{1}}}{u}_1(x), &\abs{x}<l\end{cases} \qquad
+  \overset{\text{\tiny{1}}}{u}_t\bigr|_{t=0} = \overset{\text{\tiny{1}}}{u}_1(x), &\abs*{x}<l\end{cases} \qquad
 \begin{cases} 
   \overset{\text{\tiny{2}}}{u}_{tt}-a^2\overset{\text{\tiny{2}}}{u}_{xx} = 0, &(t,x)\in Q\\
 
-  \overset{\text{\tiny{2}}}{u}\bigr|_{t=0} = \overset{\text{\tiny{2}}}{u}_0(x), &\abs{x}<l\\
+  \overset{\text{\tiny{2}}}{u}\bigr|_{t=0} = \overset{\text{\tiny{2}}}{u}_0(x), &\abs*{x}<l\\
 
-  \overset{\text{\tiny{2}}}{u}_t\bigr|_{t=0} = \overset{\text{\tiny{2}}}{u}_1(x), &\abs{x}<l
+  \overset{\text{\tiny{2}}}{u}_t\bigr|_{t=0} = \overset{\text{\tiny{2}}}{u}_1(x), &\abs*{x}<l
 \end{cases}
 \]
-Пусть $\abs{\overset{\text{\tiny{1}}}{u}_0 - \overset{\text{\tiny{2}}}{u}_0}<\delta_0,\ \abs{\overset{\text{\tiny{1}}}{u}_1 - \overset{\text{\tiny{2}}}{u}_1}<\delta_1 \;\Forall x\colon \abs{x}<l.$ \quad Введем 
+Пусть $\abs*{\overset{\text{\tiny{1}}}{u}_0 - \overset{\text{\tiny{2}}}{u}_0}<\delta_0,\ \abs*{\overset{\text{\tiny{1}}}{u}_1 - \overset{\text{\tiny{2}}}{u}_1}<\delta_1 \;\Forall x\colon \abs*{x}<l.$ \quad Введем 
 $\begin{cases}
 v_0 = \overset{\text{\tiny{1}}}{u}_0 - \overset{\text{\tiny{2}}}{u}_0 \\
 v_1 = \overset{\text{\tiny{1}}}{u}_1 - \overset{\text{\tiny{2}}}{u}_1 \\
@@ -107,20 +107,20 @@ v = \overset{\text{\tiny{1}}}{u} - \overset{\text{\tiny{2}}}{u}
 v_{tt}-a^2v_{xx} = 0, \qquad (t,x) \in Q\\
 
 \begin{aligned}
-\while{v}{t=0}\; = v_0(x),\quad &\abs{x}<l,\ \abs{v_0}<\delta_0\\
+\eval{v}_{t=0}\; = v_0(x),\quad &\abs*{x}<l,\ \abs*{v_0}<\delta_0\\
 
-\while{v_t}{t=0} = v_1(x),\quad &\abs{x}<l,\ \abs{v_1}<\delta_1
+\eval{v_t}_{t=0} = v_1(x),\quad &\abs*{x}<l,\ \abs*{v_1}<\delta_1
 \end{aligned}
 
 \end{cases}$
 \vspace{0.2em}
 
 Согласно формуле Даламбера,
-$$\abs{v(t,x)} = \abs{\dfrac{v_0(x+at) + v_0(x-at)}{2} + \dfrac1{2a}\int\limits_{x-at}^{x+at}v_1(y)dy} \leq \delta_0 + \delta_1t \;\; \Forall (t,x) \in Q$$
+$$\abs*{v(t,x)} = \abs*{\dfrac{v_0(x+at) + v_0(x-at)}{2} + \dfrac1{2a}\int\limits_{x-at}^{x+at}v_1(y)dy} \leq \delta_0 + \delta_1t \;\; \Forall (t,x) \in Q$$
 
 \begin{itemize}
 \item[--] Если $l$ конечно, то $t\le \dfrac{l}{a}$ из вида четырёхугольника $Q$. Устремляя $\delta_0,\, \delta_1 \to 0$, \\
-получим $\abs{v}\to 0$.
+получим $\abs*{v}\to 0$.
 \item[--] Если $l=\infty$: в любой конечной полосе $t\le T< \infty$ требуемое верно. \\
 Так заметаем всю плоскость.
 

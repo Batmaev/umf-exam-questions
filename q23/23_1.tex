@@ -29,20 +29,20 @@ y_3 = r \cos \theta
 
 Тогда $\hat u^*(r, \theta, \phi) = \frac{R}{r}\hat u(\frac{R^2}{r}, \theta, \phi)$:
 $$
-\widehat{\Delta_y u^*}(r, \theta, \phi) = \squareBr{\frac{1}{r}\pdd{}{r}(r\hat u^*(r, \theta, \phi)) + \frac{1}{r}\underbrace{\Delta'_{\theta, \phi}}_{\substack{\text{оп-р Лапласа}\\\text{-Бельтрани}}}\hat u^*(r, \theta, \phi)} = \frac{R}{r} \pdd{}{r}\squareBr{\hat u(\underbrace{\frac{R^2}{r}}_{\rho}, \theta, \phi)} + \frac{R}{r^3}\Delta'_{\theta, \phi} \hat u(\underbrace{\frac{R^2}{r}}_{\rho}, \theta, \phi)
+\widehat{\Delta_y u^*}(r, \theta, \phi) = \brk[s]*{\frac{1}{r}\pdd{}{r}(r\hat u^*(r, \theta, \phi)) + \frac{1}{r}\underbrace{\Delta'_{\theta, \phi}}_{\substack{\text{оп-р Лапласа}\\\text{-Бельтрани}}}\hat u^*(r, \theta, \phi)} = \frac{R}{r} \pdd{}{r}\brk[s]*{\hat u(\underbrace{\frac{R^2}{r}}_{\rho}, \theta, \phi)} + \frac{R}{r^3}\Delta'_{\theta, \phi} \hat u(\underbrace{\frac{R^2}{r}}_{\rho}, \theta, \phi)
 $$
 
 Вспомогательная выкладка:
 
 \begin{align*}
     & \pd{}{r} \hat u(\rho, \theta, \phi) = \pd{\hat u}{\rho}\pd{\rho}{r} = -\frac{\rho^2}{R^2}\pd{}{\rho} \hat u(\rho, \theta, \phi) \\
-    & \pd{}{r} \hat u(\rho, \theta, \phi) = \pd{}{r} \squareBr{-\frac{\rho^2}{R^2}\pd{}{\rho}\hat u(\rho, \theta, \phi)} =
-    \frac{\rho^2}{R^4} \pd{}{\rho}\squareBr{\rho^2 \pd{}{\rho}\hat u(\rho, \theta, \phi)}
+    & \pd{}{r} \hat u(\rho, \theta, \phi) = \pd{}{r} \brk[s]*{-\frac{\rho^2}{R^2}\pd{}{\rho}\hat u(\rho, \theta, \phi)} =
+    \frac{\rho^2}{R^4} \pd{}{\rho}\brk[s]*{\rho^2 \pd{}{\rho}\hat u(\rho, \theta, \phi)}
 \end{align*}
 
 С учетом выкладки имеем:
 $$
-\widehat{\Delta_y u^*}(r, \theta, \phi) = \frac{\rho^3}{R^5}\pd{}{\rho} \squareBr{\rho^2 \pd{}{\rho}\hat u(\rho, \theta, \phi)} +
+\widehat{\Delta_y u^*}(r, \theta, \phi) = \frac{\rho^3}{R^5}\pd{}{\rho} \brk[s]*{\rho^2 \pd{}{\rho}\hat u(\rho, \theta, \phi)} +
 \frac{\rho^3}{R^5}\Delta'_{\theta, \phi}\hat u(\rho, \theta, \phi)=\frac{\rho^5}{R^5} \Delta_x \hat u(\rho, \theta, \phi) = 0
 $$
 

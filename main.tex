@@ -15,7 +15,6 @@
 \usepackage{cancel}       % чтобы зачёркивать члены в формулах
 \usepackage{mathtools}
 \usepackage{amssymb}
-\usepackage{mleftright}   % Аналоги \left( \right) без странных отступов
 \usepackage{tikz}         % LaTeX как графический редактор
 \usetikzlibrary{patterns}
 \definecolor{DarkBlue}{RGB}{12, 12, 171}
@@ -24,6 +23,8 @@
 \usepackage{titlesec}     % Слово "Билет" перед номерами sections
 \usepackage{cmll}         % Используется в одном месте в 14 билете
 \usepackage{varwidth}     % Чтобы сделать minipage со списком авторов
+\usepackage{delimset}     % \brk и \eval - скобки переменного размера, 
+                              % которые используются по всему документу
 \usepackage[inline]{enumitem}
 \makeatletter
 \AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
@@ -79,19 +80,6 @@
 
 
 
-\newcommand{\while}[2]{\mleft. #1 \vphantom{\bigr|}\mright|_{#2}}
-% \while{u}{t = 0}    ---->    u|_{t=0}
-% Высота образующейся вертикальной палочки 
-% равна max(height(#1), height(\bigr|)) 
-
-
-\newcommand{\roundBr} [1]{\mleft( #1 \mright)}
-\newcommand{\squareBr}[1]{\mleft[ #1 \mright]}
-\newcommand{\curlyBr}[1]{\mleft\{ #1 \mright\}}
-\newcommand{\angleBr}[1]{\mleft\langle #1 \mright\rangle}
-
-
-
 % в выражении вида e^\frac дробь получается слишком мелкой, 
 % в e^\dfrac - слишком большой, а в e^\tfrac - идеальной.
 % однако в выражениях вида e^{-\tfrac} знак '-' и дробная черта находятся на разной высоте.
@@ -142,26 +130,16 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 
+
 \newcommand{\Forall}{\;\;\forall\:}
 \newcommand{\Exists}{\;\;\exists\:}
+
 
 \DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\sign}{sign}
 \renewcommand{\div}{\operatorname{div}}
-
-
-% \abs and \norm
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
-\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
-\makeatletter
-\let\oldabs\abs
-\def\abs{\@ifstar{\oldabs}{\oldabs*}}
-%
-\let\oldnorm\norm
-\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
-\makeatother
 
 
 \newcommand*{\centercell}[1]{{}& \omit \hfil$\displaystyle#1$\hfil \ignorespaces}

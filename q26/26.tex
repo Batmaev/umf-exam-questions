@@ -12,15 +12,15 @@ $$v(x) = \lambda \int_{G}K'(x,y)v(y)dy + g(x), \; x \in \overline{G}, K'(x,y) = 
 $$K(x,y) = \sum_{i = i}^{N}a_{i}(x)b_{i}(y), \; a_{i},b_{i} \in C(\overline{G})$$
 \end{definition}
 
-Будем считать что $\curlyBr{a_{1}...a_{n}}$ и $\curlyBr{b_{1}...b_{n}}$ -- линейно независимые наборы (если это не так, то уменьшим $N$). Будем теперь рассматривать уравнение
-$$u(x) = \lambda \int_{G}\squareBr{\sum_{i = 1}^{N}a_{i}(x)b_{i}(y)}u(y)dy + f(x), \; x \in \overline{G} \eqno(2)$$
+Будем считать что $\brk[c]*{a_{1}...a_{n}}$ и $\brk[c]*{b_{1}...b_{n}}$ -- линейно независимые наборы (если это не так, то уменьшим $N$). Будем теперь рассматривать уравнение
+$$u(x) = \lambda \int_{G}\brk[s]*{\sum_{i = 1}^{N}a_{i}(x)b_{i}(y)}u(y)dy + f(x), \; x \in \overline{G} \eqno(2)$$
 \begin{itemize}
-  \item Введем в $C(\overline{G})$ билинейную форму $\angleBr{u;v} = \int_{G}u(x)v(x)dx \Forall u,v \in C(\overline{G})$
+  \item Введем в $C(\overline{G})$ билинейную форму $\brk[a]*{u;v} = \int_{G}u(x)v(x)dx \Forall u,v \in C(\overline{G})$
   \item Введем также следующие обозначения:
   \begin{itemize}
-    \item $\mu_{ij} = \angleBr{b_{i}; a_{j}}; \; A = \norm{\mu_{ij}}_{i,j}^{N}$
-    \item $\varphi_{i} = \angleBr{b_{i}; f}; \; \vec{\varphi} = \norm{\varphi_{1}...\varphi_{N}}^{T}$
-    \item $c_{i} = \angleBr{b_{i}; u}; \; \vec{c} = \norm{c_{1}...c_{N}}^{T} \; (3)$
+    \item $\mu_{ij} = \brk[a]*{b_{i}; a_{j}}; \; A = \norm*{\mu_{ij}}_{i,j}^{N}$
+    \item $\varphi_{i} = \brk[a]*{b_{i}; f}; \; \vec{\varphi} = \norm*{\varphi_{1}...\varphi_{N}}^{T}$
+    \item $c_{i} = \brk[a]*{b_{i}; u}; \; \vec{c} = \norm*{c_{1}...c_{N}}^{T} \; (3)$
   \end{itemize}
   \item
     \begin{lemma}[об эквивалентности]
@@ -29,15 +29,15 @@ $$u(x) = \lambda \int_{G}\squareBr{\sum_{i = 1}^{N}a_{i}(x)b_{i}(y)}u(y)dy + f(x
     \begin{proof}
       \begin{enumerate}
         \item Пусть $u(x)$ решение интегрального уравнения. Тогда
-      $$u(x) = \lambda \int_{G}\squareBr{\sum_{i = i}^{N}a_{i}(x)b_{i}(y)}u(y)dy + f(x) = \lambda \sum_{i = 1}^{N}a_{i}(x)c_{i} + f(x)$$
+      $$u(x) = \lambda \int_{G}\brk[s]*{\sum_{i = i}^{N}a_{i}(x)b_{i}(y)}u(y)dy + f(x) = \lambda \sum_{i = 1}^{N}a_{i}(x)c_{i} + f(x)$$
       Домножим на $b_{i}$ и проинтегрируем по $G$:
       $$c_{i} = \lambda \sum_{j = 1}^{N} \mu_{ij}c_{j} + \varphi_{i} \Longleftrightarrow \vec{c} = \lambda A \vec{c} + \vec{\varphi}$$
       \item Обратно, если $c_{i} = \lambda \sum_{j = 1}^{N} \mu_{ij}c_{j} + \varphi_{i}, \; i = \overline{1,N}$ то рассмотрим $u_{*}(x) = \lambda \sum_{i = 1}^{N}a_{i}(x)c_{i} + f(x)$. Подставим в уравнение:
       $$u_{*} - \lambda \int_{G}K(x,y)u_{*}(y)dy - f(x) =$$
-      $$= u_{*} - \lambda \int_{G}\squareBr{\sum_{i = 1}^{N}a_{i}(x)b_{i}(y)}u_{*}(y)dy - f(x) =$$
-      $$ = \lambda \sum_{j = 1}^{N}a_{j}(x)\squareBr{c_{j} - \int_{G}b_{j}(y)u_{*}(y)dy} =$$
-      $$= \lambda \sum_{j = 1}^{N}a_{j}(x)\squareBr{c_{j} - \lambda\sum_{i = 1}^{N}c_{i} \underbrace{\int_{G}b_{j}(y)a_{i}(y)dy}_{\mu_{ji}} - \underbrace{\int_{G}b_{j}(y)f(y)dy}_{\varphi_{i}}} =$$
-      $$ = \lambda \sum_{j = 1}^{N}a_{j}(x)\underbrace{\squareBr{c_{j} - \lambda\sum_{i=1}^{N}\mu_{ji}c_{i} - \varphi_{j}}}_{0}$$
+      $$= u_{*} - \lambda \int_{G}\brk[s]*{\sum_{i = 1}^{N}a_{i}(x)b_{i}(y)}u_{*}(y)dy - f(x) =$$
+      $$ = \lambda \sum_{j = 1}^{N}a_{j}(x)\brk[s]*{c_{j} - \int_{G}b_{j}(y)u_{*}(y)dy} =$$
+      $$= \lambda \sum_{j = 1}^{N}a_{j}(x)\brk[s]*{c_{j} - \lambda\sum_{i = 1}^{N}c_{i} \underbrace{\int_{G}b_{j}(y)a_{i}(y)dy}_{\mu_{ji}} - \underbrace{\int_{G}b_{j}(y)f(y)dy}_{\varphi_{i}}} =$$
+      $$ = \lambda \sum_{j = 1}^{N}a_{j}(x)\underbrace{\brk[s]*{c_{j} - \lambda\sum_{i=1}^{N}\mu_{ji}c_{i} - \varphi_{j}}}_{0}$$
       \end{enumerate}
     \end{proof}
 \end{itemize}
@@ -58,7 +58,7 @@ $$u(x) = \lambda \int_{G}\squareBr{\sum_{i = 1}^{N}a_{i}(x)b_{i}(y)}u(y)dy + f(x
 Пусть $m = N - r > 0$. Тогда базис в пространстве решений $(E - \lambda A)\vec{c}$ обозначим как $\vec{c}_{1}..\vec{c}_{n}$ а базис в пространстве решений $(E - \lambda A^{t})\vec{d}=0$ обозначим как $\vec{d}_{1}..\vec{d}_{n}$. Соответствующие им решения обозначим $u_{1}..u_{m}$ и $v_{1}..v_{m}$ соответственно $(u_{k}(x) = \lambda \sum_{j = 1}^{N}a_{j}(x)c_{j,k}, \; v_{k}(x) = \lambda \sum_{j = 1}^{N}b_{j}(x)d_{j,k})$.
 
 Покажем что $u_{1}..u_{n}$ базис решения однородного уравнения. Пусть
-$$\sum_{i=1}^{m}\alpha_{i}u_{i} = 0 \Longleftrightarrow \sum_{i=1}^{m}\alpha_{i}\squareBr{\lambda\sum_{j=1}^{n}a_{j}(x)c_{j,i}} = 0 \Longleftrightarrow \sum_{i=0}^{m}\alpha_{i}c_{i,j} = 0 \Longleftrightarrow \sum_{i=0}^{m}\alpha_{i}\vec{c}_{i} = 0$$
+$$\sum_{i=1}^{m}\alpha_{i}u_{i} = 0 \Longleftrightarrow \sum_{i=1}^{m}\alpha_{i}\brk[s]*{\lambda\sum_{j=1}^{n}a_{j}(x)c_{j,i}} = 0 \Longleftrightarrow \sum_{i=0}^{m}\alpha_{i}c_{i,j} = 0 \Longleftrightarrow \sum_{i=0}^{m}\alpha_{i}\vec{c}_{i} = 0$$
 Значит система $u_{1}..u_{m}$ -- линейно независима.
 
 \begin{definition}[Собственные функции и собственные числа оператора $K$]
@@ -76,7 +76,7 @@ $$u(x) = \lambda \int_{G}K(x,y)u(y)dy, \; x \in C(\overline{G})$$
 
 Рассмотрим систему $(E - \lambda A)\vec{c} = \vec{\varphi}$.
 По теореме Фредгольма эта система совместна тогда и только тогда, когда каждое решение сопряженной однородной системы $(E - \lambda A^{T})\vec{d} = \vec{0}$ ортогонально $\vec{\varphi}$:
-$$\angleBr{\vec{\varphi}; \vec{d}} = 0 \Longleftrightarrow \sum_{j=1}^{N}\varphi_{j}d_{j} = 0 \Longleftrightarrow \int_{G}f(y)\squareBr{\sum_{j = 1}^{N}b_{j}(y)d_{j}}dy = 0 \Longleftrightarrow \int_{G}f(y)v(y)dy = 0$$
+$$\brk[a]*{\vec{\varphi}; \vec{d}} = 0 \Longleftrightarrow \sum_{j=1}^{N}\varphi_{j}d_{j} = 0 \Longleftrightarrow \int_{G}f(y)\brk[s]*{\sum_{j = 1}^{N}b_{j}(y)d_{j}}dy = 0 \Longleftrightarrow \int_{G}f(y)v(y)dy = 0$$
 
 Получили что интегральное уравнение с вырожденным ядром совместно тогда и только тогда, когда $f$ ортогонально каждому решению однородного союзного уравнения.
 

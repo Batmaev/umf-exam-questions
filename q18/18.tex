@@ -45,7 +45,7 @@ $\forall x_0\in\Omega\Exists r > 0: \overline{B(x_0, r)}\subset\Omega.$
 Рассмотрим решение $$v(x) = \frac{1}{4\pi R}\oint\limits_{|y|=r}\frac{r^2-|x|^2}{|y-x|^3}u(y)dS_y $$ 
 $$\text{для задачи} \begin{cases}
 \Delta u(x) = 0, |x| < r \\
-\while{v}{|x| = r} = \while{u}{|x| = r}
+\eval{v}_{|x| = r} = \eval{u}_{|x| = r}
 \end{cases} $$
 Введем $w(x) = u(x) - v(x)$, $w(x) \in C(|x| \leq r)$, получим что $w(x)$ удовлетворяет свойству среднего. Тогда по принципу максимума (для функции, удовлетворяющей свойству среднего, будет доказан в следующем билете) $|w(x)| \leq \max\limits_{|y-x| = r}|w(y)| = 0  \Rightarrow u(x) = v(x) \Forall x\colon |x| < r$
 \end{proof}

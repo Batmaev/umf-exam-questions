@@ -75,12 +75,12 @@ u_0(x) = \begin{cases}
 \end{equation*}
 есть однопарметрическая группа преобразований, $z = \dfrac{x}{\sqrt{t}} $ --- инвариант группы.
 \end{example}
-Найдём автомодельное решение $u(t, x) = f\roundBr{\dfrac{x}{\sqrt{t}}} = f(z)$. \\
+Найдём автомодельное решение $u(t, x) = f\brk*{\dfrac{x}{\sqrt{t}}} = f(z)$. \\
 В этом случае:
 \begin{equation*}
-	u_t = f'\roundBr{\dfrac{x}{\sqrt{t}}} \cdot \roundBr{\frac{-x}{2t^{3/2}}} 
-	\qquad u_x = f'\roundBr{\frac{x}{\sqrt{t}}} \cdot \frac{1}{\sqrt{t}} 
-	\qquad u_{xx} = f''\roundBr{\frac{x}{\sqrt{t}}} \cdot \frac{1}{t}
+	u_t = f'\brk*{\dfrac{x}{\sqrt{t}}} \cdot \brk*{\frac{-x}{2t^{3/2}}} 
+	\qquad u_x = f'\brk*{\frac{x}{\sqrt{t}}} \cdot \frac{1}{\sqrt{t}} 
+	\qquad u_{xx} = f''\brk*{\frac{x}{\sqrt{t}}} \cdot \frac{1}{t}
 \end{equation*}
 
 Подставляем в уравнение:
@@ -106,7 +106,7 @@ u_0(x) = \begin{cases}
 \end{equation*}
 Тогда:
 \begin{equation*}
-	u(t, x) = f\roundBr{\frac{x}{\sqrt{t}}} = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{\frac{x}{\sqrt{4 t a^2}}} e^{-\mu^2}\, d \mu = \frac{1}{2}\squareBr{1 + \erf\roundBr{\frac{x}{\sqrt{4 a^2 t}}}}
+	u(t, x) = f\brk*{\frac{x}{\sqrt{t}}} = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{\frac{x}{\sqrt{4 t a^2}}} e^{-\mu^2}\, d \mu = \frac{1}{2}\brk[s]*{1 + \erf\brk*{\frac{x}{\sqrt{4 a^2 t}}}}
 \end{equation*}
 \begin{enumerate}
 \item Мы рассмотрели модельную задачу
@@ -114,21 +114,21 @@ u_0(x) = \begin{cases}
 \includegraphics[height=0.11\textwidth]{./pic 9_1.pdf}
 \end{center}
 \item Увеличим ступеньку в $u_*$ раз и сдвинем
-$$u(t,x) = \frac{u_*}{2}\squareBr{1+\erf \roundBr{\frac{x-x_0}{\sqrt{4a^2t}}}}$$
+$$u(t,x) = \frac{u_*}{2}\brk[s]*{1+\erf \brk*{\frac{x-x_0}{\sqrt{4a^2t}}}}$$
 \item Можем получить и решение для ступеньки конечной ширины:
-$$u(t,x) = \frac{u_*}{2}\squareBr{\erf \roundBr{\frac{x-x_1}{\sqrt{4a^2t}}}-\erf \roundBr{\frac{x-x_2}{\sqrt{4a^2t}}}}$$
+$$u(t,x) = \frac{u_*}{2}\brk[s]*{\erf \brk*{\frac{x-x_1}{\sqrt{4a^2t}}}-\erf \brk*{\frac{x-x_2}{\sqrt{4a^2t}}}}$$
 \item Для системы из $N$ интервалов имеем:
 \begin{center}
 \includegraphics[height=0.125\textwidth]{./pic 9_2.pdf}
 \end{center}
-$$u(t,x) = \sum_{k=1}^{N}\frac{u_{*k}}{2}\squareBr{\erf \roundBr{\frac{x-x_{1k}}{\sqrt{4a^2t}}}-\erf \roundBr{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}$$
+$$u(t,x) = \sum_{k=1}^{N}\frac{u_{*k}}{2}\brk[s]*{\erf \brk*{\frac{x-x_{1k}}{\sqrt{4a^2t}}}-\erf \brk*{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}$$
 
 Последнее можно переписать в следующем виде:
-$$u(t,x) = \sum_{k=1}^{N}\squareBr{\frac{\curlyBr{-\frac{1}{2}\erf \roundBr{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}-\curlyBr{-\frac{1}{2}\erf \roundBr{\frac{x-x_{1k}}{\sqrt{4a^2t}}}}}{x_{2k}-x_{1k}}}u_{*k} \cdot (x_{2k} - x_{1k})$$
+$$u(t,x) = \sum_{k=1}^{N}\brk[s]*{\frac{\brk[c]*{-\frac{1}{2}\erf \brk*{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}-\brk[c]*{-\frac{1}{2}\erf \brk*{\frac{x-x_{1k}}{\sqrt{4a^2t}}}}}{x_{2k}-x_{1k}}}u_{*k} \cdot (x_{2k} - x_{1k})$$
 \item Окончательно, пусть $u_0(x)$ финитна, непрерывна, ограничена. Разбиваем ее носитель $\supp u_0(x)$ на отрезки, аппроксимируем кусочно постоянной. Для приближенных решений справедливо:
 \begin{align*}
-u(t,x) &= \squareBr{
-		\Psi (t,x, \xi) = -\frac{1}{2} \erf\roundBr{\frac{x - \xi}{\sqrt{4a^2t}}}
+u(t,x) &= \brk[s]*{
+		\Psi (t,x, \xi) = -\frac{1}{2} \erf\brk*{\frac{x - \xi}{\sqrt{4a^2t}}}
 		,\quad \xi_k = \frac{x_{2k} - x_{1k}}{2}
 	} = \\[0.7em] 
 & = \sum_{k=1}^N \frac{
@@ -136,14 +136,14 @@ u(t,x) &= \squareBr{
 	}{x_{2k}-x_{1k}} 
 	\cdot u_{*k} \cdot
 	(x_{2k} - x_{1k}) \approx\\[0.7em]
-& \approx \sum_{k=1}^N \while{ \pd{\Psi}{\xi} }{ \xi = \xi_k } 
+& \approx \sum_{k=1}^N \eval*{ \pd{\Psi}{\xi} }_{ \xi = \xi_k } 
 	u_0(\xi_k) (x_{2k} - x_{1k}) 
-	= \squareBr{
+	= \brk[s]*{
 		\pd{\Psi}{\xi} = \frac{1}{\sqrt{4 \pi a^2 t}}\, \expT{-\frac{(x-\xi)^2}{4a^2t}}
 		} = \\[0.7em]
-&= \sum_{k=1}^N \frac{1}{\sqrt{4 \pi a^2 t}} \while{
+&= \sum_{k=1}^N \frac{1}{\sqrt{4 \pi a^2 t}} \eval*{
 		\expT{-\frac{(x-\xi)^2}{4a^2t}}
-	}{\xi = \xi_k}
+	}_{\xi = \xi_k}
 	u_0(\xi_k) (x_{2k} - x_{1k}) \text{ \ --- \ Интегральная сумма Римана}
 \end{align*}
 
@@ -159,7 +159,7 @@ $$\mathcal{E}(t,x) =  \frac{1}{\sqrt{4\pi a^2 t}} \expT{-\frac{x^2}{4a^2 t}} \te
 
 
 \begin{theorem}
-Пусть $u_0\in C(\R^1),\;\; \abs{u_0(x)}\leq M_0 \;\;\forall\, x\in \R^1.$ \ Тогда функция 
+Пусть $u_0\in C(\R^1),\;\; \abs*{u_0(x)}\leq M_0 \;\;\forall\, x\in \R^1.$ \ Тогда функция 
 $$u(t,x) = \frac{1}{\sqrt{4\pi a^2 t}} \int_{-\infty}^{\infty} \expT{-\frac{(x - y)^2}{4a^2t}} u_0(y) dy$$
 \begin{enumerate}
 
@@ -173,7 +173,7 @@ $$u(t,x) = \frac{1}{\sqrt{4\pi a^2 t}} \int_{-\infty}^{\infty} \expT{-\frac{(x -
 \end{cases}
 \end{equation*}
 
-\item $\abs{u(t,x)}\leq M \;\; \Forall t \geq 0, \Forall x\in\R^1$
+\item $\abs*{u(t,x)}\leq M \;\; \Forall t \geq 0, \Forall x\in\R^1$
 \end{enumerate}
 \end{theorem}
 
@@ -195,7 +195,7 @@ u(t,x)=\frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-\eta^2} u_0(x+\sqrt{4 a^2 
 u_0(x+\sqrt{4 a^2 t}\,\eta) 
 \;\ \in \;\ C(t \geq 0,\ x \in \R^1,\ \eta \in \R^1) \hspace{8.5em}
 \end{multline*}
-Оценим $\abs{e^{-\eta^2} u_0(x+\sqrt{4 a^2 t}\, \eta)}\leq M_0e^{-\eta^2}$, причем $\displaystyle\int_{-\infty}^{\infty}M_0e^{-\eta^2}d\eta$ \ сходится $\ \Rightarrow\ $ исходный интеграл сходится равномерно, а значит лежит в $C(t\geq 0,\ x\in\R^1)$. Отсюда следует третье утверждение теоремы.
+Оценим $\abs*{e^{-\eta^2} u_0(x+\sqrt{4 a^2 t}\, \eta)}\leq M_0e^{-\eta^2}$, причем $\displaystyle\int_{-\infty}^{\infty}M_0e^{-\eta^2}d\eta$ \ сходится $\ \Rightarrow\ $ исходный интеграл сходится равномерно, а значит лежит в $C(t\geq 0,\ x\in\R^1)$. Отсюда следует третье утверждение теоремы.
 
 \item Возьмем 
 \begin{equation}
@@ -211,29 +211,29 @@ u_x(t, x)\sim \int_{-\infty}^{\infty}\frac{1}{4a^3\sqrt{\pi}t^{3/2}}\expT{-\frac
 	\item При $|y|>A \colon\ $
 
 	$(y-x)^2 \geq (|y|-A)^2
-	=y^2 + A^2 - 2\dfrac{|y|}{\sqrt{2}}\roundBr{\sqrt{2}A}.$
+	=y^2 + A^2 - 2\dfrac{|y|}{\sqrt{2}}\brk*{\sqrt{2}A}.$
 
 	Поскольку $2ab \leq a^2 + b^2$,
 
 	$(y-x)^2 \geq y^2+A^2-\dfrac{y^2}{2}-2A^2=\dfrac{y^2}{2}-A^2$
 	\vspace{0.3em}
 
-	\item При $\abs{y}\leq A \colon\ (x-y)^2 > 0$
+	\item При $\abs*{y}\leq A \colon\ (x-y)^2 > 0$
 
 	\item При 
 	$ \forall\, y \in \R\colon\ (x-y)^2 \geq \phi_A(y) 
 	= \begin{cases}
-		\dfrac{y^2}{2}-A^2,\   &\abs{y}\geq A \\
-		0,\                    &\abs{y}  <  A
+		\dfrac{y^2}{2}-A^2,\   &\abs*{y}\geq A \\
+		0,\                    &\abs*{y}  <  A
 	\end{cases}
 	$
 
-	\item Кроме того, $\abs{y-x}\leq \abs{y}+A$.
+	\item Кроме того, $\abs*{y-x}\leq \abs*{y}+A$.
 	\end{enumerate}
 
 Получили следующую оценку (при $|x| < A$):
 \[
-\abs{\frac{1}{4a^3\sqrt{\pi}t^{3/2}}\expT{-\frac{(x-y)^2}{4a^2t}} (y-x)u_0(y)}\leq \frac{M_0}{4a^3\sqrt{\pi}t^{3/2}}(\abs{y}+A)\expT{-\frac{\phi_A(y)}{4a^2t}}
+\abs*{\frac{1}{4a^3\sqrt{\pi}t^{3/2}}\expT{-\frac{(x-y)^2}{4a^2t}} (y-x)u_0(y)}\leq \frac{M_0}{4a^3\sqrt{\pi}t^{3/2}}(\abs*{y}+A)\expT{-\frac{\phi_A(y)}{4a^2t}}
 \]
 Если $t \in [t_1, t_2] \subset (0, +\infty)$, то это можно ограничить выражением $C \cdot (|y| + A) \cdot \expT{\frac{\phi_A(y)}{B}},$ интеграл от которого сходится, поэтому исходный интеграл сходится равномерно.
 
@@ -241,14 +241,14 @@ u_x(t, x)\sim \int_{-\infty}^{\infty}\frac{1}{4a^3\sqrt{\pi}t^{3/2}}\expT{-\frac
 $$Q = \Bigl\{ |x| < A, \;\ t \in [t_1, t_2] \Bigr\}$$
 Беря в качестве $Q$ все возможные такие прямоугольники, получим, что производная $u_x$ на всём множестве $\bigl\{ t > 0,\ x \in \R^1 \bigr\}$ существует, непрерывна и равна интегралу \eqref{eq:9:u_x}.
 
-Аналогично будет для любой другой производной (будет асимптотика $\abs{P_n(y)}e^{-\alpha y^2}$).
+Аналогично будет для любой другой производной (будет асимптотика $\abs*{P_n(y)}e^{-\alpha y^2}$).
 \item%
 \[
 \begin{split}
 &\mathcal{E} (t, x-y)=\frac{1}{\sqrt{4\pi a^2t}}\,\expT{-\frac{(x-y)^2}{4a^2t}} \\[7pt]
 & \mathcal{E}_x(t,x-y) = -\frac{(x-y)}{2a^2 t}\cdot \mathcal E(t,x-y) \\[7pt]
-& \mathcal{E}_{xx}(t,x-y) = \roundBr{-\frac{1}{2a^2 t} + \frac{(x-y)^2}{4a^4 t^2}} \mathcal E(t,x-y) \\[7pt]
-& \mathcal{E}_t(t,x-y) = \roundBr{-\frac{1}{2}\frac{1}{t} + \frac{(x-y)^2}{4a^2}\frac{1}{t^2}} \mathcal E(t,x-y) \\[7pt]
+& \mathcal{E}_{xx}(t,x-y) = \brk*{-\frac{1}{2a^2 t} + \frac{(x-y)^2}{4a^4 t^2}} \mathcal E(t,x-y) \\[7pt]
+& \mathcal{E}_t(t,x-y) = \brk*{-\frac{1}{2}\frac{1}{t} + \frac{(x-y)^2}{4a^2}\frac{1}{t^2}} \mathcal E(t,x-y) \\[7pt]
 \end{split}
 \]
 Тогда 
@@ -257,7 +257,7 @@ u_t-a^2u_{xx}=\int\limits_{-\infty}^{+\infty}\cancelto{0}{\left[\mathcal{E}_t(t,
 \]
 Начальное условие (используя самое начало выкладок)
 \[
-\while{u}{t=0}=\frac{1}{\sqrt{\pi}}\int\limits_{-\infty}^{+\infty}e^{-\eta^2}u_0(x)d\eta = u_0(x)
+\eval{u}_{t=0}=\frac{1}{\sqrt{\pi}}\int\limits_{-\infty}^{+\infty}e^{-\eta^2}u_0(x)d\eta = u_0(x)
 \]
 \end{enumerate}
 Теорема доказана.

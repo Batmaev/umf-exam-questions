@@ -11,9 +11,9 @@
 \begin{cases}
   u_{tt} -a^2u_{xx} = 0 ,\;\;\, t>0,\; x>0 \\
   \begin{aligned}
-    \while{u}{t=0}\; &= u_0(x),\quad x\geq 0 \\
-    \while{u_t}{t=0} &= u_1(x),\quad x\geq 0  \\
-    \while{u}{x=0} &= 0, \;\; \text{по сравнению с задачей Коши это дополнительное граничное условие}
+    \eval{u}_{t=0}\; &= u_0(x),\quad x\geq 0 \\
+    \eval{u_t}_{t=0} &= u_1(x),\quad x\geq 0  \\
+    \eval{u}_{x=0} &= 0, \;\; \text{по сравнению с задачей Коши это дополнительное граничное условие}
   \end{aligned}
 \end{cases}
 \end{equation}
@@ -36,8 +36,8 @@
 &\ \ u(t,x) = f(x +at) + g(x - at) \\
 &\begin{cases}
   \begin{aligned}
-    \while{u}{t=0}\; &= f(x) + g(x) = u_0(x), \;\; &x \geq 0\\
-    \while{u_t}{t=0} &= af'(x) -ag'(x) = u_1(x), \;\; &x \geq 0  
+    \eval{u}_{t=0}\; &= f(x) + g(x) = u_0(x), \;\; &x \geq 0\\
+    \eval{u_t}_{t=0} &= af'(x) -ag'(x) = u_1(x), \;\; &x \geq 0  
   \end{aligned}
 \end{cases}
 \end{align*}
@@ -55,7 +55,7 @@
 
 Граничные условия нужны для определения $u$ в $(x \geq 0)\cap(t \geq 0)$ (в смысле пересечения областей). Их не обязательно ставить на $x=0$, можно на $x + \alpha t = 0, \; -a < \alpha < a$, то есть там, где известна только одна из функций, а не обе.
 $$
-\while{u}{x=0} = f(at) + g(-at)=0, \;\; t \geq 0
+\eval{u}_{x=0} = f(at) + g(-at)=0, \;\; t \geq 0
 $$
 \clearpage % костыль чтобы wrapfigure не думал, что иллюстрация простирается на следующие страницы тоже
 
@@ -118,9 +118,9 @@ $$
     $$
     \begin{cases}
         u_{tt} -a^2u_{xx} = 0, & t > 0,\; x > 0\\
-        \while{u}{t=0} = u_0(x), & x \geq 0\\
-        \while{u_t}{t=0} = u_1(x), & x \geq 0\\
-        \while{u}{x=0} = 0, & t \geq 0
+        \eval{u}_{t=0} = u_0(x), & x \geq 0\\
+        \eval{u_t}_{t=0} = u_1(x), & x \geq 0\\
+        \eval{u}_{x=0} = 0, & t \geq 0
 % у паши тут опечатка
     \end{cases}
     $$  
@@ -139,8 +139,8 @@ $$
 $$
 \begin{cases}
     \hat u_{tt} -a^2\hat u_{xx} = 0, & t > 0,\; x \in \R^1 \\
-    \while{\hat u}{t=0} = \hat u_0(x), & x \in \R^1 \\
-    \while{\hat u_t}{t=0} = \hat u_1(x), & x \in \R^1 \\
+    \eval{\hat u}_{t=0} = \hat u_0(x), & x \in \R^1 \\
+    \eval{\hat u_t}_{t=0} = \hat u_1(x), & x \in \R^1 \\
 \end{cases} \; \text{ -- свели к задаче Коши}
 $$
 \vspace{0pt}

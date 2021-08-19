@@ -24,15 +24,15 @@ $$\sum_{i,j=1}^n a_{ij}(x)\frac{\partial^2 u}{\partial x_i\partial x_j} + F(x, u
 $$\sum_{k,l=1}^n\left[\sum_{i,j=1}^na_{ij}(x(y))\pd{y_k}{x_i}\pd{y_l}{x_j}\right] \frac{\partial^2 \hat{u}}{\partial y_k\partial y_l} + \hat{F}(y, \hat{u}, \nabla_y\hat{u}) = 0,$$
 $$\hat{a}_{kl}(y) \coloneqq \sum_{i,j=1}^na_{ij}(x(y))\pd{y_k}{x_i}\pd{y_l}{x_j}$$
 
-Введём матрицы: $A(x^0) = \norm{a_{ij}(x^0)}_{i,j=1}^n; \qquad \hat{A}(y^0) = \norm{\hat{a}_{ij}(y^0)}_{i,j=1}^n.$
+Введём матрицы: $A(x^0) = \norm*{a_{ij}(x^0)}_{i,j=1}^n; \qquad \hat{A}(y^0) = \norm*{\hat{a}_{ij}(y^0)}_{i,j=1}^n.$
 
-$J(x^0) = \norm{\pd{y_i}{x_j}(x^0)}_{i,j=1}^n$ -- в малой $U(x^0)$ задаёт преобразование $\hat{A}(y^0) = J(x^0)A(x^0)J^\Transp(x^0)$ 
+$J(x^0) = \norm*{\pd{y_i}{x_j}(x^0)}_{i,j=1}^n$ -- в малой $U(x^0)$ задаёт преобразование $\hat{A}(y^0) = J(x^0)A(x^0)J^\Transp(x^0)$ 
 
 $A = A^\Transp \Rightarrow \hat{A}^\Transp = \hat{A}$. Вопрос в выборе $J$ такого, что $\hat{A}$ диагональна.
 
 Пусть в $\R^n$ заданы элемент $h$ и квадратичная форма $\Phi(h).$
 
-Введём 2 базиса: $\begin{array}{c} \left(e_1 \dots e_n\right) \\ \left(e'_1 \dots e'_n\right) \end{array}$ В них $h \sim \begin{array}{c} \xi = (\xi_1 \dots \xi_n)^\Transp \\ \eta = (\eta_1 \dots \eta_n)^\Transp \end{array}; \quad \Phi \sim \begin{array}{c} \norm{c_{ij}} \\ \norm{\hat{c}_{ij}}
+Введём 2 базиса: $\begin{array}{c} \left(e_1 \dots e_n\right) \\ \left(e'_1 \dots e'_n\right) \end{array}$ В них $h \sim \begin{array}{c} \xi = (\xi_1 \dots \xi_n)^\Transp \\ \eta = (\eta_1 \dots \eta_n)^\Transp \end{array}; \quad \Phi \sim \begin{array}{c} \norm*{c_{ij}} \\ \norm*{\hat{c}_{ij}}
 \end{array}; \quad \Phi(h) = \begin{array}{c}
 \xi^\Transp C \xi \\ \eta^\transp \hat{C} \eta
 \end{array}$
@@ -68,13 +68,13 @@ $$\pdd{\hat{u}}{y_1} + \dots + \pdd{\hat{u}}{y_p} - \pdd{\hat{u}}{y_{p+1}} - \do
 \begin{enumerate}
 	\item \textit{Эллиптический: } $\hat{A}(y^0) = \begin{pmatrix}
 		\pm1 & 0 \\ 0 & \pm1
-		\end{pmatrix} \rightarrow \abs{\hat{A}(y^0)} = 1$
+		\end{pmatrix} \rightarrow \abs*{\hat{A}(y^0)} = 1$
 
 	\item \textit{Гиперболический:} $\hat{A}(y^0) = \begin{pmatrix}
 		1 & 0 \\ 0 & -1
-		\end{pmatrix} \rightarrow \abs{\hat{A}(y^0)} = -1$
+		\end{pmatrix} \rightarrow \abs*{\hat{A}(y^0)} = -1$
 
-	\item \textit{Параболический:}\; $\abs{\hat{A}(y^0)} = 0$.
+	\item \textit{Параболический:}\; $\abs*{\hat{A}(y^0)} = 0$.
 	
 \end{enumerate}
 
@@ -124,7 +124,7 @@ b & c
 
 В окрестности, где $a(x, y) \neq 0$, делим:
 \begin{equation*}
-	w_x^2 + \dfrac{2b}{a}w_x w_y + \dfrac{c}{a}w_y^2 = \roundBr{w_x + \dfrac{b}{a}w_y}^2 - \dfrac{b^2 - ac}{a}w_y 
+	w_x^2 + \dfrac{2b}{a}w_x w_y + \dfrac{c}{a}w_y^2 = \brk*{w_x + \dfrac{b}{a}w_y}^2 - \dfrac{b^2 - ac}{a}w_y 
 	= \bigl[ w_x + \lambda_{+}(x, y)w_y \bigr] \cdot \bigl[ w_x + \lambda_{-}w_y \bigr] = 0,
 \end{equation*}
 где введены обозначения $\lambda_\pm = \frac{1}{a}(b \pm \sqrt{b^2 - ac})$; верно, что $\lambda_{-}  \neq \lambda_{+} \Forall (x, y) \in U_{\eps}(x^0, y^0)$, так как $d = ac - b^2 < 0$.
@@ -212,7 +212,7 @@ $$
 $$
 Мы взяли $\xi$ такое, что $\hat c \equiv 0$. Покажем, что и $\hat b \equiv 0$:
 $$
-\hat A = JAJ^\Transp \Rightarrow \abs{\hat A} = \abs{J}^2\cdot\abs{A} = \abs{J}^2(ac - b^2) = 0 = \underbrace{\hat a \hat c}_{=0} - \hat b^2 \Rightarrow \hat b = 0
+\hat A = JAJ^\Transp \Rightarrow \abs*{\hat A} = \abs*{J}^2\cdot\abs*{A} = \abs*{J}^2(ac - b^2) = 0 = \underbrace{\hat a \hat c}_{=0} - \hat b^2 \Rightarrow \hat b = 0
 $$
 Пришли к 
 $$
@@ -227,7 +227,7 @@ $$
 Во всех точках окрестности выполнено $a\ne 0$ и $c\ne 0$, иначе было бы $d = -b^2 \leq 0$.\\ 
 Характеристическое уравнение:
 $$
-\squareBr{w_x + \lambda_+w_y}\squareBr{w_x + \lambda_-w_y} = 0,
+\brk[s]*{w_x + \lambda_+w_y}\brk[s]*{w_x + \lambda_-w_y} = 0,
 $$
 где $\lambda_\pm = \frac{b^2\pm\sqrt{b^2 - ac}}{a} = \mu \pm i\nu; \;\ \mu, \nu \in C^2$.\quad При этом для функций $\lambda_+, \lambda_-$ известно $\lambda_+ = \overline{\lambda_-}.$
 \vspace{0.3em}

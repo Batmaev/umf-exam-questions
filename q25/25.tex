@@ -3,30 +3,30 @@
 Рассмотрим уравнение
 $$u(x) = \lambda \int_{G}K(x,y)u(y)dy + f(x), \; x \in \overline{G} \eqno(1)$$
 \begin{theorem}
-Пусть в интегральном уравнении (1) ядро K полярное и выполнено $\abs{\lambda}\cdot\norm{K} < 1$, тогда:
+Пусть в интегральном уравнении (1) ядро K полярное и выполнено $\abs*{\lambda}\cdot\norm*{K} < 1$, тогда:
   \begin{itemize}
     \item $\forall f \in C(G)$ (1) имеет единственное решение $u(x) \in C(\overline{G})$.  Это решение при фиксированном $\lambda_{fix}$ представимо абсолютно сходящимся в $C(\overline{G})$ рядом Неймана:
     $$u(x) = f(x) + \sum_{i=1}^{\infty}\lambda^{i}K^{i}f(x),\; x \in G$$
-    \item Оператор $I - \lambda K$ отображает всё $C(\overline{G})$ на всё $C(\overline{G})$ и имеет на $C(\overline{G})$ непрерывный обратный оператор $(I - \lambda K)^{-1}$, причём $\norm{(I - \lambda K)^{-1}} \leq (1 - \abs{\lambda}\cdot\norm{K})^{-1}$
+    \item Оператор $I - \lambda K$ отображает всё $C(\overline{G})$ на всё $C(\overline{G})$ и имеет на $C(\overline{G})$ непрерывный обратный оператор $(I - \lambda K)^{-1}$, причём $\norm*{(I - \lambda K)^{-1}} \leq (1 - \abs*{\lambda}\cdot\norm*{K})^{-1}$
   \end{itemize}
 \end{theorem}
 
 \begin{proof}
   \begin{enumerate} 
-  	\item Отметим, что оператор $\lambda K$ сжимающий: $\norm{\lambda K} = \abs{\lambda}\cdot\norm{K} < 1$. \\Построим итерационный процесс:
+  	\item Отметим, что оператор $\lambda K$ сжимающий: $\norm*{\lambda K} = \abs*{\lambda}\cdot\norm*{K} < 1$. \\Построим итерационный процесс:
     $$u_{0} = f(x)$$
     $$u_{1} = f(x) + \lambda K u_{0}(x) = f(x) + \lambda K f(x)$$
     $$\cdots$$
     $$u_{n} = f(x) + \sum_{i=1}^{n}\lambda^{i}K^{i}f(x)$$
     $$\cdots$$
     Все $u_{k}(x) \in C(\overline{G})$, причем $u_{k} = S_{k}$ -- k-я частичная сумма ряда Неймана.
-    Далее, $$\norm{\lambda^{i}K^{i}f(x)}_{C(\overline{G})} \leq \abs{\lambda^{i}}\cdot\norm{K}^{i}\cdot\norm{f}_{C(\overline{G})}=(\abs{\lambda}\cdot\norm{K})^{i}\norm{f}_{C(\overline{G})}\Longrightarrow$$ 
-    $$\Longrightarrow \sum_{i=0}^{\infty}\norm{\lambda^{i}K^{i}f(x)}_{C(\overline{G})} \leq \sum_{i=0}^{\infty}(\abs{\lambda}\cdot\norm{K})^{i}\norm{f} = \frac{\norm{f}}{1 - \abs{\lambda}\cdot\norm{K}}.$$
-    Указанный в условии ряд сходится абсолютно в банаховом пространстве $C(\overline{G})$ $\Longrightarrow$ он сходится $\Longrightarrow$ \\ $\Longrightarrow \Exists u(x) \in C(\overline{G}): \norm{U - U_{n}}_{C(\overline{G})} \xrightarrow[n \longrightarrow \infty]{} 0 \Longrightarrow U_{n} \xrightarrow{\norm{\cdot}_{C(\overline{G})}} U$
+    Далее, $$\norm*{\lambda^{i}K^{i}f(x)}_{C(\overline{G})} \leq \abs*{\lambda^{i}}\cdot\norm*{K}^{i}\cdot\norm*{f}_{C(\overline{G})}=(\abs*{\lambda}\cdot\norm*{K})^{i}\norm*{f}_{C(\overline{G})}\Longrightarrow$$ 
+    $$\Longrightarrow \sum_{i=0}^{\infty}\norm*{\lambda^{i}K^{i}f(x)}_{C(\overline{G})} \leq \sum_{i=0}^{\infty}(\abs*{\lambda}\cdot\norm*{K})^{i}\norm*{f} = \frac{\norm*{f}}{1 - \abs*{\lambda}\cdot\norm*{K}}.$$
+    Указанный в условии ряд сходится абсолютно в банаховом пространстве $C(\overline{G})$ $\Longrightarrow$ он сходится $\Longrightarrow$ \\ $\Longrightarrow \Exists u(x) \in C(\overline{G}): \norm*{U - U_{n}}_{C(\overline{G})} \xrightarrow[n \longrightarrow \infty]{} 0 \Longrightarrow U_{n} \xrightarrow{\norm*{\cdot}_{C(\overline{G})}} U$
     \begin{itemize}
 	  \item Покажем что U -- решение: $U_{n} = f + \lambda K U_{n-1}$, при этом $U_{n} \longrightarrow U$ а $\lambda K U_{n-1} \longrightarrow \lambda K U$ в силу непрерывности оператора $K$.
-      \item Единственность: пусть $U_{I}$, $U_{II}$ -- решения, обозначим $V = U_{I} - U_{II} \in \overline{G}$. При этом $V$ удовлетворяет однородному уравнению $V = \lambda K V, \; x \in C(\overline{G})$. Тогда $$\|V\| \leq \abs{\lambda}\cdot\norm{K}\cdot\norm{V} \longrightarrow (1 - \abs{\lambda}\cdot\norm{K})\cdot\norm{V} \leq 0 \longrightarrow \norm{V} = 0 \longrightarrow V \equiv 0$$
+      \item Единственность: пусть $U_{I}$, $U_{II}$ -- решения, обозначим $V = U_{I} - U_{II} \in \overline{G}$. При этом $V$ удовлетворяет однородному уравнению $V = \lambda K V, \; x \in C(\overline{G})$. Тогда $$\|V\| \leq \abs*{\lambda}\cdot\norm*{K}\cdot\norm*{V} \longrightarrow (1 - \abs*{\lambda}\cdot\norm*{K})\cdot\norm*{V} \leq 0 \longrightarrow \norm*{V} = 0 \longrightarrow V \equiv 0$$
 	\end{itemize}
-    \item $u = \lambda Ku + f \longleftrightarrow (I - \lambda  K)u = f$. То, что $I - \lambda K$ отображает всё $C(\overline{G}),$ -- ясно. Согласно пункту 1 $\forall f \in C(\overline{G}) \;\;\exists!\ u(x)$ -- решение, значит оператор отображает всё $C(\overline{G})$ на всё $C(\overline{G})$. Значит, существует обратный оператор $(I - \lambda K)^{-1}$. Он ограничен т.к. $$\norm{(I - \lambda K)^{-1}f}_{C(\overline{G})} = \norm{U}_{C(\overline{G})} \leq \sum_{i = 0}^{\infty}\norm{\lambda^{i}K^{i}f}_{C(\overline{G})} \leq \frac{\norm{f}_{C(\overline{G})}}{1 - \abs{\lambda}\cdot\norm{K}} < \infty$$
+    \item $u = \lambda Ku + f \longleftrightarrow (I - \lambda  K)u = f$. То, что $I - \lambda K$ отображает всё $C(\overline{G}),$ -- ясно. Согласно пункту 1 $\forall f \in C(\overline{G}) \;\;\exists!\ u(x)$ -- решение, значит оператор отображает всё $C(\overline{G})$ на всё $C(\overline{G})$. Значит, существует обратный оператор $(I - \lambda K)^{-1}$. Он ограничен т.к. $$\norm*{(I - \lambda K)^{-1}f}_{C(\overline{G})} = \norm*{U}_{C(\overline{G})} \leq \sum_{i = 0}^{\infty}\norm*{\lambda^{i}K^{i}f}_{C(\overline{G})} \leq \frac{\norm*{f}_{C(\overline{G})}}{1 - \abs*{\lambda}\cdot\norm*{K}} < \infty$$
   \end{enumerate}
 \end{proof}

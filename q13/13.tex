@@ -93,7 +93,7 @@ $$0 = \iint\limits_{Q_{ \tau, \varepsilon}}I\;dxdt = \iint\limits_{Q_{\tau, \var
 \begin{align*}
  \because V_t(\varepsilon, x) \to V_t(0, x) = 0\; \; \; \; \; \; \; \because V_x(\varepsilon, x) \to V_x(0, x) = \dfrac{d}{dx}\bigl(V\bigr|_{t = 0} \bigr) = 0 \; \; \; \; \; \; \; \because \int_{\varepsilon}^{l-\varepsilon} \to \int_{0}^{l} {\tiny \text{(по определению несобственного интеграла)}} \\
 \because \lim_{\varepsilon \rightarrow +0} V_t(t, l - \varepsilon) = V_t(t, l) = 0 \Rightarrow \cancelto{0}{\int\limits_0^\tau \bigl(a^2V_tV_x\bigr)\;dt}\; \;  \because \int\limits_{\varepsilon}^{l - \varepsilon}
-\while{\dfrac{V_t^2 + a^2V_x^2}{2} }{\tau = l}\; dx 
+\eval*{\dfrac{V_t^2 + a^2V_x^2}{2} }_{\tau = l}\; dx 
 = \cancelto{0}{\int\limits_{0}^l \dfrac{V_t^2(0, x) + a^2V_x^2(0, x)}{2}\;dx\;\;\;\;\;\;}
 \end{align*}
 Аналогично для $\int\limits_{\varepsilon}^{\tau}(a^2V_tV_x)\bigr|_{x = \varepsilon}\;dt = 0$. Поэтому получаем, что: 
@@ -137,7 +137,7 @@ $$\mathcal{D}(-\Delta) =\{X(x) \in C^2[0, l]\colon\; X(0) = X(l) = 0\}$$
 	\Theta_k(0) = A_k,\; \Theta^{\cdotp}_k(0) = B_k.
 \end{cases}
 \end{equation*}
-Решение: $\Theta_k(t) = A_k\cos \roundBr{\frac{a \pi k}{l}}t + \frac{l}{a \pi k}B_k \sin \roundBr{\frac{a \pi k}{l}}t,\; t \in [0, \tau]$. 
+Решение: $\Theta_k(t) = A_k\cos \brk*{\frac{a \pi k}{l}}t + \frac{l}{a \pi k}B_k \sin \brk*{\frac{a \pi k}{l}}t,\; t \in [0, \tau]$. 
 \end{proof}
 \Subsection{Обоснование метода}
 \begin{theorem}
@@ -146,27 +146,27 @@ $$\mathcal{D}(-\Delta) =\{X(x) \in C^2[0, l]\colon\; X(0) = X(l) = 0\}$$
 \end{theorem} 
 \begin{proof}
 \begin{align*}
-	A_k = \dfrac{2}{l}\int\limits_{0}^{l}u_0\sin \roundBr{\dfrac{\pi k}{l}x}\;dx = \cancelto{0}{\dfrac{-2}{l}\dfrac{l}{\pi k}u_0(x)\cos \roundBr{\dfrac{\pi k}{l}x}\biggr|_0^l} + \dfrac{l}{\pi k}\dfrac{2}{l}\int\limits_0^l u_0^{'}\cos \roundBr{\dfrac{\pi k}{l}x}\;dx = \cancelto{0}{\roundBr{\dfrac{l}{\pi k}}^2 \dfrac{2}{l}u_0^{'}(x)\sin \roundBr{\dfrac{\pi k}{l}x}\biggr|_0^l} - \\ - \dfrac{2}{l}\roundBr{\dfrac{l}{\pi k}}^2 \int\limits_0^l u_0^{''}(x)\sin \roundBr{\dfrac{\pi k}{l} x}\;dx = - \roundBr{\dfrac{l}{\pi k}}^3 \underbrace{\dfrac{2}{l} \int\limits_0^l u_0^{'''}(x)\cos \roundBr{\dfrac{\pi k}{l}x}\;dx}_{\alpha_k} + \cancelto{0}{\dfrac{2}{l}\roundBr{\dfrac{l}{\pi k}}^3u_0^{''}(x)\cos \roundBr{\dfrac{\pi k}{l}x}\biggr|_0^l} = - \roundBr{\dfrac{l}{\pi k}}^3 \alpha_k
+	A_k = \dfrac{2}{l}\int\limits_{0}^{l}u_0\sin \brk*{\dfrac{\pi k}{l}x}\;dx = \cancelto{0}{\dfrac{-2}{l}\dfrac{l}{\pi k}u_0(x)\cos \brk*{\dfrac{\pi k}{l}x}\biggr|_0^l} + \dfrac{l}{\pi k}\dfrac{2}{l}\int\limits_0^l u_0^{'}\cos \brk*{\dfrac{\pi k}{l}x}\;dx = \cancelto{0}{\brk*{\dfrac{l}{\pi k}}^2 \dfrac{2}{l}u_0^{'}(x)\sin \brk*{\dfrac{\pi k}{l}x}\biggr|_0^l} - \\ - \dfrac{2}{l}\brk*{\dfrac{l}{\pi k}}^2 \int\limits_0^l u_0^{''}(x)\sin \brk*{\dfrac{\pi k}{l} x}\;dx = - \brk*{\dfrac{l}{\pi k}}^3 \underbrace{\dfrac{2}{l} \int\limits_0^l u_0^{'''}(x)\cos \brk*{\dfrac{\pi k}{l}x}\;dx}_{\alpha_k} + \cancelto{0}{\dfrac{2}{l}\brk*{\dfrac{l}{\pi k}}^3u_0^{''}(x)\cos \brk*{\dfrac{\pi k}{l}x}\biggr|_0^l} = - \brk*{\dfrac{l}{\pi k}}^3 \alpha_k
 \end{align*}
 
-\textit{Примечание:} $\alpha_k$ - коэффициенты Фурье функции $u_0^{'''}(x)$ по ортогональной системе функций $\cos \roundBr{\frac{\pi k}{l}}$ --- собственных функций оператора $-\Delta_0$ с граничными условиями Неймана --- тоже симметричного оператора. \\
+\textit{Примечание:} $\alpha_k$ - коэффициенты Фурье функции $u_0^{'''}(x)$ по ортогональной системе функций $\cos \brk*{\frac{\pi k}{l}}$ --- собственных функций оператора $-\Delta_0$ с граничными условиями Неймана --- тоже симметричного оператора. \\
 Аналогично находим коэффициенты $B_k$:
-$$B_k = - \roundBr{\dfrac{l}{\pi k}}^2 \beta_k,\; \text{где}\; \beta_k = \dfrac{2}{l} \int\limits_0^l u_1^{''}(x)\sin \roundBr{\dfrac{\pi k}{l} x} \;dx$$
+$$B_k = - \brk*{\dfrac{l}{\pi k}}^2 \beta_k,\; \text{где}\; \beta_k = \dfrac{2}{l} \int\limits_0^l u_1^{''}(x)\sin \brk*{\dfrac{\pi k}{l} x} \;dx$$
 Из того, что
 \begin{equation*}
-	|u_k(t, x)| = |\Theta_k(t)X_k(k)| = \biggl| A_k \cos (a \lambda_k t) + \dfrac{B_k}{a \lambda_{k}} \sin(a \lambda_{k}) \biggr| \leq \roundBr{\dfrac{l}{\pi k}}^3 |\alpha_k| + \dfrac{1}{a \lambda_k} \roundBr{\dfrac{l}{\pi k}}^2 |\beta_k| \leq \dfrac{c}{k^3}
+	|u_k(t, x)| = |\Theta_k(t)X_k(k)| = \biggl| A_k \cos (a \lambda_k t) + \dfrac{B_k}{a \lambda_{k}} \sin(a \lambda_{k}) \biggr| \leq \brk*{\dfrac{l}{\pi k}}^3 |\alpha_k| + \dfrac{1}{a \lambda_k} \brk*{\dfrac{l}{\pi k}}^2 |\beta_k| \leq \dfrac{c}{k^3}
 \end{equation*}
 следует абсолютная и равномерная сходимость ряда на $\overline{Q}_{\tau}$
 \begin{enumerate}
 \item Граничные условия: $u(t, 0) = \sum\limits_{k = 1}^{\infty}(\ldots) \sin(0) = 0, \; \; u(t, l) = \sum\limits_{k = 1}^{\infty}(\ldots)\sin (\pi k) = 0.$ \\
 Начальные условия: $u(0, x) = \sum\limits_{k = 1}^{\infty}A_k \sin(\lambda_k x) = u_0(x),\; \; u_t(0, x) = \sum\limits_{k = 1}^{\infty}B_k\sin(\lambda_k x) = u_1(x)$. \\
 Итак, ряд порождает непрерывную на $\overline{Q}_{\tau}$ функцию, удовлетворяющую начальным и граничным условиям.
-\item Производные: $u_t \displaystyle \sim \sum\limits_{k = 1}^{\infty} \squareBr{-\dfrac{a \pi k}{l}A_k\sin (\lambda_k a t) + B_k\cos (a \lambda_k t)}\sin (\lambda_k x) = \sum\limits_{k = 1}^{\infty} V_k$.
-$$|V_k| \leq a \lambda_k |A_k| + |B_k| \leq \dfrac{a \pi k}{l} \roundBr{\dfrac{l}{\pi k}}^3|\alpha_k| + \roundBr{\dfrac{l}{\pi k}}^2 |\beta_k| \leq \dfrac{\tilde{c}}{k^2} \Longrightarrow u_t \in C(\overline{Q}_{\tau})$$   
+\item Производные: $u_t \displaystyle \sim \sum\limits_{k = 1}^{\infty} \brk[s]*{-\dfrac{a \pi k}{l}A_k\sin (\lambda_k a t) + B_k\cos (a \lambda_k t)}\sin (\lambda_k x) = \sum\limits_{k = 1}^{\infty} V_k$.
+$$|V_k| \leq a \lambda_k |A_k| + |B_k| \leq \dfrac{a \pi k}{l} \brk*{\dfrac{l}{\pi k}}^3|\alpha_k| + \brk*{\dfrac{l}{\pi k}}^2 |\beta_k| \leq \dfrac{\tilde{c}}{k^2} \Longrightarrow u_t \in C(\overline{Q}_{\tau})$$   
 \end{enumerate}
 Значит, $u \in C(\overline{Q}_{\tau})$. \\
-$u_{tt} \displaystyle \sim \sum\limits_{k = 1}^\infty \squareBr{-\roundBr{\dfrac{a \pi k}{l}}^2A_k\cos(\lambda_k at) - \dfrac{a \pi k}{l}B_k\sin(\lambda_k at)}\sin(\lambda_k x) = \sum\limits_{k = 1}^{\infty} w_k$.
-$$|w_k| = \roundBr{\dfrac{a \pi k}{l}}^2|u_k| \leq \roundBr{\dfrac{a \pi k}{l}}^2\roundBr{\dfrac{l}{\pi k}}^3\roundBr{|\alpha_k| + \dfrac{1}{a}|\beta_k|}$$
+$u_{tt} \displaystyle \sim \sum\limits_{k = 1}^\infty \brk[s]*{-\brk*{\dfrac{a \pi k}{l}}^2A_k\cos(\lambda_k at) - \dfrac{a \pi k}{l}B_k\sin(\lambda_k at)}\sin(\lambda_k x) = \sum\limits_{k = 1}^{\infty} w_k$.
+$$|w_k| = \brk*{\dfrac{a \pi k}{l}}^2|u_k| \leq \brk*{\dfrac{a \pi k}{l}}^2\brk*{\dfrac{l}{\pi k}}^3\brk*{|\alpha_k| + \dfrac{1}{a}|\beta_k|}$$
 Ряд $\sum\limits_{k = 1}^{\infty} w_k$ сходится абсолютно и равномерно, так как: $\sum\limits_{k = 1}^{\infty} |\alpha_k|^2 < \infty, \sum\limits_{k = 1}\dfrac{1}{k^2} < \infty$, а ряд $\sum\limits_{k = 1}^{\infty} \dfrac{\alpha_k}{k}$ сходится абсолютно; поэтому $u(t, x) \in C^2(\overline{Q}_{\tau})$.
 \end{proof}
 Можно ставить задачу:

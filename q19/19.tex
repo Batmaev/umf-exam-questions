@@ -22,7 +22,7 @@
 Пусть $u(x) \in C^2(\Omega)$ достигает максимума в точке $a$, а так же удовлетворяет {\bf свойству среднего}:
 
 \[
-u(a) = \dfrac{1}{4\pi r^2}\oint\limits_{\abs{y-a} = r}u(y
+u(a) = \dfrac{1}{4\pi r^2}\oint\limits_{\abs*{y-a} = r}u(y
 )\;dS_y \Forall r: 0 < r < d_a = dist(a, \R^3 \backslash
  \Omega)
 \]
@@ -32,14 +32,14 @@ u(a) = \dfrac{1}{4\pi r^2}\oint\limits_{\abs{y-a} = r}u(y
 \end{statement}
 \begin{proof}
 $
-u(a) = \dfrac{1}{4\pi r^2}\oint\limits_{\abs{y-a} = r}u(y
+u(a) = \dfrac{1}{4\pi r^2}\oint\limits_{\abs*{y-a} = r}u(y
 )\;dS_y  =
-\dfrac{u(a)}{4\pi r^2}\oint\limits_{\abs{y-a} = r} \;dS_y  +
- 		\dfrac{1}{4\pi r^2}\oint\limits_{\abs{y-a} = r}\roundBr{u(y
+\dfrac{u(a)}{4\pi r^2}\oint\limits_{\abs*{y-a} = r} \;dS_y  +
+ 		\dfrac{1}{4\pi r^2}\oint\limits_{\abs*{y-a} = r}\brk*{u(y
 )-u(a)}\;dS_y =
-	u(a) + \dfrac{1}{4\pi r^2}\oint\limits_{\abs{y-a} = r}\roundBr{u(y
+	u(a) + \dfrac{1}{4\pi r^2}\oint\limits_{\abs*{y-a} = r}\brk*{u(y
 )-u(a)}\;dS_y \Rightarrow 
-	\oint\limits_{\abs{y-a} = r}\underbrace{\roundBr{u(y)-u(a)}}_{\le 0,\ \text{непрерывна}}\;dS_y = 0
+	\oint\limits_{\abs*{y-a} = r}\underbrace{\brk*{u(y)-u(a)}}_{\le 0,\ \text{непрерывна}}\;dS_y = 0
 	 \Leftrightarrow
 	\quad u(y) = u(a) \Forall y: |y-a|=r < d_a
  $
@@ -53,24 +53,24 @@ u(a) = \dfrac{1}{4\pi r^2}\oint\limits_{\abs{y-a} = r}u(y
 Соединим $a$ и $b$ кусочно-гладкой кривой. Эту кривую параметризуем натуральным параметром(параметризация кривой длиной её дуги): 
 $x = x(s), x(0) = a, x(L) = b$.
 {\bf Обозначим}
-$d = dist\curlyBr{\gamma = x; \partial{\Omega}} > 0$
+$d = dist\brk[c]*{\gamma = x; \partial{\Omega}} > 0$
 ($d$ действительно $> 0$ : если $d = 0$, то 
-$\exists\{x_n\}_{n=1}^\infty \subset \gamma: \rho\roundBr{x_n, \partial\Omega}\to 0$.
+$\exists\{x_n\}_{n=1}^\infty \subset \gamma: \rho\brk*{x_n, \partial\Omega}\to 0$.
  Выделим из $\{x_n\}$ сходящуюся $\{x_{n_k}\}=\{y_k\}$($\gamma$ - ограничено). Пусть $y_k \to y_0$. Тогда $y_0$ - предельная для
  $\partial \Omega$ в силу замкнутости 
  $y_0 \in \gamma \cup \partial \Omega \Rightarrow$ противоречие)\\
  Разобьем $[0,L]$ на части размера $\Delta S = \dfrac{L}{N}$\\
- Пусть $\curlyBr{S_k = k\Delta S, x_k = x(S_k)}$. 
+ Пусть $\brk[c]*{S_k = k\Delta S, x_k = x(S_k)}$. 
  Число N выберем так, чтобы $\Delta S = \dfrac{L}{N} < d$\\
  \begin{center}
  \includegraphics[scale=0.5]{19_2_new}
  \end{center}
- Заметим, что $\abs{x_k - x_{k-1}} \boxed{\leq} s_k - s_{k-1} < d$($\boxed{\cdot}$ - кратчайшее расстояние между точками это отрезок).
+ Заметим, что $\abs*{x_k - x_{k-1}} \boxed{\leq} s_k - s_{k-1} < d$($\boxed{\cdot}$ - кратчайшее расстояние между точками это отрезок).
  \begin{center}
  \includegraphics[scale=0.5]{19_3_new}
 \end{center}
  Рассмотрим шары ${B_d(x_k)}_{k=0}^N$. В силу
- $\abs{x_k - x_{k-1}}) < d$ верно $x_{k+1} \in B_d(x_k)$. 
+ $\abs*{x_k - x_{k-1}}) < d$ верно $x_{k+1} \in B_d(x_k)$. 
   Примем утверждение \ref{statement_19.1} к первому шару. 
   Как следствие $u(x_1) = u(a)\Rightarrow$ утверждение \ref{statement_19.1} применимо уже ко второму шару.
    В цепочке шаров конечное число 
@@ -95,17 +95,17 @@ $\min\limits_{y \in \partial \Omega}u(y) \leq u(x) \leq \max\limits_{y \in \part
 
 
 \begin{conseq}
-Для указанной в следствии \ref{conseq19.1} $u(x) \hookrightarrow \abs{u(x)} \leq \max\limits_{y \in \partial \Omega} \abs{u(y)}$
+Для указанной в следствии \ref{conseq19.1} $u(x) \hookrightarrow \abs*{u(x)} \leq \max\limits_{y \in \partial \Omega} \abs*{u(y)}$
 \begin{proof}
 
 \begin{equation}
   \begin{cases}
-  & u(x) \leq \max\limits_{\partial \Omega}u(y) \leq \max\limits_{\partial \Omega}\abs{u(y)}\\  
-  &-u(x) \leq \max\limits_{\partial \Omega}(-u(y)) \leq \max\limits_{\partial \Omega}\abs{u(y)}\\
+  & u(x) \leq \max\limits_{\partial \Omega}u(y) \leq \max\limits_{\partial \Omega}\abs*{u(y)}\\  
+  &-u(x) \leq \max\limits_{\partial \Omega}(-u(y)) \leq \max\limits_{\partial \Omega}\abs*{u(y)}\\
   \end{cases}
   \end{equation}  
   
-  $\Rightarrow \abs{u(x)} \leq \max\limits_{\partial \Omega}\abs{u(y)}$
+  $\Rightarrow \abs*{u(x)} \leq \max\limits_{\partial \Omega}\abs*{u(y)}$
 \end{proof}
 \end{conseq}
 
@@ -116,7 +116,7 @@ $\Omega$ - ограниченная область
 \begin{equation}
   \begin{cases}\label{equatation19.1}
   & \Delta u(x) = f(x), x \in \Omega\\ 
-  & \while{u(x)}{\partial \Omega} = u_0(x), x \in \partial \Omega\\
+  & \eval{u(x)}_{\partial \Omega} = u_0(x), x \in \partial \Omega\\
   \end{cases}
 \end{equation} 
   
@@ -135,10 +135,10 @@ $\Omega$ - ограниченная область
  \begin{equation}
   \begin{cases}\label{equatation19.2}
   & \Delta v(x) \equiv 0, x \in \Omega\\ 
-  & \while{v(x)}{\partial \Omega} = 0, x \in \partial \Omega\\
+  & \eval{v(x)}_{\partial \Omega} = 0, x \in \partial \Omega\\
   \end{cases}
 \end{equation}
  
- Согласно принципу максимума, $\abs{v(x)} \leq \max\limits_{\partial\Omega} \abs{v(x)} = 0 \Rightarrow v(x) \equiv 0$
+ Согласно принципу максимума, $\abs*{v(x)} \leq \max\limits_{\partial\Omega} \abs*{v(x)} = 0 \Rightarrow v(x) \equiv 0$
  \end{proof}
  \end{theorem}

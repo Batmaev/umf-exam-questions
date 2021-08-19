@@ -16,76 +16,76 @@ $$v(x) = \lambda \int_{G}K'(x,y)v(y)dy + g(x), \; x \in \overline{G}, K'(x,y) = 
    $$\int_{G}f(y)v(y)dy = 0$$
 \end{theorem}
 \begin{theorem}
-  В любом круге $\abs{\lambda} < R$ на $\C$ у ядра уравнения (1) имеется не более чем конечное количество характеристических чисел. Единственная возможная точка накопления характеристических чисел -- бесконечно удаленная точка.
+  В любом круге $\abs*{\lambda} < R$ на $\C$ у ядра уравнения (1) имеется не более чем конечное количество характеристических чисел. Единственная возможная точка накопления характеристических чисел -- бесконечно удаленная точка.
 \end{theorem}
 
 Билет посвящен доказательству этих теорем.
 
 \begin{theorem}[Апроксимационная теорема Вейерштрасса]
-  Пусть $\Omega$ -- ограниченная область в $\R^{n}$, а $W(x) \in C(\overline{G})$. Тогда $\forall \varepsilon > 0 \Exists P_{\varepsilon}(x)$ -- многочлен от $x_{1}..x_{n}$ такой, что $\norm{h(x) - P_{\varepsilon}(x)}_{C(\overline{G})} < \varepsilon$.
+  Пусть $\Omega$ -- ограниченная область в $\R^{n}$, а $W(x) \in C(\overline{G})$. Тогда $\forall \varepsilon > 0 \Exists P_{\varepsilon}(x)$ -- многочлен от $x_{1}..x_{n}$ такой, что $\norm*{h(x) - P_{\varepsilon}(x)}_{C(\overline{G})} < \varepsilon$.
 \end{theorem}
 
 Будем использовать данный факт из анализа.
 
 \begin{lemma}
-  Пусть $K$ -- интегральный оператор с непрерывным ядром $K(x,y)$ $K(x,y) \in \angleBr{C(\overline{G});C(\overline{G})}$. Тогда $\forall \varepsilon > 0$ этот оператор можно представить в виде $K = \overset{B}{\Phi_{\varepsilon}} + \overset{H}{K_{\varepsilon}}, \; \norm{\overset{H}{K_{\varepsilon}}} < \varepsilon, \; \norm{\overset{H}{K_{\varepsilon}^{'}}} < \varepsilon$
+  Пусть $K$ -- интегральный оператор с непрерывным ядром $K(x,y)$ $K(x,y) \in \brk[a]*{C(\overline{G});C(\overline{G})}$. Тогда $\forall \varepsilon > 0$ этот оператор можно представить в виде $K = \overset{B}{\Phi_{\varepsilon}} + \overset{H}{K_{\varepsilon}}, \; \norm*{\overset{H}{K_{\varepsilon}}} < \varepsilon, \; \norm*{\overset{H}{K_{\varepsilon}^{'}}} < \varepsilon$
 \end{lemma}
 \begin{proof}
-  По $\varepsilon > 0$ найдем $P_{\varepsilon}(x,y)$ от $x_{1}..x_{n},y_{1}..y_{n} : \norm{K(x,y) - P_{\varepsilon}(x,y)}_{C(\overline{G})} < \varepsilon$. Тогда $\norm{\overset{H}{K_{\varepsilon}}} \leq \norm{K(x,y) - P_{\varepsilon}(x,y)}_{C(\overline{G})}\cdot mes G = \varepsilon\cdot mes G$. При этом оператор $\overset{B}{\Phi_{\varepsilon}}$ имеет вырожденное ядро $P_{\varepsilon}$.
+  По $\varepsilon > 0$ найдем $P_{\varepsilon}(x,y)$ от $x_{1}..x_{n},y_{1}..y_{n} : \norm*{K(x,y) - P_{\varepsilon}(x,y)}_{C(\overline{G})} < \varepsilon$. Тогда $\norm*{\overset{H}{K_{\varepsilon}}} \leq \norm*{K(x,y) - P_{\varepsilon}(x,y)}_{C(\overline{G})}\cdot mes G = \varepsilon\cdot mes G$. При этом оператор $\overset{B}{\Phi_{\varepsilon}}$ имеет вырожденное ядро $P_{\varepsilon}$.
 \end{proof}
 
 \begin{lemma}
-  Пусть $K$ -- интегральный оператор с полярным ядром $K(x,y)$ $K(x,y) \in \angleBr{C(\overline{G});C(\overline{G})}$. Тогда $\forall \varepsilon > 0$ этот оператор можно представить в виде $K = \overset{B}{\Phi_{\varepsilon}} + \overset{\Pi}{Q_{\varepsilon}}, \; \norm{\overset{\Pi}{Q_{\varepsilon}}} < \varepsilon, \; \norm{\overset{\Pi}{Q_{\varepsilon}^{'}}} < \varepsilon$
+  Пусть $K$ -- интегральный оператор с полярным ядром $K(x,y)$ $K(x,y) \in \brk[a]*{C(\overline{G});C(\overline{G})}$. Тогда $\forall \varepsilon > 0$ этот оператор можно представить в виде $K = \overset{B}{\Phi_{\varepsilon}} + \overset{\Pi}{Q_{\varepsilon}}, \; \norm*{\overset{\Pi}{Q_{\varepsilon}}} < \varepsilon, \; \norm*{\overset{\Pi}{Q_{\varepsilon}^{'}}} < \varepsilon$
 \end{lemma}
 \begin{proof}
-Представим $K$ в виде суммы $\overset{H}{K_{\varepsilon}} + \overset{\Pi}{K_{\frac{\varepsilon}{2}}}$. По предыдущей лемме $\overset{H}{K} = \Phi+ \overset{H}{K_{\frac{\varepsilon}{2}}}$. Значит, $K = \Phi+ \overset{H}{K_{\frac{\varepsilon}{2}}} + \overset{\Pi}{K_{\frac{\varepsilon}{2}}} = \Phi + \overset{\Pi}{Q_{\varepsilon}}, \; \norm{\overset{\Pi}{Q_{\varepsilon}}} \leq \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$
+Представим $K$ в виде суммы $\overset{H}{K_{\varepsilon}} + \overset{\Pi}{K_{\frac{\varepsilon}{2}}}$. По предыдущей лемме $\overset{H}{K} = \Phi+ \overset{H}{K_{\frac{\varepsilon}{2}}}$. Значит, $K = \Phi+ \overset{H}{K_{\frac{\varepsilon}{2}}} + \overset{\Pi}{K_{\frac{\varepsilon}{2}}} = \Phi + \overset{\Pi}{Q_{\varepsilon}}, \; \norm*{\overset{\Pi}{Q_{\varepsilon}}} \leq \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$
 \end{proof}
 
 Перейдем к теоремам Фредгольма.
 
-Пусть $R > 0, \overline{D_{R}} = \curlyBr{\lambda \in \C: \abs{\lambda} < R}$.
+Пусть $R > 0, \overline{D_{R}} = \brk[c]*{\lambda \in \C: \abs*{\lambda} < R}$.
 
 \begin{itemize}
-  \item Возьмем $\varepsilon = \frac{1}{2R}, \; K = \Phi + Q, \; P = P(x,y)=\sum_{j = 1}^{N} a_{j}(x)b_{j}(y), \; \norm{Q}, \norm{Q^{'}} < \varepsilon$
+  \item Возьмем $\varepsilon = \frac{1}{2R}, \; K = \Phi + Q, \; P = P(x,y)=\sum_{j = 1}^{N} a_{j}(x)b_{j}(y), \; \norm*{Q}, \norm*{Q^{'}} < \varepsilon$
   \item Представим уравнение $u = \lambda Ku +f$ в виде $(I -\lambda K)u = \lambda \Phi u + f$, аналогично, его союзное уравнение $v = \lambda K^{'}v +g$ представим в виде $(I -\lambda K^{'})v = \lambda \Phi^{'} v + g$. Далее представим эти уравнения в следующей форме:
   $$ (I - \lambda Q)u = \lambda \sum_{j = 1}^{N}a_{j}(x)\int_{G}b_{j}(y)u(y)dy + f(x)$$
   $$ (I - \lambda Q^{'})v = \lambda \sum_{j = 1}^{N}b_{j}(x)\int_{G}a_{j}(y)v(y)dy + g(x)$$
-  \item $Q$ -- оператор с малой нормой: $\abs{\lambda}\cdot\norm{Q} \leq \frac{\abs{\lambda}}{2R} < 1$. Аналогичные рассуждения верны и для оператора $Q^{'}$, а значит операторы $(I - \lambda Q), (I - \lambda Q^{'})$ непрерывно обратимы. Перепишем уравнения:
+  \item $Q$ -- оператор с малой нормой: $\abs*{\lambda}\cdot\norm*{Q} \leq \frac{\abs*{\lambda}}{2R} < 1$. Аналогичные рассуждения верны и для оператора $Q^{'}$, а значит операторы $(I - \lambda Q), (I - \lambda Q^{'})$ непрерывно обратимы. Перепишем уравнения:
   $$u(x) = \lambda \sum_{j = 1}^{N}\underbrace{(I - \lambda Q)^{-1}a(x)}_{\hat{a}_{j}(x,\lambda)}\int_{G}b_{j}(y)u(y)dy + \underbrace{(I - \lambda Q)^{-1}f(x)}_{\hat{f}(x)} = \lambda \sum_{j = 1}^{N}\hat{a}_{j}(x,\lambda)\int_{G}b_{j}(y)u(y)dy + \hat{f}(x,\lambda)$$
   $$v(x) = ... = \lambda \sum_{j = 1}^{N}\hat{b}_{j}(x,\lambda)\int_{G}a_{j}(y)u(y)dy + \hat{g}(x,\lambda)$$
   
   Это уравнения с вырожденными ядрами, их решение эквивалентно решению систем:
-  $$(E - \lambda \hat{A})\vec{c} = \vec{\varphi}; \; \hat{A}(\lambda) = \norm{\mu_{ij}}_{i,j=1}^{N}; \; \mu_{i,j} = \angleBr{b_{i}; \hat{a}_{j}}; \; \varphi_{i} = \angleBr{b_{i}; \hat{f}}$$
-  $$(E - \lambda \hat{A^{'}})\vec{d} = \vec{\phi}; \; \hat{A}^{'}(\lambda) = \norm{\mu^{'}_{ij}}_{i,j=1}^{N}; \; \mu^{'}_{i,j} = \angleBr{a_{i}; \hat{b}_{j}}; \; \phi_{i} = \angleBr{a_{i}; \hat{g}}$$
+  $$(E - \lambda \hat{A})\vec{c} = \vec{\varphi}; \; \hat{A}(\lambda) = \norm*{\mu_{ij}}_{i,j=1}^{N}; \; \mu_{i,j} = \brk[a]*{b_{i}; \hat{a}_{j}}; \; \varphi_{i} = \brk[a]*{b_{i}; \hat{f}}$$
+  $$(E - \lambda \hat{A^{'}})\vec{d} = \vec{\phi}; \; \hat{A}^{'}(\lambda) = \norm*{\mu^{'}_{ij}}_{i,j=1}^{N}; \; \mu^{'}_{i,j} = \brk[a]*{a_{i}; \hat{b}_{j}}; \; \phi_{i} = \brk[a]*{a_{i}; \hat{g}}$$
   
   \begin{lemma}
-    Пусть $K$ -- полярное ядро такое, что $\norm{\lambda K} < 1$. Тогда $\forall a, b \in C(\overline{G}) \longrightarrow \angleBr{(I - \lambda K)^{-1}a; b} = \int_{G}(I - \lambda K)^{-1}a(x)b(x)dx$ -- регулярная функция при $\abs{\lambda} < \norm{K}^{-1}$. Если дополнительно выполнено $\abs{\lambda}\cdot\norm{K^{'}} < 1$, то $\squareBr{(I - \lambda K)^{-1}a; b} = \squareBr{a; (I - \lambda K^{'})^{-1}b}$.
+    Пусть $K$ -- полярное ядро такое, что $\norm*{\lambda K} < 1$. Тогда $\forall a, b \in C(\overline{G}) \longrightarrow \brk[a]*{(I - \lambda K)^{-1}a; b} = \int_{G}(I - \lambda K)^{-1}a(x)b(x)dx$ -- регулярная функция при $\abs*{\lambda} < \norm*{K}^{-1}$. Если дополнительно выполнено $\abs*{\lambda}\cdot\norm*{K^{'}} < 1$, то $\brk[s]*{(I - \lambda K)^{-1}a; b} = \brk[s]*{a; (I - \lambda K^{'})^{-1}b}$.
   \end{lemma}
   \begin{proof}
-    $$ (I - \lambda K)^{-1}a(x) = \sum_{j = 0}^{\infty}\lambda^{j}K^{j}a(x) \Longrightarrow \int_{G}(I - \lambda K)^{-1}a(x)b(x)dx = \int_{G} \underbrace{\sum_{j = 0}^{\infty}\lambda^{j}K^{j}(a(x))b(x)}_{\text{сход. равномерно}}dx = \sum_{j = 0}^{\infty}\lambda^{j}\squareBr{\int_{G}K^{j}(a(x))b(x)dx}$$
+    $$ (I - \lambda K)^{-1}a(x) = \sum_{j = 0}^{\infty}\lambda^{j}K^{j}a(x) \Longrightarrow \int_{G}(I - \lambda K)^{-1}a(x)b(x)dx = \int_{G} \underbrace{\sum_{j = 0}^{\infty}\lambda^{j}K^{j}(a(x))b(x)}_{\text{сход. равномерно}}dx = \sum_{j = 0}^{\infty}\lambda^{j}\brk[s]*{\int_{G}K^{j}(a(x))b(x)dx}$$
     Полученный ряд сходится абсолютно т.к. справедлива оценка
-    $$ \abs{\lambda^{j}\int_{G}K^{j}(a(x))b(x)dx} \leq \norm{a}\cdot\norm{b}\cdot mes G \cdot \underbrace{\abs{\lambda^{j}\cdot\norm{K}^{j}}}_{q_{j}; \; q < 1}$$
+    $$ \abs*{\lambda^{j}\int_{G}K^{j}(a(x))b(x)dx} \leq \norm*{a}\cdot\norm*{b}\cdot mes G \cdot \underbrace{\abs*{\lambda^{j}\cdot\norm*{K}^{j}}}_{q_{j}; \; q < 1}$$
     Докажем теперь вторую часть:
-     $$\norm{\lambda K^{'}} < 1 \Longrightarrow \Exists (I - \lambda K^{'})^{-1} \in \mathcal{L}(C(\overline{G})) \Longrightarrow (I - \lambda K^{'})^{-1}b = \sum_{j = 0}^{inf}\lambda^{j}(K^{'})^{j}b(x)$$
+     $$\norm*{\lambda K^{'}} < 1 \Longrightarrow \Exists (I - \lambda K^{'})^{-1} \in \mathcal{L}(C(\overline{G})) \Longrightarrow (I - \lambda K^{'})^{-1}b = \sum_{j = 0}^{inf}\lambda^{j}(K^{'})^{j}b(x)$$
      Тогда:
-     $$\angleBr{(I - \lambda K)^{-1}a; b} \overset{*}{=} \sum_{j=0}^{\infty}\lambda^{j}\angleBr{K^{j}a; b} = \sum_{j=0}^{\infty}\lambda^{j}\angleBr{a; (K^{'})^{j}b} = \angleBr{a; \sum_{j=0}^{\infty}\lambda^{j}(K^{'})^{j}b} = \angleBr{a; (I - \lambda K^{'})^{-1}b}$$
+     $$\brk[a]*{(I - \lambda K)^{-1}a; b} \overset{*}{=} \sum_{j=0}^{\infty}\lambda^{j}\brk[a]*{K^{j}a; b} = \sum_{j=0}^{\infty}\lambda^{j}\brk[a]*{a; (K^{'})^{j}b} = \brk[a]*{a; \sum_{j=0}^{\infty}\lambda^{j}(K^{'})^{j}b} = \brk[a]*{a; (I - \lambda K^{'})^{-1}b}$$
       Докажем (*):
-     $$ \angleBr{Ku; v} = \int_{G}\int{G}K(x,y)u(y)dyv(x)dx =$$
-     $$=  \int_{G}u(y)\squareBr{\int{G}K(x,y)v(x)d(x)}dy = \squareBr{x \rightarrow y; y \rightarrow x; (**)} =$$
-     $$= \int_{G}u(x)\squareBr{\int{G}\underbrace{K(y,x)}_{K^{'}(x,y)}v(y)dy}dx = \angleBr{u; K^{'}v}$$
+     $$ \brk[a]*{Ku; v} = \int_{G}\int{G}K(x,y)u(y)dyv(x)dx =$$
+     $$=  \int_{G}u(y)\brk[s]*{\int{G}K(x,y)v(x)d(x)}dy = \brk[s]*{x \rightarrow y; y \rightarrow x; (**)} =$$
+     $$= \int_{G}u(x)\brk[s]*{\int{G}\underbrace{K(y,x)}_{K^{'}(x,y)}v(y)dy}dx = \brk[a]*{u; K^{'}v}$$
      Где переход (**) верен по т. Фубини-Тонелли.
   \end{proof}
   \begin{lemma}
-    Матрица $\hat{A}^{'}(\lambda)$ является транспонированной к матрице $\hat{A}(\lambda)$. Элементы $\hat{mu}_{ij}$ матрицы $\hat{A}$ -- регулярные в круге $\abs{\lambda} < 2R$ функции $\lambda$.
+    Матрица $\hat{A}^{'}(\lambda)$ является транспонированной к матрице $\hat{A}(\lambda)$. Элементы $\hat{mu}_{ij}$ матрицы $\hat{A}$ -- регулярные в круге $\abs*{\lambda} < 2R$ функции $\lambda$.
   \end{lemma}
   \begin{proof}
-    $$\abs{\lambda} < 2R \Longrightarrow \abs{\lambda}\cdot\norm{Q} < 1, \; \abs{\lambda}\cdot\norm{Q^{'}} < 1$$
-    $$\hat{\mu}^{'}_{ij} = \angleBr{a_{i}; (I - \lambda Q^{'})^{-1}b_{j}} = \angleBr{(I - \lambda Q)^{-1}a_{i}; b_{j}} = \hat{\mu}_{ji}$$
+    $$\abs*{\lambda} < 2R \Longrightarrow \abs*{\lambda}\cdot\norm*{Q} < 1, \; \abs*{\lambda}\cdot\norm*{Q^{'}} < 1$$
+    $$\hat{\mu}^{'}_{ij} = \brk[a]*{a_{i}; (I - \lambda Q^{'})^{-1}b_{j}} = \brk[a]*{(I - \lambda Q)^{-1}a_{i}; b_{j}} = \hat{\mu}_{ji}$$
     Регулярность следует из предыдущей леммы.
   \end{proof}
-  \item Рассмотрим $D(\lambda) = det(E - \lambda\hat{A}(\lambda)) = det(E - \lambda\hat{A}^{'}(\lambda))$. Это регулярная в круге $\abs{\lambda} < 2R$ функция, $D(0) = 1 \Longrightarrow D(\lambda) \not \equiv 0$.
+  \item Рассмотрим $D(\lambda) = det(E - \lambda\hat{A}(\lambda)) = det(E - \lambda\hat{A}^{'}(\lambda))$. Это регулярная в круге $\abs*{\lambda} < 2R$ функция, $D(0) = 1 \Longrightarrow D(\lambda) \not \equiv 0$.
   
-  В круге $\abs{\lambda} < R$ может быть только конечное число нулей $\lambda_{k}$ иначе по теореме о единственности имели бы $D(\lambda) \equiv 0$.
+  В круге $\abs*{\lambda} < R$ может быть только конечное число нулей $\lambda_{k}$ иначе по теореме о единственности имели бы $D(\lambda) \equiv 0$.
   
   Если $\lambda$ не корень $D(\lambda) = 0$ то оба уравнения однозначно разрешимы.
   
@@ -100,6 +100,6 @@ $$v(x) = \lambda \int_{G}K'(x,y)v(y)dy + g(x), \; x \in \overline{G}, K'(x,y) = 
   \end{itemize}
 \end{itemize}
   
-  Осталась третья теорема: условие разрешимости: $\vec{\varphi} \perp \vec{d}_{\text{одн}}$ -- любому решению $\squareBr{E - \lambda\hat{A}^{'}(\lambda)} = \vec{0}$ т.е.
-  $$ \underbrace{\sum_{j=1}^{N}\hat{\varphi}d_{j}}_{0} = \sum_{j=1}^{N}\angleBr{b_{j}; \hat{f}}d_{j} = \sum_{j=1}^{N}\angleBr{b_{j}; (I - \lambda Q)^{-1}f}_{j}=$$
-  $$= \sum_{j=1}^{N}\angleBr{f; (I - \lambda Q^{'})^{-1}b_{j}}_{j} = \angleBr{f, \sum_{j=1}^{N}\underbrace{(I - \lambda Q^{'})^{-1}b_{j}}_{\hat{b_{j}}}d_{j}} = \angleBr{f; v} = \int_{G}fvdx = 0$$
+  Осталась третья теорема: условие разрешимости: $\vec{\varphi} \perp \vec{d}_{\text{одн}}$ -- любому решению $\brk[s]*{E - \lambda\hat{A}^{'}(\lambda)} = \vec{0}$ т.е.
+  $$ \underbrace{\sum_{j=1}^{N}\hat{\varphi}d_{j}}_{0} = \sum_{j=1}^{N}\brk[a]*{b_{j}; \hat{f}}d_{j} = \sum_{j=1}^{N}\brk[a]*{b_{j}; (I - \lambda Q)^{-1}f}_{j}=$$
+  $$= \sum_{j=1}^{N}\brk[a]*{f; (I - \lambda Q^{'})^{-1}b_{j}}_{j} = \brk[a]*{f, \sum_{j=1}^{N}\underbrace{(I - \lambda Q^{'})^{-1}b_{j}}_{\hat{b_{j}}}d_{j}} = \brk[a]*{f; v} = \int_{G}fvdx = 0$$
