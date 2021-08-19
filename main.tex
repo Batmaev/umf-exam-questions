@@ -79,11 +79,15 @@
 
 
 
-\newcommand{\while}[2]{\mleft. #1\mright|_{#2}}
+\newcommand{\while}[2]{\mleft. #1 \vphantom{\bigr|}\mright|_{#2}}
+% \while{u}{t = 0}    ---->    u|_{t=0}
+% Высота образующейся вертикальной палочки 
+% равна max(height(#1), height(\bigr|)) 
 
-\newcommand{\roundBr}[1]{\mleft(#1\mright)}
-\newcommand{\squareBr}[1]{\mleft[#1\mright]}
-\newcommand{\curlyBr}[1]{\mleft\{#1\mright\}}
+
+\newcommand{\roundBr} [1]{\mleft( #1 \mright)}
+\newcommand{\squareBr}[1]{\mleft[ #1 \mright]}
+\newcommand{\curlyBr}[1]{\mleft\{ #1 \mright\}}
 \newcommand{\angleBr}[1]{\mleft\langle #1 \mright\rangle}
 
 
@@ -161,7 +165,6 @@
 
 
 \newcommand*{\centercell}[1]{{}& \omit \hfil$\displaystyle#1$\hfil \ignorespaces}
-%
 % Позволяет делать так:
 % A = BBB = C
 % A =  B  = C
