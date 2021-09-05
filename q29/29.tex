@@ -73,17 +73,17 @@
 \]
 $V^{(0)}_\delta(x) = \int_{\text{Г}} \biggl(\cfrac{1}{|x-y|}\biggr)_\delta\mu(y) dS_y \in C(\overline{\Omega})$
 
-Будем выбирать $0 < \delta < \cfrac{d}{2} (d - \text{из свойств области с границей класса }C^2) - \text{ такое число, что }\forall x^0 \in \text{Г} \rightarrow B(x^0, d) \subset U_{x^0}$
+Будем выбирать $0 < \delta < \cfrac{d}{2}$ ($d$ -- из свойств области с границей класса $C^2$) -- такое число, что $\forall x^0 \in \text{Г} \rightarrow B(x^0, d) \subset U_{x^0}$
 \[
 \biggl| V^{(0)}(x) - V_\delta^{(0)}(x) \biggr| = \biggl| \int_{\text{Г}} \Biggl(\cfrac{1}{|x-y|} - \biggl(\cfrac{1}{|x-y|}\biggr)_\delta\Biggr)\mu(y) dS_y \biggr|
 \]
 
 Если $x : |x-y| \geqslant \delta$, то $ \Biggl(\cfrac{1}{|x-y|} - \biggl(\cfrac{1}{|x-y|}\biggr)_\delta\Biggr)= 0 $
 
-В противном случае она равна $\biggl|\int_\text{Г}\underbrace{(\cfrac{1}{|x-y|} - \cfrac{1}{\delta})}_{>0}\underbrace{\mu(y)}_{|\mu(y)| \leqslant  ||\mu||_{C(\text{Г})} = C} dS_y \biggr| \geqslant C\int\limits_{\substack{y \in \text{Г} \\ |x-y|<\delta}}\cfrac{dS_y}{|x-y|}$
+В противном случае она равна $\displaystyle \biggl|\int_\text{Г}\underbrace{\brk2{\cfrac{1}{|x-y|} - \cfrac{1}{\delta}}}_{>0}\underbrace{\mu(y)}_{|\mu(y)| \leqslant  ||\mu||_{C(\text{Г})} = C} dS_y \biggr| \leq C\int\limits_{\substack{y \in \text{Г} \\ |x-y|<\delta}}\cfrac{dS_y}{|x-y|}$
 
 
-Нам осталось оценить интеграл $\int\limits_{\substack{y \in \text{Г} \\ |x-y|<\delta}}\cfrac{dS_y}{|x-y|}$
+Нам осталось оценить интеграл $\displaystyle \int\limits_{\substack{y \in \text{Г} \\ |x-y|<\delta}}\cfrac{dS_y}{|x-y|}$
 
 \begin{center}
 \includegraphics[scale = 0.25]{29_3_new}
@@ -99,7 +99,7 @@ $V^{(0)}_\delta(x) = \int_{\text{Г}} \biggl(\cfrac{1}{|x-y|}\biggr)_\delta\mu(y
 \[
 \int_{\substack{y \in \text{Г} \\ |x-y|<\delta}}\cfrac{dS_y}{|x-y|} \leqslant \int\limits_{\substack{y \in \text{Г} \\ |x^*-y|<2\delta}}\cfrac{dS_y}{|x^*-y|}
 \]
-По определению числа d имеем $B(x^*, 2\delta \subset U_{x^*})$. 
+По определению числа d имеем $B(x^*, 2\delta) \subset U_{x^*}$. 
 \begin{center}
 \includegraphics[width=0.2\linewidth]{29_4_new} 
 \end{center}
@@ -109,13 +109,13 @@ $V^{(0)}_\delta(x) = \int_{\text{Г}} \biggl(\cfrac{1}{|x-y|}\biggr)_\delta\mu(y
 
 Т.к. $y \in \text{Г}, y = (\xi_1, \xi_2, F_{x^*}(\xi_1, \xi_2))$
 
-Т.к. $x^* = \pi_\text{Г}(x)$, точка x имеет ненулевую компоненту только по $\xi_3\ :\ x = (0,0,x_3)$
+Т.к. $x^* = \pi_\text{Г}(x)$, точка $x$ имеет ненулевую компоненту только по $\xi_3$, то есть $x = (0,0,x_3)$.
 
 
-Оценки: $|x-y|^2 = \xi_1^2 + \xi_2^2 + (x_3 - F_{x^*}(\xi_1, \xi_2))^2 \leqslant \xi_1^2 + \xi_2^2$ \\ 
-$|x^*-y|^2 = \xi_1^2 + \xi_2^2 + (F_{x^*}(\xi_1, \xi_2))^2 \leqslant \xi_1^2 + \xi_2^2 \Rightarrow$ расширяем область интегрирования до $\sqrt{\xi_1^2 + \xi_2^2} < 2\delta$
+Оценки: $|x-y|^2 = \xi_1^2 + \xi_2^2 + (x_3 - F_{x^*}(\xi_1, \xi_2))^2 \geq \xi_1^2 + \xi_2^2$ \\ 
+$|x^*-y|^2 = \xi_1^2 + \xi_2^2 + (F_{x^*}(\xi_1, \xi_2))^2 \geq \xi_1^2 + \xi_2^2 \Rightarrow$ расширяем область интегрирования до $\sqrt{\xi_1^2 + \xi_2^2} < 2\delta$
 \[
-\biggl| V^{(0)}(x) - V_\delta^{(0)}(x) \biggr| \geqslant C \int\limits_{\sqrt{\xi_1^2 + \xi_2^2} < 2\delta} \cfrac{\sqrt{1 + (\pd{F_{x^*}}{\xi_1}(\xi_1, \xi_2))^2 +  (\pd{F_{x^*}}{\xi_2}(\xi_1, \xi_2))^2}}{\sqrt{\xi_1^2 + \xi_2^2}}d\xi_1d\xi_2 \leq
+\biggl| V^{(0)}(x) - V_\delta^{(0)}(x) \biggr| \leq C \int\limits_{\sqrt{\xi_1^2 + \xi_2^2} < 2\delta} \cfrac{\sqrt{1 + (\pd{F_{x^*}}{\xi_1}(\xi_1, \xi_2))^2 +  (\pd{F_{x^*}}{\xi_2}(\xi_1, \xi_2))^2}}{\sqrt{\xi_1^2 + \xi_2^2}}d\xi_1d\xi_2 \leq
 \] 
 \[C \sqrt{1 + 2M_1^2} \int\limits_{\sqrt{\xi_1^2 + \xi_2^2} < 2\delta} \cfrac{d\xi_1d\xi_2}{\sqrt{\xi_1^2 + \xi_2^2}}
 \]
