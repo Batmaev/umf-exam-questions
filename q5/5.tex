@@ -19,24 +19,15 @@ $\dfrac{\partial f}{\partial y_k}
 которая равна $\displaystyle\int\limits_{\Omega_x} \pd{f}{y_k} (x,y)\, dx.$
 \end{theorem}
 
-Обозначим ($\tau$ - вспомогательный параметр)
-\[
-u_g(t,x,\tau)=\frac{1}{4\pi a^2t}\displaystyle\oiint\limits_{|\xi - x|=at}g(\xi ,\tau )\, dS_{\xi}\, , \qquad a>0,\ t> 0,\ x\in \R^3,\ \tau \geq 0,\ \xi\in\R^3
-\]
-
 \begin{lemma}
-Пусть $g(\xi, \tau )$ такая, что 
-\begin{enumerate}
-\item $g \in C\,\{\xi\in\R^3,\ \tau\geq 0 \}$
-\item $D_{\xi}^{\alpha}\, g(\xi , \tau )\in C\,\{\xi\in\R^3,\ \tau\geq 0 \} \Forall\alpha\colon |\alpha |\leq p.$
-\end{enumerate}
-
+Пусть $g(\tau, \xi) \in C^{0,p}_{\tau, \xi} \,\brk[c]!{\xi \in \R^3,\ \tau \geq 0}$. Введём $u_g(t, x, \tau)\colon$
+\[
+u_g(t,x,\tau) \coloneqq \frac{1}{4\pi a^2t}\oiint\limits_{|\xi - x|=at}g(\tau, \xi)\, dS_{\xi}\, , \qquad a>0,\ t> 0,\ x\in \R^3,\ \tau \geq 0,\ \xi\in\R^3
+\]
 Тогда
 \begin{enumerate}
 
-\item $D_{t,x}^{\alpha}\, u_g(t,x,\tau )
-      \in C\, \{\mathbf{t\geq 0},\   x\in\R^3,\   \tau \geq 0 \}
-      \Forall\alpha\colon |\alpha| \leq p$
+\item $u_g \in C^{p,p,0}_{t,x,\tau}\, \brk[c]!{\mathbf{t \geq 0},\ x \in \R^3, \tau \geq 0}$
 
 \item $\lim\limits_{t\rightarrow +0} u_g(t,x,\tau) = 0$
 
@@ -44,6 +35,10 @@ u_g(t,x,\tau)=\frac{1}{4\pi a^2t}\displaystyle\oiint\limits_{|\xi - x|=at}g(\xi 
 
 \end{enumerate}
 \end{lemma}
+
+(Под $C^{p,p,0}_{t,x,\tau}$ подразумевается, что $D_{t,x}^{\alpha}\, u_g(t,x,\tau) \in C \Forall\alpha\colon |\alpha| \leq p$)
+\footnote{Если расписать мультииндексы: $\partial^{\alpha_0}_t \partial^{\alpha_1}_{x_1} \partial^{\alpha_2}_{x_2} \partial^{\alpha_3}_{x_3} \; 
+u_g(t, x, \tau) \in C \;\Forall \alpha_i \colon \sum\limits_{i=0}^{3} \alpha_i \leq p$}
 
 \begin{proof} Докажем отдельно все три утверждения.
 %
