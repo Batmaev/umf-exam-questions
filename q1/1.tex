@@ -13,7 +13,7 @@
 Пусть $\Omega \subset \R^{n}.$
 ДУЧП 2 порядка с линейной старшей частью:
 $$
-\sum_{i,j=1}^n a_{ij}(x) \spd{u}{x_i}{x_j}
+\sum_{i,j=1}^n a_{ij}(x) \pd{u}{x_i}{x_j}
 + F(x,u,\nabla u) = 0    ; \qquad
 u(x)      \in C^2(\Omega); \quad
 a_{ij}(x) \in  C(\Omega)
@@ -46,22 +46,22 @@ $$
 \pd{u}{x_i} 
 = \sum_{k=1}^n       \pd{\hat{u}}{y_k}        \pd{y_k}{x_i};
 \qquad
-\spd{u}{x_i}{x_j} 
-= \sum_{k,l=1}^n     \spd{\hat{u}}{y_k}{y_l}  \pd{y_k}{x_i}      \pd{y_l}{x_j}
+\pd{u}{x_i}{x_j} 
+= \sum_{k,l=1}^n     \pd{\hat{u}}{y_k}{y_l}  \pd{y_k}{x_i}      \pd{y_l}{x_j}
 + \underbrace{
-  \sum_{k=1}^n       \pd{\hat{u}}{y_k}        \spd{y_k}{x_i}{x_j}
+  \sum_{k=1}^n       \pd{\hat{u}}{y_k}        \pd{y_k}{x_i}{x_j}
   }
   _{  \text{уйдёт в }  \hat{F}(y,\hat{u},\nabla_y\hat{u})  }
 $$
 Подставляем: 
 $$\sum_{i,j=1}^n     a_{ij}(x(y))  
-  \sum_{k,l=1}^n     \spd{\hat{u}}{y_k}{y_l}  \pd{y_k}{x_i}      \pd{y_l}{x_j} 
+  \sum_{k,l=1}^n     \pd{\hat{u}}{y_k}{y_l}  \pd{y_k}{x_i}      \pd{y_l}{x_j} 
 + \hat{F}(y,\hat{u},\nabla_y \hat{u}) 
 = 0 $$
 $$\sum_{k,l=1}^n  \left[
       \sum_{i,j=1}^n a_{ij}(x(y))              \pd{y_k}{x_i}       \pd{y_l}{x_j}
   \right] 
-  \spd{\hat{u}}{y_k}{y_l}  +  \hat{F}(y,\hat{u},\nabla_y\hat{u})
+  \pd{\hat{u}}{y_k}{y_l}  +  \hat{F}(y,\hat{u},\nabla_y\hat{u})
 = 0,$$
 $$\hat{a}_{kl}(y) \coloneqq 
   \sum_{i,j=1}^n     a_{ij}(x(y))              \pd{y_k}{x_i}        \pd{y_l}{x_j}
@@ -129,8 +129,8 @@ $\Phi(h)
 
 В этих переменных уравнение принимает вид:
 $$
-  \pdd{\hat{u}}{y_1}     + \dots + \pdd{\hat{u}}{y_p}
-- \pdd{\hat{u}}{y_{p+1}} - \dots - \pdd{\hat{u}}{y_{p+q}} 
+  \pd[2]{\hat{u}}{y_1}     + \dots + \pd[2]{\hat{u}}{y_p}
+- \pd[2]{\hat{u}}{y_{p+1}} - \dots - \pd[2]{\hat{u}}{y_{p+q}} 
 + \hat{F}(y,\hat{u},\nabla_y\hat{u}) 
 = 0.$$
 

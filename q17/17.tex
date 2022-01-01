@@ -1,7 +1,7 @@
 % Затехал Хасянов Расул
 \section{Интегральное представление решений уравнений Лапласа и Пуассона в ограниченной области. Фундаментальное решение уравнения Лапласа.}
 \Subsection{Интегральное представление решений уравнений Лапласа и Пуассона в ограниченной области.}
-Рассматривается уравнение Пуассона в $\R^3$: $\Delta u(x) = \brk*{\pdd{}{x_1}+ \pdd{}{x_2}+\pdd{}{x_3}}u(x) = f(x), x \in \Omega \subset \R^3$, где $\Omega$ -- область.
+Рассматривается уравнение Пуассона в $\R^3$: $\Delta u(x) = \brk*{\pd[2]{}{x_1}+ \pd[2]{}{x_2}+\pd[2]{}{x_3}}u(x) = f(x), x \in \Omega \subset \R^3$, где $\Omega$ -- область.
 \begin{definition}[Гармоническая функция]
 Функция $u(x)$ называется гармонической в $\Omega \in R^3$, если \\ $u(x) \in C^2(\Omega)$ и $\Delta u(x) \equiv 0 \text{ на } \Omega.$ 
 \end{definition}
@@ -14,7 +14,7 @@ x_3 = r \cos \theta.
 \end{cases}
 \]
 Уравнение примет вид:
-$$ 0 = \Delta \hat u (r, \theta, \varphi) = \hat u_{rr} + \frac{2}{r} \hat u_r + \frac{1}{r^2} \brk[s]*{\frac{1}{\sin \theta} \pd{}{\theta}\brk*{\sin \theta \pd{\hat u}{\theta}}+ \frac{1}{\sin^2 \theta} \pdd{\hat u}{\varphi}}$$
+$$ 0 = \Delta \hat u (r, \theta, \varphi) = \hat u_{rr} + \frac{2}{r} \hat u_r + \frac{1}{r^2} \brk[s]*{\frac{1}{\sin \theta} \pd{}{\theta}\brk*{\sin \theta \pd{\hat u}{\theta}}+ \frac{1}{\sin^2 \theta} \pd[2]{\hat u}{\varphi}}$$
 В квадратных скобках написан оператор Лапласа-Бельтрани от функции $\hat u$.\\
 Решение зависящее от $r$, удовлетворяет уравнению Эйлера: 
 $$

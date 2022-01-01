@@ -42,7 +42,7 @@ u(x_1, \dots, x_{n-1}, 0) = u_0(x_1, \dots, x_{n-1}),\quad \dfrac{\partial u}{\p
 Мы знаем и вторые производные: берём указанные сверху производные и дифференцируем вдоль поверхности, получим \[\frac{\partial^2u}{\partial x_i\partial x_j}(x_1,\dots,x_{n-1}, 0) = \frac{\partial^2u_0}{\partial x_i\partial x_j},\ 1\le i,j \le n-1 \]
 \[\frac{\partial^2u}{\partial x_n\partial x_i}(x_1,\dots,x_{n-1}, 0) = \frac{\partial u_1}{\partial x_i}(x_1,\dots,x_{n-1}),\ 1\le i\le n-1\]
 
-Не нашли только $\spd{u}{x_n}{x_n}$. До этого мы вообще еще не использовали уравнение:
+Не нашли только $\pd{u}{x_n}{x_n}$. До этого мы вообще еще не использовали уравнение:
 
 $$\sum\limits_{i,j=1}^{n-1}a_{ij}u_{x_ix_j} + \sum\limits_{j=1}^{n-1}\left[a_{nj}u_{x_nx_j} + a_{jn}u_{x_jx_n}\right] + \underbrace{a_{nn}u_{x_nx_n}}_{\substack{\text{только это слагаемое}\\ \text{еще не определено}}} + F(x, u, \nabla u) = 0 $$
 Если $a_{nn}(x) = 0$ на нашей гиперплоскости, то эту гиперплоскость назовём {\bf характеристической}. На характеристической гиперплоскости полученное уравнение задаёт функциональную связь $u_0$ и $u_1$ -- эта связь называется {\bf условием совместности}.
@@ -84,7 +84,7 @@ $$
 Значит, это диффеоморфизм класса $C^2$.
 
 В новых переменных: $\displaystyle\sum_{k,l=1}^n
-\hat{a}_{kl}(y) \spd{\hat{u}}{y_k}{y_l}
+\hat{a}_{kl}(y) \pd{\hat{u}}{y_k}{y_l}
 + \hat{F} (y, \hat{u}, \nabla_y \hat{u}) = 0$
 
 Условие характеристичности: \ $\displaystyle 0 = \hat{a}_{nn} = \sum\limits_{i,j=1}^{n} a_{ij}[x(y)]\pd{y_n}{x_i}\pd{y_n}{x_j}, \quad \text{ где } y_n(x) \equiv \omega(x)$
@@ -103,7 +103,7 @@ $$
     \includegraphics[height=0.22\textwidth]{./pic 2_2.pdf}
 \end{center}
 \begin{example}
-$\pdd{u}{x} - \pdd{u}{y} = 0.\quad S$ -- прямая $x=y, \quad \vec{n} = \left(-\dfrac1{\sqrt{2}}, \dfrac1{\sqrt{2}}\right);\quad \pd{u}{\vec{n}} = -\dfrac{u_x}{\sqrt2} + \dfrac{u_y}{\sqrt2} = u_1$
+$\pd[2]{u}{x} - \pd[2]{u}{y} = 0.\quad S$ -- прямая $x=y, \quad \vec{n} = \left(-\dfrac1{\sqrt{2}}, \dfrac1{\sqrt{2}}\right);\quad \pd{u}{\vec{n}} = -\dfrac{u_x}{\sqrt2} + \dfrac{u_y}{\sqrt2} = u_1$
 
 Производная $\dfrac{du_1}{d\vec l} = \left(\vec{l},\; \nabla\,\pd{u}{\vec{n}}\right) = \dfrac1{\sqrt{2}}\pd{}{x}\left[-\dfrac1{\sqrt2}u_x + \dfrac1{\sqrt{2}}u_y\right] + \dfrac1{\sqrt{2}}\pd{}{y}\left[-\dfrac1{\sqrt2}u_x + \dfrac1{\sqrt{2}}u_y\right] = 0.$
 

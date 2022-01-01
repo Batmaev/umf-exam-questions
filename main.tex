@@ -15,6 +15,7 @@
 \usepackage{cancel}       % чтобы зачёркивать члены в формулах
 \usepackage{mathtools}
 \usepackage{amssymb}
+\usepackage{xparse}       % чтобы определить макрос \pd
 \usepackage{tikz}         % LaTeX как графический редактор
 \usetikzlibrary{patterns}
 \definecolor{DarkBlue}{RGB}{12, 12, 171}
@@ -102,19 +103,27 @@
 
 
 
-
-\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
-% \pd{f}{x}  ---> df/dx
-
-\newcommand{\spd}[3]{\dfrac{\partial^2 #1}{\partial #2\partial #3}}
-% spd{f}{x}{y} ---> (d^2 f) / (dx dy)
-
-\newcommand{\npd}[3]{\dfrac{\partial^{#3} #1}{\partial #2^{#3}}}
-% npd{f}{x}{n} ---> (d^n f) / dx^n
-
-\newcommand{\pdd}[2]{\npd{#1}{#2}{2}}
-% pdd{f}{x}  ---> (d^2 f) / dx^2
-
+% Команда для частных производных:
+%
+% \pd{f}{x}    --> ∂f/∂x
+% \pd{}{x}     --> ∂/∂x
+% \pd[n]{f}{x} --> (∂^n f) / (∂x^n)
+% \pd{f}{x}{y} --> (∂^2 f) / (∂x ∂y)
+%
+\NewDocumentCommand{\pd}{o G{{}} m g}{
+  \IfValueTF{#4}{ 
+    % Если есть дифференциирование по второй переменной:
+    \dfrac{\partial^2 #2}{\partial #3 \partial #4}
+  }{
+    % Если есть дифференциирование только по одной переменной,
+    % то смотрим, указан ли порядок производной
+    \IfValueTF{#1}{
+      \dfrac{\partial^#1 #2}{\partial #3^#1}
+    }{
+      \dfrac{\partial #2}{\partial #3}
+    }
+  }
+}
 
 
 
