@@ -1,173 +1,268 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
 
+\section[Уравнение теплопроводности в \texorpdfstring{$\R^1$}{R}]{Постановка задачи Коши для уравнения теплопроводности. Формула Пуассона решения задачи Коши для однородного уравнения теплопроводности в $\R^1$. Существование классического решения задачи Коши при непрерывной ограниченной начальной функции и его свойства. Фундаментальное решение уравнения теплопроводности.}
 
-\section{Принцип максимума для уравнения теплопроводности. Теорема о единственности решения задачи Коши уравнения теплопроводности в классе $\mathbf{M_2(T)}$ (без доказательства) }
-%Никитушка отмочил красоту
-$\bullet$ Пусть $\Omega$ - ограниченная область в $\R^n$, T > 0, 
-$Q_T = (0,T) \times \Omega$ - цилиндр. Сечение цилиндра плоскостью $t = \tau$ обозначим $\Omega_\tau$
+$$\text{Задача: \ }
+\begin{cases}
+	u_t - a^2u_{xx} = 0, &x \in \R,\ t > 0, \\
+	u\bigr|_{t = 0} = u_0(x), &x \in \R.
+\end{cases} $$
+
+\Subsection{Наводящие соображения}
+
+На \href{https://drive.google.com/file/d/15t8c9cRmu38MEu2vC06M9binZ6IPNt1k/view?usp=sharing"}{консультации} 2021 года лектор сказал, что эту часть можно не учить. Поэтому можете сразу перейти к \hyperref[sec:FormalProof]{формальному доказательству формулы Пуассона.}
+\vspace{0.7em}
+% Исходная ссылка Зубова https://drive.google.com/file/d/138e2xKJtS3EVTUY8himJiMg2n9gQu96B/view 
+
+Итак, пусть для начала:
+\begin{equation*}
+u_0(x) = \begin{cases} 
+	1, &x \geq 0, \\
+	0, &x < 0 
+\end{cases} 
+\end{equation*}
+Сделаем замену: 
+\begin{equation*}
+\begin{cases}
+	\tau = \alpha t, &\alpha > 0, \\
+	\xi = \beta x, &\beta > 0.
+\end{cases}
+\end{equation*}
+Пусть $u(t, x)$ - решение задачи. \ Введём $v(\tau, \xi) = u\left(\dfrac{\tau}{\alpha},\ \dfrac{\xi}{\beta}\right)$. \ Тогда
+\begin{enumerate}
+	\vspace{-0.7em} % Мне показалось, что отступ между текстом и первым элементом слишком большой. Я мог бы использовать \begin{enumerate}[topsep = 0em], но тогда отступ после последнего элемента тоже бы уменьшился
+	\item \qquad $v\bigr|_{\tau=0} = \begin{cases} \begin{aligned}
+		1, \quad && \frac{\xi}{\beta} \geq 0 &&\Leftrightarrow && \xi \geq 0 \\
+		0, \quad && \frac{\xi}{\beta} < 0 && \Leftrightarrow && \xi < 0
+	\end{aligned}\end{cases}$
+
+	\item \qquad $v_\tau = \dfrac{1}{\alpha}u_t, \quad v_\xi = \dfrac{1}{\beta}\, u_x, \quad v_{\xi \xi} = \dfrac{1}{\beta^2}\, u_{xx} \qquad\Rightarrow\qquad \alpha v_{\tau} = a^2 \beta^2 v_{\xi \xi}$
+\end{enumerate}
+
+Функция $v$ в общем случае будет решением другой задачи Коши, но при $\alpha = \beta^2$ --- той же самой задачи Коши. Значит, решение не единственно: если $u(t,x)$ --- решение, то $\,\forall\, \beta > 0$ функция $v(t,x) = u\left(\dfrac{t}{\beta^2},\ \dfrac{x}{\beta}\right)$ --- тоже решение.
+
+\begin{definition} 
+Множество преобразований $\{u_{\alpha}\}_{\alpha \in \mathcal{D}}$ --- \emph{однопараметрическая группа преобразований,} если:
+\begin{itemize}
+	\item Это множество замкнуто относительно операции композиции:
+	$$\forall\, \alpha, \beta \in \mathcal{D} \quad \exists!\,\gamma \in \mathcal{D}\colon \quad u_\alpha \circ u_\beta = u_\gamma$$
+	
+	\item Оно содержит нейтральный элемент --- тождественное преобразование:
+	$$\exists!\, o \in \mathcal{D} \quad \bigl(\forall\, \alpha \in \mathcal{D} \quad u_o \circ u_\alpha = u_\alpha \circ u_o = u_\alpha \bigr)$$
+	
+	\item У каждого элемента есть обратный, и их композиция в любом порядке даёт тождественное преобразование.
+\end{itemize}
+\end{definition}
+	
+\begin{definition}
+	Функция $I(x)$ --- \textit{инвариант однопараметрической группы преобразовний}, если $\Forall \alpha \in \mathcal{D} \quad I(x) \equiv I(u_{\alpha}(x))$
+	\end{definition}
+	\begin{definition}
+	Говорят, что \textit{уравнение допускает однопараметрическую группу преобразований}, если все преобразования группы переводят решения этого уравнения в решения.\footnote{В прошлых версиях файла определение гласило, что уравнение допускает группу преобразований, если оно инвариантно относительно всех преобразований группы. Но непонятно, что подразумевается под инвариантностью \emph{уравнения}. Новое определение же опирается на инвариантность \emph{функций}. Оно взято с \href{https://matem.anrb.ru/bsuconf/2012/adlerv7.pdf}{этого сайта.}}
+\end{definition}
 
 \begin{definition}
-{\bf Параболическая граница области $Q_T$} - множество $\Gamma_T = \Omega_0 \cup \{[0,T] \times \partial{\Omega} \}$
+Решение уравнения называется \textit{автомодельным}, если оно зависит только от инвариантов некоторой допустимой группы преобразований.
 \end{definition}
-\begin{center}
-\includegraphics[scale=0.5]{11_1_new}
-\end{center}
+\begin{example}
+Множество преобразований
+\begin{equation*}
+\begin{cases}
+	\tau = \beta^2 t, \\
+	\xi = \beta x
+\end{cases}
+\end{equation*}
+есть однопарметрическая группа преобразований, $z = \dfrac{x}{\sqrt{t}} $ --- инвариант группы.
+\end{example}
+Найдём автомодельное решение $u(t, x) = f\brk*{\dfrac{x}{\sqrt{t}}} = f(z)$. \\
+В этом случае:
+\begin{equation*}
+	u_t = f'\brk*{\dfrac{x}{\sqrt{t}}} \cdot \brk*{\frac{-x}{2t^{3/2}}} 
+	\qquad u_x = f'\brk*{\frac{x}{\sqrt{t}}} \cdot \frac{1}{\sqrt{t}} 
+	\qquad u_{xx} = f''\brk*{\frac{x}{\sqrt{t}}} \cdot \frac{1}{t}
+\end{equation*}
 
-Определим оператор $\mathrm{L} : \mathrm{L}u(t,x) = u_t - a^2 \Delta_xu$, где 
-$u \in C_{t, x}^{1,2}(Q_T)$
+Подставляем в уравнение:
+\vspace{-0.7em}
+\begin{align*}
+	&-\frac{x}{2t\sqrt{t}} f'(z) = a^2 f''(z) \cdot \frac{1}{t}\\[0.3em]
+	&\frac{f''(z)}{f'(z)} = - \frac{1}{a^2} \frac{x}{2\sqrt t} = -\frac{1}{2 a^2} z\\[0.2em]
+	&\ln|f'(z)| = -\frac{z^2}{4a^2} + \tilde{C}_1
+\end{align*}
+Получили, что \ $f(z) = C_1 \displaystyle \int\limits_{-\infty}^z \expT{-\frac{\eta^2}{4a^2}}\, d\eta + C_2$
+\paragraph{Задача была следующей:} бесконечный стержень разделён на две половины, начальные температуры половин $T_0 = 0$ и $T_1 = 1$. Из физических соображений:
+\begin{flalign*}
+	& \lim\limits_{z \to - \infty} f(z) = 0 \quad \Rightarrow \quad C_2 = 0 & \\
+	& \lim\limits_{z \to + \infty} f(z) = 1 \quad \Rightarrow \quad \int\limits_{-\infty}^{+\infty} \expT{-\frac{\eta^2}{4a^2}}\, d \eta = C_1^{-1} = 2a \underbrace{\int\limits_{-\infty}^{+\infty} \expT{-\frac{\eta^2}{4a^2}}\, d \frac{\eta}{2a}}_{\sqrt{\pi}} \quad\ \Rightarrow \quad\ C_1 = \frac{1}{\sqrt{4 \pi a^2}} &
+\end{flalign*}
+Окончательно:
+\begin{equation*}
+	f(z) = \frac{1}{\sqrt{4 \pi a^2}}\int\limits_{-\infty}^{z} \expT{-\frac{\eta^2}{4a^2}}\, d \eta = \frac{2a}{\sqrt{4 \pi a^2}} \int\limits_{-\infty}^{z/2a}e^{-\mu^2}\, d \mu = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{z/2a}e^{-\mu^2}\, d \mu 
+\end{equation*}
+Введём \textbf{интеграл ошибок}:
+\begin{equation*}
+	\erf(z) = \frac{2}{\sqrt{\pi}} \int\limits_{0}^{z}e^{-\xi^2}\, d \xi\, , \qquad \erf(\pm \infty) = \pm 1,\; \; \erf(0) = 0
+\end{equation*}
+Тогда:
+\begin{equation*}
+	u(t, x) = f\brk*{\frac{x}{\sqrt{t}}} = \frac{1}{\sqrt{\pi}} \int\limits_{-\infty}^{\frac{x}{\sqrt{4 t a^2}}} e^{-\mu^2}\, d \mu = \frac{1}{2}\brk[s]*{1 + \erf\brk*{\frac{x}{\sqrt{4 a^2 t}}}}
+\end{equation*}
+\begin{enumerate}
+\item Мы рассмотрели модельную задачу
+\begin{center}
+\includegraphics[height=0.11\textwidth]{./pic 11_1.pdf}
+\end{center}
+\item Увеличим ступеньку в $u_*$ раз и сдвинем
+$$u(t,x) = \frac{u_*}{2}\brk[s]*{1+\erf \brk*{\frac{x-x_0}{\sqrt{4a^2t}}}}$$
+\item Можем получить и решение для ступеньки конечной ширины:
+$$u(t,x) = \frac{u_*}{2}\brk[s]*{\erf \brk*{\frac{x-x_1}{\sqrt{4a^2t}}}-\erf \brk*{\frac{x-x_2}{\sqrt{4a^2t}}}}$$
+\item Для системы из $N$ интервалов имеем:
+\begin{center}
+\includegraphics[height=0.125\textwidth]{./pic 11_2.pdf}
+\end{center}
+$$u(t,x) = \sum_{k=1}^{N}\frac{u_{*k}}{2}\brk[s]*{\erf \brk*{\frac{x-x_{1k}}{\sqrt{4a^2t}}}-\erf \brk*{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}$$
+
+Последнее можно переписать в следующем виде:
+$$u(t,x) = \sum_{k=1}^{N}\brk[s]*{\frac{\brk[c]*{-\frac{1}{2}\erf \brk*{\frac{x-x_{2k}}{\sqrt{4a^2t}}}}-\brk[c]*{-\frac{1}{2}\erf \brk*{\frac{x-x_{1k}}{\sqrt{4a^2t}}}}}{x_{2k}-x_{1k}}}u_{*k} \cdot (x_{2k} - x_{1k})$$
+\item Окончательно, пусть $u_0(x)$ финитна, непрерывна, ограничена. Разбиваем ее носитель $\supp u_0(x)$ на отрезки, аппроксимируем кусочно постоянной. Для приближенных решений справедливо:
+\begin{align*}
+u(t,x) &= \brk[s]*{
+		\Psi (t,x, \xi) = -\frac{1}{2} \erf\brk*{\frac{x - \xi}{\sqrt{4a^2t}}}
+		,\quad \xi_k = \frac{x_{2k} - x_{1k}}{2}
+	} = \\[0.7em] 
+& = \sum_{k=1}^N \frac{
+		\Psi(t,x,x_{2k})-\Psi(t,x,x_{1k})
+	}{x_{2k}-x_{1k}} 
+	\cdot u_{*k} \cdot
+	(x_{2k} - x_{1k}) \approx\\[0.7em]
+& \approx \sum_{k=1}^N \eval*{ \pd{\Psi}{\xi} }_{ \xi = \xi_k } 
+	u_0(\xi_k) (x_{2k} - x_{1k}) 
+	= \brk[s]*{
+		\pd{\Psi}{\xi} = \frac{1}{\sqrt{4 \pi a^2 t}}\, \expT{-\frac{(x-\xi)^2}{4a^2t}}
+		} = \\[0.7em]
+&= \sum_{k=1}^N \frac{1}{\sqrt{4 \pi a^2 t}} \eval*{
+		\expT{-\frac{(x-\xi)^2}{4a^2t}}
+	}_{\xi = \xi_k}
+	u_0(\xi_k) (x_{2k} - x_{1k}) \text{ \ --- \ Интегральная сумма Римана}
+\end{align*}
+
+Предположение: решение будет 
+$$
+u(t,x) = \frac{1}{\sqrt{4\pi a^2 t}} \int_{-\infty}^{\infty} \expT{-\frac{(x-\xi)^2}{4a^2t}} u_0(\xi)\, d\xi 
+\text{ \ --- \ Формула Пуассона} $$
+Функция \imaginarySubsection{Фундаментальное решение}
+$$\mathcal{E}(t,x) =  \frac{1}{\sqrt{4\pi a^2 t}} \expT{-\frac{x^2}{4a^2 t}} \textbf{\, ---\, фундаментальное решение (или функция источника)}$$
+\end{enumerate}
+
+\Subsection[Формула Пуассона]{Строгое доказательство} \label{sec:FormalProof} \imaginarySubsection{Свойства решения}
+
 
 \begin{theorem}
+Пусть $u_0\in C(\R^1),\;\; \abs*{u_0(x)}\leq M_0 \;\;\forall\, x\in \R^1.$ \ Тогда функция 
+$$u(t,x) = \frac{1}{\sqrt{4\pi a^2 t}} \int_{-\infty}^{\infty} \expT{-\frac{(x - y)^2}{4a^2t}} u_0(y) dy$$
+\begin{enumerate}
 
-{\bf (Принцип максимума)} Пусть $u(t,x) \in C_{t, x}^{1,2}(Q_T) \cap C(\overline{Q_T})$, и пусть 
-$\mathrm{L}u(t,x) \leq 0$ в $Q_T$. Тогда $\max\limits_{(x,t) \in \overline{Q_T}} u(t,x)$ достигается на параболической границе $ \Gamma_T $ области $Q_T$
+\item Принадлежит классу $C^{\infty}\, (t>0,\ x\in\R^1) \ \cap\ C(t \geq 0,\ x\in\R^1)$
 
+\item Является классическим решением задачи Коши
+\begin{equation*}
+\begin{cases}
+	u_t - a^2u_{xx} = 0, &x \in \R,\ t > 0, \\
+	u\bigr|_{t = 0} = u_0(x), &x \in \R
+\end{cases}
+\end{equation*}
 
-\begin{proof}
-Возьмем усеченный цилиндр $Q_{T-\delta}$. Рассматриваются $M = \max\limits_{\overline{Q_{T-\delta}}} u(t,x)$ и $m = \max\limits_{\Gamma_{T-\delta}} u(t,x)$. Теорема утверждает, что $M$ не превосходит $m$.\\
-\begin{itemize}
-\item {\bf Пусть это не так} и $m < M$. Тогда $\exists (t^1,x^1) \in Q_{T-\delta} \cup \Omega_{T-\delta}$ такая, что $M = u(t^1, x^1)$. \\
-Т.к. это точка максимума гладкой функции, $u_{x_ix_i}(t^1,x^1) \leq 0$, а $u_t(t^1, x^1) \geq 0$ (Если внутри, то равенство, если на верхней кромке, то $\geq 0$).\\
-Значит, значение образа $u(t,x)$ под действием оператора $\mathrm{L}$ в точке $(t^1, x^1): \boxed{\mathrm{L}u(t^1, x^1) = u_t -a^2 \Delta_x \eval{u}_{(t^1,x^1)}  \geq 0}$.\\
-Для противоречия необходимо показать, что неравенство строгое.\\
-
- й\item {\bf Строгость:}
-Возьмем функцию $v_\beta(t,x) = u(t,x) +\beta \abs*{x-x^1}^2, \beta = \dfrac{M-m}{2(\mathrm{diam} Q_T)^2}$ - такая же гладкая, как $u$.\\
- На параболической границе $v_\beta \leq m + \frac{M-m}{2d^2}\cdot d^2 = \frac{M+m}{2} < M$.
-Тем не менее, $v_\beta(t^1, x^1) = M \Rightarrow$ максимум $v_\beta$ - не на параболической границе.\\
-Пусть он в точке $(t^2, x^2) \notin \Gamma_{T-\delta}$. Тогда $\mathrm{L}\eval*{v_\beta}_{(t^2,x^2)} = \mathrm{L}\eval{u}_{(t_2, x_2)} - a^2 \beta 2n \boxed{\geqslant} 0 \Rightarrow \\
-\mathrm{L}\eval{u}_{(t_2,x_2)} \geq a^2 \beta 2n > 0 \Rightarrow$
-{\bf Противорчие} (вывод $\boxed{\geq}$ аналогичен рамке выше)
- 
-\item {\bf Предельный переход с $\delta \rightarrow+0$:}
-Пусть $u_{*} = \max\limits_{\Gamma_T} u(t,x)$. \\
-Тогда $\max\limits_{\overline{Q_{T-\delta}}}u(t,x) \leq \max\limits_{{\Gamma_{T-\delta}}}u(t,x) \leq \max\limits_{{\Gamma_{T}}}u(t,x) = u_* \Rightarrow
-u(t,x) \leq u_*$
-во всех точках $\overline{Q_T} \diagdown \Omega_T$\\
-$\eval{u(t,x)}_{\Omega_T} = \lim\limits_{(\widehat{t}, \widehat{x}) \in Q_T \rightarrow (t,x) \in \Omega_T} u(\widehat{t},\widehat{x}) \boxed{\leq} u_*$ 
-\\($\boxed{\leq}$ - предельный переход в неравенствах.) Теорема доказана.
-\end{itemize}
-
-\end{proof}
+\item $\abs*{u(t,x)}\leq M \;\; \Forall t \geq 0 \Forall x\in\R^1$
+\end{enumerate}
 \end{theorem}
 
 
-\begin{conseq}
-Пусть $u(t,x) \in C^{1,2}_{t,x}(Q_T) \cap C(\overline{Q_T}), \mathrm{L}u = 0 \Forall(t,x) \in Q_T$.
- Тогда $\max\limits_{\overline{Q_T}}u(t,x)$ и $\min\limits_{\overline{Q_T}}u(t,x)$ достигаются на параболической границе $\Gamma_T$ множества $Q_T$
- \begin{proof}
- Максимум достигается,т.к. $\mathrm{L}u \leq 0$, минимум достигается, т.к. $\mathrm{L}(-u) \leq 0$
- \end{proof}
-\end{conseq}
-
-
-{\bf Единственность решения задачи Коши}\\
-Вообще говоря, решение единственным будет не всегда. Но если
- ограничиться некоторым классом функций, то в нем решение может
-  оказаться единственным. Введем такой класс.\\
-  
-  
-\begin{itemize}
-\item Пусть $T > 0, \sigma \geq 0$. {\bf Слой толщины T} - множество $\Pi_T =\brk[c]*{(t,x): 0 < t < T; x \in \R^n}$\\
-Обозначим $M_\sigma(T)$ -{\bf класс функций} $u(t,x) \in C^{1,2}_{t,x}(\Pi_T) \cap
-C(\overline{\Pi_T})$ таких, что $\forall\: u(t,x) \Exists A > 0 , \alpha \geq 0$ такие,
-что $\abs*{u(t,x)} \leq A\exp^{\alpha \abs*{x}^{\sigma}} \Forall (t,x) \in \overline{\Pi_T}$
-
-
-\begin{lemma}
-$M_\sigma(T)$ - линейное пространство, причем 
-$\sigma_0 \leq \sigma_1 \Rightarrow M_{\sigma_0}(T) \subset M_{\sigma_1}(T)$
 \begin{proof}
-Очевидно.
+\hfill
+\begin{enumerate}
+\item 
+В исходном интеграле для $u(t,x)$ сделаем такую замену:
+\[
+\frac{y-x}{\sqrt{4 a^2 t}}=\eta, 
+\quad  y = x + \sqrt{4 a^2 t}\,\eta,
+\quad dy = \sqrt{4 a^2 t}\, d\eta
+\]
+Тогда получим
+\begin{multline*}
+u(t,x)=\frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-\eta^2} u_0(x+\sqrt{4 a^2 t}\, \eta)\: d\eta \\
+u_0(x+\sqrt{4 a^2 t}\,\eta) 
+\;\ \in \;\ C(t \geq 0,\ x \in \R^1,\ \eta \in \R^1) \hspace{8.5em}
+\end{multline*}
+Оценим $\abs*{e^{-\eta^2} u_0(x+\sqrt{4 a^2 t}\, \eta)}\leq M_0e^{-\eta^2}$, причем $\displaystyle\int_{-\infty}^{\infty}M_0e^{-\eta^2}d\eta$ \ сходится $\ \Rightarrow\ $ исходный интеграл сходится равномерно, а значит лежит в $C(t\geq 0,\ x\in\R^1)$. Отсюда следует третье утверждение теоремы.
+
+\item Возьмем 
+\begin{equation}
+u_x(t, x)\sim \int_{-\infty}^{\infty}\frac{1}{4a^3\sqrt{\pi}t^{3/2}}\expT{-\frac{(x-y)^2}{4a^2t}} (y-x)u_0(y)\, dy
+\label{eq:11:u_x}
+\end{equation}
+Выражение под интегралом лежит в $C(t > 0,\;\: x, y \in \R^1)$. 
+
+Пусть $x \in [-A, A]$. Покажем равномерную сходимость интеграла серией оценок:
+
+\begin{enumerate}
+
+	\item При $|y|>A \colon\ $
+
+	$(y-x)^2 \geq (|y|-A)^2
+	=y^2 + A^2 - 2\dfrac{|y|}{\sqrt{2}}\brk*{\sqrt{2}A}.$
+
+	Поскольку $2ab \leq a^2 + b^2$,
+
+	$(y-x)^2 \geq y^2+A^2-\dfrac{y^2}{2}-2A^2=\dfrac{y^2}{2}-A^2$
+	\vspace{0.3em}
+
+	\item При $\abs*{y}\leq A \colon\ (x-y)^2 > 0$
+
+	\item При 
+	$ \forall\, y \in \R\colon\ (x-y)^2 \geq \phi_A(y) 
+	= \begin{cases}
+		\dfrac{y^2}{2}-A^2,\   &\abs*{y}\geq A \\
+		0,\                    &\abs*{y}  <  A
+	\end{cases}
+	$
+
+	\item Кроме того, $\abs*{y-x}\leq \abs*{y}+A$.
+	\end{enumerate}
+
+Получили следующую оценку (при $|x| < A$):
+\[
+\abs*{\frac{1}{4a^3\sqrt{\pi}t^{3/2}}\expT{-\frac{(x-y)^2}{4a^2t}} (y-x)u_0(y)}\leq \frac{M_0}{4a^3\sqrt{\pi}t^{3/2}}(\abs*{y}+A)\expT{-\frac{\phi_A(y)}{4a^2t}}
+\]
+Если $t \in [t_1, t_2] \subset (0, +\infty)$, то это можно ограничить выражением $C \cdot (|y| + A) \cdot \expT{\frac{\phi_A(y)}{B}},$ интеграл от которого сходится, поэтому исходный интеграл сходится равномерно.
+
+Равномерная сходимость (по двум параметрам сразу) есть в любом прямоугольнике 
+$$Q = \Bigl\{ |x| < A, \;\ t \in [t_1, t_2] \Bigr\}$$
+Беря в качестве $Q$ все возможные такие прямоугольники, получим, что производная $u_x$ на всём множестве $\bigl\{ t > 0,\ x \in \R^1 \bigr\}$ существует, непрерывна и равна интегралу \eqref{eq:11:u_x}.
+
+Аналогично будет для любой другой производной (будет асимптотика $\abs*{P_n(y)}e^{-\alpha y^2}$).
+\item%
+\[
+\begin{split}
+&\mathcal{E} (t, x-y)=\frac{1}{\sqrt{4\pi a^2t}}\,\expT{-\frac{(x-y)^2}{4a^2t}} \\[7pt]
+& \mathcal{E}_x(t,x-y) = -\frac{(x-y)}{2a^2 t}\cdot \mathcal E(t,x-y) \\[7pt]
+& \mathcal{E}_{xx}(t,x-y) = \brk*{-\frac{1}{2a^2 t} + \frac{(x-y)^2}{4a^4 t^2}} \mathcal E(t,x-y) \\[7pt]
+& \mathcal{E}_t(t,x-y) = \brk*{-\frac{1}{2}\frac{1}{t} + \frac{(x-y)^2}{4a^2}\frac{1}{t^2}} \mathcal E(t,x-y) \\[7pt]
+\end{split}
+\]
+Тогда 
+\[
+u_t-a^2u_{xx}=\int\limits_{-\infty}^{+\infty}\cancelto{0}{\left[\mathcal{E}_t(t, x-y)-a^2\mathcal{E}_{xx}(t, x-y) \right]}u_0(y)dy=0.
+\]
+Начальное условие (используя самое начало выкладок)
+\[
+\eval{u}_{t=0}=\frac{1}{\sqrt{\pi}}\int\limits_{-\infty}^{+\infty}e^{-\eta^2}u_0(x)d\eta = u_0(x)
+\]
+\end{enumerate}
+Теорема доказана.
 \end{proof}
-\end{lemma}
-
-\begin{lemma}
-$\forall T > 0$ функция $u_T(t,x) = \dfrac{1}{(T-t)^{\frac{n}{2}}}
-\exp^{\dfrac{\abs*{x}^2}{4a^2(T-t)}}, t<T, x \in \R^n$ удовлетворяет
- однородному уравнению теплопроводности
-\begin{proof}
-\begin{itemize}
-
-\item $u_T \in C^\infty \brk[c]*{t<T, x \in \R^n}$
-
-\item $\pd{u_T}{t} = \brk[s]*{\dfrac{n}{2(T-t)^\frac{n}{2}} + \dfrac{1}{(T-
-t)^{\frac{n}{2}}}{\dfrac{\abs*{x}^2}{4a^2(T-t)^2}}}
-\exp^{\dfrac{\abs*{x}^2}{4a^2(T-t)}}$
-
-\item $\Delta_xu_T = \brk[s]*{\dfrac{1}{(T-t)^\frac{n}
-{2}}\dfrac{2n}{4a^2(T-t)} + \dfrac{1}{(T-t)^\frac{n}
-{2}}\dfrac{4\abs*{x}^2}{4^2a^4(T-t)^{2}}}
-\exp^{\dfrac{\abs*{x}^2}{4a^2(T-t)}} \Rightarrow 
-(u_T)^{'}_t - a^2 \Delta_x u_T = 0$ ч.т.д
-\end{itemize}
-\end{proof}
-\end{lemma}
-
-
-\item {\bf Класс Тихонова} - $M_2(T)$
-
-\begin{lemma}
-Пусть $v(t,x)$ такова, что $v \in M_2(T)$ и $v$ - решение полностью 
-однородной ЗК $\brk[c]*{\mathrm{L}v = 0, \eval{v}_{t=0}}$.
-Тогда $\exists T_1 \leq T: \abs*{v} \leq \varepsilon u_{2T_1}(x,t) \Forall \varepsilon > 0$
-
-\begin{proof}
-$\abs*{v} \leq A \exp^{\alpha \abs*{x}^2} \Forall t, x \in
- \overline{\Pi_T}$. Выбираем $T_1 \leq T: \dfrac{1}{8a^2T_1} >
- \alpha : T_1 = \min\brk[c]*{T, \dfrac{1}{16\alpha a^2}}$\\
- Возьмем $\varepsilon > 0$ и $\omega_e^{\pm}(t,x) = \varepsilon
- u_{2T_1} \pm v(t,x)$. 
- Нужно показать, что $\omega_e^{\pm}(t,x) > 0$:\\
- 
- $
- \omega_e^{\pm}(t,x) \geq \varepsilon u_{2T_1} - \abs*{v(t,x)} \geq \varepsilon  u_{2T_1}
-  - A\exp^{\alpha \abs*{x}^2} = 
-  \dfrac{\varepsilon}{(2T_1-t)^{\frac{n}{2}}}\exp^{\dfrac{\abs*{x}^2}{4a^2(2T_1-t)}} - A\exp^{\alpha \abs*{x}^2}
-  \geq
-   \dfrac{\varepsilon}{(2T_1)^{\frac{n}{2}}}
-  \exp^{\dfrac{\abs*{x}^2}{4a^2 2(T_1)}} - A\exp^{\alpha \abs*{x}^2}=
-   \dfrac{\varepsilon}{(2T_1)^{\frac{n}{2}}}
-   \exp^{\dfrac{\abs*{x}^2}{8a^2(T_1)}}
-   \brk[s]*{1 - 
-      \boxed{  
-      \dfrac{(2T_1)^{\frac{n}{2}}}{\varepsilon}A 
-      \exp^{-\brk*{\frac{1}{8a^2(T_1)}-\alpha}\abs*{x}^2}}  
-      }
- $\\
- (для выделенной части $\exists R>0:$ эта часть $<\frac{1}{2}$ при 
- $\abs*{x} > R$)\\
-Значит, $\forall (t,x) : 0 \leq t \leq T$ и $\abs*{x} \geq R \ \Rightarrow\omega_e^{\pm}(t,x)>0$.
-\begin{center}
-\includegraphics[scale=0.5]{11_2_new}
-\end{center}
-Но $\omega_e^{\pm}(t,x)$ удовлетворяет уровнению теплопроводности $\Rightarrow$ на $\Gamma_{T_1}$ достигаются максимум и минимум 
-$\omega_e^{\pm}(t,x) \Rightarrow$ он строго $>0 \Rightarrow \omega_e^{\pm}(t,x)>0$ всюду в полосе $(0,T_1)$.
-Итак,$\mp v(t,x) \leq \varepsilon u_{2T_1}(t,x) \Rightarrow \abs*{v} \leq \varepsilon u_{2T_1}(t,x) \Forall \varepsilon > 0 \Rightarrow v\equiv 0$ в $\overline{\Pi_{T_1}}$
- 
-\end{proof}
-\end{lemma}
-
-\begin{theorem}
-Задача Коши $\mathrm{L}u = f(x,t), \eval{u}_{t = 0} = u_0(x)$ в {\bf классе Тихонова} не может иметь более одного решения в полосе $\Pi_T$
-
-\begin{proof}
-Пусть существует два решения: $u_1$ и $u_2$. Возьмем $v(t,x) = u_2 - u_1$. Функция $v$ удовлетворяет полностью однородной ЗК и лежит в {\bf классе Тихонова} 
-$\Rightarrow$ в полосе $\Pi_{T_1}$, где $T_1$ определенно из предыдущей леммы, будет $v\equiv 0$\\
-Если $T \leq T_1$, то все доказано. В противном случае вводим:\\
-$w(t,x) = v(t+T_1,x)$. Она удовлеворяет:
-  \begin{equation}
-  \begin{cases}
-  & w_t - a^2\Delta_xw=0\\
-  &\eval{w}_{t=0} = 0, T_1 \leq t < T,x \in \R^n
-  \end{cases}
-  \end{equation}
-$\Rightarrow$ в полосе $(0,T_1)$ получим $w \equiv 0$\\
-($T_1$ определяется $\dfrac{1}{8a^2\alpha} \Rightarrow$ одно и то же)\\
-Так за конечное число шагов $N = \lceil{\frac{T}{T_1}} \rceil$ мы покроем всю $\Pi_T$
-\end{proof} 
-\end{theorem}
-
-
-\end{itemize}
 
 
 
+
+\end{document}

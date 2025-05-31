@@ -1,131 +1,167 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
-  
-\section[Задача Коши для колебаний струны]{Задача Коши для уравнения колебаний струны. Формула Даламбера. Область зависимости решения от начальных данных. Существование и единственность классического решения. Корректность постановки задачи.}
+
+\section[Задача Коши в \texorpdfstring{$\R^n$}{R\textasciicircum n}]{Постановка задачи Коши для дифференциального уравнения 2-го порядка с частными производными с линейной старшей частью в $\R^n$. Понятие о характеристической поверхности.}
 % Затехал: Рязанов Андрей
-\textbullet\ Задача: \quad $\begin{cases} u_{tt}-a^2u_{xx} = 0\\ \eval{u(t,x)}_{t=0} = u_0(x)\\ \eval{u_t}_{t=0} = u_1(x)\end{cases}\quad -l<x<l$
-\vspace{0.5em}
 
-Что понимать под решением задачи?
+\imaginarySubsection{Постановка}
+В области $\Omega \subset \R^n$ задано уравнение:
+\begin{equation}
+\label{eq::2::init}
+\sum\limits_{i,j=1}^{n} a_{ij}(x)\frac{\partial^2u}{\partial x_i\partial x_j} + F(x, u, \nabla u) = 0
+\end{equation}
+и поверхность $S\colon\ \omega(x) = \omega(x_1, \dots, x_n) = 0,\ \omega \in C^2(\Omega)$ и $\grad{\omega} \not= 0$ на $\Omega$ (нет особых точек).\\
+На поверхности задано гладкое некасательное поле $\vec{\nu} = (\nu_1(x), \dots, \nu_n(x)),\ \; \langle \vec{\nu}, \vec{n} \rangle \not= 0$.
+\begin{definition}[Задача Коши]
+В $U(x^0)\subset\Omega,\ x^0 \in S$, найти то решение уравнения \eqref{eq::2::init}, которое удовлетворяет двум условиям:
+\begin{enumerate}
+\item $u(x)|_{S\cap U(x^0)}=u_0(x)$
+\item $\eval*{\pd{u}{\vec{\nu}}}_{S\cap U(x^0)} = u_1(x)$ -- выводящая производная
 
-\begin{definition} \textbf{\emph{Классическое решение}} -- функция класса $C^2$, которая в точках указанной области удовлетворяет уравнению и заданным соотношениям.
+Здесь введена производная по направлению: $\pd{u}{\vec{\nu}} = \brk*{\vec{\nu},\, \nabla u} = \displaystyle\sum\limits_{k=1}^{n} \nu_k(x)\, \dfrac{\partial u}{\partial x_k}(x) $
+\end{enumerate}
+\end{definition}
+Может не быть непрерывной зависимости от начальных данных.\\
+Функции $u_0, u_1$ произвольно брать, вообще говоря, нельзя.
+
+
+Далее определим характеристическую поверхность.\\
+Пусть $S$ -- гиперплоскость $x_n = 0$. Нормаль $\vec{n} = (0,0,\dots,0, 1)^\Transp,\\
+u(x_1, \dots, x_{n-1}, 0) = u_0(x_1, \dots, x_{n-1}),\quad \dfrac{\partial u}{\partial\vec{n}} = \dfrac{\partial u}{\partial x_n} = u_1(x_1, \dots, x_{n-1}) $
+
+Мы знаем значения функции на гиперплоскости.\\
+Знаем градиент:
+\begin{equation*}
+\left\{\begin{aligned}
+\frac{\partial u}{\partial x_1}(x_1, \dots, x_{n-1}, 0) &= \frac{\partial u_0}{\partial x_1}(x_1, \dots, x_{n-1})\\ 
+&\vdots \\
+\frac{\partial u}{\partial x_{n-1}}(x_1, \dots, x_{n-1}, 0) &= \frac{\partial u_0}{\partial x_{n-1}}(x_1, \dots, x_{n-1})
+\end{aligned} \right\}
++\left\{\frac{\partial u}{\partial x_n}(x_1,\dots,x_{n-1},0) = u_1 \right\}
+\end{equation*}
+Мы знаем и вторые производные: берём указанные сверху производные и дифференцируем вдоль поверхности, получим \[\frac{\partial^2u}{\partial x_i\partial x_j}(x_1,\dots,x_{n-1}, 0) = \frac{\partial^2u_0}{\partial x_i\partial x_j},\ 1\le i,j \le n-1 \]
+\[\frac{\partial^2u}{\partial x_n\partial x_i}(x_1,\dots,x_{n-1}, 0) = \frac{\partial u_1}{\partial x_i}(x_1,\dots,x_{n-1}),\ 1\le i\le n-1\]
+
+Не нашли только $\pd{u}{x_n}{x_n}$. До этого мы вообще еще не использовали уравнение:
+
+$$\sum\limits_{i,j=1}^{n-1}a_{ij}u_{x_ix_j} + \sum\limits_{j=1}^{n-1}\left[a_{nj}u_{x_nx_j} + a_{jn}u_{x_jx_n}\right] + \underbrace{a_{nn}u_{x_nx_n}}_{\substack{\text{только это слагаемое}\\ \text{еще не определено}}} + F(x, u, \nabla u) = 0 $$
+Если $a_{nn}(x) = 0$ на нашей гиперплоскости, то эту гиперплоскость назовём {\bf характеристической}. На характеристической гиперплоскости полученное уравнение задаёт функциональную связь $u_0$ и $u_1$ -- эта связь называется {\bf условием совместности}.
+
+Теперь переходим к произвольной поверхности: заменим координаты так, чтобы локально поверхность была гиперплоскостью:
+\[y = y(x) = \begin{cases} y_1 = y_1(x_1,\dots, x_n) \\ \vdots \\ y_{n-1} = y_{n-1}(x_1,\dots,x_n) \\ y_n = \omega(x_1,\dots,x_n) \end{cases} \]
+$\Rightarrow$ после преобразования $\omega=0 \Leftrightarrow y_n=0$.\\
+Найдём это преобразование: возьмем $\vec{n} = \nabla \omega(x_0)$.
+\vspace{0.2em}
+\begin{center}
+\includegraphics[width=0.34\textwidth]{./pic 3_1.pdf}
+\end{center}
+\vspace{-0.7em} % Тень на картинке простирается далеко вниз, поэтому кажется, что там есть пустое место. Чтобы его убрать, делаю отрицательное vspace
+Дополним $\vec{n}$ до базиса -- получим $\brk[a]*{\vec{l}_1,\dots,\vec{l}_{n-1},\vec{n}}$. Ортогонализуем -- получим $\brk[a]*{\vec{e}_1,\dots,\vec{e}_{n-1},\vec{n}}.$ Возьмем такое преобразование:
+\[ \vec{y}(\vec{x}) = \begin{cases} y_1 = \brk*{\vec{x}-\vec{x}_0} \cdot \vec{e}_1 \\ \vdots \\ y_{n-1} = \brk*{\vec{x}-\vec{x}_0} \cdot \vec{e}_{n-1} \\ y_n = \omega(\vec{x}) \end{cases}\]
+Проверим, что якобиан не равен 0:
+$$
+J = \begin{vmatrix} 
+\pd{y_1}{x_1} & \cdots & \pd{y_1}{x_n} \\
+\cdots &\cdots &\cdots \\
+\pd{\omega}{x_1} & \cdots & \pd{\omega}{x_n} \end{vmatrix}
+= \begin{vmatrix}
+\;(\qquad e_1^\transp \qquad)\;\\[0.2em]
+\cdots\\[0.2em]
+\;(\qquad e_n^\transp \qquad)\;\\[0.6em]
+\;(\;\;\: \nabla\omega(x)^\Transp \;\;\:)\;
+\end{vmatrix}
+\overset{\text{$x = x_0$}}{=\joinrel=}
+\begin{vmatrix}
+    \;(\qquad e_1^\transp \qquad)\;\\[0.2em]
+    \cdots\\[0.2em]
+    \;(\qquad e_n^\transp \qquad)\;\\[0.6em]
+    \;(\qquad n^\transp \qquad)\;
+    \end{vmatrix}
+$$
+
+Строки матрицы -- компоненты ОНБ $\Rightarrow J(x_0)\neq 0$.\\
+Из соображений непрерывности $J \neq 0$ также в некоторой окрестности точки $x_0$.\\
+Значит, это диффеоморфизм класса $C^2$.
+
+В новых переменных: $\displaystyle\sum_{k,l=1}^n
+\hat{a}_{kl}(y) \pd{\hat{u}}{y_k}{y_l}
++ \hat{F} (y, \hat{u}, \nabla_y \hat{u}) = 0$
+
+Условие характеристичности: \ $\displaystyle 0 = \hat{a}_{nn} = \sum\limits_{i,j=1}^{n} a_{ij}[x(y)]\pd{y_n}{x_i}\pd{y_n}{x_j}, \quad \text{ где } y_n(x) \equiv \omega(x)$
+
+\imaginarySubsection{Характеристическая поверхность}
+\begin{definition}[Характеристическая точка]
+    Пусть дважды гладкая поверхность $S$ задана уравнением $\omega(x) = 0. \quad (\omega \in C^2;\ \nabla\omega \neq 0)$\\
+    Тогда точка $x_0 \in S$ называется характеристической, если в этой точке $\ \displaystyle\sum\limits_{i,j=1}^{n} a_{ij}\, \omega_{x_i}\, \omega_{x_j} = 0$
 \end{definition}
 
-\imaginarySubsection{Формула Даламбера}
-\textbullet\ {\bf Характеристическое уравнение: } $(dx)^2 - a^2(dt)^2 = 0$
-
-$\begin{cases} \xi = x+at \\ \eta = x-at \end{cases} \Leftarrow \begin{cases} x+at = C_1 \\ x-at = C_2 \end{cases}$
-
-В новых координатах $\hat{u}_{\xi\eta}(\xi,\eta) = 0\ \Rightarrow \hat{u} = f(\xi) + g(\eta) $.
-
-Возвращаясь обратно, получим $u(t,x) = f(x+at) + g(x-at)$.
-\vspace{0.4em}
-
-\textbullet\ Решим ЗК (поверхности нигде не касаются характеристик -- задача должна быть корректной):
-\begin{equation*}
-\begin{aligned}
-&\eval{u}_{t=0} = f(x) + g(x) = u_0(x), \quad &-l < x< l&\\
-&\eval{u_t}_{t=0} =  af'(x) - ag'(x) = u_1(x), \quad &-l < x < l& \quad \Rightarrow\ f(x) - g(x) = \frac1{a}\int _{-l}^xu_1(z)dz + C = \frac1{a}V_1(x)
-\end{aligned}
-\end{equation*}
+\begin{definition}[Характеристическая поверхность]
+    Дважды гладкая поверхность называется {\bf характеристикой}, если все её точки характеристические.
+\end{definition}
+Заметим, что если поверхность $\omega(x) = 0$ -- характеристическая, то все поверхности $\omega(x) = \text{const}$ тоже характеристические. Поэтому характеристики образуют семейства.
 \begin{center}
-$\big\Downarrow$
+    \includegraphics[height=0.22\textwidth]{./pic 3_2.pdf}
 \end{center}
-\begin{equation}
-\label{eq::3::dalam}
-\tag{*}
-\begin{cases} f(x) = \frac1{2}u_0(x) + \frac1{2a}V_1(x) \\ g(x) = \frac1{2}u_0(x) - \frac1{2a}V_1(x) \end{cases} \quad (-l < x< l)
-\end{equation}
+\begin{example}
+$\pd[2]{u}{x} - \pd[2]{u}{y} = 0.\quad S$ -- прямая $x=y, \quad \vec{n} = \left(-\dfrac1{\sqrt{2}}, \dfrac1{\sqrt{2}}\right);\quad \pd{u}{\vec{n}} = -\dfrac{u_x}{\sqrt2} + \dfrac{u_y}{\sqrt2} = u_1$
 
-\[ u(t,x) = \frac1{2}u_0(x+at) + \frac1{2a}V_1(x+at) + \frac1{2}u_0(x-at) - \frac1{2a}V_1(x-at) =\]
-\vspace{0.2em}
-\[= \boxed{\frac{u_0(x+at) + u_0(x-at)}{2} + \frac1{2a}\int_{x-at}^{x+at}u_1(x)dx} - \text{{\bf формула Даламбера}} \]
-\vspace{0.1em}
+Производная $\dfrac{du_1}{d\vec l} = \left(\vec{l},\; \nabla\,\pd{u}{\vec{n}}\right) = \dfrac1{\sqrt{2}}\pd{}{x}\left[-\dfrac1{\sqrt2}u_x + \dfrac1{\sqrt{2}}u_y\right] + \dfrac1{\sqrt{2}}\pd{}{y}\left[-\dfrac1{\sqrt2}u_x + \dfrac1{\sqrt{2}}u_y\right] = 0.$
 
-\imaginarySubsection{Существование и единственность классического решения}
-Решение определяется единственным образом.
-
-\imaginarySubsection{Область зависимости от начальных данных}
-Если требуется определить максимальную область, где можно написать решение, то обратимся к формулам \eqref{eq::3::dalam}. Функции $u_0$ и $V$ определены лишь на $(-l;l)\ \Rightarrow\ $искомая область: 
-
-$\begin{cases} -l<x+at<l \\ -l<x-at<l\end{cases}$ -- {\bf характеристический четырехугольник $Q$}.
-\bigskip
-
-\begin{wrapfigure}[3]{R}{0.27\textwidth}
-\begin{tikzpicture}[scale = 0.5]
-  \coordinate (A) at (0, -2);
-  \coordinate (B) at (3, 0);
-  \coordinate (C) at (0, 2);
-  \coordinate (D) at (-3, 0);
-
-  \definecolor{lightGray}{HTML}{e6e6e6};
-  \filldraw[fill = lightGray] (A) -- (B) -- (C) -- (D) -- cycle;
+Значит, любую функцию на $S$ задать нельзя; прямая $x=y$ -- характеристика.
+\end{example}
+\vspace{5pt}
 
 
-  \draw[->] (-4,0) -- (4,0) node[right] {$x$};
-  \draw[->] (0,-3) -- (0,3) node[left] {$y$};
+\begin{example}
+$u_{tt}-a^2\Delta_xu = f(t,x),\ x\in\R^3\ $(волновое уравнение).
 
-  \coordinate [label = {right: \Large $Q$}] (F) at (0.7, 0);
-\end{tikzpicture}
-\end{wrapfigure}
+Характеристическое уравнение: $\brk*{\pd{\omega}{t}}^2 - a^2(\grad \omega)^2 = 0$
 
-Нами доказана теорема:
-\begin{theorem}
-Пусть $\begin{cases} u_0(x)\in C^2(-l;l) \\ u_1(x) \in C^1(-l;l) \end{cases}$. Тогда ЗК имеет в $Q$\\[0.1em]
-единственное решение $u(t,x)\in C^2(Q)$ -- классическое. Оно дается\\[0.1em] 
-формулой Даламбера.
+Этому уравнению удовлетворяет $\omega(t,x) = \underbrace{a^2t^2 - \vec{x}^2 = 0}_{\text{конус}}$.
+\end{example}
+
+
+
+\begin{example}
+$u_{t}-a^2\Delta_xu = f(t,x)\ $(уравнение теплопроводности).
+
+Характеристическое уравнение: $-a^2[\omega_{x_1}^2 + \dots + \omega_{x_n}^2] = 0\ \Rightarrow \ \omega_{x_i} = 0 \Forall i=\overline{1,n}$
+
+Так как $\nabla \omega \not= 0 $, мы требуем $\omega_t \not=0$. 
+
+Подходит $\omega(t,x) = t-C = 0 \qquad   \Rightarrow \qquad $характеристики --- это гиперплоскости $t=C$
+\end{example}
+
+
+
+\begin{example}
+$\Delta u(x) = f(x)\ \text{(ур-е Пуассона)},\ x\in\R^n;$
+
+Характеристическое уравнение: $\; a^2[\omega_{x_1}^2+\dots+\omega_{x_n}^2] = 0 \ \Rightarrow\ \omega_{x_i} = 0 \Forall i=\overline{1,n}.$
+
+А мы требовали $\nabla \omega \neq 0\ \Rightarrow\ $ у уравнения эллиптического типа нет характеристик.
+\end{example}
+
+\Subsection{Теорема Ковалевской}
+
+Функция $u(\vec{x}) = u(x_1,\dots,x_n)$ называется {\bf вещественно-аналитической} в $\vec{x}_0$, если в некоторой $U_{\varepsilon}(\vec{x}_0)$ она представима в виде 
+$$u(\vec{x}) = \displaystyle\sum\limits_{|\alpha|>0}u_{\alpha}(\vec{x}-\vec{x}_0)^{\alpha},$$
+где $\alpha$ -- мультииндекс, \quad $u_{\alpha} \in \R, \qquad (\vec{x}-\vec{x}_0)^{\alpha} = (x_1-x_1^0)^{\alpha_1}\cdot\dots\cdot(x-x_n^0)^{\alpha_n}$
+
+\begin{theorem}[Ковалевской]
+Пусть в уравнении $\displaystyle\sum\limits_{i,j=1}^{n} a_{ij}(\vec{x})\frac{\partial^2u}{\partial x_i\partial x_j} + F(\vec{x}, u, \nabla u) = 0$:
+\begin{itemize}[nolistsep, noitemsep]
+\item все $a_{ij}(\vec{x})$ -- вещественно-аналитические в $\vec{x}_0$ 
+\item $F(\vec{x}, u, \nabla u)$ -- вещественно-аналитическая в $(\vec{x}_0, u_0(\vec{x}_0), \nabla u(\vec{x}_0))$ соответственно 
+\item $\omega(\vec{x})$  -- вещественно-аналитическая в $\vec{x}_0$
+\item $\vec{x}_0$ -- не характеристическая точка поверхности
+\item $u_0,\ u_1$ -- вещественно-аналитические в $\vec{x}_0$.
+\end{itemize}
+Тогда: 
+\begin{itemize}[nolistsep, noitemsep]
+\item $\exists\: U_{\varepsilon}(\vec{x}_0)\colon$ в ней $\exists$ вещественно-аналитическое решение задачи Коши
+\item оно единственно в классе вещественно-аналитических функций.
+\end{itemize}
 \end{theorem}
-
-\imaginarySubsection{Корректность}
-Корректность задачи для уравнения малых колебаний струны:
-\begin{itemize}
-\item нами проверены существование и единственность классического решения.
-\item покажем непрерывность решения по входным данным $u_0$ и $u_1$.\\Берем две задачи:
-\[ 
-\begin{cases} 
-  \overset{\text{\tiny{1}}}{u}_{tt}-a^2\overset{\text{\tiny{1}}}{u}_{xx} = 0, &(t,x)\in Q\\
-
-  \overset{\text{\tiny{1}}}{u}\bigr|_{t=0} = \overset{\text{\tiny{1}}}{u}_0(x), &\abs*{x}<l\\ 
-  
-  \overset{\text{\tiny{1}}}{u}_t\bigr|_{t=0} = \overset{\text{\tiny{1}}}{u}_1(x), &\abs*{x}<l\end{cases} \qquad
-\begin{cases} 
-  \overset{\text{\tiny{2}}}{u}_{tt}-a^2\overset{\text{\tiny{2}}}{u}_{xx} = 0, &(t,x)\in Q\\
-
-  \overset{\text{\tiny{2}}}{u}\bigr|_{t=0} = \overset{\text{\tiny{2}}}{u}_0(x), &\abs*{x}<l\\
-
-  \overset{\text{\tiny{2}}}{u}_t\bigr|_{t=0} = \overset{\text{\tiny{2}}}{u}_1(x), &\abs*{x}<l
-\end{cases}
-\]
-Пусть $\abs*{\overset{\text{\tiny{1}}}{u}_0 - \overset{\text{\tiny{2}}}{u}_0}<\delta_0,\ \abs*{\overset{\text{\tiny{1}}}{u}_1 - \overset{\text{\tiny{2}}}{u}_1}<\delta_1 \;\Forall x\colon \abs*{x}<l.$ \quad Введем 
-$\begin{cases}
-v_0 = \overset{\text{\tiny{1}}}{u}_0 - \overset{\text{\tiny{2}}}{u}_0 \\
-v_1 = \overset{\text{\tiny{1}}}{u}_1 - \overset{\text{\tiny{2}}}{u}_1 \\
-v = \overset{\text{\tiny{1}}}{u} - \overset{\text{\tiny{2}}}{u}
-\end{cases}$\\
-Тогда задача для $v:\ 
-\begin{cases} 
-v_{tt}-a^2v_{xx} = 0, \qquad (t,x) \in Q\\
-
-\begin{aligned}
-\eval{v}_{t=0}\; = v_0(x),\quad &\abs*{x}<l,\ \abs*{v_0}<\delta_0\\
-
-\eval{v_t}_{t=0} = v_1(x),\quad &\abs*{x}<l,\ \abs*{v_1}<\delta_1
-\end{aligned}
-
-\end{cases}$
-\vspace{0.2em}
-
-Согласно формуле Даламбера,
-$$\abs*{v(t,x)} = \abs*{\dfrac{v_0(x+at) + v_0(x-at)}{2} + \dfrac1{2a}\int\limits_{x-at}^{x+at}v_1(y)dy} \leq \delta_0 + \delta_1t \;\; \Forall (t,x) \in Q$$
-
-\begin{itemize}
-\item[--] Если $l$ конечно, то $t\le \dfrac{l}{a}$ из вида четырёхугольника $Q$. Устремляя $\delta_0,\, \delta_1 \to 0$, \\
-получим $\abs*{v}\to 0$.
-\item[--] Если $l=\infty$: в любой конечной полосе $t\le T< \infty$ требуемое верно. \\
-Так заметаем всю плоскость.
-
-
-\end{itemize}
-\end{itemize}
 
 \end{document}

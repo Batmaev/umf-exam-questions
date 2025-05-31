@@ -1,91 +1,127 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 
-\section[Теорема единственности для волнового уравнения]{Теорема о единственности классического решения задачи Коши для волнового уравнения (на примере случая $\R^2$). Метод интеграла энергии.}
 
+\section[Неоднородное волновое уравнение в \texorpdfstring{$\R^3$}{R\textasciicircum 3}]{Метод Дюамеля решения задачи Коши для неоднородного волнового уравнения в $\R^3$. Общая формула Кирхгофа.}
+% Иваныч техал
+\subsection*{Формулировка задачи}
 
-\begin{theorem} Классическое решение ЗК для волнового уравнения в $\mathbb{R}^n$ единственно.
-\end{theorem}
-\begin{proof}[Доказательство (для случая $\R^2$)]
-Пусть $u_{1}$ и $u_{2}$ - классические решения.
+\begin{equation} \label{8_1}
+    \begin{cases}
+        u_{tt} - a^2\Delta u = f(t, x), & t > 0, x \in \R^3 \\
+        \eval{u}_{t=0} = 0, & \\
+        \eval{u_t}_{t=0} = 0.
+    \end{cases} \;\;\text{ Считаем, что } f(t, x) \in C^{0,2}_{t,x}\, \{t \geq 0,\, x \in \R^3\}
+\end{equation}
 
-Тогда функция $v(x,y,t) = u_1 - u_2$ удовлетворяет полностью однородной задаче: 
-$$
+\Subsection{Метод Дюамеля}
+
+Сведем задачу к задаче Коши для однородного волнового уравнения. Рассмотрим однопараметрическое семейство задач:
+\begin{equation} \label{8_2}
 \begin{cases}
-  v_{tt} - a^2(v_{xx} + v_{yy}) = 0\\
-  \eval{v}_{t=0} = \eval{v_t}_{t=0} = 0
-\end{cases}
-$$
-Наша цель - показать, что $v\equiv 0 $ при $ t\geq 0,\ (x,y) \in \mathbb{R}^2$.
+    w_{tt}(t, x, \tau) - a^2\Delta_x w(t, x, \tau) = 0, & t > \tau;\ x \in \R^3 \\
+    \eval{w}_{t=\tau} = 0, & \\
+    \eval{w_t}_{t=\tau} = f(\tau, x), &
+\end{cases} \;\;\; \tau \geq 0.
+\end{equation}
 
-Возьмем точку $ (x_0, y_0, t_0),\ \ t_0 > 0,\ (x,y) \in \R^2$. \; Выпустим из этой точки характеристическую поверхность --- конус:
-$$ 
-w(t,x) = a^2(t - t_0)^2 - (x - x_0)^2 - (y - y_0)^2 = 0,\quad t < t_0
-$$
-Возьмем его часть --- усечённый конус $ V_T $ с нижним основанием $ \Sigma_0 $, верхним основанием $ \Sigma_T $  и боковой поверхностью $ \Gamma_T:$
-\begin{center}
-\includegraphics[width=0.28\linewidth]{./pic 8.pdf}
-\end{center}
-Вектор (внешней) нормали $ \vec{n} $ к этому усеченному конусу:
+Решение задач семейства получаем по формуле Пуассона-Кирхгофа:
+
+\begin{equation*}
+    w(t, x, \tau) = \frac{1}{4\pi a^2(t - \tau)}\oiint\limits_{\abs*{\xi - x}=a(t-\tau)}f(\tau, \xi)\,dS_\xi \quad \in \; C^{2,2,0}_{t,x,\tau}\,\{t - \tau \geq 0,\, x \in \R^3\}
+\end{equation*}
+
+(Под $C^{2,2,0}_{t,x,\tau}$ подразумевается, что $D^\alpha_{t, x}\: w(t, x, \tau)\in C \Forall \alpha\colon |\alpha| \leq 2$)
+
+\begin{statement}
+    $$
+    u(t, x) = \int_0^t w(t, x, \tau)d\tau \text{ -- классическое решение исходной задачи.}
+    $$
+\end{statement}
+\begin{proof}\hfill
 \begin{itemize}
-	\item на $\Sigma_T:\ \vec{n} = \begin{pmatrix}1 & 0 & 0\end{pmatrix}^T $
-	
-	\item на $\Sigma_0:\ \vec{n} = \begin{pmatrix}-1 & 0 & 0\end{pmatrix}^T $
-	
-	\item на $\Gamma_T:\ \vec{n}=\dfrac{-1}{\sqrt{w_t^2+w^2_x+w^2_y}}
-  \begin{pmatrix} w_t \\ w_x \\ w_y \end{pmatrix} =
-  \begin{pmatrix} n_t \\ n_x \\ n_y \end{pmatrix}
-  $
-  \vspace{0.5em}
+    \item $u(t,x) \in C^2\, \{t \geq 0, \; x \in \R^3\}$
 
-  В силу уравнения характеристик $\; w_t^2 - a^2w^2_x - a^2w^2_y = 0 \;$ (задаёт конус) имеем
+    \item $\eval{u}_{t=0} = 0$
+    
+    \item Вычислим $\eval{u_t}_{t=0}$
+    
+    Интегралы, в которых и пределы, и подынтегральная функция зависят от параметра, дифференциируются по формуле
+    $$\pd{}{t} \int_{a(t)}^{b(t)} f(t,x)\,dx = f(t,b(t)) \cdot b' - f(t,a(t)) \cdot a' + \int_{a(t)}^{b(t)} f'_t(t,x)\,dx$$
+    В нашем случае $a = 0,\ b = t,\ b' = 1$. Поэтому
+    $$\eval{u_t}_{t=0} = 
+    \eval*{\brk*{\underbrace{w(t, x, \tau)|_{\tau = t}}_\text{= 0 из нач. усл. в \eqref{8_2}} + \int_0^t \pd{w}{t}d\tau}}_{t=0} = \int_0^0 \pd{w}{t}\, d\tau = 0$$
 
-  $n^2_t = a^2 \brk*{n^2_x + n^2_y}$\\
-  $n^2_t + n^2_x + n^2_y = 1 \quad \Rightarrow \quad n^2_t = \dfrac{a^2}{a^2 +1} \quad \Rightarrow\quad n_t = \dfrac{a}{\sqrt{a^2+1}}.$
+    \item $\displaystyle \ \Delta_xu = \int_0^t\Delta_x w(t, x, \tau)d\tau$
+
+    \begin{align*}
+        u_{tt} &= \pd{}{t}\int_0^t \pd{w}{t}\, d\tau = w_t(t, x, \tau)|_{\tau = t} + \int_0^t w_{tt} (t, x, \tau)\, d\tau
+        = f(\tau, x)|_{\tau = t} + a^2 \int_0^t \Delta_x w(t, x, \tau) \, d\tau \\[0.5em]
+        &= f(t, x) + a^2\Delta_x u
+    \end{align*}
 \end{itemize}
 
-
-Функция \imaginarySubsection{Интеграл энергии}
-$ \psi = v_t(v_{tt}- a^2v_{xx} - a^2v_{yy})\; $ тождественно равна нулю.
-
-Раскроем скобки:
-\begin{flalign*}
-  \qquad 0\;\; &= v_t v_{tt} - a^2 v_t v_{xx}-a^2 v_t v_{yy}= &&\\
-  &=\frac{1}{2}\brk*{v^2_t}_t + a^2 v_x v_{xt}-\brk*{a^2 v_t v_x}_x + a^2 v_y v_{yt} - \brk*{a^2 v_t v_y}_y = &&\\ 
-  &=\frac{1}{2}\brk*{v^2_t}_t - \brk*{a v_t v_x}_x - \brk*{a v_t v_y}_y + \brk*{\frac{1}{2}a^2v^2_x}_t+\brk*{\frac{1}{2}a^2v^2_y}_t = &&\\ 
-  &=\brk*{\frac{v^2_t+a^2v^2_x+a^2v^2_y}{2}}_t+\brk*{-a^2 v_t v_x}_x + \brk*{-a^2 v_t v_y}_y = &&\\
-  &= F^{(t)}_t + F^{(x)}_x + F^{(y)}_y = \div\vec{F},
-\end{flalign*}
-\qquad где введено поле $\vec{F}$.
-\vspace{0.7em}
-
-Проинтегрируем полученную дивергенцию по объему усеченного конуса:
-\begin{multline*}
-  0 = \iiint\limits_{V_T}\div\vec{F} =
-  \oiint\limits_{\partial V_T}(\vec{F},\vec{n})\, dS 
-  =\iint\limits_{\Sigma_T}\frac{v^2_t+a^2v^2_x+a^2v^2_y}{2}\, dS - \iint\limits_{\Sigma_0}\frac{v^2_t+a^2v^2_x+a^2v^2_y}{2}\, dS + \\[0.4em]
-  + \frac{1}{2}\iint\limits_{\Gamma_T}\brk*{(v^2_t+a^2v^2_x+a^2v^2_y)n_t-2a^2v_tv_xn_x - 2a^2v_tv_yn_y}dS
-  \ = \ E(\Sigma_T) - E(\Sigma_0) + E(\Gamma_T)
-\end{multline*}
-
-В силу условий $ \eval{v}_{t=0} = \eval{v_t}_{t=0} = 0$ \ имеем \ $ E(\Sigma_0)=0 $ \ (под интегралом тождественный ноль).
-
-Тогда\, $ E(\Sigma_T)+E(\Gamma_T)=0 $.\: 
-Кроме того, \ $ E(\Sigma_T)\geq 0 $ \ (под интегралом сумма квадратов).
-\vspace{0.5em}
-
-Покажем, что и $ E(\Gamma_T)\geq 0 $: разделим и домножим её на $ n_t=\dfrac{a}{\sqrt{a^2+1}} $
-\begin{multline*}
-  \frac{1}{2}\frac{\sqrt{a^2+1}}{a}\iint\limits_{\Gamma_T}\brk*{(v^2_t+a^2v^2_x+a^2v^2_y)n^2_t \; - \; 2a^2v_tv_xn_tn_x \; - \; 2a^2v_tv_yn_tn_y} dS = \\ \shoveleft{
-  =\frac{1}{2}\frac{\sqrt{a^2+1}}{a}\iint\limits_{\Gamma_T} \Bigl( v^2_t \overbrace{a^2(n^2_x + n^2_y)}^\text{= $n_t^2$}\; + \; a^2v^2_xn^2_t \; + \; a^2v^2_yn^2_t\; - \; 2a^2v_tv_xn_tn_x \; - \; 2a^2 v_t v_y n_t n_y \Bigr)\, dS }\\
-  = \frac{1}{2} a \sqrt{a^2+1} \iint\limits_{\Gamma_T} \brk*{(v_tn_x -v_xn_t)^2+(v_tn_y-v_yn_t)^2} dS \;\ \geq\ 0  
-\end{multline*}
-
-Значит,\; $ E(\Sigma_0)=E(\Sigma_T)=E(\Gamma_T)\equiv 0.$
-\; Из $ E(\Sigma_T)\equiv 0 $ получаем: 
-$$ v_t\equiv 0,\ v_x\equiv 0,\ v_y\equiv 0 \quad \Rightarrow \quad v = \text{const} = \eval{v}_{t=0} = 0 
-$$
-Это верно всюду внутри усеченного конуса.
-Заметая такими конусами всё пространство, получим, что $ v \equiv 0 $.
+Значит, рассматриваемая функция удовлетворяет уравнению.
 \end{proof}
+Мы доказали следующую теорему:
+\begin{theorem}
+    Пусть в  задаче \eqref{8_1} функция $f(t,x)$ такова, что $D^\alpha_x\, f \in C\,\{t \geq 0,\; x \in \R^3\}$\\ 
+    Тогда функция 
+    \begin{equation} \label{8_3}
+        u(t, x) = \int\limits_0^t{ \frac{1}{4\pi a^2(t - \tau)}
+        \brk[s]*{\oiint\limits_{\;\abs*{\xi - x} = a(t - \tau)}
+        f(\tau, \xi)\, dS_\xi} d\tau}
+    \end{equation}
+    является классическим решением, причем 
+    $$
+    D^\alpha_{t, x}\, u \in C\,\{t \geq 0, x \in \R^3\}.
+    $$
+\end{theorem}
+Суть метода Дюамеля: $f(t, x)$ -- это начальные данные в каждый момент времени.
+
+\Subsection{Запаздывающий потенциал}
+Преобразуем формулу \eqref{8_3}: 
+\begin{align*}
+    &\int\limits_0^t \frac{d\tau}{4\pi a^2(t - \tau)}
+    \oiint\limits_{\abs*{\xi - x} = a(t - \tau)} f(\tau, \xi)\, dS_\xi = 
+    \begin{bmatrix} 
+        \rho = a(t - \tau) \\
+        \tau = t -\rho/a \\
+        d\tau = -d\rho/a 
+    \end{bmatrix} = 
+    -\int\limits_{at}^0 \frac{1}{4\pi a \rho} \frac{d\rho}{a} 
+    \oiint\limits_{\abs*{\xi - x} = \rho} f \brk*{t - \frac{\rho}{a},\; \xi} dS_\xi = \\[1em]
+    &= \frac{1}{4\pi a^2} \int\limits_0^{at} d\rho \oiint\limits_{\abs*{\xi - x} = \rho} \frac{f(t - \frac{\abs*{\xi - x}}{a},\; \xi)}{\abs*{\xi - x}}\, dS_\xi
+    = \boxed{\frac{1}{4\pi a^2} \iiint\limits_{\abs*{\xi - x} < at}\frac{f(t - \frac{\abs*{\xi - x}}{a}, \xi)}{\abs*{\xi - x}}\;d\xi}
+\end{align*}
+
+Выражение в рамке называется \emph{запаздывающим потенциалом}.
+
+\Subsection[Общая формула Кирхгофа]{Общая задача Коши:}
+\vspace{-0.5em}
+$$
+\begin{cases}
+    u_{tt} - a^2\Delta_x u = f(t, x), \\
+    \eval{u}_{t=0} = u_0(x), \\
+    \eval{u_t}_{t=0} = u_1(x).
+\end{cases}
+$$
+\vspace{0em} % По какой-то причине это добавляет ненулевое vspace именно той величины, которое нужно
+
+\begin{theorem}[Формула Кирхгофа]
+    Пусть в общей задаче Коши
+    $$
+    u_0 \in C^3(\R^3), \qquad 
+    u_1 \in C^2(\R^3), \qquad 
+    f \in C^{0,2}_{t,x}\,\{t \geq 0,\; x \in \R^3\}. $$
+    Тогда выражение
+    \begin{equation*} \label{8_4}
+        u(t, x) = \pd{}{t} \left[ \frac{1}{4\pi a^2t}\oiint\limits_{\abs*{\xi - x}=at}u_0(\xi)\, dS_\xi \right]
+        + \frac{1}{4\pi a^2t} \oiint\limits_{\abs*{\xi - x}=at}u_1(\xi)\, dS_\xi 
+        + \frac{1}{4\pi a^2} \iiint\limits_{\abs*{\xi - x} < at} \frac{f(t - \frac{\abs*{\xi - x}}{a}, \xi)}{\abs*{\xi - x}}\, d\xi
+    \end{equation*}
+
+    является классическим решением общей задачи Коши, \; $u(t,x) \in C^2\,\{t \geq 0,\ x \in \R^3\}$.
+\end{theorem}
+
 \end{document}

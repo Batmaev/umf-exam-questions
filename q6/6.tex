@@ -1,156 +1,169 @@
+% Затехал Иваныч
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 
+\section[Полубесконечная струна с закреплённым концом]{Смешанная задача для колебаний полубесконечной струны с закрепленным концом. Условия согласования начальных и граничного данных. Существование и единственность классического решения.}
 
-\section[Неоднородное волновое уравнение в \texorpdfstring{$\R^3$}{R\textasciicircum 3}]{Формула Кирхгофа решения задачи Коши для неоднородного волнового уравнения в $\R^3$. Метод Дюамеля. Принцип Гюйгенса.}
-% Иваныч техал
-\subsection*{Формулировка задачи}
+\Subsection{Формулировка}
 
+Задача (называется \emph{начально-краевой} или \emph{смешанной})
 \begin{equation} \label{6_1}
-    \begin{cases}
-        u_{tt} - a^2\Delta u = f(t, x) & t > 0, x \in \R^3 \\
-        \eval{u}_{t=0} = 0 & \\
-        \eval{u_t}_{t=0} = 0
-    \end{cases} \;\;\text{ считаем, что } f(t, x) \in C^{0,2}_{t,x}\, \{t \geq 0,\, x \in \R^3\}
-\end{equation}
-
-\Subsection{Метод Дюамеля}
-
-Сведем задачу к задаче Коши для однородного волнового уравнения. Рассмотрим однопараметрическое семейство задач:
-\begin{equation} \label{6_2}
 \begin{cases}
-    w_{tt}(t, x, \tau) - a^2\Delta_x w(t, x, \tau) = 0 & t > \tau;\ x \in \R^3 \\
-    \eval{w}_{t=\tau} = 0 & \\
-    \eval{w_t}_{t=\tau} = f(\tau, x) &
-\end{cases} \;\;\; \tau \geq 0
+  u_{tt} -a^2u_{xx} = 0 ,\;\;\, t>0,\; x>0 \\
+  \begin{aligned}
+    \eval{u}_{t=0}\; &= u_0(x),\quad x\geq 0 \\
+    \eval{u_t}_{t=0} &= u_1(x),\quad x\geq 0  \\
+    \eval{u}_{x=0} &= 0, \;\; \text{по сравнению с задачей Коши это дополнительное граничное условие}
+  \end{aligned}
+\end{cases}
 \end{equation}
+\vspace{0pt}  % Почему-то это создаёт дополнительный отступ, которого не хватало
 
-Решение задач семейства получаем по формуле Пуассона-Кирхгофа:
-
+\begin{remark}
+    Физический смысл: смотрим, как волна отражается от закрепленного конца.
+\end{remark}
+Предполагаем, что 
 \begin{equation*}
-    w(t, x, \tau) = \frac{1}{4\pi a^2(t - \tau)}\oiint\limits_{\abs*{\xi - x}=a(t-\tau)}f(\tau, \xi)\,dS_\xi \quad \in \; C^{2,2,0}_{t,x,\tau}\,\{t - \tau \geq 0,\, x \in \R^3\}
+    \begin{cases}
+        u_0(x) \in C^2 [0, +\infty) \\
+        u_1(x) \in C^1 [0, +\infty) \\
+    \end{cases}
 \end{equation*}
 
-(Под $C^{2,2,0}_{t,x,\tau}$ подразумевается, что $D^\alpha_{t, x}\: w(t, x, \tau)\in C \Forall \alpha\colon |\alpha| \leq 2$)
+\Subsection{Общее решение}
+\vspace{-1.25em}
 
-\begin{statement}
-    $$
-    u(t, x) = \int_0^t w(t, x, \tau)d\tau \text{ --- классическое решение исходной задачи.}
-    $$
-\end{statement}
-\begin{proof}\hfill
-\begin{itemize}
-    \item $u(t,x) \in C^2\, \{x \in \R^3,\; t \geq 0\}$
-
-    \item $\eval{u}_{t=0} = 0$
-    
-    \item Вычислим $\eval{u_t}_{t=0}$
-    
-    Интегралы, в которых и пределы, и подынтегральная функция зависят от параметра, дифференциируются по формуле
-    $$\pd{}{t} \int_{a(t)}^{b(t)} f(t,x)\,dx = f(t,b(t)) \cdot b' - f(t,a(t)) \cdot a' + \int_{a(t)}^{b(t)} f'_t(t,x)\,dx$$
-    В нашем случае $a = 0,\ b = t,\ b' = 1$. Поэтому
-    $$\eval{u_t}_{t=0} = 
-    \eval*{\brk*{\underbrace{w(t, x, \tau)|_{\tau = t}}_\text{= 0 из нач. усл. в \eqref{6_2}} + \int_0^t \pd{w}{t}d\tau}}_{t=0} = \int_0^0 \pd{w}{t}\, d\tau = 0$$
-
-    \item $\displaystyle \ \Delta_xu = \int_0^t\Delta_x w(t, x, \tau)d\tau$
-
-    \begin{align*}
-        u_{tt} &= \pd{}{t}\int_0^t \pd{w}{t}\, d\tau = w_t(t, x, \tau)|_{\tau = t} + \int_0^t w_{tt} (t, x, \tau)\, d\tau
-        = f(\tau, x)|_{\tau = t} + a^2 \int_0^t \Delta_x w(t, x, \tau) \, d\tau \\[0.5em]
-        &= f(t, x) + a^2\Delta_x u
-    \end{align*}
-\end{itemize}
-
-Значит, рассматриваемая функция удовлетворяет уравнению.
-\end{proof}
-Мы доказали следующую теорему:
-\begin{theorem}
-    Пусть в  задаче \eqref{6_1} функция $f(t,x)$ такова, что $D^\alpha_x\, f \in C\,\{t \geq 0,\; x \in \R^3\}$\\ 
-    Тогда функция 
-    \begin{equation} \label{6_3}
-        u(t, x) = \int\limits_0^t{ \frac{1}{4\pi a^2(t - \tau)}
-        \brk[s]*{\oiint\limits_{\;\abs*{\xi - x} = a(t - \tau)}
-        f(\tau, \xi)\, dS_\xi} d\tau}
-    \end{equation}
-    является классическим решением, причем 
-    $$
-    D^\alpha_{t, x}\, u \in C\,\{t \geq 0, x \in \R^3\}
-    $$
-\end{theorem}
-Суть метода Дюамеля: $f(t, x)$ --- это начальные данные в каждый момент времени.
-
-\Subsection{Запаздывающий потенциал}
-Преобразуем формулу \eqref{6_3}: 
 \begin{align*}
-    &\int\limits_0^t \frac{d\tau}{4\pi a^2(t - \tau)}
-    \oiint\limits_{\abs*{\xi - x} = a(t - \tau)} f(\tau, \xi)\, dS_\xi = 
-    \begin{bmatrix} 
-        \rho = a(t - \tau) \\
-        \tau = t -\rho/a \\
-        d\tau = -d\rho/a 
-    \end{bmatrix} = 
-    -\int\limits_{at}^0 \frac{1}{4\pi a \rho} \frac{d\rho}{a} 
-    \oiint\limits_{\abs*{\xi - x} = \rho} f \brk*{t - \frac{\rho}{a},\; \xi} dS_\xi = \\[1em]
-    &= \frac{1}{4\pi a^2} \int\limits_0^{at} d\rho \oiint\limits_{\abs*{\xi - x} = \rho} \frac{f(t - \frac{\abs*{\xi - x}}{a},\; \xi)}{\abs*{\xi - x}}\, dS_\xi
-    = \boxed{\frac{1}{4\pi a^2} \iiint\limits_{\abs*{\xi - x} < at}\frac{f(t - \frac{\abs*{\xi - x}}{a}, \xi)}{\abs*{\xi - x}}\;d\xi}
+&\ \: u(t,x) = f(x +at) + g(x - at) \\
+&\begin{cases}
+  \begin{aligned}
+    \eval{u}_{t=0}\; &= f(x) + g(x) = u_0(x), \;\; &x \geq 0\\
+    \eval{u_t}_{t=0} &= af'(x) -ag'(x) = u_1(x), \;\; &x \geq 0  
+  \end{aligned}
+\end{cases}
 \end{align*}
 
-Выражение в рамке называется \emph{запаздывающим потенциалом}.
+Если ввести обозначение $v_1(x) = \displaystyle\int_0^x u_1(y)\;dy + C$, то при $x \geq 0$
 
-\Subsection[Общая формула Кирхгофа]{Общая задача Коши:}
-\vspace{-0.5em}
+\begin{wrapfigure}[7]{r}{0.35\textwidth}
+    \centering
+    \includegraphics[width=0.35\textwidth]{./pic 6_1.pdf}
+\end{wrapfigure}
+
+\begin{align*}
+    & f(x) = \frac{1}{2}u_0(x) + \frac{1}{2a}v_1(x) \\
+    & g(x) = \frac{1}{2}u_0(x) - \frac{1}{2a}v_1(x) \\
+\end{align*}
+
+Граничные условия нужны для определения $u$ в $(x \geq 0)\cap(t \geq 0)$ (в смысле пересечения областей). Их не обязательно ставить на $x=0$, можно на $x + \alpha t = 0, \; -a < \alpha < a$, то есть там, где известна только одна из функций, а не обе.
 $$
+\eval{u}_{x=0} = f(at) + g(-at)=0, \;\; t \geq 0
+$$
+\clearpage % костыль чтобы wrapfigure не думал, что иллюстрация простирается на следующие страницы тоже
+
+\begin{wrapfigure}[7]{r}{0.35\textwidth}
+    \includegraphics[width=0.35\textwidth]{./pic 6_2.pdf}
+\end{wrapfigure}
+
+Введем $\xi = -at, \xi \leq 0$, тогда $g(\xi) = -f(-\xi)$ и суммарно:
+\begin{equation*}
+    g(\xi) = \begin{cases}
+        \frac{1}{2}u_0(\xi)-\frac{1}{2a}v_1(\xi), & \xi \geq 0\\
+        -\frac{1}{2}u_0(-\xi)-\frac{1}{2a}v_1(-\xi), & \xi \leq 0\\
+    \end{cases}
+\end{equation*}
+
+Теперь $g$ известна везде, решение найдено при $x + at > 0$, то есть даже в большей области, чем мы хотели.
+
+
+\Subsection{Условия согласования}
+Чтобы $g(x) \in C^2(\R)$, решения необходимо <<сшить>>:
+\begin{align*}
+    g(+0) &= g(-0) \\
+    g'(+0) &= g'(-0) \\
+    g''(+0) &= g''(-0)
+\end{align*}
+Распишем эти условия:
+\begin{align*}
+     g(+0) &= g(-0) &\Leftrightarrow&& 
+    \frac{1}{2}u_0(0) - \cancel{\frac{1}{2a}v_1(0)} &= -\frac{1}{2}u_0(0) - \cancel{\frac{1}{2a}v_1(0)} &&\Rightarrow& u_0(0) &= 0 \\
+     g'(+0) &= g'(-0) &\Leftrightarrow&& \cancel{\frac{1}{2}u'_0(0)} - \frac{1}{2a}u_1(0) &=
+    \cancel{\frac{1}{2}u'_0(0)} + \frac{1}{2a}u_1(0) &&\Rightarrow& u_1(0) &= 0 \\
+     g''(+0) &= g''(-0) &\Leftrightarrow&& \frac{1}{2} u''_0(0) - \cancel{\frac{1}{2a} u_1'(0)} &= -\frac{1}{2}u_0''(0) - \cancel{\frac{1}{2a} u_1'(0)} &&\Rightarrow& u_0''(0) &= 0
+\end{align*}
+
+\begin{definition}[условия согласования]
+    Эти условия называются условиями согласования (начальных и граничных условий)
+\end{definition}
+
+При их выполнении решение будет классическим. Если $u_0(0) \ne 0$, то даже обобщенного решения не будет.
+
+\Subsection{Метод продолжений}
+
+\begin{theorem}
+    Пусть в смешанной задаче (\ref{6_1}) функции $u_0(x)$ и $u_1(x)$ таковы, что 
+    \begin{itemize}
+        \item Выполнено условие гладкости: $u_0(x)\in C^2[0, +\infty), \; u_1(x) \in C^1[0, +\infty)$
+        \item Выполнено условие согласования: $u_0(0) = u_1(0) = u_0''(0) = 0$
+    \end{itemize}
+    Тогда задача (\ref{6_1}) имеет единственное классическое решение $u(t,x) \in C^2(t \geq 0, x\geq 0)\colon$
+\end{theorem}
+\begin{equation} \label{6_2}
+    u(t, x) = \begin{cases}
+        \dfrac{u_0(x+at) + u_0(x-at)}{2} + \dfrac{1}{2a}\displaystyle\int_{x-at}^{x+at}u_1(y)\;dy,\quad & \{x\geq -at,\; x\geq at\} \\[1em]
+
+        \dfrac{u_0(at+x) - u_0(at-x)}{2} + \dfrac{1}{2a}\displaystyle\int_{at-x}^{at+x}u_1(y)\;dy,\quad & \{x\geq -at,\; x\leq at\}
+    \end{cases}
+\end{equation}
+\begin{proof}
+    Используем метод продолжений. Для задачи 
+    $$
+    \begin{cases}
+        u_{tt} -a^2u_{xx} = 0, & t > 0,\; x > 0\\
+        \eval{u}_{t=0} = u_0(x), & x \geq 0\\
+        \eval{u_t}_{t=0} = u_1(x), & x \geq 0\\
+        \eval{u}_{x=0} = 0, & t \geq 0
+% у паши тут опечатка
+    \end{cases}
+    $$  
+Введем
+$$ \hat u_0(x) = 
 \begin{cases}
-    u_{tt} - a^2\Delta_x u = f(t, x) \\
-    \eval{u}_{t=0} = u_0(x) \\
-    \eval{u_t}_{t=0} = u_1(x)
+    u_0(x), & x \geq 0 \\
+    -u_0(-x), & x < 0
+\end{cases} \qquad\qquad \hat u_1(x) = 
+\begin{cases}
+    u_1(x), & x \geq 0 \\
+    -u_1(-x), & x < 0
 \end{cases}
 $$
-\vspace{0em} % По какой-то причине это добавляет ненулевое vspace именно той величины, которое нужно
-
-\begin{theorem}[формула Кирхгофа]
-    Пусть в общей задаче Коши
-    $$
-    u_0 \in C^3(\R^3) \qquad 
-    u_1 \in C^2(\R^3) \qquad 
-    f \in C^{0,2}_{t,x}\,\{t \geq 0,\; x \in \R^3\} $$
-    Тогда выражение
-    \begin{equation*} \label{6_4}
-        u(t, x) = \pd{}{t} \frac{1}{4\pi a^2t}\oiint\limits_{\abs*{\xi - x}=at}u_0(\xi)\, dS_\xi
-        + \frac{1}{4\pi a^2t} \oiint\limits_{\abs*{\xi - x}=at}u_1(\xi)\, dS_\xi 
-        + \frac{1}{4\pi a^2} \iiint\limits_{\abs*{\xi - x} < at} \frac{f(t - \frac{\abs*{\xi - x}}{a}, \xi)}{\abs*{\xi - x}}\, d\xi
-    \end{equation*}
-
-    является классическим решением общей задачи Коши; \; $u(t,x) \in C^2\,\{t \geq 0,\ x \in \R^3\}$
-\end{theorem}
-
-\Subsection{Принцип Гюйгенса}
-
-\begin{statement}[Принцип Гюйгенса]
-    Возмущение, локализованное в пространстве (трёхмерном), приводит к действию, локализованному во времени.
-\end{statement}
-
-% Требуется отсутствие источников: $f \equiv 0$ -- и ограниченность носителей функций $u_0$ и $u_1$:
-Требуется, чтобы 
-источники отсутствовали, т.е.
-$f \equiv 0$, а носители функций $u_0$ и $u_1$ были ограничены, откуда
-$$\supp u_0 \ \cup\ \supp u_1 = M \text{ --- компакт}$$
-
-Фиксируется произвольная точка $x_0 \in \R^3$.
-
-По \hyperref[6_4]{формуле Кирхгофа} функция $u(t, x_0)$ может быть ненулевой только внутри отрезка времени
+Тогда 
 $$
-\text{от \ } t_\text{start} = \frac{1}{a} \cdot \inf_{y\in M}|y-x_0|
-\qquad \text{ \ до \ } t_\text{end} = \frac{1}{a} \cdot \sup_{y \in M}|y-x_0|
+\begin{cases}
+    \hat u_{tt} -a^2\hat u_{xx} = 0, & t > 0,\; x \in \R^1 \\
+    \eval{\hat u}_{t=0} = \hat u_0(x), & x \in \R^1 \\
+    \eval{\hat u_t}_{t=0} = \hat u_1(x), & x \in \R^1 \\
+\end{cases} \; \text{ -- свели к задаче Коши}
 $$
-(иначе под интегралами тождественный нуль).
+\vspace{0pt}
 
-У такого конечного возмущения есть передний и задний фронт:
-\vspace{0.7em}
+Решение дается формулой Даламбера:
+$$
+\hat u(t, x) = \frac{\hat u_0(x + at) + \hat u_0(x - at)}{2} +\frac{1}{2a}
+\int_{x-at}^{x+at}\hat u_1(y)\;dy
+$$
 
-\centering
-\includegraphics[width=0.45\textwidth]{./pic 6.pdf}
-
-Значение $u(t,x_0)$ \ $\sim$ \ интеграл по сфере радиусом $|x_0 -\xi| = \rho = at$
-
+Покажем нечетность по $x$:
+\begin{multline*}\begin{alignedat}{99}
+    \hat u(t, -x) 
+    &=\centercell{ \frac{\hat u_0(-x + at) + \hat u_0(-x - at)}{2}
+    +\frac{1}{2a}\int_{-x-at}^{-x+at}\hat u_1(y)\;dy } =& \\
+    %
+    &=-\centercell{ \frac{\hat u_0(x - at) + \hat u_0(x + at)}{2} 
+    \hfil-\hfil \frac{1}{2a}\int_{x-at}^{x+at}\hat u_1(y)\;dy }&= -\hat u(t, x)
+\end{alignedat}\hfil\end{multline*}
+\begin{multline*}
+\hat u(t, 0) = \underbrace{\frac{\hat u_0(- at) + \hat u_0(at)}{2}}_{=0} + \frac{1}{2a} \int_{-at}^{+at} \hat u_1(y)\;dy = 0\hfill
+\end{multline*}
+\end{proof}
 \end{document}

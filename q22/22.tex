@@ -1,93 +1,109 @@
-\section{Теорема об устранимой особой точке для гармонических функций (случай $\R^3$)}
-% Затехал: Дмитрий Федоряка
- 
 
+\section{Принцип максимума и минимума для гармонических функций.}
+%Никитушка отмочил красоту
 \begin{theorem}
+{\bf(Принцип максимума)} Если $u(x)$ -- гармоническая в
+области $\Omega$ и достигает $\max$ или $\min$ значения в
+точке $a \in \Omega$, то $u(x) \equiv u(a) \Forall x \in \Omega$.
 
-{\bf (об  устранимой особой точке).} 
-Пусть $u(x)$ - гармоническая в $\mathring{B}_\rho(a) \subset 
-\R^3$ и $u(x)=o(E(x-a))$ при $x \to a$, где $E(x) = -\frac{1}{4 \pi |x|}$. Тогда $u(x)$ можно так доопределить в точке $a$, что она будет гармонической в $B_\rho(a) = \{x: |x-a|<\rho \}$.
+\begin{offtop}
+Теорема справедлива в $\R^n$.
+\end{offtop}
 
+\begin{proof}
+
+\begin{itemize}
+\item
+\item 
+Докажем вспомогательное локальное 
+\begin{statement}
+\label{statement_22.1}
+Пусть $u(x) \in C^2(\Omega)$ достигает максимума в точке $a$, а так же удовлетворяет {\bf свойству среднего}:
+
+\[
+u(a) = \dfrac{1}{4\pi r^2}\oint\limits_{\abs*{y-a} = r}u(y
+)\;dS_y \Forall r: 0 < r < d_a = \dist{(a, \R^3 \backslash
+ \Omega)}.
+\]
+
+Тогда $u(x) \equiv u(a) \Forall x \in B(a, d_a)$ .
+
+\end{statement}
+\begin{proof}
+$
+u(a) = \dfrac{1}{4\pi r^2}\oint\limits_{\abs*{y-a} = r}u(y
+)\;dS_y  =
+\dfrac{u(a)}{4\pi r^2}\oint\limits_{\abs*{y-a} = r} \;dS_y  +
+ 		\dfrac{1}{4\pi r^2}\oint\limits_{\abs*{y-a} = r}\brk*{u(y
+)-u(a)}\;dS_y =
+	u(a) + \dfrac{1}{4\pi r^2}\oint\limits_{\abs*{y-a} = r}\brk*{u(y
+)-u(a)}\;dS_y \Rightarrow 
+	\oint\limits_{\abs*{y-a} = r}\underbrace{\brk*{u(y)-u(a)}}_{\le 0,\ \text{непрерывна}}\;dS_y = 0
+	 \Leftrightarrow
+	\quad u(y) = u(a) \Forall y: |y-a|=r < d_a.
+ $
+\end{proof}
+
+\item
+{\bf Докажем саму теорему}
+\begin{center}
+\includegraphics[scale=0.5]{22_1_new}
+\end{center}
+Соединим $a$ и $b$ кусочно-гладкой кривой. Эту кривую параметризуем натуральным параметром (параметризация кривой длиной её дуги): 
+$x = x(s), \; x(0) = a, \; x(L) = b$.
+{\bf Обозначим}
+$d = \dist{\brk[c]*{\gamma = x; \partial{\Omega}}} > 0$
+($d$ действительно $> 0$ : если $d = 0$, то 
+$\exists\{x_n\}_{n=1}^\infty \subset \gamma: \rho\brk*{x_n, \partial\Omega}\to 0$.
+ Выделим из $\{x_n\}$ сходящуюся $\{x_{n_k}\}=\{y_k\}$($\gamma$ - ограничено). Пусть $y_k \to y_0$. Тогда $y_0$ - предельная для
+ $\partial \Omega$ в силу замкнутости 
+ $y_0 \in \gamma \cup \partial \Omega \Rightarrow$ противоречие).\\
+ Разобьем $[0,L]$ на части размера $\Delta S = \dfrac{L}{N}$.\\
+ Пусть $\brk[c]*{S_k = k\Delta S, \; x_k = x(S_k)}$. 
+ Число N выберем так, чтобы $\Delta S = \dfrac{L}{N} < d$\\
+ \begin{center}
+ \includegraphics[scale=0.5]{22_2_new}
+ \end{center}
+ Заметим, что $\abs*{x_k - x_{k-1}} \boxed{\leq} S_k - S_{k-1} < d$ ($\boxed{\cdot}$ - кратчайшее расстояние между точками это отрезок).
+ \begin{center}
+ \includegraphics[scale=0.5]{22_3_new}
+\end{center}
+ Рассмотрим шары $\{B_d(x_k)\}_{k=0}^N$. В силу
+ $\abs*{x_k - x_{k-1}}< d$ верно $x_{k+1} \in B_d(x_k)$. 
+  Примем утверждение (\ref{statement_22.1}) к первому шару. 
+  Как следствие $u(x_1) = u(a)\Rightarrow$ утверждение (\ref{statement_22.1}) применимо уже ко второму шару.
+   В цепочке шаров конечное число 
+  $\Rightarrow$ добираемся до точки $b$ - теорема доказана.  
+\end{itemize}
+\end{proof}
 \end{theorem}
 
-\textbf{Доказательство.}
+$\bullet$ Заметим, что достаточно было потребовать
+свойство среднего и непрерывность, вместо гармоничности.
 
 
-\begin{enumerate}
-\item{ 
-	
-	$u(x) = o \brk*{\frac{1}{|x|}} \Leftrightarrow |x| \cdot u(x) 
-	\underset{x \to 0}{\longrightarrow} 0$
-}
-
-\item{
-Возьмём $r<\rho$. 
-\begin{center}
-\includegraphics{22_1_new}
-\end{center}
-Функция $u(x)$ непрерывна на $\partial B_r (a)$.
-
-Построим гармоническую функцию:
-
-$$\hat{u}(x) = \frac{1}{4 \pi r} 
-\oint_{|y|=r}\frac{r^2 - |x|^2}{|y-x|^3} u(y) dS_y \in 
-C(|x| \le r)$$.
-
-}
+\begin{conseq}
+\label{conseq22.1}
+Пусть $\Omega$ -- ограниченная область, а $u(x)$ -- гармоническая в $\Omega$ и непрерывная на $\overline{\Omega}$.
+Тогда $u(x)$ достигает $\max$ и $\min$ на $\partial \Omega$, т.е.
+$\min\limits_{y \in \partial \Omega}u(y) \leq u(x) \leq \max\limits_{y \in \partial \Omega}u(y)$
+	\begin{proof}
+	Либо максимум/минимум на границе, либо $u(x)\equiv const$ в $\Omega$.
+	\end{proof}
+\end{conseq}
 
 
-\item{
+\begin{conseq}
+Для указанной в следствии (\ref{conseq22.1}) $u(x) \hookrightarrow \abs*{u(x)} \leq \max\limits_{y \in \partial \Omega} \abs*{u(y)}$.
+\begin{proof}
 
-Считаем $a=0$. Покажем, что $u(x) \equiv \hat{u}(x)$ при $0<|x|\le r$. Строим $v(x) = u(x) - \hat{u}(x)$. Эта функция гармоническая в $\mathring{B}_r(a)$, непрерывная на $(0<|x| \le r)$, а также 
-$v(x) \equiv 0 \Forall x: |x|=r$ и $|x| \cdot v(x) \underset{x \to 0}{\longrightarrow} 0$. 
- 
-}
-
-\item{
-
-Фиксируем $\varepsilon >0$ и рассмотрим функции $W_\eps^{\pm} =
-\frac{\varepsilon}{|x|} \mp v(x)$.
-
-Функции $W_\eps^{\pm}$ также гармонические в $(0<|x|<r)$, непрерывны на $(0<|x| \le r)$, а 
-$\left.W_\eps^{\pm}(x) \right|_{|x|=r} =\frac{\eps}{|x|} >0$.
-}
-
-\item{
-
-Выберем $\delta > 0 $ так, чтобы $\forall x:~~ |x| \le \delta \to |x| \cdot |v(x)| < \frac{\varepsilon}{2}$.
-
-При $|x|\le \delta$: 
-
-$$
-W_\varepsilon^{\pm} = \frac{\eps}{|x|} \mp v(x) \ge 
-\frac{\eps}{|x|} - |v(x)|
-\ge 
-\frac{\eps}{|x|}\brk[s]*{1 - \frac{|x|\cdot |v(x)|}{\varepsilon}}
-\ge
-\frac{\eps}{|x|}\brk[s]*{1-\frac{1}{2}}
-=
-\frac{\varepsilon}{2|x|} >0
-$$
-}
-
-
-
-\item{
-
-При $\delta \le |x| \le r$  функции $W_\eps^{\pm}(x)$
- --- гармонические в $(\delta < |x| < r)$ и непрерывны на замыкании 
-этой ограниченной области $\Rightarrow$ по принципу максимума 
-максимум и минимум достигаются на границе.
-
-Значит, $W_\varepsilon^{\pm} (x) > 0$ при $\delta \le |x| \le r$.
-
-Итак, $W_\varepsilon^\pm(x)$ положительна в $(0<|x| \le r)$
-$\Rightarrow$  $|v(x)| < \frac{\varepsilon}{|x|}$ в $(0<|x|\le r)$.
-
-Значит, $v(x) \equiv 0$ при $0<|x|\le r$ $\Rightarrow$ $v(x)$ можно продолжить на $|x|\le r$, положив $v(0)=0$, ч.т.д. 
-
-}
-
-\end{enumerate}
-
-
+\begin{equation}
+  \begin{cases}
+  u(x) \leq \max\limits_{\partial \Omega}u(y) \leq \max\limits_{\partial \Omega}\abs*{u(y)}\\  
+  -u(x) \leq \max\limits_{\partial \Omega}(-u(y)) \leq \max\limits_{\partial \Omega}\abs*{u(y)}\\
+  \end{cases}
+  \end{equation}  
+  
+  $\Rightarrow \abs*{u(x)} \leq \max\limits_{\partial \Omega}\abs*{u(y)}$.
+\end{proof}
+\end{conseq}

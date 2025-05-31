@@ -1,99 +1,115 @@
-\documentclass[../main.tex]{subfiles}
-\begin{document}
 
+\section{Единственность классического решения задачи Коши для уравнения
+теплопроводности в классе $\mathbf{M_2(T)}$.}
+%Никитушка отмочил красоту
 
-\section{Формулы Грина для оператора Лапласа. Постановка краевых задач Дирихле и Неймана для уравнения Пуассона в ограниченной области. Единственность классического решения задачи Дирихле. Неединственность решения задачи Неймана и необходимое условие её разрешимости.}
-% Затехал Шлёнский Владос
-\Subsection{Формулы Грина}
-\begin{definition}
-Ограниченная область $\Omega$ называется \textit{областью с гладкой границей}, если $\forall x_0 \in \Gamma = \partial \Omega$ найдутся:
+{\bf Единственность решения задачи Коши}\\
+Вообще говоря, решение единственным будет не всегда. Но если
+ ограничиться некоторым классом функций, то в нем решение может
+  оказаться единственным. Введем такой класс.\\
+  
+  
 \begin{itemize}
-\item такая декартова СК , что начало в $x_0$, $\xi = (\xi_1, \ldots, \xi_n)$ - координаты точек в этой СК
-\item Окрестность $U_0(x^0) = \{\xi\colon |\xi^{'}| < r,\; |\xi_n| < h\}$, где $\xi^{'} = (\xi_1, \ldots, \xi_{n - 1})$, такая, что в $U_0(x^0)$ часть границы $\Gamma \bigcap U_0(x^0)$ представляется в виде: $\xi_n = F(\xi^{'}), |\xi^{'}| < r, F(0) = 0,\; F(\xi^{'}) \in C^1(|\xi^{'}| < r),\; \nabla_{\xi^{'}} F(0) = 0$, 
-\item Множество $U_{-}(x^0) = U_0(x^0) \bigcap \{x\colon\; \xi_n < F(\xi^{'})\} \in \Omega$, \\
-Множество $U_{+}(x^0) = U_0(x^0) \bigcap \{x\colon\; \xi_n \geq F(\xi^{'})\}\colon\; \Omega \bigcap U_{+} = \varnothing$
-\item Числа $r > 0$, $h > 0$ можно выбрать независимо от $x^0 \in \Gamma$.
-\end{itemize}
-\end{definition}
-\begin{minipage}{0.3\textwidth}
-\begin{center}
-\includegraphics[scale = 0.2]{14_1_new}
-\end{center}
-\end{minipage}
-\begin{minipage}{0.8\textwidth}
-Для ограниченных областей с гладкими границами справедлива формула Остроградского-Гаусса ($F$ - непрерывно дифференцируемое векторное поле):
-$$\int\limits_{\Omega} \div \vec{F}(x)\;dx = \int\limits_{\partial \Omega} \bigl(\vec{F}(x),\: \vec{n}\bigr)\;dS = \int\limits_{\Gamma} \bigl(\vec{F}(x),\: \vec{n}\bigr)\;dS$$
-\end{minipage} \\
-\begin{lemma} \ \\
-\Subsubsection{Формулы Грина}
-Пусть $\Omega$ - ограниченная область с границей класса $C^1$ в $\R^n$, тогда справедливы следующие формулы.
-	$$\forall u(x) \in C^2(\Omega)\cap C^1(\overline{\Omega}), v(x) \in C^1(\overline{\Omega}) \to \int\limits_{\Omega} (\Delta u)v\; dx = \oint\limits_{\Gamma} \dfrac{\partial u}{\partial \vec{n}} v\;dS_x - \int\limits_{\Omega}(\nabla u, \nabla v)\;dx $$
-$$ \forall u(x) \in C^2(\overline{\Omega}), v(x) \in C^2(\overline{\Omega}) \to \int\limits_{\Omega} (\Delta u)v\; dx - \int\limits_{\Omega} (\Delta v)u\; dx = \oint\limits_{\Gamma} \dfrac{\partial u}{\partial \vec{n}} v\;dS_x - \oint\limits_{\Gamma} \dfrac{\partial v}{\partial \vec{n}} u\;dS_x$$
-Полученные формулы называются первой и второй\; \textit{формулами Грина} соответственно.
-\end{lemma}
-\begin{proof}\ \\
-\Subsubsection{Первая формула Грина}
-Пусть $\vec{f}(x), v(x)$ - гладкие векторное и скалярное поля соответственно: $\div(\vec{f} \cdot v) = (\nabla, \overset{\shpos}{\vec{f}}v) + (\nabla, \vec{f}\overset{\shpos}{v}) = v\div \vec{f} + (\vec{f}, \grad{v})$. \\
-Положим $\vec{f} = \nabla u \in C^1 \Rightarrow \div (v \nabla u) = v \underbrace{\div(\nabla u)}_{\Delta u} + (\nabla u, \nabla v)$. \\
-Интегрируем по объёму в $\Omega$:
-\begin{equation*}
-	\int\limits_{\Omega} v \Delta u\;dx = 	\int\limits_{\Omega} \div(v\nabla u)\;dx -\int\limits_{\Omega} (\nabla u, \nabla v)\;dx = \oint\limits_{\Gamma}(v \nabla u, \vec{n})\;ds - \int\limits_{\Omega}(\nabla u, \nabla v)\;dx
-\end{equation*}
-Заметим, что:
-$$(v\nabla u, \vec{n}) = v \sum\limits_{k = 1}^{\dim \R^n}\dfrac{\partial u(x)}{\partial x_k} n_k = \dfrac{\partial u}{\partial \vec{n}}(x) \cdot v(x)$$
-При подстановке данного результата в равенство выше немедленно получим первую формулу Грина.
-\Subsubsection{Вторая формула Грина}
-Для получения второй формулы Грина необходимо вычесть из первой формулы Грина симметричное ему по $u$ и $v$ равенство:
-$$\int\limits_{\Omega} u \Delta v\;dx = \oint\limits_{\Gamma}(u \nabla v, \vec{n})\;ds - \int\limits_{\Omega}(\nabla v, \nabla u)\;dx$$
-\end{proof}
+\item Пусть $T > 0, \sigma \geq 0$. {\bf Слой толщины} $T$ -- множество $\Pi_T =\brk[c]*{(t,x): 0 < t < T, \, x \in \R^n}$\\
+Обозначим $M_\sigma(T)$ -- {\bf класс функций} $u(t,x) \in C^{1,2}_{t,x}(\Pi_T) \cap
+C(\overline{\Pi_T})$ таких, что $\forall\: u(t,x) \Exists A > 0 , \alpha \geq 0$ такие,
+что $\abs*{u(t,x)} \leq A\exp{(\alpha \abs*{x}^{\sigma})} \Forall (t,x) \in \overline{\Pi_T}$.
 
-\Subsection{Внутрення задача Дирихе для уравнения Пуассона}
-Пусть $\Omega$ - ограниченная область с границей $\Gamma$ класса $C^1, u_0(x) \in C(\Gamma), f(x) \in C(\overline{\Omega})$. Требуется найти $u(x)$, удовлетворяющую условиям:
-\begin{equation}
-\label{eq:14_1}
-	\begin{cases}
-		\Delta u(x) = f(x), x \in \Omega, \\
-		u\bigr|_{\Gamma} = u_0(x).
-	\end{cases}
-\end{equation}
-\textit{Классическим решением задачи Дирихле} ~\ref{eq:14_1} называется $u(x) \in C^1(\overline{\Omega}) \bigcap C^2({\Omega})$, удовлетворяющая уравнению и начальным условиям. \\
+
 \begin{lemma}
-Не может существовать более одного классического решения задачи ~\ref{eq:14_1}.
-\end{lemma}
+$M_\sigma(T)$ -- линейное пространство, причем 
+$\sigma_0 \leq \sigma_1 \Rightarrow M_{\sigma_0}(T) \subset M_{\sigma_1}(T)$.
 \begin{proof}
-Если $\exists u_{I}$ и $u_{II}$ - классические решения задачи ~\ref{eq:14_1}, то $v(x) = u_{I} - u_{II}$ есть классическое решение полностью однородной задачи: $\Delta v \equiv 0,\; v\bigr|_{\Gamma} = 0$. \\
-По формуле Грина:
-\begin{equation*}
-	\int\limits_{\Omega} v\cancelto{0}{\Delta v}\; dx = \oint\limits_{\partial \Omega}\dfrac{\partial v}{\partial \vec{n}}\cancelto{0}{v}\;ds - \int\limits_{\Omega}(\nabla v, \nabla v)\;dx \Rightarrow \nabla v \equiv 0 \Forall x \in \Omega \Rightarrow v(x) = \text{const}
-\end{equation*}
-С учётом того, что $\Delta(x) = 0$ и $v(x)\bigr|_{\Gamma} = 0$, получим, что $v(x) = 0$, а значит, $u_{I} = u_{II}$, и решение единственно.
+Очевидно.
 \end{proof}
-\Subsection{Внутренняя задача Неймана для уравнения Пуассона}
-Пусть $\Omega$ -ограниченная область с границей класса $C^1, u_1(x) \in C(\Gamma), f(x) \in C(\overline{\Omega})$. Требуется найти $u(x)$ удовлетворяющую условиям:
-\begin{equation}
-\label{eq:14_2}
-	\Delta u(x) = f(x), x \in \Omega, \\
-	\dfrac{\partial u}{\partial \vec{n}} = u_1(x), x \in \Gamma.
-\end{equation}
-\begin{definition}
-\textit{Классическое решение задачи Неймана} ~\ref{eq:14_2} есть такая функция $u(x) \in C^1(\overline{\Omega}) \cap C^2({\Omega})$, удовлетворяющая уравнению и граничным условиям.
-\end{definition}
+\end{lemma}
+
 \begin{lemma}
-Любые два классические решения задачи Неймана отличаются на константу.
-\end{lemma}
+$\Forall T > 0$ функция $u_T(t,x) = \dfrac{1}{(T-t)^{\frac{n}{2}}}
+\exp{ \left( \dfrac{\abs*{x}^2}{4a^2(T-t)} \right) }, \, t<T, \, x \in \R^n$ удовлетворяет
+ однородному уравнению теплопроводности.
 \begin{proof}
-Если $\exists u_{I}$ и $u_{II}$ - классические решения задачи ~\ref{eq:14_2}, то $v(x) = u_{I} - u_{II}$ есть классическое решение полностью однородной задачи: $\Delta v \equiv 0,\; \dfrac{\partial v}{\partial \vec{n}}\bigr|_{\Gamma} = 0$. 
-По формуле Грина имеем:
-\begin{equation*}
- 	\int\limits_{\Omega} \cancelto{0}{\Delta v}v\; dx = \oint\limits_{\Gamma} \cancelto{0}{\dfrac{\partial u}{\partial \vec{n}}}v\;dS - \int\limits_{\Omega} |\nabla v|^2\;dx \Rightarrow v \equiv \text{const}
-\end{equation*}
+\begin{itemize}
+
+\item $u_T \in C^\infty \brk[c]*{t<T, x \in \R^n}$
+
+\item $\pd{u_T}{t} = \brk[s]*{\dfrac{n}{2(T-t)^\frac{n}{2}} + \dfrac{1}{(T-
+t)^{\frac{n}{2}}}{\dfrac{\abs*{x}^2}{4a^2(T-t)^2}}}
+\exp{ \left( \dfrac{\abs*{x}^2}{4a^2(T-t)} \right) }$
+
+\item $\Delta_xu_T = \brk[s]*{\dfrac{1}{(T-t)^\frac{n}
+{2}}\dfrac{2n}{4a^2(T-t)} + \dfrac{1}{(T-t)^\frac{n}
+{2}}\dfrac{4\abs*{x}^2}{4^2a^4(T-t)^{2}}}
+\exp{ \left( \dfrac{\abs*{x}^2}{4a^2(T-t)} \right) } \Rightarrow 
+ (u_T)^{'}_t - a^2 \Delta_x u_T = 0$
+\end{itemize}
 \end{proof}
+\end{lemma}
+
+
+\item {\bf Класс Тихонова} $M_2(T)$
+
 \begin{lemma}
-Необходимым условием существования классического решения задачи Неймана является условие $\int\limits_{\Omega} f(x)\;dx = \oint\limits_{\Gamma}u_1(x)\;dS$
-\end{lemma}
+Пусть $v(t,x)$ такова, что $v \in M_2(T)$ и $v$ -- решение полностью 
+однородной ЗК $\brk[c]*{\mathrm{L}v = 0, \, \eval{v}_{t=0} = 0}$.
+Тогда $\exists T_1 \leq T: \abs*{v} \leq \varepsilon u_{2T_1}(x,t) \Forall \varepsilon > 0$.
+
 \begin{proof}
-\begin{equation*}
-\int\limits_{\Omega} f(x)\;dx = \int\limits_{\Omega} \Delta u\;dx = \int\limits_{\Omega} \Delta u \cdot 1\; dx = \bigl[\text{1-ая формула Грина}\bigr] = \int\limits_{\partial \Omega} \dfrac{\partial u}{\partial \vec{n}} \cdot 1\;ds - \cancelto{0}{\int\limits_{\Omega} (\nabla u, \nabla 1)\;dx} = \int\limits_{\partial \Omega} u_1(x) \cdot 1\;ds 
-\end{equation*}
+$\abs*{v} \leq A \exp{(\alpha \abs*{x}^2)} \Forall t, x \in
+ \overline{\Pi_T}$. Выбираем $T_1 \leq T: \dfrac{1}{8a^2T_1} >
+ \alpha$. 
+ Т.е. $T_1 = \min\brk[c]*{T, \dfrac{1}{16\alpha a^2}}$.\\
+ Возьмем $\varepsilon > 0$ и $\omega_{\varepsilon}^{\pm}(t,x) = \varepsilon
+ u_{2T_1} \pm v(t,x)$. 
+ Нужно показать, что $\omega_{\varepsilon}^{\pm}(t,x) > 0$:\\
+ 
+ $
+ \omega_{\varepsilon}^{\pm}(t,x) \geq \varepsilon u_{2T_1} - \abs*{v(t,x)} \geq \varepsilon  u_{2T_1}
+  - A\exp{(\alpha \abs*{x}^2)} = 
+  \dfrac{\varepsilon}{(2T_1-t)^{\frac{n}{2}}}\exp{ \left( \dfrac{\abs*{x}^2}{4a^2(2T_1-t)} \right) } - A\exp{(\alpha \abs*{x}^2)}
+  \geq
+   \dfrac{\varepsilon}{(2T_1)^{\frac{n}{2}}}
+  \exp{ \left( \dfrac{\abs*{x}^2}{4a^2 (2T_1)} \right) } - A\exp{(\alpha \abs*{x}^2)}=
+   \dfrac{\varepsilon}{(2T_1)^{\frac{n}{2}}}
+   \exp{ \left( \dfrac{\abs*{x}^2}{8a^2 T_1} \right) }
+   \brk[s]*{1 - 
+      \boxed{  
+      \dfrac{(2T_1)^{\frac{n}{2}}}{\varepsilon} A 
+      \exp{ \brk[c]*{ -\brk*{\frac{1}{8a^2 T_1}-\alpha}\abs*{x}^2 } } }
+      }
+ $\\
+ (для выделенной части $\exists R>0:$ эта часть $<\frac{1}{2}$ при 
+ $\abs*{x} > R$)\\
+Значит, $\forall (t,x) : 0 \leq t \leq T$ и $\abs*{x} \geq R \ \Rightarrow\omega_{\varepsilon}^{\pm}(t,x)>0$.
+\begin{center}
+\includegraphics[scale=0.5]{14_2_new}
+\end{center}
+Но $\omega_{\varepsilon}^{\pm}(t,x)$ удовлетворяет уровнению теплопроводности $\Rightarrow$ на $\Gamma_{T_1}$ достигаются максимум и минимум 
+$\omega_{\varepsilon}^{\pm}(t,x) \Rightarrow$ он строго $>0 \Rightarrow \omega_{\varepsilon}^{\pm}(t,x)>0$ всюду в полосе $(0,T_1)$.
+Итак, $\mp v(t,x) \leq \varepsilon u_{2T_1}(t,x) \Rightarrow \abs*{v} \leq \varepsilon u_{2T_1}(t,x) \Forall \varepsilon > 0 \Rightarrow v\equiv 0$ в $\overline{\Pi_{T_1}}$
+ 
 \end{proof}
-\end{document}
+\end{lemma}
+
+\begin{theorem}
+Задача Коши $\mathrm{L}u = f(x,t), \eval{u}_{t = 0} = u_0(x)$ в {\bf классе Тихонова} не может иметь более одного решения в полосе $\Pi_T$.
+
+\begin{proof}
+Пусть существует два решения: $u_1$ и $u_2$. Возьмем $v(t,x) = u_2 - u_1$. Функция $v$ удовлетворяет полностью однородной ЗК и лежит в {\bf классе Тихонова} 
+$\Rightarrow$ в полосе $\Pi_{T_1}$, где $T_1$ определенно из предыдущей леммы, будет $v\equiv 0$.\\
+Если $T \leq T_1$, то все доказано. В противном случае вводим:\\
+$w(t,x) = v(t+T_1,x)$. Она удовлеворяет:
+  \begin{equation}
+  \begin{cases}
+  w_t - a^2\Delta_xw=0,\\
+  \eval{w}_{t=0} = 0, & T_1 \leq t < T, \, x \in \R^n.
+  \end{cases}
+  \end{equation}
+$\Rightarrow$ в полосе $(0,T_1)$ получим $w \equiv 0$.\\
+($T_1$ определяется $\dfrac{1}{8a^2\alpha} \Rightarrow$ одно и то же)\\
+Так за конечное число шагов $N = \lceil{\frac{T}{T_1}} \rceil$ мы покроем всю $\Pi_T$.
+\end{proof} 
+\end{theorem}
+
+
+\end{itemize}

@@ -1,0 +1,25 @@
+\begin{theorem}
+Пусть $u(x)$ -- гармоническая функция в окрестности бесконечности $|x| > R$ и $u(x) \rightarrow 0, \; x \rightarrow \infty$. Тогда $u(x) = O\brk*{\frac{1}{|x|}}$ и $D^\alpha u(x) = O\brk*{\frac{1}{|x|^{1+|\alpha|}}}$ при $x\rightarrow \infty$.
+\end{theorem}
+\begin{proof}
+Применим к нашей функции прямое преобразование Кельвина: $u^*(y) = \frac{R}{|y|}u\brk*{\frac{R^2}{|y|^2}y}$. Эта функция гармоническая в проколотой окрестности нуля: $0 < |y| < R$.\\
+Далее, $|y|u^*(y) = R u\brk*{\frac{R^2}{|y|^2}y} \rightarrow 0, y \rightarrow 0$ (аргумент $\rightarrow \infty$) $\Rightarrow u^*(y) = o \brk*{\frac{1}{|y|}}, \; y \rightarrow 0$. 
+\begin{itemize}
+\item Воспользуемся теоремой об устранимой точке и доопределим $u^*(y)$ в нуле. Теперь $u^*(y)$ -- гармоническая в $|y| < R \Rightarrow$ в $|y| \leq \frac{R}{2}$ есть непрерывность вплоть до границы любых производных $\Rightarrow \Forall \alpha \Exists M_\alpha\colon \abs*{D^\alpha u^*(y)} \leq M_\alpha \Forall y\colon |y| \leq \frac{R}{2}$
+\item Пусть $|x| \geq 2R, \; y = x^* \Rightarrow |x^*| = |y| \leq \frac{R}{2}$. Тогда $u(x) = u\brk*{\frac{R^2}{|y|^2}y} = \frac{R^2}{|x||y|} u\brk*{\frac{R^2}{|y|^2}y}  = \frac{R}{|x|} u^*(y)$. Можем оценить: $|u(x)| \leq \frac{R}{|x|} M_0 \Rightarrow u(x) = O\brk*{\frac{1}{|x|}}, \; x \rightarrow \infty$.
+\item Возьмем теперь $\alpha = (1,0,0)$: 
+\begin{align*}
+\pd{u(x)}{x_1} &= D^\alpha u(x) = \pd{}{x_1} \brk*{\frac{R}{|x|} u^*(y)} = - \frac{R}{|x|^3} x_1 u^*(y) + \frac{R}{|x|} \sum_{k=1}^3 \pd{u^*(y)}{y_k} \pd{y_k}{x_1} =\\ 
+&=- \frac{R}{|x|^3} x_1 u^*(y) + \frac{R^3}{|x|^3} \sum_{k=1}^3 \pd{u^*(y)}{y_k} \brk[s]*{\delta_k^1 - 2 \frac{x_1 x_k}{|x|^2}}
+\end{align*}
+Оценка: $$\abs*{\pd{u(x)}{x_1}} \leq R \frac{x_1}{|x|} \frac{1}{|x|^2} \underbrace{\abs*{u^*(y)}}_{\leq M_0} + \frac{R^3}{|x|^3}\sum_{k=1}^3 \underbrace{\abs*{\pd{u^*(y)}{y_k}}}_{\leq M_{(1,0,0)}} \brk[s]*{\delta_k^1 + 2 \frac{|x_1| \cdot |x_k|}{|x|^2}} \leq \frac{C}{|x|^2}$$
+Итак, $\pd{u(x)}{x_1} = O \brk*{\frac{1}{|x|^2}}$. Аналогично, по индукции, и для других производных.
+\end{itemize}
+\end{proof}
+Постановка внешних задач.
+\begin{definition}
+Область $\Omega \subset \R^3$ называется внешней, если $\R^3 \backslash \overline{\Omega} = \Omega_1$ -- ограниченная область в $\R^3$.
+\end{definition}
+\begin{definition}
+Внешнюю область в $\Omega$ будем называть внешней областью с гладкой (кусочно-гладкой) границей, если $\Omega_1 = \R^3 \backslash \overline{\Omega}$ -- область с (кусочно-гладкой) границей.
+\end{definition}
