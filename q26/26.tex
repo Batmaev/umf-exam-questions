@@ -1,93 +1,154 @@
-\section{Интегральное уравнение Фредгольма второго рода с вырожденными ядрами. Сведение к системе линейных алгебраических уравнений. Теоремы Фредгольма в этом случае.}
+
+\section{Интегральное уравнение Фредгольма второго рода с малым по норме интегральным оператором $\lambda K$. Представление решения интегрального уравнения рядом Неймана. Ограниченность оператора $(I-\lambda K)^{-1}.$}
 % Затехал: Багно Богдан
+
+\begin{definition}[Интегральное уравнение Фредгольма второго рода]
+Уравнение вида $$u(x) = \lambda \int_{G} \mathcal{K}(x,y)u(y)dy + f(x)$$ называется интегральным уравнением Фредгольма 2-го рода.
+
+Здесь:
+\begin{itemize}
+\item $x \in \overline{G}$, $G$ -- ограниченная область в $\R^3$;
+\item $f(x) \in C(\overline{G})$ -- задана;
+\item $ \mathcal{K}(x, y): \overline{G} \times \overline{G} \to \R$;
+\item $\lambda$ -- числовой параметр;
+\item $u(x) \in C(\overline{G})$ -- искомая функция.
+\end{itemize} 
+\end{definition}
+
+\begin{definition}[Интегральный оператор]
+Оператор $K$ такой, что $$(Ku)(x) = \int_{G} \mathcal{K}(x,y)u(y)dy,$$ называется интегральным оператором с ядром $ \mathcal{K}(x,y).$
+\end{definition}
+
+\begin{theorem}
+Если ядро $ \mathcal{K}(x,y) \in C(\overline{G} \times \overline{G}),$ то оператор $K$ ограничен в $C(\overline{G})$ и имеет место оценка $$\|K\| \le \max_{x \in G}\int_G |\mathcal{K}(x,y)|dy \le \max_{x,y \in \overline{G}} |\mathcal{K}(x,y)| \cdot mes (G)$$
+
+\end{theorem}
+
+\begin{proof}
+
+Если $\mathcal{K}(x,y)\in C(\overline{G} \times \overline{G}),$ то $K:C(G) \to C(G)$.
+
+$\|Ku\|_{C(\overline{G})} = \max\limits_{x \in \overline{G}} |(Ku)(x)| = \max\limits_{x \in \overline{G}} |\int_G \mathcal{K}(x,y)u(y)dy| \le  \max\limits_{x \in \overline{G}} \int_G |\mathcal{K}(x,y)||u(y)|dy \le \max\limits_{x \in \overline{G}} \max\limits_{y \in \overline{G}} |u(y)|\int_G|\mathcal{K}(x,y)|dy = \|u\|_{C(\overline{G})}\max\limits_{x \in \overline{G}}\int_G|\mathcal{K}(x,y)|dy \Rightarrow \|K\| = \sup\limits_{\|u\|_{C(\overline{G})}=1}\frac{\|Ku\|_{C(\overline{G})}}{\|u\|_{C(\overline{G})}} \le \max\limits_{x \in \overline{G}}\int_G |\mathcal{K}(x,y)|dy$
+
+\end{proof}
+
+
+\begin{definition}[Полярное ядро]
+Ядро $\mathcal{K}(x,y)$ называется полярным, если его можно представить в виде $\mathcal{K}(x,y) = \frac{\kappa(x,y)}{|x-y|^\alpha} \Forall x,y \in \overline{G},\ x\ne y,$ где $\kappa \in C(\overline{G} \times \overline{G}),$ $\alpha < n$ -- размерность пространства.
+\end{definition}
+
+\begin{lemma}[Признак полярного ядра]
+Ядро $\mathcal{K}$ является полярным $\Leftrightarrow \mathcal{K}(x,y) \in C((\overline{G} \times \overline{G})\backslash\{x=y\})$ и $|\mathcal{K}(x,y)| \le \frac{B}{|x-y|^\beta} \, \Forall x, y \in \overline{G}, \, x \ne y, \, B>0, \, \beta < n.$
+\end{lemma}
+
+\begin{proof}
+($\Rightarrow$): Пусть ядро полярное. Тогда $\exists B: |\kappa| \le B$ на $\overline{G} \times \overline{G}$ и $|\mathcal{K}| \le \frac{B}{|x-y|^\alpha}.$
+\\
+($\Leftarrow$): Пусть $\beta < n \Rightarrow \Exists \eps > 0: \beta+\eps < n.$ Рассмотрим $\kappa =  \begin{cases}
+   \mathcal{K}(x,y)|x-y|^{\beta+\eps}, &x,y\in G, x\ne y;\\
+   0, & x=y\in G.
+ \end{cases}
+$
+
+Построенная $\kappa$ непрерывна в $(\overline{G} \times \overline{G})\backslash\{x=y\}.$
+
+Возьмем $x^0,y^0 \in G, x^0 \ne y^0:$
+$|\kappa(x,y) - \kappa(x^0, x^0)| = |\kappa(x,y)| \le |\mathcal{K}||x-y|^{\beta+\eps} \le \frac{B}{|x-y|^\beta}|x-y|^{\beta+\eps}\le B|x-y|^\eps = B|(x-x^0)-(y-y^0)|^\eps \le B(|x-x^0|+|y-y^0|)^\eps \Rightarrow \kappa$ непрерывна всюду в $\overline{G} \times \overline{G}.$
+
+Очевидно из определения $\kappa,$ что можем записать $\mathcal{K}(x,y) = \frac{\kappa(x,y)}{|x-y|^{\beta+\eps}},$ т.е. это ядро -- полярное по определению.
+\end{proof}
+
+
+\begin{definition}[Транспонированное ядро]
+Ядром, транспонированным к ядру $\mathcal{K}(x,y),$ называется ядро $\mathcal{K}'(x,y) = \mathcal{K}(y,x).$ Соответствующий оператор $K'$ так же называют транспонированным.
+\end{definition}
+
+\begin{theorem}
+Интегральный оператор $K$ с полярным ядром является ограниченным оператором в $C(\overline{G}).$ Справедлива оценка: $\|K\| \le \sup_{x\in G}\int_G|\mathcal{K}(x,y)|dy.$ $\Forall \eps > 0$ оператор $K$ можно представить в виде суммы $K = K_\eps^{cont}+K_\eps^{pol},$ где $\|K_\eps^{pol}\| \le \eps,$ $\|(K_\eps^{pol})'\| \le \eps,$ $K_\eps^{cont}$ -- и.о. с непрерывным ядром, $K_\eps^{pol}$ -- и.о. с полярным ядром.
+\end{theorem}
+
+\begin{proof} $\ $
+\begin{enumerate}
+\item{
+Пусть $\psi(y) = \mathcal{K}(x,y)u(y).$ Функция $\psi$ непрерывна при $y \ne x.$
+
+В особенности: $|\psi(y)| = |\mathcal{K}(x,y)||u(y)| \le \frac{B}{|x-y|^\alpha} \|u\|_{C(\overline{G})}$ -- интегрируема, т.к. $\alpha < n.$
+
+Значит, порождается функция $\phi(x) = \int_G\psi(y)dy = \int_G \mathcal{K}(x,y)u(y)dy$ -- этот интеграл существует $\forall x \in \overline{G}.$
+}
+
+\item{Определим $\delta-$срезку функции $\frac{1}{|x-y|^\alpha}:$ $$\left(\frac{1}{|x-y|^\alpha}\right)_\delta = \begin{cases}
+   \frac{1}{|x-y|^\alpha}, &|x-y|\ge \delta;\\
+   \frac{1}{\delta^\alpha}, & |x-y|<\delta.
+ \end{cases} \in C (\R^n \times \R^n)$$
+}
+\begin{center}
+\includegraphics[width=0.2\textwidth]{26_1_new}
+\end{center}
+
+\item{Представим $\mathcal{K}(x,y) = \mathcal{K}^1_\delta (x,y) + \mathcal{K}^2_\delta(x,y),$ где $\mathcal{K}^1_\delta (x,y) = \kappa(x,y)(\frac{1}{|x-y|^\alpha})_\delta,$ $$\mathcal{K}^2_\delta(x,y) = \begin{cases}
+   0, &|x-y|\ge \delta;\\
+   \kappa(x,y)(\frac{1}{|x-y|^\alpha}-\frac{1}{\delta^\alpha}), & |x-y|<\delta.
+ \end{cases}$$
+}
+
+\item{ Выберем произвольно $u(x) \in C(\overline{G})$ и рассмотрим $\|K^2_\delta u\|_{C(\overline{G})}$: 
+
+$\|K^2_\delta u\| = \max\limits_{x \in G} |\int_{|y-x|<\delta}\kappa(x,y)(\frac{1}{|x-y|^\alpha}-\frac{1}{\delta^\alpha})u(y)dy| \le B\|u\|_{C(\overline{G})}\int_{|y-x|<\delta}\frac{dy}{|x-y|^\alpha} = B \|u\|_{C(\overline{G})}\int_{|z|<\delta}\frac{dz}{|z|^\alpha}.
+$
+
+Замена $\begin{cases}
+   x_k = r\sin\phi_1...\sin\phi_{k-1}\cos\phi_k, &k = 1, \dots, n-1;\\
+   x_n = r\sin\phi_1...\sin\phi_{n-1},
+ \end{cases}$ где $\phi_k \in [0, \Pi], \phi_n \in [0, 2\Pi]$
+ 
+Якобиан $J = \frac{D(x_1, \dots, x_n)}{D(r, \phi_1, \dots, \phi_{n-1})} = r^{n-1}\sin^{n-2}\phi_1\sin^{n-3}\phi_2\dots\sin\phi_{n-1}.$ Получили:
+
+$$\|K^2_\delta a\| \le C_1\|u\|_{C(G)}\int_0^\delta\frac{r^{n-1}}{r^\alpha}dr = C\|u\|_{C(G)}\delta^{n-\alpha} \to 0 \text{ при } \delta \to 0.$$
+
+Получили $K^2_\delta u \to Ku$ по норме $\Rightarrow Ku \in C(\overline{G}).$
+ 
+}
+
+\item{$\|K\| \le \|K^1_\delta\| + \|K^2_\delta\|\le C\delta^{n-\alpha} + \|K^1_\delta\| < \infty$ $\Rightarrow K$ -- ограничен.
+
+Для транспонированного ядра все рассуждения аналогичны, т.к. полярное ядро $K = \frac{\kappa(x,y)}{|x-y|^\alpha}$ при замене $x$ на $y$ изменяет только непрерывный числитель $\kappa$.
+}
+
+\end{enumerate}
+\end{proof}
+
+
+
+
+
 Рассмотрим уравнение
-$$u(x) = \lambda \int_{G}K(x,y)u(y)dy + f(x), \; x \in \overline{G} \eqno(1)$$
-\begin{definition}
-Интегральное уравнение вида
-$$v(x) = \lambda \int_{G}K'(x,y)v(y)dy + g(x), \; x \in \overline{G}, K'(x,y) = K(y,x) $$
-называется союзным уравнению (1).
-\end{definition}
-\begin{definition}
-Ядро $K(x,y) \in \left(C(\overline{G})\times C(\overline{G})\right)$ называется вырожденным, если оно представимо в виде
-$$K(x,y) = \sum_{i = i}^{N}a_{i}(x)b_{i}(y), \; a_{i},b_{i} \in C(\overline{G})$$
-\end{definition}
-
-Будем считать что $\brk[c]*{a_{1}...a_{n}}$ и $\brk[c]*{b_{1}...b_{n}}$ -- линейно независимые наборы (если это не так, то уменьшим $N$). Будем теперь рассматривать уравнение
-$$u(x) = \lambda \int_{G}\brk[s]*{\sum_{i = 1}^{N}a_{i}(x)b_{i}(y)}u(y)dy + f(x), \; x \in \overline{G} \eqno(2)$$
-\begin{itemize}
-  \item Введем в $C(\overline{G})$ билинейную форму $\brk[a]*{u;v} = \int_{G}u(x)v(x)dx \Forall u,v \in C(\overline{G})$
-  \item Введем также следующие обозначения:
+$$u(x) = \lambda \int_{G}\mathcal{K}(x,y)u(y)dy + f(x), \; x \in \overline{G} \eqno(1)$$
+\begin{theorem}
+Пусть в интегральном уравнении (1) ядро $\mathcal{K}$ полярное и выполнено $\abs*{\lambda}\cdot\norm*{K} < 1$, тогда:
   \begin{itemize}
-    \item $\mu_{ij} = \brk[a]*{b_{i}; a_{j}}; \; A = \norm*{\mu_{ij}}_{i,j}^{N}$
-    \item $\varphi_{i} = \brk[a]*{b_{i}; f}; \; \vec{\varphi} = \norm*{\varphi_{1}...\varphi_{N}}^{T}$
-    \item $c_{i} = \brk[a]*{b_{i}; u}; \; \vec{c} = \norm*{c_{1}...c_{N}}^{T} \; (3)$
+    \item $\forall f \in C(\overline{G})$ (1) имеет единственное решение $u(x) \in C(\overline{G})$.  Это решение при фиксированном $\lambda_{\mathrm{fix}}$ представимо абсолютно сходящимся в $C(\overline{G})$ рядом Неймана:
+    $$u(x) = f(x) + \sum_{i=1}^{\infty}\lambda^{i}K^{i}f(x),\; x \in G$$
+    \item Оператор $I - \lambda K$ отображает всё $C(\overline{G})$ на всё $C(\overline{G})$ и имеет на $C(\overline{G})$ непрерывный обратный оператор $(I - \lambda K)^{-1}$, причём $\norm*{(I - \lambda K)^{-1}} \leq (1 - \abs*{\lambda}\cdot\norm*{K})^{-1}$
   \end{itemize}
-  \item
-    \begin{lemma}[об эквивалентности]
-      Пусть $u(x) \in C(\overline{G})$ -- решение уравнения (2). Тогда $u(x) = \lambda \sum_{i=1}^{N}c_{i}a_{i}(x) + f(x), \; x \in \overline{G}$, где $\vec(c)$ определяется (3) и удовлетворяет системе $(E - \lambda A)\vec{c} = \vec{\varphi}$. Обратно, если $\vec(c)$ -- некоторое решение системы $(E - \lambda A)\vec{c} = \vec{\varphi}$ то $u(x) = \lambda \sum_{i=1}^{N}c_{i}a_{i}(x) + f(x), \; x \in \overline{G}$ является решением интегрального уравнения.
-    \end{lemma}
-    \begin{proof}
-      \begin{enumerate}
-        \item Пусть $u(x)$ решение интегрального уравнения. Тогда
-      $$u(x) = \lambda \int_{G}\brk[s]*{\sum_{i = i}^{N}a_{i}(x)b_{i}(y)}u(y)dy + f(x) = \lambda \sum_{i = 1}^{N}a_{i}(x)c_{i} + f(x)$$
-      Домножим на $b_{i}$ и проинтегрируем по $G$:
-      $$c_{i} = \lambda \sum_{j = 1}^{N} \mu_{ij}c_{j} + \varphi_{i} \Longleftrightarrow \vec{c} = \lambda A \vec{c} + \vec{\varphi}$$
-      \item Обратно, если $c_{i} = \lambda \sum_{j = 1}^{N} \mu_{ij}c_{j} + \varphi_{i}, \; i = \overline{1,N}$ то рассмотрим $u_{*}(x) = \lambda \sum_{i = 1}^{N}a_{i}(x)c_{i} + f(x)$. Подставим в уравнение:
-      $$u_{*} - \lambda \int_{G}K(x,y)u_{*}(y)dy - f(x) =$$
-      $$= u_{*} - \lambda \int_{G}\brk[s]*{\sum_{i = 1}^{N}a_{i}(x)b_{i}(y)}u_{*}(y)dy - f(x) =$$
-      $$ = \lambda \sum_{j = 1}^{N}a_{j}(x)\brk[s]*{c_{j} - \int_{G}b_{j}(y)u_{*}(y)dy} =$$
-      $$= \lambda \sum_{j = 1}^{N}a_{j}(x)\brk[s]*{c_{j} - \lambda\sum_{i = 1}^{N}c_{i} \underbrace{\int_{G}b_{j}(y)a_{i}(y)dy}_{\mu_{ji}} - \underbrace{\int_{G}b_{j}(y)f(y)dy}_{\varphi_{i}}} =$$
-      $$ = \lambda \sum_{j = 1}^{N}a_{j}(x)\underbrace{\brk[s]*{c_{j} - \lambda\sum_{i=1}^{N}\mu_{ji}c_{i} - \varphi_{j}}}_{0}$$
-      \end{enumerate}
-    \end{proof}
-\end{itemize}
-
-Таким образом, исследование интегральных уравнений с вырожденным ядром эквивалентно иссследованию системы $(E -\lambda A)\vec{c} = \vec{\varphi}$.
-
-\begin{offtop}
-Отметим что для союзного уравнения $v(x) = \lambda \sum_{j = 1}^{N}b_{j}(x)\underbrace{\int_{G}a_{j}(y)v(y)dy}_{d_{j}} + g(y)$ соответствующей системой является $(E - \lambda A^{T})\vec{d}=\vec{\phi}$, где $\vec{\phi}=\int_{G}\vec{a}(y)g(y)dy$.
-\end{offtop}
-
-\Subsection{Разрешимость интегрального уравнения с вырожденным ядром}
-Пусть $D(\lambda) = det(E - \lambda A) = det(E - \lambda A^{T})$. Ясно что $D(\lambda) \not\equiv 0$ т.к. $D(0) = 1$. $D(\lambda)$ есть многочлен $P(\lambda), \; degP \leq N \longrightarrow$ он имеет $p$ действительных корней $\lambda_{1}..\lambda_{p},\; 0 \leq p \leq N$.
-\begin{itemize}
-  \item Если $D(\lambda) \neq 0$ то $\forall k: \lambda_{k} \neq \lambda \longrightarrow$ у уравнения $(E - \lambda A)-\vec{c} = \vec{\varphi}$ решение существует и оно единственно. Аналогичное утверждение верно и для союзного уравнения.
-  \item Если $\exists k: \lambda_{k} = \lambda \rightarrow Rg(E - \lambda A) = Rg(E - \lambda A^{T}) = r < N$
-\end{itemize}
-
-Пусть $m = N - r > 0$. Тогда базис в пространстве решений $(E - \lambda A)\vec{c}$ обозначим как $\vec{c}_{1}..\vec{c}_{n}$ а базис в пространстве решений $(E - \lambda A^{t})\vec{d}=0$ обозначим как $\vec{d}_{1}..\vec{d}_{n}$. Соответствующие им решения обозначим $u_{1}..u_{m}$ и $v_{1}..v_{m}$ соответственно $(u_{k}(x) = \lambda \sum_{j = 1}^{N}a_{j}(x)c_{j,k}, \; v_{k}(x) = \lambda \sum_{j = 1}^{N}b_{j}(x)d_{j,k})$.
-
-Покажем что $u_{1}..u_{n}$ базис решения однородного уравнения. Пусть
-$$\sum_{i=1}^{m}\alpha_{i}u_{i} = 0 \Longleftrightarrow \sum_{i=1}^{m}\alpha_{i}\brk[s]*{\lambda\sum_{j=1}^{n}a_{j}(x)c_{j,i}} = 0 \Longleftrightarrow \sum_{i=0}^{m}\alpha_{i}c_{i,j} = 0 \Longleftrightarrow \sum_{i=0}^{m}\alpha_{i}\vec{c}_{i} = 0$$
-Значит система $u_{1}..u_{m}$ -- линейно независима.
-
-\begin{definition}[Собственные функции и собственные числа оператора $K$]
-Функция $u(x) \in C(\overline{G}), \; u \not\equiv 0$ удовлетворяющая уравнению
-$$u(x) = \lambda \int_{G}K(x,y)u(y)dy, \; x \in C(\overline{G})$$
-называется собственной функцией ядра $K$ или собственной функцией оператора $K$. Соответствующие собственным функциям $\lambda$ называются характеристическими числами ядра/оператора $K$.
-\end{definition}
-
-Свойства характеристических чисел:
-\begin{itemize}
-  \item $\lambda \neq 0$ (иначе $u \equiv 0$).
-  \item $\lambda$ -- не собственное значение оператора: $u = \lambda K u \Leftrightarrow Ku = \frac{1}{\lambda}u => \Rightarrow \mu = \frac{1}{\lambda}$ -- собственное значение.
-  \item Собственные значения $K$ и $K'$ совпадают.
-\end{itemize}
-
-Рассмотрим систему $(E - \lambda A)\vec{c} = \vec{\varphi}$.
-По теореме Фредгольма из линейной алгебры (2 сем) эта система совместна тогда и только тогда, когда каждое решение сопряженной однородной системы $(E - \lambda A^{T})\vec{d} = \vec{0}$ ортогонально $\vec{\varphi}$:
-$$\brk[a]*{\vec{\varphi}; \vec{d}} = 0 \Longleftrightarrow \sum_{j=1}^{N}\varphi_{j}d_{j} = 0 \Longleftrightarrow \int_{G}f(y)\brk[s]*{\sum_{j = 1}^{N}b_{j}(y)d_{j}}dy = 0 \Longleftrightarrow \int_{G}f(y)v(y)dy = 0$$
-
-Получили что интегральное уравнение с вырожденным ядром совместно тогда и только тогда, когда $f$ ортогонально каждому решению однородного союзного уравнения.
-
-Сформулируем все полученные и доказанные выше результаты в виде теорем Фредгольма:
-
-\begin{theorem}[Первая теорема Фредгольма]
-  Если $D(\lambda) \neq 0$, то интегральное уравнение с вырожденным ядром и союзное к нему однозначно разрешимы при любых правых частях из $C(\overline{G})$.
 \end{theorem}
-\begin{theorem}[Вторая теорема Фредгольма]
-   Если $D(\lambda) = 0$, то интегральное уравнение с вырожденным ядром и союзное к нему имеют одинаковое число линейно независимых решений $m = N - Rg(E - \lambda A)$
-\end{theorem}
-\begin{theorem}[Третья теорема Фредгольма]
-  Если $D(\lambda) = 0$, то для разрешения интегрального уравнения с вырожденным ядром необходимо и достаточно, чтобы свободный член $f(x) \in C(\overline{G})$ был ортогонален всем решениям союзного уравнения.
-\end{theorem}
+
+\begin{proof}
+  \begin{enumerate} 
+  	\item Отметим, что оператор $\lambda K$ сжимающий: $\norm*{\lambda K} = \abs*{\lambda}\cdot\norm*{K} < 1$. \\Построим итерационный процесс:
+    $$u_{0} = f(x)$$
+    $$u_{1} = f(x) + \lambda K u_{0}(x) = f(x) + \lambda K f(x)$$
+    $$\cdots$$
+    $$u_{n} = f(x) + \sum_{i=1}^{n}\lambda^{i}K^{i}f(x)$$
+    $$\cdots$$
+    Все $u_{k}(x) \in C(\overline{G})$, причем $u_{k} = S_{k}$ -- k-я частичная сумма ряда Неймана.
+    Далее, $$\norm*{\lambda^{i}K^{i}f(x)}_{C(\overline{G})} \leq \abs*{\lambda^{i}}\cdot\norm*{K}^{i}\cdot\norm*{f}_{C(\overline{G})}=(\abs*{\lambda}\cdot\norm*{K})^{i}\norm*{f}_{C(\overline{G})}\Longrightarrow$$ 
+    $$\Longrightarrow \sum_{i=0}^{\infty}\norm*{\lambda^{i}K^{i}f(x)}_{C(\overline{G})} \leq \sum_{i=0}^{\infty}(\abs*{\lambda}\cdot\norm*{K})^{i}\norm*{f} = \frac{\norm*{f}}{1 - \abs*{\lambda}\cdot\norm*{K}}.$$
+    Указанный в условии ряд сходится абсолютно в банаховом пространстве $C(\overline{G})$ $\Longrightarrow$ он сходится $\Longrightarrow$ \\ $\Longrightarrow \Exists u(x) \in C(\overline{G}): \norm*{u - u_{n}}_{C(\overline{G})} \xrightarrow[n \longrightarrow \infty]{} 0 \Longrightarrow u_{n} \xrightarrow{\norm*{\cdot}_{C(\overline{G})}} u$
+    \begin{itemize}
+	  \item Покажем что $u$ -- решение: $u_{n} = f + \lambda K u_{n-1}$, при этом $u_{n} \longrightarrow u$ а $\lambda K u_{n-1} \longrightarrow \lambda K u$ в силу непрерывности оператора $K$.
+      \item Единственность: пусть $u_{I}$, $u_{II}$ -- решения, обозначим $v = u_{I} - u_{II} \in \overline{G}$. При этом $v$ удовлетворяет однородному уравнению $v = \lambda K v, \; x \in C(\overline{G})$. Тогда $$\|v\| \leq \abs*{\lambda}\cdot\norm*{K}\cdot\norm*{v} \longrightarrow (1 - \abs*{\lambda}\cdot\norm*{K})\cdot\norm*{v} \leq 0 \longrightarrow \norm*{v} = 0 \longrightarrow v \equiv 0$$
+	\end{itemize}
+    \item $u = \lambda Ku + f \longleftrightarrow (I - \lambda  K)u = f$. То, что $I - \lambda K$ отображает всё $C(\overline{G}),$ -- ясно. Согласно пункту 1 $\forall f \in C(\overline{G}) \;\;\exists!\ u(x)$ -- решение, значит оператор отображает всё $C(\overline{G})$ на всё $C(\overline{G})$. Значит, существует обратный оператор $(I - \lambda K)^{-1}$. Он ограничен т.к. $$\norm*{(I - \lambda K)^{-1}f}_{C(\overline{G})} = \norm*{u}_{C(\overline{G})} \leq \sum_{i = 0}^{\infty}\norm*{\lambda^{i}K^{i}f}_{C(\overline{G})} \leq \frac{\norm*{f}_{C(\overline{G})}}{1 - \abs*{\lambda}\cdot\norm*{K}} < \infty$$
+  \end{enumerate}
+\end{proof}

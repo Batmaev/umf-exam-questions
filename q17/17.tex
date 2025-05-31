@@ -1,116 +1,101 @@
-% Затехал Хасянов Расул
-\section{Интегральное представление решений уравнений Лапласа и Пуассона в ограниченной области. Фундаментальное решение уравнения Лапласа.}
-\Subsection{Интегральное представление решений уравнений Лапласа и Пуассона в ограниченной области.}
-Рассматривается уравнение Пуассона в $\R^3$: $\Delta u(x) = \brk*{\pd[2]{}{x_1}+ \pd[2]{}{x_2}+\pd[2]{}{x_3}}u(x) = f(x), x \in \Omega \subset \R^3$, где $\Omega$ -- область.
-\begin{definition}[Гармоническая функция]
-Функция $u(x)$ называется гармонической в $\Omega \in R^3$, если \\ $u(x) \in C^2(\Omega)$ и $\Delta u(x) \equiv 0 \text{ на } \Omega.$ 
-\end{definition}
-Удобно перейти в сферическую систему координат: 
-\[
-\begin{cases}
-x_1 = r \sin \theta \cos \varphi\\
-x_2 = r \sin \theta \sin \varphi\\
-x_3 = r \cos \theta.
-\end{cases}
-\]
-Уравнение примет вид:
-$$ 0 = \Delta \hat u (r, \theta, \varphi) = \hat u_{rr} + \frac{2}{r} \hat u_r + \frac{1}{r^2} \brk[s]*{\frac{1}{\sin \theta} \pd{}{\theta}\brk*{\sin \theta \pd{\hat u}{\theta}}+ \frac{1}{\sin^2 \theta} \pd[2]{\hat u}{\varphi}}$$
-В квадратных скобках написан оператор Лапласа-Бельтрани от функции $\hat u$.\\
-Решение зависящее от $r$, удовлетворяет уравнению Эйлера: 
-$$
-\hat u_{rr}+ \frac{1}{r^2}\hat u_r = 0 \Rightarrow \hat u(r) = r^\mu \Rightarrow \mu(\mu-1) +2\mu =0 \Rightarrow \hat u(r) = C_1 + \frac{C_2}{r}$$
-Функция $\hat u(r) = \frac{1}{r}$ -- гармоническая всюду кроме 0.
-\begin{lemma}[Интегральное представление решения уравнения Пуассона]
-Пусть $\Omega$ -- область с кусочно-гладкой границей $\Gamma$. Пусть $u(x) \in C^2(\Omega) \cap C^1(\bar \Omega), \Delta u \in C(\bar \Omega)$. Тогда для $\forall x \in \Omega\; u(x)$ представима в виде суммы трех потенциалов (объемного Ньютонова, простого слоя, двойного слоя): $$u(x) = \underbrace{\int_\Omega \brk*{-\frac{1}{4\pi\abs*{x-y}}}\Delta u(y) dy}_{\text{объёмный Ньютоновый потенциал}} - \underbrace{\oint_\Gamma \brk*{-\frac{1}{4\pi\abs*{x-y}}} \pd{u(y)}{\vec{n_y}}dS_y}_{\text{потенциал простого слоя}}+\underbrace{\oint_\Gamma \pd{}{\vec{n_y}}\brk*{-\frac{1}{4\pi\abs*{x-y}}}u(y)dS_y}_{\text{потенциал двойного слоя}}$$
-\end{lemma}
-\begin{proof}
-Берем $x \in G, \varepsilon >0$ такое, что $\bar B(x,\varepsilon) \subset \Omega$ ($B$ -- открытый шар в $\R^3$). Строим область $\Omega_x^\varepsilon = \Omega \backslash \bar B(x, \varepsilon), \partial \Omega_x^\varepsilon = \Gamma \cup \gamma$, где $\gamma = \partial B(x,\varepsilon)$.\\
-\begin{center}
-\includegraphics[width=0.2\textwidth]{17_1_new}
-\end{center}
-В $\Omega_x^\varepsilon$ ядро $K_3(x,y) = - \frac{1}{4\pi \abs*{x-y}} \in C^\infty$ ($\Delta K_3(x,y) \equiv 0$). Используем 2 формулу Грина:
-\begin{multline*}
-\int_{\Omega_x^\varepsilon} \Delta u(y) K_3(x,y)dy - \int_{\Omega_x^\varepsilon} u(y) \Delta K_3(x,y)dy = {}\\
-{}=\oint_\Gamma \pd{u(y)}{\vec{n_y}} K_3(x,y)dS_y + \oint_\gamma \pd{u(y)}{\vec{n_y}} K_3(x,y)dS_y - \oint_\Gamma u(y)\pd{}{\vec{n_y}} K_3(x,y) dS_y - \oint_\gamma u(y)\pd{}{\vec{n_y}} K_3(x,y) dS_y
-\end{multline*}
-\begin{multline*}
-\Longleftrightarrow \int_{\Omega_x^\varepsilon} f(y) K_3(x,y)dy + \oint_\Gamma u(y)\pd{}{\vec{n_y}} K_3(x,y) dS_y - \oint_\Gamma \pd{u(y)}{\vec{n_y}} K_3(x,y)dS_y = {}\\
-{} = \oint_\gamma \pd{u(y)}{\vec{n_y}} K_3(x,y)dS_y - \oint_\gamma u(y)\pd{}{\vec{n_y}} K_3(x,y) dS_y
-\end{multline*}
-\begin{offtop}
-интеграл от $\frac{1}{\abs*{x}^\alpha}$ сходится при $\alpha < n = \mathrm{dim}\, \R^n$. У нас $n=3, \alpha =1$.
-\end{offtop}
-Устремляем $\varepsilon \rightarrow 0$:
-\begin{enumerate}
-\item $\int_{\Omega_x^\varepsilon} \rightarrow \int_\Omega$ в силу последнего замечания.
-\item
-$
-\oint_\gamma u(y) \pd{}{\vec{n_y}} \brk*{-\frac{1}{4\pi} \cdot \frac{1}{|x-y|}}dS_y  = \frac{1}{4\pi \varepsilon^2} \oint \brk*{u(y) - u(x) + u(x)}dS_y = \frac{1}{4\pi \varepsilon^2} \oint_\gamma \brk*{u(y) - u(x)}dS_y + u(x)$\\
-$\pd{}{\vec{n_y}} \brk*{-\frac{1}{4\pi} \cdot \frac{1}{|x-y|}} \rightarrow \left.\frac{1}{4\pi}\brk*{-\pd{}{\rho}\frac{1}{\rho}}\right|_{\rho = \varepsilon}$\\
-$\frac{1}{4\pi \varepsilon^2} \abs*{ \oint_\gamma \brk*{u(y) - u(x)}dS_y} \leq \frac{1}{4\pi \varepsilon^2} \cdot \max\limits_{|y-x| \leq \eps} \abs*{u(y)-u(x)} \cdot \oint_\gamma dS_y \rightarrow 0
-$
-\item
-\begin{align*}
-&\abs*{\oint_\Gamma \pd{u(y)}{\vec{n_y}} K_3(x,y)dS_y} \leq \frac{1}{4\pi \varepsilon} M \int_\gamma dS_y = M \varepsilon \rightarrow 0\\
-& \abs*{\pd{u}{\vec{n_y}}} = \abs*{(\nabla u, \vec n)} \leq \abs*{\nabla u} \cdot \abs*{n} \leq M, \text{ так как } \nabla u \in C\brk*{\overline{\Omega}}
-\end{align*}
-\end{enumerate}
-Итак, после предельного перехода получим требуемое соотношение
-\end{proof}
-\Subsection{Фундаментальное решение уравнения Лапласа.}
-Экскурс в обобщенные функции
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+
+\section{Постановка краевых задач Дирихле и Неймана для уравнения Пуассона в ограниченной области. Единственность классического решения задачи Дирихле в классе $C^1(\overline{\Omega}) \cap C^2({\Omega})$. Неединственность решения задачи Неймана и необходимое условие её разрешимости.}
+% Затехал Шлёнский Владос
+\Subsection{Формулы Грина}
 \begin{definition}
-$\mathcal{D}(\R^n)$ -- пространство пробных (основных) функций:\\ $\varphi(x) \in \mathcal{D}(\R^n) \Longleftrightarrow \varphi(x) \in C^\infty(\R^n),\; \mathrm{supp}\, \varphi(x)$ -- компакт. 
-\end{definition}
-\begin{definition}
-В $\mathcal{D}(\R^n)$ вводится сходимость по следующему правилу: $\brk[c]*{\varphi_k(x)}_{k=1}^{\infty} \rightarrow \varphi(x) \in \mathcal{D}(\R^n) \Longleftrightarrow$
+Ограниченная область $\Omega$ называется \textit{областью с гладкой границей}, если $\forall x_0 \in \Gamma = \partial \Omega$ найдутся:
 \begin{itemize}
-\item $\forall \alpha = (\alpha_1, \ldots, \alpha_n)\; \mathcal{D}^\alpha \varphi_k \rightrightarrows \mathcal{D}^\alpha \varphi$
-\item $\exists A > 0: \varphi_k (x) \equiv 0$ при $|x| > A \Forall k \in \N$ (у всех функций общий носитель)
+\item такая декартова СК , что начало в $x_0$, $\xi = (\xi_1, \ldots, \xi_n)$ -- координаты точек в этой СК
+\item Окрестность $U_0(x^0) = \{\xi\colon |\xi^{'}| < r,\; |\xi_n| < h\}$, где $\xi^{'} = (\xi_1, \ldots, \xi_{n - 1})$, такая, что в $U_0(x^0)$ часть границы $\Gamma \cap U_0(x^0)$ представляется в виде: $\xi_n = F(\xi^{'}), \, |\xi^{'}| < r, \, F(0) = 0, \; F(\xi^{'}) \in C^1(|\xi^{'}| < r),\; \nabla_{\xi^{'}} F(0) = 0$, 
+\item Множество $U_{-}(x^0) = U_0(x^0) \cap \{x\colon\; \xi_n < F(\xi^{'})\} \in \Omega$, \\
+Множество $U_{+}(x^0) = U_0(x^0) \cap \{x\colon\; \xi_n \geq F(\xi^{'})\}\colon\; \Omega \cap U_{+} = \varnothing$
+\item Числа $r > 0$, $h > 0$ можно выбрать независимо от $x^0 \in \Gamma$.
 \end{itemize}
 \end{definition}
-Пример функции из $\mathcal{D}(\R^n)$: 
-$$\omega_\varepsilon(x) = \begin{cases}\frac{1}{\varepsilon^n}e^{-\frac{1}{1-\brk*{x/\varepsilon}^2}}, |x| \leq \varepsilon \\ 0, |x| > \varepsilon \end{cases} \Rightarrow \mathcal{D}(\R^n) \neq \varnothing$$
-\begin{definition}
-Обобщенная функция $f$ над $\mathcal{D}(\R^n)$ -- всякий линейный непрерывный функционал над $\mathcal{D}(\R^n)$
-\end{definition}
-\begin{definition}
-Линейный функционал: $(f, \alpha \varphi + \mu \psi) = \alpha (f, \varphi) + \mu (f, \psi)$
-\end{definition}
-\begin{definition}
-Непрерывный функционал: $\forall \brk[c]*{\varphi_k} \rightarrow \varphi$ в  $\mathcal{D}(\R^n) \Rightarrow f(\varphi_k)\rightarrow f(\varphi)$
-\end{definition}
-По определению $\forall \lambda, \mu \text{ -чисел}, \Forall f, g \in \mathcal{D}'(\R^n)$ обобщенная функция $F = \lambda f + \mu g \in \mathcal{D}'(\R^n), \;\\(F, \varphi)  \stackrel{\mathrm{def}}{=} \lambda (f, \varphi) + \mu (g, \varphi)$
-\begin{definition}[сходимость в $\mathcal{D}'(\R^n)$]
-$\brk[c]*{f_n}_{n=1}^\infty \rightarrow f \in \mathcal{D}'(\R^n) \stackrel{\mathrm{def}} {\Longleftrightarrow} (f_k, \varphi) \rightarrow (f, \varphi), \Forall \varphi \in \mathcal{D}(\R^n)$ (слабая$^*$ сходимость). 
-\end{definition}
-\begin{definition}
-Функция $f(x)$ называется локально интегрируемой, если 
-$$\forall\: B > 0 \quad \exists \displaystyle\int\limits_{|x| < B} \abs*{f(x)}dx < \infty$$
-\end{definition}
-Каждая такая $f(x)$ порождает обобщенную функцию $(f,\varphi) = \int_{\R^n} f(x) \varphi(x) dx$.\\
-Если существует локально интегрируемая $f(x)$ такая, что обобщенная функция $f$ представляется в виде $(f,\varphi) = \int_{\R^n} f(x) \varphi(x) dx$, то $f \in \mathcal{D}'(\R^n) $ называется регулярной.
-\begin{lemma}[Дюбуа-Реймон]
-Если $f$ и $g$ непрерывны и порождают одну обобщенную функцию, то $f \equiv g$. Если $f$ и $g$ разрывны, то они совпадают почти всюду.
+\begin{minipage}{0.3\textwidth}
+\begin{center}
+\includegraphics[scale = 0.2]{17_1_new}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.8\textwidth}
+Для ограниченных областей с гладкими границами справедлива формула Остроградского-Гаусса ($F$ - непрерывно дифференцируемое векторное поле):
+$$\int\limits_{\Omega} \div \vec{F}(x)\;dx = \int\limits_{\partial \Omega} \bigl(\vec{F}(x),\: \vec{n}\bigr)\;dS = \int\limits_{\Gamma} \bigl(\vec{F}(x),\: \vec{n}\bigr)\;dS$$
+\end{minipage} \\
+\begin{lemma} \ \\
+\Subsubsection{Формулы Грина}
+Пусть $\Omega$ -- ограниченная область с границей класса $C^1$ в $\R^n$, тогда справедливы следующие формулы.
+	$$\forall u(x) \in C^2(\Omega)\cap C^1(\overline{\Omega}), v(x) \in C^1(\overline{\Omega}) \to \int\limits_{\Omega} (\Delta u)v\; dx = \oint\limits_{\Gamma} \dfrac{\partial u}{\partial \vec{n}} v\;dS_x - \int\limits_{\Omega}(\nabla u, \nabla v)\;dx $$
+$$ \forall u(x), v(x) \in C^2(\overline{\Omega}) \to \int\limits_{\Omega} (\Delta u)v\; dx - \int\limits_{\Omega} (\Delta v)u\; dx = \oint\limits_{\Gamma} \dfrac{\partial u}{\partial \vec{n}} v\;dS_x - \oint\limits_{\Gamma} \dfrac{\partial v}{\partial \vec{n}} u\;dS_x$$
+Полученные формулы называются первой и второй\; \textit{формулами Грина} соответственно.
 \end{lemma}
-\begin{definition}[$\delta$-функция]
-$(\delta, \varphi) \stackrel{\mathrm{def}}{=} \varphi(0)$
-\end{definition}
-$\delta$-функция не является регулярной. \\
-Обобщенные функции бесконечно дифференцируемы.\\
-Правило дифференцирования: $(\mathcal{D}^\alpha f, \varphi) = (-1)^{|\alpha|} (f, \mathcal{D}^\alpha \varphi)$.\\
-В частном случае $(\Delta f, \varphi) = (f, \Delta \varphi)$
-\begin{theorem}
-Функция $E(x) = \frac{-1}{4\pi |x|}$ является решением в обобщенных функциях уравнения $\Delta E(x) = \delta(x)$.
-\end{theorem}
-\begin{proof}
-Пусть $\varphi \in \mathcal{D}(\R^n), \mathrm{supp} \varphi \subset B(0, A)$. Возьмем $\Omega = B(0, A +1)$. По теореме об интегральном представлении
-\begin{align*}
-\varphi(0) &= \int_{|y| < A +1} E(y) \Delta_y \varphi(y) dy + \cancel{\oint_{|y| = A+1} \varphi(y)\pd{E(y)}{\vec{n_y}} dS_y} - \cancel{\oint_{|y| = A+1} \pd{\varphi(y)}{\vec{n_y}} E(y)dS_y} = \\
-&= (E, \Delta_x \varphi(x)) = (\Delta E, \varphi(x))
-\end{align*}
-Что и требовалось.
+\begin{proof}\ \\
+\Subsubsection{Первая формула Грина}
+Пусть $\vec{f}(x), v(x)$ - гладкие векторное и скалярное поля соответственно: $\div(\vec{f} \cdot v) = (\nabla, \overset{\shpos}{\vec{f}}v) + (\nabla, \vec{f}\overset{\shpos}{v}) = v\div \vec{f} + (\vec{f}, \grad{v})$. \\
+Положим $\vec{f} = \nabla u \in C^1 \Rightarrow \div (v \nabla u) = v \underbrace{\div(\nabla u)}_{\Delta u} + (\nabla u, \nabla v)$. \\
+Интегрируем по объёму в $\Omega$:
+\begin{equation*}
+	\int\limits_{\Omega} v \Delta u\;dx = 	\int\limits_{\Omega} \div(v\nabla u)\;dx -\int\limits_{\Omega} (\nabla u, \nabla v)\;dx = \oint\limits_{\Gamma}(v \nabla u, \vec{n})\;dS - \int\limits_{\Omega}(\nabla u, \nabla v)\;dx
+\end{equation*}
+Заметим, что:
+$$(v\nabla u, \vec{n}) = v \sum\limits_{k = 1}^{\dim \R^n}\dfrac{\partial u(x)}{\partial x_k} n_k = \dfrac{\partial u}{\partial \vec{n}}(x) \cdot v(x)$$
+При подстановке данного результата в равенство выше немедленно получим первую формулу Грина.
+\Subsubsection{Вторая формула Грина}
+Для получения второй формулы Грина необходимо вычесть из первой формулы Грина симметричное ему по $u$ и $v$ равенство:
+$$\int\limits_{\Omega} u \Delta v\;dx = \oint\limits_{\Gamma}(u \nabla v, \vec{n})\;dS - \int\limits_{\Omega}(\nabla v, \nabla u)\;dx$$
 \end{proof}
+
+\Subsection{Внутрення задача Дирихе для уравнения Пуассона}
+Пусть $\Omega$ -- ограниченная область с границей $\Gamma$ класса $C^1, u_0(x) \in C(\Gamma), f(x) \in C(\overline{\Omega})$. Требуется найти $u(x)$, удовлетворяющую условиям:
+\begin{equation}
+\label{eq:17_1}
+	\begin{cases}
+		\Delta u(x) = f(x), \quad x \in \Omega, \\
+		u\bigr|_{\Gamma} = u_0(x).
+	\end{cases}
+\end{equation}
+\textit{Классическим решением задачи Дирихле} (\ref{eq:17_1}) называется $u(x) \in C^1(\overline{\Omega}) \cap C^2({\Omega})$, удовлетворяющая уравнению и начальным условиям. \\
+\begin{lemma}
+Не может существовать более одного классического решения задачи (\ref{eq:17_1}).
+\end{lemma}
+\begin{proof}
+Если $\exists u_{I}$ и $u_{II}$ - классические решения задачи (\ref{eq:17_1}), то $v(x) = u_{I} - u_{II}$ есть классическое решение полностью однородной задачи: $\Delta v \equiv 0,\; v\bigr|_{\Gamma} = 0$. \\
+По формуле Грина:
+\begin{equation*}
+	\int\limits_{\Omega} v\cancelto{0}{\Delta v}\; dx = \oint\limits_{\partial \Omega}\dfrac{\partial v}{\partial \vec{n}}\cancelto{0}{v}\;dS - \int\limits_{\Omega}(\nabla v, \nabla v)\;dx \Rightarrow \nabla v \equiv 0 \Forall x \in \Omega \Rightarrow v(x) = \text{const}
+\end{equation*}
+С учётом того, что $\Delta v(x) = 0$ и $v(x)\bigr|_{\Gamma} = 0$, получим, что $v(x) = 0$, а значит, $u_{I} = u_{II}$, и решение единственно.
+\end{proof}
+\Subsection{Внутренняя задача Неймана для уравнения Пуассона}
+Пусть $\Omega$ -- ограниченная область с границей класса $C^1, u_1(x) \in C(\Gamma), f(x) \in C(\overline{\Omega})$. Требуется найти $u(x)$ удовлетворяющую условиям:
+\begin{equation}
+\label{eq:17_2}
+    \begin{cases}
+        \Delta u(x) = f(x), & x \in \Omega, \\
+	\dfrac{\partial u}{\partial \vec{n}} \biggr|_{\Gamma} = u_1(x).
+    \end{cases}
+\end{equation}
 \begin{definition}
-Функция $E(x)$ называется фундаментальным решением оператора Лапласа.
+\textit{Классическое решение задачи Неймана} (\ref{eq:17_2}) есть такая функция $u(x) \in C^1(\overline{\Omega}) \cap C^2({\Omega})$, удовлетворяющая уравнению и граничным условиям.
 \end{definition}
+\begin{lemma}
+Любые два классические решения задачи Неймана отличаются на константу.
+\end{lemma}
+\begin{proof}
+Если $\exists u_{I}$ и $u_{II}$ - классические решения задачи (\ref{eq:17_2}), то $v(x) = u_{I} - u_{II}$ есть классическое решение полностью однородной задачи: $\Delta v \equiv 0,\; \dfrac{\partial v}{\partial \vec{n}}\bigr|_{\Gamma} = 0$. 
+По формуле Грина имеем:
+\begin{equation*}
+ 	\int\limits_{\Omega} v \cancelto{0}{\Delta v}\; dx = \oint\limits_{\Gamma} \cancelto{0}{\dfrac{\partial v}{\partial \vec{n}}}v\;dS - \int\limits_{\Omega} |\nabla v|^2\;dx \Rightarrow v \equiv \text{const}
+\end{equation*}
+\end{proof}
+\begin{lemma}
+Необходимым условием существования классического решения задачи Неймана является условие $\int\limits_{\Omega} f(x)\;dx = \oint\limits_{\Gamma}u_1(x)\;dS$.
+\end{lemma}
+\begin{proof}
+\begin{equation*}
+\int\limits_{\Omega} f(x)\;dx = \int\limits_{\Omega} \Delta u\;dx = \int\limits_{\Omega} \Delta u \cdot 1\; dx = \bigl[\text{1-ая ф. Грина}\bigr] = \int\limits_{\partial \Omega} \dfrac{\partial u}{\partial \vec{n}} \cdot 1\;dS - \cancelto{0}{\int\limits_{\Omega} (\nabla u, \nabla 1)\;dx} = \int\limits_{\partial \Omega} u_1(x) \;dS .
+\end{equation*}
+\end{proof}
+\end{document}

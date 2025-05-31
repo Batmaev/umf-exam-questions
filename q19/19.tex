@@ -1,144 +1,128 @@
-
-\section{Принцип максимума и минимума для гармонических функций. Единственность классического решения задачи Дирихле для уравнения Пуассона при непрерывной граничной функции}
-%Никитушка отмочил красоту
-\Subsection{Теорема (принцип максимума)}
-\begin{theorem}
-{\bf(Принцип максимума)} Если $u(x)$ - гармоническая в
-области $\Omega$ и достигает $max$ или $min$ значения в
-точке $a \in \Omega$, то $u(x) \equiv u(a) \Forall x \in \Omega$ 
-
-\begin{offtop}
-Теорема справедлива в $\R^n$
-\end{offtop}
-
-\begin{proof}
-
-\begin{itemize}
-\item
-\item 
-Докажем вспомогательное локальное 
-\begin{statement}
-\label{statement_19.1}
-Пусть $u(x) \in C^2(\Omega)$ достигает максимума в точке $a$, а так же удовлетворяет {\bf свойству среднего}:
-
-\[
-u(a) = \dfrac{1}{4\pi r^2}\oint\limits_{\abs*{y-a} = r}u(y
-)\;dS_y \Forall r: 0 < r < d_a = dist(a, \R^3 \backslash
- \Omega)
-\]
-
-Тогда $u(x) \equiv u(a) \Forall x \in B(a, d_a)$  
-
-\end{statement}
-\begin{proof}
-$
-u(a) = \dfrac{1}{4\pi r^2}\oint\limits_{\abs*{y-a} = r}u(y
-)\;dS_y  =
-\dfrac{u(a)}{4\pi r^2}\oint\limits_{\abs*{y-a} = r} \;dS_y  +
- 		\dfrac{1}{4\pi r^2}\oint\limits_{\abs*{y-a} = r}\brk*{u(y
-)-u(a)}\;dS_y =
-	u(a) + \dfrac{1}{4\pi r^2}\oint\limits_{\abs*{y-a} = r}\brk*{u(y
-)-u(a)}\;dS_y \Rightarrow 
-	\oint\limits_{\abs*{y-a} = r}\underbrace{\brk*{u(y)-u(a)}}_{\le 0,\ \text{непрерывна}}\;dS_y = 0
-	 \Leftrightarrow
-	\quad u(y) = u(a) \Forall y: |y-a|=r < d_a
- $
-\end{proof}
-
-\item
-{\bf Докажем саму теорему}
-\begin{center}
-\includegraphics[scale=0.5]{19_1_new}
-\end{center}
-Соединим $a$ и $b$ кусочно-гладкой кривой. Эту кривую параметризуем натуральным параметром(параметризация кривой длиной её дуги): 
-$x = x(s), x(0) = a, x(L) = b$.
-{\bf Обозначим}
-$d = dist\brk[c]*{\gamma = x; \partial{\Omega}} > 0$
-($d$ действительно $> 0$ : если $d = 0$, то 
-$\exists\{x_n\}_{n=1}^\infty \subset \gamma: \rho\brk*{x_n, \partial\Omega}\to 0$.
- Выделим из $\{x_n\}$ сходящуюся $\{x_{n_k}\}=\{y_k\}$($\gamma$ - ограничено). Пусть $y_k \to y_0$. Тогда $y_0$ - предельная для
- $\partial \Omega$ в силу замкнутости 
- $y_0 \in \gamma \cup \partial \Omega \Rightarrow$ противоречие)\\
- Разобьем $[0,L]$ на части размера $\Delta S = \dfrac{L}{N}$\\
- Пусть $\brk[c]*{S_k = k\Delta S, x_k = x(S_k)}$. 
- Число N выберем так, чтобы $\Delta S = \dfrac{L}{N} < d$\\
- \begin{center}
- \includegraphics[scale=0.5]{19_2_new}
- \end{center}
- Заметим, что $\abs*{x_k - x_{k-1}} \boxed{\leq} s_k - s_{k-1} < d$($\boxed{\cdot}$ - кратчайшее расстояние между точками это отрезок).
- \begin{center}
- \includegraphics[scale=0.5]{19_3_new}
-\end{center}
- Рассмотрим шары ${B_d(x_k)}_{k=0}^N$. В силу
- $\abs*{x_k - x_{k-1}}) < d$ верно $x_{k+1} \in B_d(x_k)$. 
-  Примем утверждение \ref{statement_19.1} к первому шару. 
-  Как следствие $u(x_1) = u(a)\Rightarrow$ утверждение \ref{statement_19.1} применимо уже ко второму шару.
-   В цепочке шаров конечное число 
-  $\Rightarrow$ добираемся до точки $b$ - теорема доказана.  
-\end{itemize}
-\end{proof}
-\end{theorem}
-
-$\bullet$ Заметим, что достаточно было потребовать
-свойство среднего и непрерывность, вместо гармоничности.
-
-
-\begin{conseq}
-\label{conseq19.1}
-Пусть $\Omega$ - ограниченная область, а $u(x)$ - гармоническая в $\Omega$ и непрерывная на $\overline{\Omega}$.
-Тогда $u(x)$ достигает $max$ и $min$ на $\partial \Omega$, т.е.
-$\min\limits_{y \in \partial \Omega}u(y) \leq u(x) \leq \max\limits_{y \in \partial \Omega}u(y)$
-	\begin{proof}
-	Либо максимум/минимум на границе, либо $u(x)\equiv const$ в $\Omega$
-	\end{proof}
-\end{conseq}
-
-
-\begin{conseq}
-Для указанной в следствии \ref{conseq19.1} $u(x) \hookrightarrow \abs*{u(x)} \leq \max\limits_{y \in \partial \Omega} \abs*{u(y)}$
-\begin{proof}
-
-\begin{equation}
-  \begin{cases}
-  & u(x) \leq \max\limits_{\partial \Omega}u(y) \leq \max\limits_{\partial \Omega}\abs*{u(y)}\\  
-  &-u(x) \leq \max\limits_{\partial \Omega}(-u(y)) \leq \max\limits_{\partial \Omega}\abs*{u(y)}\\
-  \end{cases}
-  \end{equation}  
-  
-  $\Rightarrow \abs*{u(x)} \leq \max\limits_{\partial \Omega}\abs*{u(y)}$
-\end{proof}
-\end{conseq}
-
-
-\Subsection{Новая постановка задачи Дирихле для уравнения Пуассона}
-$\Omega$ - ограниченная область 
-
-\begin{equation}
-  \begin{cases}\label{equatation19.1}
-  & \Delta u(x) = f(x), x \in \Omega\\ 
-  & \eval{u(x)}_{\partial \Omega} = u_0(x), x \in \partial \Omega\\
-  \end{cases}
-\end{equation} 
-  
- \begin{definition}
- Классическое решение задачи Дирихле - функция
-  $u(x) \in C^2(\Omega) \cap C(\overline{\Omega})$,
-  удовлетворяющая уравнению и граничному условию.(раньше было $u(x) \in C^2(\Omega) \cap C^{\boxed{1}}(\overline{\Omega})$, единица была нужна для формул Грина, теперь убираем ее)
- \end{definition}
- \Subsection{Теорема единственности}
- \begin{theorem}
- (единственности) Не может существовать более 1 классического решения задачи Дирихле(\ref{equatation19.1}).
- 
- \begin{proof}
- Пусть $u_1$ и $u_2$ - классические решения (\ref{equatation19.1}). Тогда $v(x) = u_1 - u_2$ - классическое решение полностью однородной задачи:
- 
- \begin{equation}
-  \begin{cases}\label{equatation19.2}
-  & \Delta v(x) \equiv 0, x \in \Omega\\ 
-  & \eval{v(x)}_{\partial \Omega} = 0, x \in \partial \Omega\\
-  \end{cases}
+% Затехал Хасянов Расул
+\section{Решение методом Фурье задачи Дирихле для уравнения Лапласа в круге. Представление решения в виде ряда по однородным гармоническим многочленам и в виде интеграла Пуассона. Существование классического решения при непрерывной граничной функции. (\textcolor{red}{Задача на собственные значения и собственные функции для оператора Лапласа в круге при однородном краевом условии Дирихле. Дифференциальное уравнение Бесселя. Функции Бесселя первого рода и их свойства. Выражения для собственных функций и собственных значений круглой мембраны с закрепленными краями через функции Бесселя.}).}
+\Subsection{Решение методом Фурье задачи Дирихле для уравнения Лапласа в круге.}
+Задача: в круге $D = \brk[c]*{x: \abs*{x} < R}$ и на границе $\Gamma =\partial D$ рассматриваем задачу:
+\begin{equation} \label{19_1}
+\begin{cases}
+\Delta u(x) = f(x), x \in D \longleftarrow \text{уравнение Пуассона}\\
+\eval{u}_\Gamma = u_0(x), x \in \partial D
+\end{cases}
 \end{equation}
- 
- Согласно принципу максимума, $\abs*{v(x)} \leq \max\limits_{\partial\Omega} \abs*{v(x)} = 0 \Rightarrow v(x) \equiv 0$
- \end{proof}
- \end{theorem}
+Сделаем замену: 
+$x_1 = \rho \cos \varphi, x_2 = \rho \sin \varphi$.\\ Функция $\hat u(\rho,\varphi) = u(\rho \cos \varphi, \rho \sin \varphi)$. \\Аналогично $\hat u_0(\rho, \varphi) = u_0(\rho \cos \varphi, \rho \sin \varphi), \hat f(\rho, \varphi) = f(\rho \cos \varphi, \rho \sin \varphi).$\\
+Задача перепишется в виде: 
+\[
+\begin{cases}
+\hat u_{\rho \rho} + \frac{1}{\rho} \hat u_\rho + \frac{1}{\rho^2} \hat u_{\varphi \varphi} = \hat f(\rho, \varphi), 0 < \rho < R, 0 \leq \varphi \leq 2\pi\\
+\hat u (R,\varphi) = \hat u_0(R, \varphi)\\
+\hat u(\rho,\varphi) = \hat u(\rho, \varphi + 2\pi)
+\end{cases}
+\]
+Далее считаем $\hat f = 0$, то есть решаем уравнение Лапласа.\\
+Предположение: $u_0(x) \in C^1(\Gamma)$. Предполагаем, что решение принадлежит классу $C^2(D) \cap C^1(\bar D)$. При этом $\hat u$ -- $2\pi$-периодическая по $\varphi \Rightarrow$ можно разложить $\hat u_0, \hat u$ в ряды Фурье. [Если был было уравнение Пуассона -- требовали бы  $f \in C^1(\bar D)$.]
+\begin{align*}
+\brk[c]*{\begin{matrix} \hat u(\rho,\varphi) \\ \hat u_0(R,\varphi) \end{matrix}} &= \frac{1}{2} \brk[c]*{\begin{matrix} a_0(\rho) \\ A_0 \end{matrix}} + \sum_{k=1}^{\infty} \brk[s]*{\brk[c]*{\begin{matrix} a_k(\rho) \\ A_k \end{matrix}} \cos k \varphi + \brk[c]*{\begin{matrix} b_k(\rho) \\ B_k \end{matrix}} \sin k \varphi}, \text{где}\\
+\brk[c]*{\begin{matrix} a_k(\rho)\\ A_k \end{matrix}} &= \frac{1}{\pi} \int_0^{2\pi} \brk[c]*{\begin{matrix} \hat u(\rho,\psi) \\ \hat u_0(R,\psi) \end{matrix}} \cos k \psi d \psi, k \in \N_0,\\ 
+\brk[c]*{\begin{matrix} b_k(\rho)\\ B_k \end{matrix}} &= \frac{1}{\pi} \int_0^{2\pi} \brk[c]*{\begin{matrix} \hat u(\rho,\psi) \\ \hat u_0(R,\psi) \end{matrix}} \sin k \psi d \psi, k \in \N.
+\end{align*}
+Формально подставляем в уравнение(аргументы функций опускаем -- они все уже определены).
+\[
+\frac{1}{2}\brk*{a''+\frac{1}{\rho}a_0'} + \sum_{k=1}^\infty \brk[c]*{\brk[s]*{a_k''+\frac{1}{\rho}a_k'-\frac{k^2}{\rho^2}a_k} \cos k \varphi + \brk[s]*{b_k''+\frac{1}{\rho}b_k'-\frac{k^2}{\rho^2}b_k} \sin k \varphi} = 0
+\]
+Из граничного условия: 
+\[
+\frac{1}{2}a_0(R) + \sum_k \brk[s]*{a_k(R) \cos k \varphi + b_k(R) \sin k \varphi} = \frac{1}{2} A_0 + \sum_k \brk[s]*{A_k \cos k \varphi + B_k \sin k \varphi}
+\]
+В силу ортогональности тригонометрической системы в $L_2[0,2\pi]$ имеем на $a_k$ и $b_k$ следующие задачи:
+\[
+\begin{cases}
+a_k''(\rho)+ \frac{1}{\rho} a_k'(\rho) - \frac{k^2}{\rho^2} a_k(\rho) = 0, 0 \leq \rho \leq R\\
+a_k(R) = A_k, \ k \in \N_0\\
+\end{cases} \qquad \begin{cases}
+b_k''(\rho)+ \frac{1}{\rho} b_k'(\rho) - \frac{k^2}{\rho^2} b_k(\rho) = 0, 0 \leq \rho \leq R\\
+b_k(R) = B_k, \ k \in \N\\
+\end{cases}
+\]
+Будем искать только ограниченные решения -- для этого одного граничного условия окажется достаточно.\\
+Решения данных уравнений Эйлера ищем в виде $\alpha \rho^\mu$:\\
+Для первой серии задачи: $\alpha[\mu(\mu-1)+\mu - k^2] \rho^{\mu-2} = 0 \Rightarrow \mu = \pm k$.\\
+Общее решение:
+$$ a_k(\rho) = C_{1k}\rho^k+C_{2k}\rho^{-k} $$
+$$a_0(\rho) = C_{10} \cdot 1 + C_{20} \cdot \ln \rho$$
+Для ограниченности в круге берем $C_{2k} = C_{20} = 0 \Rightarrow a_k = C_{1k} \rho^k, C_{1k} = \frac{A_k}{R^k}, k \in \N_0$.\\
+Итак, 
+\begin{equation}\label{19_2}
+\brk[c]*{\begin{matrix} a_k(\rho)\\ b_k(\rho) \end{matrix}} = \brk[c]*{\begin{matrix} A_k\\ B_k \end{matrix}}\brk*{\frac{\rho}{R}}^k \Rightarrow \hat u(\rho, \varphi) = \frac{A_0}{2} + \sum_{k=1}^{\infty}\brk*{A_k \cos k \varphi + B_k \sin k \varphi} \brk*{\frac{\rho}{R}}^k  
+\end{equation}
+Вернемся в исходные переменные. Заметим, что если ввести $z = x_1+ix_2 = \rho e^{i \varphi}$, то $\rho^k \cos k \varphi = \mathrm{Re} \ z^k, \,  \rho^k \sin k \varphi = \mathrm{Im} \ z^k$.\\ Обозначим $\mathrm{Re} \ z^k = p_k(x_1,x_2), \, \mathrm{Im} \ z^k = q_k(x_1,x_2)$.
+\begin{equation} \label{19_3}
+\Rightarrow u(x_1,x_2) = \frac{A_0}{2}+ \sum_{k=1}^{\infty}\brk[s]*{\frac{A_k}{R^k} p_k(x_1,x_2) + \frac{B_k}{R^k} q_k(x_1,x_2)} 
+\end{equation}
+\Subsection{Представление решения в виде ряда по однородным гармоническим многочленам и в виде интеграла Пуассона. Существование классического решения при непрерывной граничной функции.}
+\begin{theorem}
+Пусть $u_0 \in C(\Gamma)$. Тогда:
+\begin{enumerate}
+\item Существует и единственно классическое решение $u(x) \in C^\infty(D) \cap C(\bar D)$ задачи (\ref{19_1}) с $f \equiv 0$.
+\item В $D$ это решение представимо рядами (\ref{19_2}) и (\ref{19_3}), сходящимися в $|x| \leq R_1 < R$ равномерно.
+\item Классическое решение представимо формулой Пуассона: \[u(x) = \frac{1}{2\pi R} \oint_{\partial D} \frac{R^2 - |x|^2}{|x- \xi|^2}u_0(\xi) dS_\xi\]
+\item Любые частные производные по $x_1$ и $x_2$ вычисляются почленным дифференцированием ряда.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+\item Единственность докажем позднее (в этом билете ее нет).
+\item Пусть $|u_0| < M$ на $\Gamma$. Тогда: 
+\[
+\abs*{A_k} \leq \frac{1}{\pi}\int_0^{2\pi} \abs*{u_0} \abs*{\cos k \psi} d \psi \leq 2M, \; \abs*{B_k} \leq 2M
+\]
+Запишем 
+\[u(x_1,x_2) = \frac{A_0}{2}+ \sum_{k=1}^{\infty}\brk[s]*{\frac{A_k}{R^k} p_k(x_1,x_2) + \frac{B_k}{R^k} q_k(x_1,x_2)}  = \mathrm{Re}\, w_1 + \mathrm{Im}\, w_2, \text{где}\]
+\[
+w_1 = \frac{A_0}{2}+ \sum_{k=1}^{\infty} \frac{A_k}{R_k}z^k,\; w_2 = \sum_{k=1}^{\infty} \frac{B_k}{R_k}z^k
+\]
+Оба ряда сходятся абсолютно и равномерно в круге $|z| \leq R_1 < R \Rightarrow$ порождают в круге радиуса $R_1$ регулярные функции, что и требовалось.
+\item Докажем формулу Пуассона: 
+\begin{align*}
+\hat u(\rho, \varphi) &= \frac{1}{2}\cdot \frac{1}{\pi} \int_0^{2\pi} \hat u_0(R,\psi) d \psi + \sum_{k=1}^{\infty} \frac{1}{\pi} \int_0^{2\pi} \hat u_0(\psi)\brk*{\cos k \psi \cdot \cos k \varphi + \sin k \psi \sin k \varphi}d\psi \brk*{\frac{\rho}{R}}^k =  \\
+&= \brk*{\text{сходимость равномерная}} = \frac{1}{2\pi}\int_0^{2\pi} \brk[s]*{1+ \sum_{k=1}^\infty 2\cos k(\psi - \varphi) \brk*{\frac{\rho}{R}}^k}\hat u_0(\psi) d \psi = \\
+& = \frac{1}{2\pi}\int_0^{2\pi} \brk[s]*{\sum_{k=0}^{\infty} e^{-ik(\psi-\varphi)}\brk*{\frac{\rho}{R}}^k + \sum_{k=1}^{\infty} e^{ik(\psi-\varphi)}\brk*{\frac{\rho}{R}}^k} \hat u_0(\psi) d \psi = \frac{1}{2\pi}\int_0^{2\pi} \brk[s]*{\sum_{k=0}^{\infty} p^k + \sum_{k=1}^{\infty} \bar p^k} \hat u_0(\psi) d \psi 
+\end{align*}
+Под интегралом ($|p| = |\bar p| = \frac{\rho}{R} < 1$): 
+\begin{align*}
+\sum_{k=1}^{\infty} p^k + \sum_{k=1}^{\infty} \bar p^k &= \frac{1}{1-p} + \frac{1}{1-\bar p} - 1 = \frac{1 - p + 1 - \bar p -1 +p + \bar p - p \bar p}{(1-p)(1-\bar p)} = \frac{1- \abs*{p}^2}{1-(p+\bar p) + p\bar p} = \\
+&=\frac{1- \abs*{p}^2}{1-2 \mathrm{Re}\, p + \abs*{p}^2} = \frac{1- \brk*{\frac{\rho}{R}}^2}{1-2\frac{\rho}{R} \cos(\psi - \varphi) + \frac{\rho^2}{R^2}} = \frac{R^2 -\rho^2}{R^2 + \rho^2 -2R\rho\cos(\varphi - \psi)} = \\
+&=\frac{R^2 - \abs*{x}^2}{\abs*{x-\xi}^2},\; \begin{matrix} x = (\rho, \varphi)\\ \xi = (R, \psi) \end{matrix}
+\end{align*}
+Итак, 
+\begin{align*}
+\hat{u}(\rho, \varphi) &= \frac{1}{2\pi R} \int_0^{2\pi} \frac{R^2 -\rho^2}{R^2 + \rho^2 -2R\rho\cos(\varphi - \psi)} \hat u_0(\psi) d \psi \quad
+\Longleftrightarrow \\ u(x) &= \frac{1}{2\pi R}\oint_{\Gamma} \frac{R^2 - |x|^2}{|x - \xi|^2}u_0(\xi) dS_\xi
+\end{align*}
+Заметим, что при $u_0 \equiv 1$ мы получим ядро Пуассона:
+\[
+1 \equiv \frac{1}{2\pi R}\oint_{\Gamma} \frac{R^2 - |x|^2}{|x - \xi|^2} dS_\xi
+\]
+Покажем, что $u(x) \in C (\bar D)$.\\
+Пусть $x \in D \cap \brk[c]*{x : \abs*{x-x^0} < \delta_{n_0}}$, где $x_0 \in \Gamma$, а $\delta_{n_0}$ выбрано так, чтобы $\abs*{u_0(x) - u_0(x^0)} \leq \varepsilon$.
+\begin{align*}
+u(x) - u(x^0) &= \frac{1}{2\pi R}\oint_{\Gamma} \frac{R^2 - |x|^2}{|x - \xi|^2}\brk*{u_0(\xi)-u_0(x^0)} dS_\xi = \\
+&= \frac{1}{2\pi R} \brk*{\int_{\brk[c]*{\xi \in \Gamma: \abs*{\xi - x^0} < \delta_{n_0}}} +  \int_{\brk[c]*{\xi \in \Gamma: \abs*{\xi - x^0} \geq \delta_{n_0}}}} \frac{R^2 - |x|^2}{|x - \xi|^2}\brk*{u_0(\xi)-u_0(x^0)} dS_\xi = I_< + I_\geq
+\end{align*}
+\begin{align*}
+& \abs*{I_<} \leq  \frac{1}{2 \pi R} \int_{(<)}  \frac{\abs*{R^2 - |x|^2}}{|x - \xi|^2}\abs*{u_0(\xi)-u_0(x^0)} dS_\xi \leq \varepsilon \cdot \brk[c]*{\text{ядро Пуассона}} = \varepsilon \\
+& \abs*{I_\geq} \leq \frac{1}{2\pi R}\frac{(R - \abs*{x})(R+\abs*{x})}{\min \abs*{\xi - x}^2} \cdot 2M \cdot \int_{(\geq)} dS_\xi \leq 4MR \frac{R - \abs(x) }{\min \abs*{\xi - x}^2}, \text{где}\; R+|x| \leq 2R \text{ и} \int_{(\geq)} dS_\xi \leq 2 \pi R \\
+& \abs*{\xi - x} = \abs*{\xi -x^0 + x^0 -x} \geq \abs*{\xi - x^0} - \abs*{x^0 -x} > \delta_{n_0} - \frac{\delta_{n_0}}{2} = \frac{\delta}{2} \Rightarrow \abs*{I_\geq} \leq 16MR\frac{R - |x|}{\delta^2_{n_0}}\\
+& \text{Возьмем } \delta_n = \min \brk[c]*{\frac{\delta_{n_0}}{2}, \varepsilon \delta^2_{n_0}}. \\  & \text{ Тогда при } \abs*{x-x^0} < \delta_n \text{ будем иметь } R- |x| \leq \abs*{x^0 - x} < \delta_n  \Rightarrow \abs*{I_\geq} \leq 16MR\varepsilon.
+\end{align*}
+Итак, при $\abs*{x^0 - x} < \delta_n: \abs*{u(x) - u(x^0)} \leq \abs*{I_<} + \abs*{I_\geq} \leq \varepsilon + 16MR \varepsilon$. \\
+Непрерывность доказана.
+\item Дифференцируемость:\\ 
+$u = \mathrm{Re}\, w_1 + \mathrm{Im}\, w_2$.\\
+Вспомогательный факт: $\tilde{w}(z) = \tilde{u}(z) + i \tilde{v}(z) \Rightarrow \frac{d \tilde{w}}{d z} = \tilde{u}_{x_1} + i \tilde{v}_{x_1} \Rightarrow  \tilde{u}_{x_1} = (\mathrm{Re}\, \tilde{w})_{x_1} = \mathrm{Re}\, (\tilde{w}_z)$\\
+В нашем случае: 
+\[
+\pd{}{x_1} \mathrm{Re}\, w_1(z) = \mathrm{Re}\, \frac{dw}{dz} = \mathrm{Re}\, \sum_{k=0}^{\infty} \frac{A_k}{R^k}\brk*{z^k}'_z = \sum_{k=0}^{\infty} \frac{A_k}{R^k}\mathrm{Re}\, \frac{dz^k}{dz} = \sum_{k=0}^{\infty} \frac{A_k}{R^k}\pd{}{x_1}\mathrm{Re}\,z^k = \sum_{k=0}^{\infty} \frac{A_k}{R^k}\brk*{p_k}'_{x_1}(x_1,x_2)
+\]
+Аналогично для $B_k$ и для производного любого порядка.
+\end{enumerate}
+\end{proof}

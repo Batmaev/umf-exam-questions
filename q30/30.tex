@@ -1,0 +1,137 @@
+\section{Потенциал простого слоя, его свойства.}
+% Затехал: Цветкова Ольга
+\begin{definition}
+{\bf Область с границей $\Gamma$ класса $C^2$} -- ограниченная область ($\Omega \subset \R^3$), удовлетворяющая условиям :
+\begin{itemize}
+\item $\forall x^0 \in \Gamma \Exists \text{ декартова с.к. } \xi = (\xi_1, \xi_2, \xi_3) \text{ с началом в } x^0 \text{ и функция } F_{x^0}(\xi'), \text{ где } \xi'~=~(\xi_1, \xi_2),\\ |\xi'|~\leqslant~r \ \text{ т.ч. }$
+	\begin{itemize}
+	\item $F_{x^0}(\xi') \in C^2(|\xi'| \leqslant r);\ F_{x^0}(0,0) = 0,\;\frac{\partial F_x}{\partial \xi_i}(0,0)=0,\ i=1,2  $
+	\item Множество $\sum_{x^0} = \{x:\ \xi_3 = F_{x^0}(\xi'), |\xi'|\leqslant r\} \subset \Gamma$
+	\item Множество $\text{U}_{x^0}^{-}= \{x:\ F_{x^0}(\xi') - h < \xi_3 <F_{x^0}(\xi'),\ |\xi'|< r \} \subset \Omega$
+	\item Множество $\text{U}_{x^0}^{+}= \{x:\ F_{x^0}(\xi') < \xi_3 <F_{x^0}(\xi')+h,\ |\xi'|< r \} \text{ не пересекается с } \Omega$
+	\end{itemize}
+	\item $F_{x^0}(\xi') \in C^2(|\xi'| \leqslant r) \Rightarrow \abs*{\pd{F_x}{\xi_i}} \leqslant M_1; \, \abs*{\cfrac{\partial^2F_x}{\partial\xi_i\partial\xi_j}} \leqslant M_2, \, |\xi'|\leqslant r$
+	\item Постоянные $r > 0,\ h>0 \text{ и } M_1, M_2$ можно выбрать не зависящими от $x^0 \in \Gamma$ и от с.к. $\xi$
+\end{itemize}
+\end{definition}
+\begin{definition}
+Указанную с.к. и окрестность $U_{x^0} = \text{U}_{x^0}^{-} \cup \text{U}_{x^0}^{+}$ назовем {\bf подходящим для $x^0$}, а $\xi'$ - {\bf локальными координатами} на куске $\sum_{x^0} \text{ границы } \Gamma.$
+\end{definition}
+
+\begin{definition}
+Неограниченная область называется {\bf внешней областью с границей $\Gamma \in C^2$}, если  $\R^3 \backslash \overline{\Omega}$ есть ограниченная область с границей $\in C^2.$
+\end{definition}
+
+\begin{definition}
+Пусть $\Omega \subset \R^3 $ -- область с границей $\Gamma$ класса $C^2$. Функция  вида $V^{(0)}(x) = \int_{\Gamma} \cfrac{\mu(y)}{|x-y|} dS_y$ называется {\bf потенциалом простого слоя}.
+\end{definition}
+
+\begin{theorem}
+ Пусть $\mu(x) \in C(\Gamma)$. Тогда:
+ 	\begin{enumerate}
+ 	\item $V^{(0)}(x) \in C(\R^3)$;
+ 	\item $V^{(0)}(x) \text{ гармоническая в } \R^3 \backslash \Gamma$;
+ 	\item $V^{(0)}(x) = O\Big( \frac{1}{|x|} \Big)$ при $x \rightarrow \infty$.
+ 	\end{enumerate}
+\end{theorem}
+\begin{proof}
+
+\begin{enumerate}
+\item[2.] Пусть $x^1 \in \R^3 \backslash \Gamma,\ \delta_1 = \dist{\{x^1,\Gamma\}}> 0$
+
+\begin{center}
+\includegraphics[scale = 0.7]{30_1_new}
+\end{center}
+
+Возьмем шар $B\bigg(x^1, \cfrac{\delta_1}{2}\bigg) = \bigg\{ x \in \R^3 : |x - x^1| < \cfrac{\delta_1}{2}\bigg\}$. Тогда расстояние от произвольной точки $x \in \overline{B\bigg(x^1, \cfrac{\delta_1}{2}\bigg)} \text{ до } \forall y \in \Gamma \text{ не меньше } \cfrac{\delta_1}{2} : |x-y| \geqslant |x^1-y|-|x-x^1| \geqslant \delta_1 - \cfrac{\delta_1}{2} = \cfrac{\delta_1}{2} $
+
+Поэтому $\cfrac{1}{|x-y|} \in C^\infty\bigg(\underbrace{\overline{B\bigg(x^1, \cfrac{\delta_1}{2}\bigg)}}_x \times \underbrace{\Gamma}_y\bigg)\Rightarrow D_x^\alpha\cfrac{1}{|x-y|} \in C\bigg(\overline{B\bigg(x^1, \cfrac{\delta_1}{2}\bigg)} \times \Gamma\bigg)$
+
+По теореме о дифференцировании интеграла по параметру (формулировка в билете 5) имеем
+\[
+D_x^\alpha V^{(0)}(x) = \int_{\Gamma} D_x^\alpha\cfrac{\mu(y)}{|x-y|} dS_y \in C\bigg(\overline{B\bigg(x^1, \cfrac{\delta_1}{2}\bigg)} \times \Gamma\bigg) \Forall\alpha\text{-мультииндекса}
+\]
+В частности, $\Delta_x V^{(0)}(x) = \int_{\Gamma} \Delta_x \bigg(\cfrac{1}{|x-y|} \bigg) \mu(y) dS_y = 0$, что и требовалось.
+\item[1.] Если $x \in \Gamma \text{, то } \cfrac{1}{|x-y|}$ -- полярное ядро, следовательно, интегральный оператор с полярным ядром переводит непрерывную функцию $\mu(y)$ в непрерывную $\Rightarrow V^{(0)}(x) \in C(\Gamma)$.
+
+Мы уже доказали, что $V^{(0)}(x) \in C(\R^3 \backslash \Gamma) \Rightarrow$ осталось показать непрерывность в областях $\Omega$ следующего вида:
+
+\begin{center}
+\includegraphics[scale = 0.6]{30_2_new}
+\end{center}
+
+
+
+Построим для этого последовательность функций, равномерно сходящихся к $V^{(0)}(x)$:
+
+Пусть $\biggl(\cfrac{1}{|x-y|}\biggr)_\delta - \delta\text{-срезка функции } \cfrac{1}{|x-y|}: $
+\[
+\biggl(\cfrac{1}{|x-y|}\biggr)_\delta=\begin{cases}
+\cfrac{1}{|x-y|},&\text{если $|x-y|\geqslant \delta$;}\\
+\cfrac{1}{\delta},&\text{если $|x-y|<\delta$.}
+\end{cases}
+\]
+$V^{(0)}_\delta(x) = \int_{\Gamma} \biggl(\cfrac{1}{|x-y|}\biggr)_\delta\mu(y) dS_y \in C(\overline{\Omega})$
+
+Будем выбирать $0 < \delta < \cfrac{d}{2}$ ($d$ -- из свойств области с границей класса $C^2$) -- такое число, что $\forall x^0 \in \Gamma \rightarrow B(x^0, d) \subset U_{x^0}$
+\[
+\biggl| V^{(0)}(x) - V_\delta^{(0)}(x) \biggr| = \biggl| \int_{\Gamma} \Biggl(\cfrac{1}{|x-y|} - \biggl(\cfrac{1}{|x-y|}\biggr)_\delta\Biggr)\mu(y) dS_y \biggr|
+\]
+
+Если $x : |x-y| \geqslant \delta$, то $ \Biggl(\cfrac{1}{|x-y|} - \biggl(\cfrac{1}{|x-y|}\biggr)_\delta\Biggr)= 0 $
+
+В противном случае она равна $\displaystyle \biggl|\int_\Gamma\underbrace{\brk2{\cfrac{1}{|x-y|} - \cfrac{1}{\delta}}}_{>0}\underbrace{\mu(y)}_{|\mu(y)| \leqslant  \|\mu\|_{C(\Gamma)} = C} dS_y \biggr| \leq C\int\limits_{\substack{y \in \Gamma \\ |x-y|<\delta}}\cfrac{dS_y}{|x-y|}$
+
+
+Нам осталось оценить интеграл $\displaystyle \int\limits_{\substack{y \in \Gamma \\ |x-y|<\delta}}\cfrac{dS_y}{|x-y|}$
+
+\begin{center}
+\includegraphics[scale = 0.25]{30_3_new}
+\end{center}
+
+Пусть $x^* = \pi_\Gamma(x)$. Построим $B(x,\delta)$ и $B(x^*, 2\delta)$.
+
+Ясно, что т.к. $|x - x^*| < \delta \Rightarrow B(x, \delta) \subset B(x^*, 2\delta)$.
+
+Увеличивая область интегрирования, запишем:
+
+
+\[
+\int\limits_{\substack{y \in \Gamma \\ |x-y|<\delta}}\cfrac{dS_y}{|x-y|} \leqslant \int\limits_{\substack{y \in \Gamma \\ |x^*-y|<2\delta}}\cfrac{dS_y}{|x^*-y|}
+\]
+По определению числа $d$ имеем $B(x^*, 2\delta) \subset U_{x^*}$. 
+\begin{center}
+\includegraphics[width=0.2\linewidth]{30_4_new} 
+\end{center}
+
+Свяжем с $x^*$ локальную систему координат и функцию $F_{x^*} (\xi_1, \xi_2)$
+
+
+Т.к. $y \in \Gamma, y = (\xi_1, \xi_2, F_{x^*}(\xi_1, \xi_2))$
+
+Т.к. $x^* = \pi_\Gamma(x)$, точка $x$ имеет ненулевую компоненту только по $\xi_3$, то есть $x = (0,0,x_3)$.
+
+
+Оценки: $|x-y|^2 = \xi_1^2 + \xi_2^2 + (x_3 - F_{x^*}(\xi_1, \xi_2))^2 \geq \xi_1^2 + \xi_2^2$ \\ 
+$|x^*-y|^2 = \xi_1^2 + \xi_2^2 + (F_{x^*}(\xi_1, \xi_2))^2 \geq \xi_1^2 + \xi_2^2 \Rightarrow$ расширяем область интегрирования до $\sqrt{\xi_1^2 + \xi_2^2} < 2\delta$
+\[
+\biggl| V^{(0)}(x) - V_\delta^{(0)}(x) \biggr| \leq C \int\limits_{\sqrt{\xi_1^2 + \xi_2^2} < 2\delta} \cfrac{\sqrt{1 + \bigg(\pd{F_{x^*}}{\xi_1}(\xi_1, \xi_2)\bigg)^2 +  \bigg(\pd{F_{x^*}}{\xi_2}(\xi_1, \xi_2)\bigg)^2}}{\sqrt{\xi_1^2 + \xi_2^2}}d\xi_1d\xi_2 \leq
+\] 
+\[C \sqrt{1 + 2M_1^2} \int\limits_{\sqrt{\xi_1^2 + \xi_2^2} < 2\delta} \cfrac{d\xi_1d\xi_2}{\sqrt{\xi_1^2 + \xi_2^2}}
+\]
+
+В полярной системе координат $\bigl(\begin{smallmatrix}
+\xi_1 \\ \xi_2
+\end{smallmatrix}\bigr) = r \bigl(\begin{smallmatrix}
+\cos \varphi \\ \sin \varphi
+\end{smallmatrix}\bigr)$ последний интеграл примет вид $\int\limits_{0}^{2\pi}d\varphi \int\limits_{0}^{2\delta}\cfrac{rdr}{r} = 4\pi\delta \rightarrow 0 \text{ при } \delta \rightarrow 0.$
+
+Итак, $\underbrace{V_\delta^{(0)}(x)}_{\in C(\overline{\Omega})}\rightrightarrows_{\delta \rightarrow 0} V^{(0)}(x) \Rightarrow V^{(0)}(x) \in C(\overline{\Omega})\Rightarrow V^{(0)}(x) \in C(\R^3)$.
+
+\item[3.] $\mu(x) \in \Gamma\Rightarrow |\mu(x)|\leqslant \|\mu\|_{\Gamma} = C \Forall x \in \Gamma$
+
+Возьмем сферу радиуса $R$ такую, что $\Gamma$ лежит внутри этой сферы. Тогда $\forall y \in \Gamma \rightarrow |y| \leqslant R.$
+
+При $x \rightarrow \infty\  \rightarrow |x|\geqslant 2R\ \Rightarrow y \leqslant \cfrac{|x|}{2} \ \Rightarrow |V^{(0)}(x)| \leqslant \int_{\Gamma}\cfrac{|\mu(y)|}{|x-y|}dS_y \leqslant \cfrac{2C}{|x|}\underbrace{\int_\Gamma dS_y}_{\mathbf{\vec C}} \Rightarrow V^{(0)}(x) = O\bigg(\cfrac{1}{|x|}\bigg) \text{ при } x \rightarrow \infty.$
+\end{enumerate}
+\end{proof}

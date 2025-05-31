@@ -1,105 +1,93 @@
-	\section{Интегральное уравнение Фредгольма второго рода с непрерывными и полярными ядрами. Теоремы Фредгольма. Дискретность множества характеристических чисел.}
+\section{Интегральные уравнения Фредгольма второго рода с вырожденными ядрами. Сведение их к системе линейных алгебраических уравнений. Теоремы Фредгольма в этом случае.}
 % Затехал: Багно Богдан
 Рассмотрим уравнение
-$$u(x) = \lambda \int_{G}K(x,y)u(y)dy + f(x), \; x \in \overline{G} \eqno(1)$$
-и ему союзное
-$$v(x) = \lambda \int_{G}K'(x,y)v(y)dy + g(x), \; x \in \overline{G}, K'(x,y) = K(y,x) \eqno(2)$$
+$$u(x) = \lambda \int_{G}\mathcal{K}(x,y)u(y)dy + f(x), \; x \in \overline{G} \eqno(1)$$
+\begin{definition}
+Интегральное уравнение вида
+$$v(x) = \lambda \int_{G}\mathcal{K}'(x,y)v(y)dy + g(x), \; x \in \overline{G}, \; \mathcal{K}'(x,y) = \mathcal{K}(y,x) $$
+называется союзным уравнению (1).
+\end{definition}
+\begin{definition}
+Ядро $\mathcal{K}(x,y) \in C(\overline{G} \times \overline{G})$ называется вырожденным, если оно представимо в виде
+$$\mathcal{K}(x,y) = \sum_{i = i}^{N}a_{i}(x)b_{i}(y), \; a_{i},b_{i} \in C(\overline{G})$$
+\end{definition}
 
-\begin{theorem}[Первая теорема Фредгольма (Теорема Фредгольма об альтернативах)]
-  Либо интегральное уравнение (1) однозначно разрешимо в $C(\overline{G})$ для каждой функции $f(x)$ из $C(\overline{G})$ либо соответствующее однородное уравнение имеет по крайней мере одно нетривиальное решение.
+Будем считать что $\brk[c]*{a_{1},...,a_{n}}$ и $\brk[c]*{b_{1},...,b_{n}}$ -- линейно независимые наборы (если это не так, то уменьшим $N$). Будем теперь рассматривать уравнение
+$$u(x) = \lambda \int_{G}\brk[s]*{\sum_{i = 1}^{N}a_{i}(x)b_{i}(y)}u(y)dy + f(x), \; x \in \overline{G} \eqno(2)$$
+\begin{itemize}
+  \item Введем в $C(\overline{G})$ билинейную форму $\brk[a]*{u;v} = \int_{G}u(x)v(x)dx \Forall u,v \in C(\overline{G})$
+  \item Введем также следующие обозначения:
+  \begin{itemize}
+    \item $\mu_{ij} = \brk[a]*{b_{i}; a_{j}}; \; A = \norm*{\mu_{ij}}_{i,j}^{N}$
+    \item $\varphi_{i} = \brk[a]*{b_{i}; f}; \; \vec{\varphi} = \norm*{\varphi_{1},...,\varphi_{N}}^{T}$
+    \item $c_{i} = \brk[a]*{b_{i}; u}; \; \vec{c} = \norm*{c_{1},...,c_{N}}^{T} \; (3)$
+  \end{itemize}
+  \item
+    \begin{lemma}[об эквивалентности]
+      Пусть $u(x) \in C(\overline{G})$ -- решение уравнения (2). Тогда $u(x) = \lambda \sum_{i=1}^{N}c_{i}a_{i}(x) + f(x), \; x \in \overline{G}$, где $\vec{c}$ определяется (3) и удовлетворяет системе $(E - \lambda A)\vec{c} = \vec{\varphi}$. Обратно, если $\vec{c}$ -- некоторое решение системы $(E - \lambda A)\vec{c} = \vec{\varphi}$ то $u(x) = \lambda \sum_{i=1}^{N}c_{i}a_{i}(x) + f(x), \; x \in \overline{G}$ является решением интегрального уравнения.
+    \end{lemma}
+    \begin{proof}
+      \begin{enumerate}
+        \item Пусть $u(x)$ решение интегрального уравнения. Тогда
+      $$u(x) = \lambda \int_{G}\brk[s]*{\sum_{j = 1}^{N}a_{j}(x)b_{j}(y)}u(y)dy + f(x) = \lambda \sum_{j = 1}^{N}a_{j}(x)c_{j} + f(x)$$
+      Домножим на $b_{i}$ и проинтегрируем по $G$:
+      $$c_{i} = \lambda \sum_{j = 1}^{N} \mu_{ij}c_{j} + \varphi_{i} \Longleftrightarrow \vec{c} = \lambda A \vec{c} + \vec{\varphi}$$
+      \item Обратно, если $c_{i} = \lambda \sum_{j = 1}^{N} \mu_{ij}c_{j} + \varphi_{i}, \; i = \overline{1,N}$ то рассмотрим $u_{*}(x) = \lambda \sum_{j = 1}^{N}a_{j}(x)c_{j} + f(x)$. Подставим в уравнение:
+      $$u_{*}(x) - \lambda \int_{G}\mathcal{K}(x,y)u_{*}(y)dy - f(x) =$$
+      $$= u_{*}(x) - \lambda \int_{G}\brk[s]*{\sum_{j = 1}^{N}a_{j}(x)b_{j}(y)}u_{*}(y)dy - f(x) =$$
+      $$ = \lambda \sum_{j = 1}^{N}a_{j}(x)\brk[s]*{c_{j} - \int_{G}b_{j}(y)u_{*}(y)dy} =$$
+      $$= \lambda \sum_{j = 1}^{N}a_{j}(x)\brk[s]*{c_{j} - \lambda\sum_{i = 1}^{N}c_{i} \underbrace{\int_{G}b_{j}(y)a_{i}(y)dy}_{\mu_{ji}} - \underbrace{\int_{G}b_{j}(y)f(y)dy}_{\varphi_{i}}} =$$
+      $$ = \lambda \sum_{j = 1}^{N}a_{j}(x)\underbrace{\brk[s]*{c_{j} - \lambda\sum_{i=1}^{N}\mu_{ji}c_{i} - \varphi_{j}}}_{0}$$
+      \end{enumerate}
+    \end{proof}
+\end{itemize}
+
+Таким образом, исследование интегральных уравнений с вырожденным ядром эквивалентно иссследованию системы $(E -\lambda A)\vec{c} = \vec{\varphi}$.
+
+\begin{offtop}
+Отметим что для союзного уравнения $v(x) = \lambda \sum_{j = 1}^{N}b_{j}(x)\underbrace{\int_{G}a_{j}(y)v(y)dy}_{d_{j}} + g(y)$ соответствующей системой является $(E - \lambda A^{T})\vec{d}=\vec{\phi}$, где $\vec{\phi}=\int_{G} \vec{a}(y)g(y)dy$.
+\end{offtop}
+
+\Subsection{Разрешимость интегрального уравнения с вырожденным ядром}
+Пусть $D(\lambda) = \mathrm{det}\,(E - \lambda A) = \mathrm{det}\,(E - \lambda A^{T})$. Ясно что $D(\lambda) \not\equiv 0$ т.к. $D(0) = 1$. $D(\lambda)$ есть многочлен $P(\lambda), \; \mathrm{deg}\, P \leq N \longrightarrow$ он имеет $p$ действительных корней $\lambda_{1},...,\lambda_{p},\; 0 \leq p \leq N$.
+\begin{itemize}
+  \item Если $D(\lambda) \neq 0$ то $\forall k: \lambda_{k} \neq \lambda \longrightarrow$ у уравнения $(E - \lambda A)\vec{c} = \vec{\varphi}$ решение существует и оно единственно. Аналогичное утверждение верно и для союзного уравнения.
+  \item Если $\exists k: \lambda_{k} = \lambda \rightarrow \mathrm{rk}\,(E - \lambda A) = \mathrm{rk}\,(E - \lambda A^{T}) = r < N$
+\end{itemize}
+
+Пусть $m = N - r > 0$. Тогда базис в пространстве решений $(E - \lambda A)\vec{c}$ обозначим как $\vec{c}_{1},...,\vec{c}_{N}$ а базис в пространстве решений $(E - \lambda A^{T})\vec{d}=0$ обозначим как $\vec{d}_{1},...,\vec{d}_{N}$. Соответствующие им решения обозначим $u_{1},...,u_{m}$ и $v_{1},...,v_{m}$ соответственно $(u_{k}(x) = \lambda \sum_{j = 1}^{N}a_{j}(x)c_{j,k}, \; v_{k}(x) = \lambda \sum_{j = 1}^{N}b_{j}(x)d_{j,k})$.
+
+Покажем что $u_{1},...,u_{N}$ базис решения однородного уравнения. Пусть
+$$\sum_{i=1}^{m}\alpha_{i}u_{i} = 0 \Longleftrightarrow \sum_{i=1}^{m}\alpha_{i}\brk[s]*{\lambda\sum_{j=1}^{N}a_{j}(x)c_{j,i}} = 0 \Longleftrightarrow \sum_{i=1}^{m}\alpha_{i}c_{i,j} = 0 \Longleftrightarrow \sum_{i=1}^{m}\alpha_{i}\vec{c}_{i} = 0$$
+Значит система $u_{1},...,u_{m}$ -- линейно независима.
+
+\begin{definition}[Собственные функции и собственные числа оператора $K$]
+Функция $u(x) \in C(\overline{G}), \; u \not\equiv 0$ удовлетворяющая уравнению
+$$u(x) = \lambda \int_{G}\mathcal{K}(x,y)u(y)dy, \; x \in C(\overline{G})$$
+называется собственной функцией ядра $\mathcal{K}$ или собственной функцией оператора $K$. Соответствующие собственным функциям $\lambda$ называются характеристическими числами ядра/оператора $K$.
+\end{definition}
+
+Свойства характеристических чисел:
+\begin{itemize}
+  \item $\lambda \neq 0$ (иначе $u \equiv 0$).
+  \item $\lambda$ -- не собственное значение оператора: $u = \lambda K u \Leftrightarrow Ku = \frac{1}{\lambda}u => \Rightarrow \mu = \frac{1}{\lambda}$ -- собственное значение.
+  \item Собственные значения $K$ и $K'$ совпадают.
+\end{itemize}
+
+Рассмотрим систему $(E - \lambda A)\vec{c} = \vec{\varphi}$.
+По теореме Фредгольма из линейной алгебры (2 сем) эта система совместна тогда и только тогда, когда каждое решение сопряженной однородной системы $(E - \lambda A^{T})\vec{d} = \vec{0}$ ортогонально $\vec{\varphi}$:
+$$\brk[a]*{\vec{\varphi}; \vec{d}} = 0 \Longleftrightarrow \sum_{j=1}^{N}\varphi_{j}d_{j} = 0 \Longleftrightarrow \int_{G}f(y)\brk[s]*{\sum_{j = 1}^{N}b_{j}(y)d_{j}}dy = 0 \Longleftrightarrow \int_{G}f(y)v(y)dy = 0$$
+
+Получили что интегральное уравнение с вырожденным ядром совместно тогда и только тогда, когда $f$ ортогонально каждому решению однородного союзного уравнения.
+
+Сформулируем все полученные и доказанные выше результаты в виде теорем Фредгольма:
+
+\begin{theorem}[Первая теорема Фредгольма]
+  Если $D(\lambda) \neq 0$, то интегральное уравнение с вырожденным ядром и союзное к нему однозначно разрешимы при любых правых частях из $C(\overline{G})$.
 \end{theorem}
 \begin{theorem}[Вторая теорема Фредгольма]
-  Если для уравнения (1) имеет место первый случай альтернативы, то он же имеет место и для уравнения (2). Как однородное уравнение соответствующее (1) так и однородное уравнение соответствующее (2) имеют конечные числа линейно независимых собственных функций, причем эти числа совпадают.
+   Если $D(\lambda) = 0$, то интегральное уравнение с вырожденным ядром и союзное к нему имеют одинаковое число линейно независимых решений $m = N - \mathrm{rk}\,(E - \lambda A)$
 \end{theorem}
 \begin{theorem}[Третья теорема Фредгольма]
-  Если для уравнения (1) имеет место второй случай альтернативы, то неоднородное уравнение (1) разрешимо в $C(\overline{G})$ тогда и только тогда, когда выполнено условие "ортогональности":
-   $$\int_{G}f(y)v(y)dy = 0$$
+  Если $D(\lambda) = 0$, то для разрешения интегрального уравнения с вырожденным ядром необходимо и достаточно, чтобы свободный член $f(x) \in C(\overline{G})$ был ортогонален всем решениям союзного уравнения.
 \end{theorem}
-\begin{theorem}
-  В любом круге $\abs*{\lambda} < R$ на $\C$ у ядра уравнения (1) имеется не более чем конечное количество характеристических чисел. Единственная возможная точка накопления характеристических чисел -- бесконечно удаленная точка.
-\end{theorem}
-
-Билет посвящен доказательству этих теорем.
-
-\begin{theorem}[Апроксимационная теорема Вейерштрасса]
-  Пусть $\Omega$ -- ограниченная область в $\R^{n}$, а $W(x) \in C(\overline{G})$. Тогда $\forall \varepsilon > 0 \Exists P_{\varepsilon}(x)$ -- многочлен от $x_{1}..x_{n}$ такой, что $\norm*{h(x) - P_{\varepsilon}(x)}_{C(\overline{G})} < \varepsilon$.
-\end{theorem}
-
-Будем использовать данный факт из анализа.
-
-\begin{lemma}
-  Пусть $K$ -- интегральный оператор с непрерывным ядром $K(x,y)$ $K(x,y) \in \brk[a]*{C(\overline{G});C(\overline{G})}$. Тогда $\forall \varepsilon > 0$ этот оператор можно представить в виде $K = \overset{B}{\Phi_{\varepsilon}} + \overset{H}{K_{\varepsilon}}, \; \norm*{\overset{H}{K_{\varepsilon}}} < \varepsilon, \; \norm*{\overset{H}{K_{\varepsilon}^{'}}} < \varepsilon$
-\end{lemma}
-\begin{proof}
-  По $\varepsilon > 0$ найдем $P_{\varepsilon}(x,y)$ от $x_{1}..x_{n},y_{1}..y_{n} : \norm*{K(x,y) - P_{\varepsilon}(x,y)}_{C(\overline{G})} < \varepsilon$. Тогда $\norm*{\overset{H}{K_{\varepsilon}}} \leq \norm*{K(x,y) - P_{\varepsilon}(x,y)}_{C(\overline{G})}\cdot mes G = \varepsilon\cdot mes G$. При этом оператор $\overset{B}{\Phi_{\varepsilon}}$ имеет вырожденное ядро $P_{\varepsilon}$.
-\end{proof}
-
-\begin{lemma}
-  Пусть $K$ -- интегральный оператор с полярным ядром $K(x,y)$ $K(x,y) \in \brk[a]*{C(\overline{G});C(\overline{G})}$. Тогда $\forall \varepsilon > 0$ этот оператор можно представить в виде $K = \overset{B}{\Phi_{\varepsilon}} + \overset{\Pi}{Q_{\varepsilon}}, \; \norm*{\overset{\Pi}{Q_{\varepsilon}}} < \varepsilon, \; \norm*{\overset{\Pi}{Q_{\varepsilon}^{'}}} < \varepsilon$
-\end{lemma}
-\begin{proof}
-Представим $K$ в виде суммы $\overset{H}{K_{\varepsilon}} + \overset{\Pi}{K_{\frac{\varepsilon}{2}}}$. По предыдущей лемме $\overset{H}{K} = \Phi+ \overset{H}{K_{\frac{\varepsilon}{2}}}$. Значит, $K = \Phi+ \overset{H}{K_{\frac{\varepsilon}{2}}} + \overset{\Pi}{K_{\frac{\varepsilon}{2}}} = \Phi + \overset{\Pi}{Q_{\varepsilon}}, \; \norm*{\overset{\Pi}{Q_{\varepsilon}}} \leq \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$
-\end{proof}
-
-Перейдем к теоремам Фредгольма.
-
-Пусть $R > 0, \overline{D_{R}} = \brk[c]*{\lambda \in \C: \abs*{\lambda} < R}$.
-
-\begin{itemize}
-  \item Возьмем $\varepsilon = \frac{1}{2R}, \; K = \Phi + Q, \; P = P(x,y)=\sum_{j = 1}^{N} a_{j}(x)b_{j}(y), \; \norm*{Q}, \norm*{Q^{'}} < \varepsilon$
-  \item Представим уравнение $u = \lambda Ku +f$ в виде $(I -\lambda Q)u = \lambda \Phi u + f$, аналогично, его союзное уравнение $v = \lambda K^{'}v +g$ представим в виде $(I -\lambda Q^{'})v = \lambda \Phi^{'} v + g$. Далее представим эти уравнения в следующей форме:
-  $$ (I - \lambda Q)u = \lambda \sum_{j = 1}^{N}a_{j}(x)\int_{G}b_{j}(y)u(y)dy + f(x)$$
-  $$ (I - \lambda Q^{'})v = \lambda \sum_{j = 1}^{N}b_{j}(x)\int_{G}a_{j}(y)v(y)dy + g(x)$$
-  \item $Q$ -- оператор с малой нормой: $\abs*{\lambda}\cdot\norm*{Q} \leq \frac{\abs*{\lambda}}{2R} < 1$. Аналогичные рассуждения верны и для оператора $Q^{'}$, а значит операторы $(I - \lambda Q), (I - \lambda Q^{'})$ непрерывно обратимы. Перепишем уравнения:
-  $$u(x) = \lambda \sum_{j = 1}^{N}\underbrace{(I - \lambda Q)^{-1}a(x)}_{\hat{a}_{j}(x,\lambda)}\int_{G}b_{j}(y)u(y)dy + \underbrace{(I - \lambda Q)^{-1}f(x)}_{\hat{f}(x)} = \lambda \sum_{j = 1}^{N}\hat{a}_{j}(x,\lambda)\int_{G}b_{j}(y)u(y)dy + \hat{f}(x,\lambda)$$
-  $$v(x) = ... = \lambda \sum_{j = 1}^{N}\hat{b}_{j}(x,\lambda)\int_{G}a_{j}(y)u(y)dy + \hat{g}(x,\lambda)$$
-  
-  Это уравнения с вырожденными ядрами, их решение эквивалентно решению систем:
-  $$(E - \lambda \hat{A})\vec{c} = \vec{\varphi}; \; \hat{A}(\lambda) = \norm*{\mu_{ij}}_{i,j=1}^{N}; \; \mu_{i,j} = \brk[a]*{b_{i}; \hat{a}_{j}}; \; \varphi_{i} = \brk[a]*{b_{i}; \hat{f}}$$
-  $$(E - \lambda \hat{A^{'}})\vec{d} = \vec{\phi}; \; \hat{A}^{'}(\lambda) = \norm*{\mu^{'}_{ij}}_{i,j=1}^{N}; \; \mu^{'}_{i,j} = \brk[a]*{a_{i}; \hat{b}_{j}}; \; \phi_{i} = \brk[a]*{a_{i}; \hat{g}}$$
-  
-  \begin{lemma}
-    Пусть $K$ -- полярное ядро такое, что $\norm*{\lambda K} < 1$. Тогда $\forall a, b \in C(\overline{G}) \longrightarrow \brk[a]*{(I - \lambda K)^{-1}a; b} = \int_{G}(I - \lambda K)^{-1}a(x)b(x)dx$ -- регулярная функция при $\abs*{\lambda} < \norm*{K}^{-1}$. Если дополнительно выполнено $\abs*{\lambda}\cdot\norm*{K^{'}} < 1$, то $\brk[s]*{(I - \lambda K)^{-1}a; b} = \brk[s]*{a; (I - \lambda K^{'})^{-1}b}$.
-  \end{lemma}
-  \begin{proof}
-    $$ (I - \lambda K)^{-1}a(x) = \sum_{j = 0}^{\infty}\lambda^{j}K^{j}a(x) \Longrightarrow \int_{G}(I - \lambda K)^{-1}a(x)b(x)dx = \int_{G} \underbrace{\sum_{j = 0}^{\infty}\lambda^{j}K^{j}(a(x))b(x)}_{\text{сход. равномерно}}dx = \sum_{j = 0}^{\infty}\lambda^{j}\brk[s]*{\int_{G}K^{j}(a(x))b(x)dx}$$
-    Полученный ряд сходится абсолютно т.к. справедлива оценка
-    $$ \abs*{\lambda^{j}\int_{G}K^{j}(a(x))b(x)dx} \leq \norm*{a}\cdot\norm*{b}\cdot mes G \cdot \underbrace{\abs*{\lambda^{j}\cdot\norm*{K}^{j}}}_{q_{j}; \; q < 1}$$
-    Докажем теперь вторую часть:
-     $$\norm*{\lambda K^{'}} < 1 \Longrightarrow \Exists (I - \lambda K^{'})^{-1} \in \mathcal{L}(C(\overline{G})) \Longrightarrow (I - \lambda K^{'})^{-1}b = \sum_{j = 0}^{inf}\lambda^{j}(K^{'})^{j}b(x)$$
-     Тогда:
-     $$\brk[a]*{(I - \lambda K)^{-1}a; b} \overset{*}{=} \sum_{j=0}^{\infty}\lambda^{j}\brk[a]*{K^{j}a; b} = \sum_{j=0}^{\infty}\lambda^{j}\brk[a]*{a; (K^{'})^{j}b} = \brk[a]*{a; \sum_{j=0}^{\infty}\lambda^{j}(K^{'})^{j}b} = \brk[a]*{a; (I - \lambda K^{'})^{-1}b}$$
-      Докажем (*):
-     $$ \brk[a]*{Ku; v} = \int_{G}\int{G}K(x,y)u(y)dyv(x)dx =$$
-     $$=  \int_{G}u(y)\brk[s]*{\int{G}K(x,y)v(x)d(x)}dy = \brk[s]*{x \rightarrow y; y \rightarrow x; (**)} =$$
-     $$= \int_{G}u(x)\brk[s]*{\int{G}\underbrace{K(y,x)}_{K^{'}(x,y)}v(y)dy}dx = \brk[a]*{u; K^{'}v}$$
-     Где переход (**) верен по т. Фубини-Тонелли.
-  \end{proof}
-  \begin{lemma}
-    Матрица $\hat{A}^{'}(\lambda)$ является транспонированной к матрице $\hat{A}(\lambda)$. Элементы $\hat{mu}_{ij}$ матрицы $\hat{A}$ -- регулярные в круге $\abs*{\lambda} < 2R$ функции $\lambda$.
-  \end{lemma}
-  \begin{proof}
-    $$\abs*{\lambda} < 2R \Longrightarrow \abs*{\lambda}\cdot\norm*{Q} < 1, \; \abs*{\lambda}\cdot\norm*{Q^{'}} < 1$$
-    $$\hat{\mu}^{'}_{ij} = \brk[a]*{a_{i}; (I - \lambda Q^{'})^{-1}b_{j}} = \brk[a]*{(I - \lambda Q)^{-1}a_{i}; b_{j}} = \hat{\mu}_{ji}$$
-    Регулярность следует из предыдущей леммы.
-  \end{proof}
-  \item Рассмотрим $D(\lambda) = det(E - \lambda\hat{A}(\lambda)) = det(E - \lambda\hat{A}^{'}(\lambda))$. Это регулярная в круге $\abs*{\lambda} < 2R$ функция, $D(0) = 1 \Longrightarrow D(\lambda) \not \equiv 0$.
-  
-  В круге $\abs*{\lambda} < R$ может быть только конечное число нулей $\lambda_{k}$ иначе по теореме о единственности имели бы $D(\lambda) \equiv 0$.
-  
-  Если $\lambda$ не корень $D(\lambda) = 0$ то оба уравнения однозначно разрешимы.
-  
-  Если же $\lambda$ -- корень $D(\lambda) = 0$, то оба уравнения имеют конечномерные пространства решений одной размерности.
-  
-  Таким образом, мы доказали следующие эквивалентности:
-  \begin{itemize}
-    \item разрешимость исходного уравнения
-    \item разрешимость системы
-    $$u(x) = \lambda \sum_{j = 1}^{N}\hat{a}_{j}(x,\lambda)\int_{G}b_{j}(y)u(y)dy + \hat{f}(x,\lambda)$$
-    \item разрешимость $(E - \lambda \hat{A^{'}})\vec{d} = \vec{\phi}$
-  \end{itemize}
-\end{itemize}
-  
-  Осталась третья теорема: условие разрешимости: $\vec{\varphi} \perp \vec{d}_{\text{одн}}$ -- любому решению $\brk[s]*{E - \lambda\hat{A}^{'}(\lambda)} = \vec{0}$ т.е.
-  $$ \underbrace{\sum_{j=1}^{N}\hat{\varphi}d_{j}}_{0} = \sum_{j=1}^{N}\brk[a]*{b_{j}; \hat{f}}d_{j} = \sum_{j=1}^{N}\brk[a]*{b_{j}; (I - \lambda Q)^{-1}f}_{j}=$$
-  $$= \sum_{j=1}^{N}\brk[a]*{f; (I - \lambda Q^{'})^{-1}b_{j}}_{j} = \brk[a]*{f, \sum_{j=1}^{N}\underbrace{(I - \lambda Q^{'})^{-1}b_{j}}_{\hat{b_{j}}}d_{j}} = \brk[a]*{f; v} = \int_{G}fvdx = 0$$

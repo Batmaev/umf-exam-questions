@@ -1,142 +1,112 @@
-\section{Функция Грина для задачи Дирихле (случай $\R^3$). Функция Грина для шара. Формула Пуассона решения задачи Дирихле для уравнения Лапласа в шаре}
-% Затехал: Дмитрий Федоряка
+% Затехал Хасянов Расул
+\section{Интегральное представление решений уравнений Лапласа и Пуассона в ограниченной области. Фундаментальное решение уравнения Лапласа (случай $\R^3$).}
 
-\Subsection{Функция Грина}
-Пусть $\Omega \subset \R^3$ - ограниченная область с кусочно-гладкой границей.
+\Subsection{Интегральное представление решений уравнений Лапласа и Пуассона в ограниченной области.}
+Рассматривается уравнение Пуассона в $\R^3$: $\Delta u(x) = \brk*{\pd[2]{}{x_1}+ \pd[2]{}{x_2}+\pd[2]{}{x_3}}u(x) = f(x), \, x \in \Omega \subset \R^3$, где $\Omega$ -- область.
 
-Пусть $u(x) \in C^2(\Omega) \cap C^1(\overline{\Omega})$ --- некоторое классическое решение задачи:
-
-\[\begin{cases}
-   \triangle u = f(x), & x\in \Omega \\
-   \eval{u}_{\partial \Omega} = u_0(x), & x \in \partial \Omega  
-\end{cases}\]  
-
-Запишем интегральное представление:
-
-$$ u = \int_{\Omega}{\brk*{\frac{-1}{4 \pi |x-y|}}  {\triangle u(y)} dy} - \oint_{\partial \Omega}{\brk*{\frac{-1}{4 \pi |x-y|}} \frac{\partial u(y)}{\partial \overrightarrow{n}_y} d S_y} + 
-\oint_{\partial \Omega}{ {u(y)} \frac{\partial}{\partial \overrightarrow{n}_y}\brk*{\frac{-1}{4 \pi |x-y|}}d S_y}
+\begin{definition}[Гармоническая функция]
+Функция $u(x)$ называется гармонической в $\Omega \in R^3$, если $u(x) \in C^2(\Omega)$ и $\Delta u(x) \equiv 0 \text{ на } \Omega.$ 
+\end{definition}
+Удобно перейти в сферическую систему координат: 
+\[
+\begin{cases}
+x_1 = r \sin \theta \cos \varphi\\
+x_2 = r \sin \theta \sin \varphi\\
+x_3 = r \cos \theta.
+\end{cases}
+\]
+Уравнение примет вид:
+$$ 0 = \Delta \hat u (r, \theta, \varphi) = \hat u_{rr} + \frac{2}{r} \hat u_r + \frac{1}{r^2} \brk[s]*{\frac{1}{\sin \theta} \pd{}{\theta}\brk*{\sin \theta \pd{\hat u}{\theta}}+ \frac{1}{\sin^2 \theta} \pd[2]{\hat u}{\varphi}}$$
+В квадратных скобках написан оператор Лапласа-Бельтрани от функции $\hat u$.\\
+Решение зависящее от $r$, удовлетворяет уравнению Эйлера: 
 $$
-
-Рассмотрим задачу при фиксированном $x \in \Omega$:
-
-\[\begin{cases}
-   \triangle_y g(x,y) = 0, & \Forall y \in \Omega \\
-   g(x,y)|_{\partial \Omega} = \frac{1}{4 \pi |x-y|}  
-\end{cases}\] 
-
-Если $\partial \Omega \in C^2$, то решение существует (пока не можем это доказать).
-
-Используем вторую формулу Грина:
-
-$$ \int_{\Omega}{\triangle_y u(y) g(x,y)dy} - 
-{\underset{=0}{\int_{\Omega}{u(y) \triangle_y g(x,y) dy}}}=$$
-
-$$=\oint_{\partial \Omega} {\frac{\partial u(y)}{\partial \overrightarrow{n}_y} g(x,y) dS_y} - \oint_{\partial \Omega} {\frac{\partial g(x,y)}{\partial \overrightarrow{n}_y} u(y) dS_y} $$
-
-Отсюда получаем
-
-$$\int_{\Omega}{g(x,y) f(y) dy} + \underset{wanted~to~find}{\oint_{\partial \Omega}{\brk*{\frac{-1}{4 \pi |x-y|}} \frac{\partial u(y)}{\partial \overrightarrow{n}_y} d S_y}}+ \oint_{\partial \Omega}
-{\frac{\partial g(x,y)}{\partial \overrightarrow{n}_y}u(y) dS_y} = 0
-$$
-
-Тогда
-
-$$u(x) = \int_{\Omega} {\brk*{\frac{-1}{4 \pi |x-y|} +g(x,y)} f(y) dy} + \oint_{\partial \Omega} {u_0(y) \frac{\partial}{\partial \overrightarrow{n}_y} \brk*{\frac{-1}{4 \pi |x-y|}+g(x,y)}dS_y}
-$$
-
-\textbf{Функция Грина}, по определению:
-
-$$G(x,y) \triangleq  \frac{-1}{4 \pi |x-y|} + g(x,y) $$
-
-Она симметрична и имеет ту же особенность, что и $\frac{-1}{4 \pi |x-y|}$
-
-
-
-
-
-\Subsection{Функция Грина для шара}
-
-
-Получим функцию Грина для шара:
-\[\begin{cases}
-   \triangle_y g(x,y) = 0, y \in \Omega \\
-   g(x,y)|_{|y|=R} = \frac{1}{4 \pi |x-y|}& 
-\end{cases}\]  
-
-Будем обозначать $x^*$ точку, инверсную точке $x$ относительно окружности $|y|=R$.
-$$x^* = x \frac{R^2}{|x|^2}$$
+\hat u_{rr}+ \frac{2}{r}\hat u_r = 0 \Rightarrow \hat u(r) = r^\mu \Rightarrow \mu(\mu-1) +2\mu =0 \Rightarrow \hat u(r) = C_1 + \frac{C_2}{r}$$
+Функция $\hat u(r) = \frac{1}{r}$ -- гармоническая всюду кроме 0.
+\begin{lemma}[Интегральное представление решения уравнения Пуассона]
+Пусть $\Omega$ -- область с кусочно-гладкой границей $\Gamma$. Пусть $u(x) \in C^2(\Omega) \cap C^1(\overline{\Omega}), \, \Delta u \in C(\overline{\Omega})$. Тогда для $\forall x \in \Omega\; u(x)$ представима в виде суммы трех потенциалов (объемного Ньютонова, простого слоя, двойного слоя): $$u(x) = \underbrace{\int_\Omega \brk*{-\frac{1}{4\pi\abs*{x-y}}}\Delta u(y) dy}_{\text{объёмный Ньютоновый потенциал}} - \underbrace{\oint_\Gamma \brk*{-\frac{1}{4\pi\abs*{x-y}}} \pd{u(y)}{\vec{n}_y}dS_y}_{\text{потенциал простого слоя}}+\underbrace{\oint_\Gamma \pd{}{\vec{n}_y}\brk*{-\frac{1}{4\pi\abs*{x-y}}}u(y)dS_y}_{\text{потенциал двойного слоя}}$$
+\end{lemma}
+\begin{proof}
+Берем $x \in \Omega, \, \varepsilon >0$ такое, что $\overline{B(x,\varepsilon)} \subset \Omega$ ($B$ -- открытый шар в $\R^3$). Строим область $\Omega_x^\varepsilon = \Omega \backslash \overline{B(x,\varepsilon)}, \, \partial \Omega_x^\varepsilon = \Gamma \cup \gamma$, где $\gamma = \partial B(x,\varepsilon)$.\\
 \begin{center}
-\includegraphics{20_1_new}
+\includegraphics[width=0.2\textwidth]{20_1_new}
 \end{center}
-Покажем, что решением является функция:
-
-\[g(x,y) = \begin{cases}
-   \frac{R}{4 \pi |x| |y-x^*|},   & x \ne 0 \\
-   \frac{1}{4 \pi R},& x=0
-\end{cases}\]
-
-Функция $g(x,y)$ - гармоническая по $y$ в шаре $|y|<R$ (особенность $y=x^*$ лежит вне шара, т.к. $x*$ лежит внутри него).
-
-Посмотрим значение функции $g$ на границе:
-\begin{center}
-\includegraphics{20_2_new}
-\end{center}
-Заметим, что $\triangle OXY \sim \triangle OYX*$, т.к. $\angle XOY$- общий, и $\frac{|x|}{|y|}  =\frac{|y|}{|x^*|}$.
-
-Из подобия $\frac{|y-x|}{|y-x^*} = \frac{|x|}{|y|} = \frac{|x|}{R}$.
-
-Значит, $\left.\frac{R}{4 \pi |x| |y-x^*|} \right|_{|y|=R} = \frac{1}{4 \pi y}$, что и требовалось.
-
-\Subsection{Формула Пуассона в шаре}
-
-Получим формулу Пуассона решения задачи Дирихле в шаре:
-
-$$u(x) = \int_{\Omega}{G(x,y) \underset{=0}{f(y)} dy} +
-\oint_{\partial \Omega}{u_0(y) \frac{\partial G(x,y)}
-{\partial \overrightarrow{n}_y}dS_y}
-$$
-Преобразуем последний интеграл:\\
-
-$
-\frac{\partial G(x,y)}{\partial \overrightarrow{n}_y}=
-\sum_{k=1}^{3}{n_k(y) \left. \frac{\partial G}{\partial y_k} \right|_{|y|=R}}=
-\sum_{k=1}^{3}{n_k(y)\frac{\partial}{\partial y_k}\left[
--\frac{1}{4\pi}\left(\frac{1}{|y-x|}-\frac{R}{|x|}\frac{1}{|y-x^*|}\right)
-\right]} 
-=
-\frac{1}{4 \pi}  \sum_{k=1}^{3}\underset{=n_k(y)}{\frac{y_k}{R}}\left[ \frac{y_k-x_k}{|y-x|^3} - \frac{R}{|x|}  \frac{y_k-x_k^*}{|y-x^*|^3} \right]
-$\\
-
-Вспомним, что $\left.\frac{R}{|x|\cdot|y-x^*|}\right|_{|y|=R} =
-\frac{1}{|x-y|}$:
-
-$$
-\left. \frac{\partial G(x,y)}{\partial \overrightarrow{n}_y} \right|_{|y|=R} 
-=
-\sum_{k=1}^{3}{\frac{1}{4 \pi} \frac{y_k}{R}
-\left[ \frac{y_k-x_k}{|y-x|^3} -\frac{R}{|x|}\brk*{\frac{|x|}{R}}^3
-\frac{y_k - x_k^*}{|y-x|^3} \right] }
-=
-\frac{1}{4 \pi R |y-x|^3} \sum_{k=1}^{3}{y_k \brk[s]*{y_k-x_k-\frac{|x|^2}{R^2}(y_k - x_k^*)}}
-=
-$$
-
-$$
-=
-\frac{1}{4 \pi R |y-x|^3} \brk[s]*{\brk[a]*{y,y-x} - \frac{|x|^2}{R^2}
-\brk[a]*{y,y-x^*}}
-=
-\frac{1}{4 \pi R |y-x|^3} \brk[s]*{\underset{=R^2}{\brk[a]*{y,y}} - \brk[a]*{y,x}
--\frac{|x|^2}{R^2}\underset{=R^2}{\brk[a]*{y,y}}+ \underset{=\brk[a]*{y,x}}{\frac{|x|^2}{R^2} \brk[a]*{y,x^*}}  }
-= $$ 
-$$
-=\frac{R^2 - |x|^2}{4 \pi R |y-x|^3}
-$$
-
-Итак, \textbf{формула Пуассона для решения задачи Дирихле для уравнения Лапласа в шаре}:
-
-$$
-u(x) = \frac{1}{4 \pi R} \oint_{|y|=R}{\frac{R^2-|x|^2}{|y-x|^3}u_0(y) dS_y}
-$$
-
-
+В $\Omega_x^\varepsilon$ ядро $K_3(x,y) = - \frac{1}{4\pi \abs*{x-y}} \in C^\infty$ ($\Delta K_3(x,y) \equiv 0$). Используем 2 формулу Грина:
+\begin{multline*}
+\int_{\Omega_x^\varepsilon} \Delta u(y) K_3(x,y)dy - \int_{\Omega_x^\varepsilon} u(y) \Delta K_3(x,y)dy = {}\\
+{}=\oint_\Gamma \pd{u(y)}{\vec{n}_y} K_3(x,y)dS_y + \oint_\gamma \pd{u(y)}{\vec{n}_y} K_3(x,y)dS_y - \oint_\Gamma u(y)\pd{}{\vec{n}_y} K_3(x,y) dS_y - \oint_\gamma u(y)\pd{}{\vec{n}_y} K_3(x,y) dS_y
+\end{multline*}
+\begin{multline*}
+\Longleftrightarrow \int_{\Omega_x^\varepsilon} \Delta u(y) K_3(x,y)dy + \oint_\Gamma u(y)\pd{}{\vec{n}_y} K_3(x,y) dS_y - \oint_\Gamma \pd{u(y)}{\vec{n}_y} K_3(x,y)dS_y = {}\\
+{} = \oint_\gamma \pd{u(y)}{\vec{n}_y} K_3(x,y)dS_y - \oint_\gamma u(y)\pd{}{\vec{n}_y} K_3(x,y) dS_y
+\end{multline*}
+\begin{offtop}
+Интеграл от $\frac{1}{\abs*{x}^\alpha}$ сходится при $\alpha < n = \mathrm{dim}\, \R^n$. У нас $n=3, \alpha =1$.
+\end{offtop}
+Устремляем $\varepsilon \rightarrow 0$:
+\begin{enumerate}
+\item $\int_{\Omega_x^\varepsilon} \rightarrow \int_\Omega$ в силу последнего замечания.
+\item $\oint_\gamma u(y) \pd{}{\vec{n}_y} \brk*{-\frac{1}{4\pi} \cdot \frac{1}{|x-y|}}dS_y  = \frac{1}{4\pi \varepsilon^2} \oint_\gamma \brk*{u(y) - u(x) + u(x)}dS_y = \\  \frac{1}{4\pi \varepsilon^2} \oint_\gamma \brk*{u(y) - u(x)}dS_y + u(x)$, \text{ где}\\
+$\pd{}{\vec{n}_y} \brk*{-\frac{1}{4\pi} \cdot \frac{1}{|x-y|}} \rightarrow \left.\frac{1}{4\pi}\brk*{-\pd{}{\rho}\frac{1}{\rho}}\right|_{\rho = \varepsilon} = \frac{1}{4\pi \varepsilon^2}$;\\
+$\frac{1}{4\pi \varepsilon^2} \abs*{ \oint_\gamma \brk*{u(y) - u(x)}dS_y} \leq \frac{1}{4\pi \varepsilon^2} \cdot \max\limits_{|y-x| \leq \eps} \abs*{u(y)-u(x)} \cdot \oint_\gamma dS_y \rightarrow 0 $
+\item $\abs*{\oint_\gamma \pd{u(y)}{\vec{n}_y} K_3(x,y)dS_y} \leq \frac{1}{4\pi \varepsilon} M \int_\gamma dS_y = M \varepsilon \rightarrow 0, \text{ где} \\
+\abs*{\pd{u}{\vec{n}_y}} = \abs*{(\nabla u, \vec n)} \leq \abs*{\nabla u} \cdot \abs*{\vec{n}} \leq M, \text{ так как } \nabla u \in C\brk*{\overline{\Omega}}$.
+\end{enumerate}
+Итак, после предельного перехода получим требуемое соотношение
+\end{proof}
+\Subsection{Фундаментальное решение уравнения Лапласа.}
+Экскурс в обобщенные функции
+\begin{definition}
+$\mathcal{D}(\R^n)$ -- пространство пробных (основных) функций:\\ $\varphi(x) \in \mathcal{D}(\R^n) \Longleftrightarrow \varphi(x) \in C^\infty(\R^n),\; \supp{\varphi(x)}$ -- компакт. 
+\end{definition}
+\begin{definition}
+В $\mathcal{D}(\R^n)$ вводится сходимость по следующему правилу: $\brk[c]*{\varphi_k(x)}_{k=1}^{\infty} \rightarrow \varphi(x) \in \mathcal{D}(\R^n) \Longleftrightarrow$
+\begin{itemize}
+\item $\forall \alpha = (\alpha_1, \ldots, \alpha_n)\; D^\alpha \varphi_k \rightrightarrows D^\alpha \varphi$
+\item $\exists A > 0: \varphi_k (x) \equiv 0$ при $|x| > A \Forall k \in \N$ (у всех функций общий носитель)
+\end{itemize}
+\end{definition}
+Пример функции из $\mathcal{D}(\R^n)$: 
+$$\omega_\varepsilon(x) = \begin{cases}\frac{1}{\varepsilon^n}e^{-\frac{1}{1-\brk*{x/\varepsilon}^2}}, |x| \leq \varepsilon \\ 0, |x| > \varepsilon \end{cases} \Rightarrow \mathcal{D}(\R^n) \neq \varnothing$$
+\begin{definition}
+Обобщенная функция $f$ над $\mathcal{D}(\R^n)$ -- всякий линейный непрерывный функционал над $\mathcal{D}(\R^n)$
+\end{definition}
+\begin{definition}
+Линейный функционал: $(f, \alpha \varphi + \mu \psi) = \alpha (f, \varphi) + \mu (f, \psi)$
+\end{definition}
+\begin{definition}
+Непрерывный функционал: $\forall \brk[c]*{\varphi_k} \rightarrow \varphi$ в  $\mathcal{D}(\R^n) \Rightarrow f(\varphi_k)\rightarrow f(\varphi)$
+\end{definition}
+По определению $\forall \lambda, \mu \text{ -чисел}, \Forall f, g \in \mathcal{D}'(\R^n)$ обобщенная функция $F = \lambda f + \mu g \in \mathcal{D}'(\R^n), \;\\(F, \varphi)  \stackrel{\mathrm{def}}{=} \lambda (f, \varphi) + \mu (g, \varphi)$
+\begin{definition}[сходимость в $\mathcal{D}'(\R^n)$]
+$\brk[c]*{f_n}_{n=1}^\infty \rightarrow f \in \mathcal{D}'(\R^n) \stackrel{\mathrm{def}} {\Longleftrightarrow} (f_k, \varphi) \rightarrow (f, \varphi), \Forall \varphi \in \mathcal{D}(\R^n)$ (слабая$^*$ сходимость). 
+\end{definition}
+\begin{definition}
+Функция $f(x)$ называется локально интегрируемой, если 
+$$\forall\: B > 0 \quad \exists \displaystyle\int\limits_{|x| < B} \abs*{f(x)}dx < \infty$$
+\end{definition}
+Каждая такая $f(x)$ порождает обобщенную функцию $(f,\varphi) = \int_{\R^n} f(x) \varphi(x) dx$.\\
+Если существует локально интегрируемая $f(x)$ такая, что обобщенная функция $f$ представляется в виде $(f,\varphi) = \int_{\R^n} f(x) \varphi(x) dx$, то $f \in \mathcal{D}'(\R^n) $ называется регулярной.
+\begin{lemma}[Дюбуа-Реймон]
+Если $f$ и $g$ непрерывны и порождают одну обобщенную функцию, то $f \equiv g$. Если $f$ и $g$ разрывны, то они совпадают почти всюду.
+\end{lemma}
+\begin{definition}[$\delta$-функция]
+$(\delta, \varphi) \stackrel{\mathrm{def}}{=} \varphi(0)$.
+\end{definition}
+$\delta$-функция не является регулярной. \\
+Обобщенные функции бесконечно дифференцируемы.\\
+Правило дифференцирования: $(D^\alpha f, \varphi) = (-1)^{|\alpha|} (f, D^\alpha \varphi)$.\\
+В частном случае $(\Delta f, \varphi) = (f, \Delta \varphi)$
+\begin{theorem}
+Функция $E(x) = -\frac{1}{4\pi |x|}$ является решением в обобщенных функциях уравнения $\Delta E(x) = \delta(x)$.
+\end{theorem}
+\begin{proof}
+Пусть $\varphi \in \mathcal{D}(\R^n), \, \supp{\varphi} \subset B(0, A)$. Возьмем $\Omega = B(0, A +1)$. По теореме об интегральном представлении
+\begin{align*}
+\varphi(0) &= \int_{|y| < A +1} E(y) \Delta_y \varphi(y) dy + \cancel{\oint_{|y| = A+1} \varphi(y)\pd{E(y)}{\vec{n}_y} dS_y} - \cancel{\oint_{|y| = A+1} \pd{\varphi(y)}{\vec{n}_y} E(y)dS_y} = \\
+&= (E, \Delta_x \varphi(x)) = (\Delta E, \varphi(x))
+\end{align*}
+Что и требовалось.
+\end{proof}
+\begin{definition}
+Функция $E(x)$ называется фундаментальным решением оператора Лапласа.
+\end{definition}
